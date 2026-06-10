@@ -1,0 +1,8 @@
+{
+  "nextDay": 1,
+  "cronEnabledFromDay": 2,
+  "timezone": "Europe/Berlin",
+  "schedule": "30 3 * * *",
+  "model": "gpt-5.5",
+  "reasoning": "high"
+}

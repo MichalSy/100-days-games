@@ -1,0 +1,35 @@
+{
+  "name": "100-days-games",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "100 days of autonomous AI-generated browser games: one detailed prompt, one self-contained static game per day.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build && node scripts/ensure-release-structure.mjs",
+    "preview": "vite preview --host 0.0.0.0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:smoke": "playwright test tests/smoke",
+    "release:validate": "node scripts/validate-release.mjs",
+    "test:immutable": "node scripts/immutable-guard.mjs",
+    "daily:dry-run": "node scripts/daily-run.mjs --dry-run",
+    "daily:validate": "npm run typecheck && npm run test && npm run build && npm run release:validate"
+  },
+  "dependencies": {
+    "@dimforge/rapier3d-compat": "^0.17.3",
+    "three": "^0.179.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.0",
+    "@types/node": "^24.0.3",
+    "@types/three": "^0.179.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4"
+  },
+  "packageManager": "pnpm@10.29.3",
+  "engines": {
+    "node": ">=22"
+  }
+}
