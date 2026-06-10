@@ -10,7 +10,9 @@ Every day produces exactly one game from exactly one generated prompt. The promp
 - Day 1 is created manually as the golden template.
 - Day 2+ is created by a Hermes cron job at 03:30 Europe/Berlin.
 - The cron job itself does **not** contain the full generation prompt. It only points Hermes to `ai/cron-system-prompt.md` in this repo.
+- The cron first generates the detailed day prompt, then starts a fresh implementation agent with only that prompt path so the build context is reset.
 - The cron uses GPT-5.5 with high reasoning.
+- The cron itself performs browser/smartphone validation before push; GitHub CI only verifies repository integrity and image build.
 - Each daily game must work on desktop browser and smartphone viewport.
 - Every generated game must have a menu, tutorial, objective, prompt link, screenshot, and generation duration.
 - Published static folders under `release/games/NNN/**` are immutable forever.

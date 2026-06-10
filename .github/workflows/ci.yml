@@ -24,6 +24,4 @@ jobs:
       - run: pnpm test
       - run: pnpm build
       - run: pnpm release:validate
-      - run: pnpm exec playwright install --with-deps chromium
-      - run: pnpm test:smoke
       - run: pnpm test:immutable -- --base origin/main
