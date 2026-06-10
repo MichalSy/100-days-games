@@ -19,7 +19,7 @@ The scheduled Hermes job should run this prompt with GPT-5.5 and high reasoning.
 7. The game must include menu, tutorial, objective, controls, and restart/pause behavior when relevant.
 8. The gallery card must show prompt availability and generation duration.
 9. Public route shape is `https://100-day-games.sytko.de/001` for Day 1, `/002` for Day 2, etc.
-10. Never modify or delete an existing `release/games/NNN/**` folder from `origin/main`.
+10. Never modify or delete an existing `release/games/NNN/**` folder from `origin/main`, unless that exact day is explicitly listed in `release/regeneration-allowlist.json`; if a listed day is successfully regenerated and validated, remove it from the allowlist in the same final commit.
 11. Push only after the cron-run validation passes locally: build, release validation, browser smoke, mobile smoke, screenshot, Docker/static smoke, and immutable guard.
 12. GitHub Actions is a safety net for repository integrity and image build, not the primary game QA runner.
 13. Self-improvement happens only after game generation and testing.
@@ -37,7 +37,7 @@ The scheduled Hermes job should run this prompt with GPT-5.5 and high reasoning.
    - assets/polish
    - QA/test
    - reflection/self-improvement
-8. Use Hermes default image generation for image assets when useful.
+8. Graphics/assets rule: prefer Imagegen2 (`openai/gpt-image-2`) for final visual art instead of drawing final graphics procedurally by script. Procedural CSS/canvas is acceptable for layout, debug overlays, particles, hitboxes, simple UI chrome, and as an emergency fallback only; final character/background/sprite/texture art should come from Imagegen2 when image generation is available. Preserve Imagegen2 source files under `release/games/NNN/assets/source/` or equivalent, and allow scripts only to crop, alpha-clean, atlas-pack, resize, or optimize those generated outputs.
 9. Build the source app under `apps/day-NNN-slug/`.
 10. Build static output under `release/games/NNN/`.
 11. Update `src/data/games.ts` and gallery metadata.

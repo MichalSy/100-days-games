@@ -34,7 +34,7 @@ Define title screen, tutorial text, objective display, pause/restart, and in-gam
 
 ## Assets
 
-List procedural assets and image-generation prompts. Include fallbacks if image generation fails.
+Prefer Imagegen2 (`openai/gpt-image-2`) for final visual art: characters, backgrounds, textures, sprite sheets, icons, and key decorative pieces. Include concrete Imagegen2 prompts, target aspect ratios, and source-file archive paths. Procedural code may crop, resize, alpha-clean, atlas-pack, optimize, animate, or place generated assets; it should not create final art from scratch except for simple UI chrome/particles/debug shapes or an explicitly labeled emergency fallback if Imagegen2 is unavailable.
 
 ## Subagents to dispatch
 

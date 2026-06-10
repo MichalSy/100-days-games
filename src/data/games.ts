@@ -23,21 +23,3 @@ export const games: GameCard[] = Array.from({ length: 100 }, (_, index) => {
     generationDuration: undefined
   };
 });
-
-games[0] = {
-  day: 1,
-  date: START_DATE,
-  status: 'generated',
-  title: 'Lumen Lanes',
-  slug: 'lumen-lanes',
-  genre: ['Arcade puzzle', 'Route planning', 'Reflex strategy'],
-  mode: '2d',
-  description: 'Rotate neon city lane tiles, connect the cyan source to the gold beacon, and launch a courier pulse through five escalating sectors before energy expires.',
-  objective: 'Clear five sectors by building continuous light routes from start node to exit beacon.',
-  playUrl: '/001/',
-  promptUrl: '/games/001/prompt.html',
-  promptExcerpt: 'Guide a courier of light through a shifting city grid by rotating lane tiles before energy runs out.',
-  screenshotUrl: '/games/001/screenshot.png',
-  generationDuration: 'local cron implementation run',
-  generatedAt: '2026-06-11'
-};
