@@ -17,16 +17,16 @@
     "daily:validate": "npm run typecheck && npm run test && npm run build && npm run release:validate"
   },
   "dependencies": {
-    "@dimforge/rapier3d-compat": "^0.17.3",
-    "three": "^0.179.1"
+    "@dimforge/rapier3d-compat": "^0.19.3",
+    "three": "^0.184.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.53.0",
-    "@types/node": "^24.0.3",
-    "@types/three": "^0.179.0",
-    "typescript": "^5.8.3",
-    "vite": "^6.3.5",
-    "vitest": "^3.2.4"
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.2",
+    "@types/three": "^0.184.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16",
+    "vitest": "^4.1.8"
   },
   "packageManager": "pnpm@10.29.3",
   "engines": {
