@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/100-days-games/',
+  base: '/',
   build: {
     outDir: 'release',
     emptyOutDir: false,

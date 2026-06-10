@@ -18,9 +18,10 @@ The scheduled Hermes job should run this prompt with GPT-5.5 and high reasoning.
 6. The game must work on desktop browser and smartphone viewport.
 7. The game must include menu, tutorial, objective, controls, and restart/pause behavior when relevant.
 8. The gallery card must show prompt availability and generation duration.
-9. Never modify or delete an existing `release/games/NNN/**` folder from `origin/main`.
-10. Push only after build, validation, smoke tests, mobile tests, screenshot, and immutable guard pass.
-11. Self-improvement happens only after game generation and testing.
+9. Public route shape is `https://100-day-games.sytko.de/001` for Day 1, `/002` for Day 2, etc.
+10. Never modify or delete an existing `release/games/NNN/**` folder from `origin/main`.
+11. Push only after build, validation, smoke tests, mobile tests, screenshot, and immutable guard pass.
+12. Self-improvement happens only after game generation and testing.
 
 ## Daily sequence
 

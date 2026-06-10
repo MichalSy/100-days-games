@@ -50,7 +50,7 @@ function card(game: GameCard): string {
 
 app.innerHTML = `
   <header class="site-header">
-    <a class="brand" href="/100-days-games/" aria-label="100 Days Games home">
+    <a class="brand" href="/" aria-label="100 Days Games home">
       <span class="brand-mark">100</span>
       <span>Days Games</span>
     </a>
@@ -83,7 +83,7 @@ app.innerHTML = `
       <div>
         <span class="panel-icon">✦</span>
         <h2>The prompt is part of the artifact.</h2>
-        <p>The daily cron does not embed the generation prompt. It reads the current instruction set from git, generates a detailed day prompt, then archives that prompt next to the game.</p>
+        <p>The daily cron does not embed the generation prompt. It only points to the git-tracked source prompt, generates a detailed day prompt, then archives that prompt next to the game.</p>
       </div>
       <div>
         <span class="panel-icon">◈</span>

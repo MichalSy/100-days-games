@@ -6,8 +6,8 @@ for (const file of required) {
 }
 
 const html = await readFile('release/index.html', 'utf8');
-if (!html.includes('/100-days-games/')) {
-  throw new Error('release/index.html missing /100-days-games/ base references');
+if (!html.includes('type="module"')) {
+  throw new Error('release/index.html missing module script');
 }
 
 const assets = await readdir('release/assets');
