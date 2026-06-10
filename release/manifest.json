@@ -1,15 +1,16 @@
 {
-  "generatedAt": "2026-06-11T00:00:00.000Z",
+  "generatedAt": "2026-06-11T00:55:00.000Z",
   "totalDays": 100,
   "completedDays": 1,
   "games": [
     {
       "day": 1,
-      "title": "Lumen Lanes",
-      "slug": "lumen-lanes",
+      "title": "Koi Lantern Drift",
+      "slug": "koi-lantern-drift",
       "playUrl": "/001/",
       "promptUrl": "/games/001/prompt.html",
-      "screenshotUrl": "/games/001/screenshot.png"
+      "screenshotUrl": "/games/001/screenshot.png",
+      "generationDuration": "manual subagent run"
     }
   ]
 }

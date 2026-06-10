@@ -1,0 +1,158 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Prompt — Day 001 Koi Lantern Drift</title><style>body{margin:0;background:#07101d;color:#f8efd4;font-family:system-ui,sans-serif;line-height:1.6}main{max-width:980px;margin:auto;padding:32px 18px}a{color:#ffd36a}pre,code{background:#101d2f;border-radius:8px}pre{padding:14px;overflow:auto}li{margin:.25rem 0}h1,h2,h3{line-height:1.15;color:#ffe29a}</style></head><body><main><p><a href="./">← Play Koi Lantern Drift</a></p><h1>Day 001 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 001</li>
+<li>Title: Koi Lantern Drift</li>
+<li>Slug: koi-lantern-drift</li>
+<li>Mode: 2D</li>
+<li>Genre: calm arcade path-planning / collection game</li>
+<li>Mood/style: moonlit Japanese garden pond, paper lantern glow, elegant koi movement, cozy-but-skillful, high readability on mobile</li>
+</ul>
+<h2>Why this game today</h2>
+<p>Day 001 is being regenerated because the previous Day 001 release was explicitly allowlisted for replacement with Imagegen2-based visual art. This new first game should feel like a polished opener for the 100-days gallery: immediately understandable, attractive in screenshots, and replayable in short sessions.</p>
+<p>The design differs from typical maze/runner games by making the player manage a drifting koi and the lantern current around it rather than only steering directly. It should be quiet and beautiful, but still have clear risk, scoring, and mastery: collect floating lantern sparks, avoid ripples and reeds, chain perfect glides, and survive escalating current shifts.</p>
+<h2>Design</h2>
+<ul>
+<li>Objective: Guide a glowing koi through a night pond, collect lantern sparks, and keep the central festival lantern lit for as long as possible.</li>
+<li>Win condition: There is no hard campaign ending; a successful run reaches at least score 1200 and unlocks the “Festival Bloom” win banner. The game continues in endless score-chase mode afterward.</li>
+<li>Lose condition: The lantern flame meter reaches 0 because the koi hit too many hazards or missed too many spark cycles.</li>
+<li>Core loop:</li>
+<li>Start from the title/menu screen.</li>
+<li>Read a compact tutorial explaining movement, sparks, hazards, combos, pause, and restart.</li>
+<li>Steer the koi around the pond.</li>
+<li>Collect gold sparks to refill the flame meter and score points.</li>
+<li>Avoid dark ripple hazards and reed clusters that drain flame and break combo.</li>
+<li>Chain consecutive spark pickups without collisions for a combo multiplier.</li>
+<li>Survive as currents become stronger and hazards spawn more frequently.</li>
+<li>Restart quickly after game over and chase a higher best score.</li>
+<li>15+ minute play-value strategy:</li>
+<li>Use a best-score saved in localStorage.</li>
+<li>Add combo tiers at 3x, 6x, 10x, and 15x pickups.</li>
+<li>Add changing pond current every 20 seconds so routes feel different.</li>
+<li>Add spark waves with different patterns: ring, diagonal stream, spiral, and scattered bloom.</li>
+<li>Add optional “focus drift” by holding/touching a slow-drift button that improves precision but reduces score gain while active.</li>
+<li>Add a visible mastery objective list: reach 1200, reach 10x combo, survive 90 seconds.</li>
+<li>Difficulty scaling:</li>
+<li>First 20 seconds: slow hazards, generous spark spawn.</li>
+<li>20-60 seconds: hazards drift faster; current visibly pushes the koi.</li>
+<li>60-120 seconds: more reeds and ripple hazards; spark waves expire faster.</li>
+<li>120+ seconds: frequent current shifts and smaller safe gaps.</li>
+<li>Keep difficulty fair on mobile: minimum touch target 44px, hazards visually distinct, no tiny required movements.</li>
+<li>Scoring/rewards:</li>
+<li>Gold spark: 50 points times combo multiplier.</li>
+<li>Perfect wave bonus: +250 for clearing all sparks in a wave.</li>
+<li>Survival bonus: +10 per second.</li>
+<li>Festival Bloom: show celebratory petals when score first reaches 1200.</li>
+<li>Best score: persist locally and show on title/game-over screens.</li>
+</ul>
+<h2>Controls</h2>
+<ul>
+<li>Desktop:</li>
+<li>WASD or arrow keys: steer koi.</li>
+<li>Space: hold focus drift / slow precise movement.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+<li>Enter or click: start from menu.</li>
+<li>Mobile/touch:</li>
+<li>Drag anywhere on the pond to steer toward the finger.</li>
+<li>On-screen Focus button: hold for slow precise movement.</li>
+<li>On-screen Pause button: pause/resume.</li>
+<li>On-screen Restart button on pause/game-over screens.</li>
+<li>UI must fit and remain readable at 390x844 and 360x740 viewports.</li>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Define and implement these states:</p>
+<ul>
+<li>Title screen</li>
+<li>Shows title “Koi Lantern Drift”.</li>
+<li>Shows Day 001 badge and best score.</li>
+<li>Shows primary Start button.</li>
+<li>Shows “How to play” tutorial panel by default.</li>
+<li>Tutorial text</li>
+<li>Objective: “Keep the festival lantern lit by collecting gold sparks.”</li>
+<li>Controls: desktop keys and mobile drag.</li>
+<li>Hazards: “Dark ripples and reeds drain the flame.”</li>
+<li>Combo: “Collect sparks without collisions to grow your multiplier.”</li>
+<li>Pause/restart: P/R on desktop or buttons on mobile.</li>
+<li>In-game HUD</li>
+<li>Score, best score, flame meter, combo, time survived, current difficulty phase.</li>
+<li>Pause and restart controls visible or accessible.</li>
+<li>Pause overlay</li>
+<li>Resume, restart, and tutorial reminder.</li>
+<li>Game-over overlay</li>
+<li>Final score, best score, mastery objectives achieved, restart button.</li>
+<li>Festival Bloom overlay/banner</li>
+<li>Trigger once per run when score reaches 1200.</li>
+<li>Non-blocking celebration with petals/glow, then fades.</li>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (`openai/gpt-image-2`) for final visual art. The final game should archive the source generated art under `release/games/001/assets/source/` and use optimized/cropped/resized copies under `release/games/001/assets/`.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ul>
+<li>Koi sprite/source illustration</li>
+<li>Target: transparent PNG, square or portrait source, final optimized sprite around 256x256.</li>
+<li>Archive path: `release/games/001/assets/source/koi-source.png`</li>
+<li>Optimized path: `release/games/001/assets/koi.png`</li>
+<li>Imagegen2 prompt: “A graceful luminous koi fish seen from above, white and orange scales, subtle golden glow, elegant fins, clean silhouette for a 2D browser game sprite, transparent or plain dark background, high contrast, cozy moonlit Japanese garden aesthetic, no text, no watermark.”</li>
+<li>Aspect ratio: square.</li>
+<li>Pond background</li>
+<li>Target: 16:9 or wide source, final optimized background suitable for cover/crop.</li>
+<li>Archive path: `release/games/001/assets/source/pond-source.png`</li>
+<li>Optimized path: `release/games/001/assets/pond.png`</li>
+<li>Imagegen2 prompt: “Top-down moonlit Japanese garden pond for a cozy arcade game, deep blue water, soft paper lantern reflections, lily pads, subtle stone edge, readable open play area in the center, painterly but crisp, no text, no characters, no watermark.”</li>
+<li>Aspect ratio: landscape.</li>
+<li>Lantern spark / icon sheet</li>
+<li>Target: small glowing decorative elements or sprite sheet.</li>
+<li>Archive path: `release/games/001/assets/source/lantern-sparks-source.png`</li>
+<li>Optimized path: `release/games/001/assets/lantern-sparks.png`</li>
+<li>Imagegen2 prompt: “Small golden paper lantern sparks and petal-like glowing motes for a 2D game collectible icon sheet, multiple variants, transparent or plain dark background, warm amber glow, no text, no watermark.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using CSS/canvas/simple SVG shapes, document the failure in `ai/postmortems/day-001.md`, and still keep source/fallback files under the same asset paths. Procedural code may crop, resize, alpha-clean, atlas-pack, optimize, animate, or place generated assets; it should not create the final koi/background/spark artwork from scratch unless using that emergency fallback.</p>
+<h2>Subagents to dispatch</h2>
+<ul>
+<li>Implementation subagent</li>
+<li>Build the static game under `apps/day-001-koi-lantern-drift/`.</li>
+<li>Integrate it into the release output under `release/games/001/`.</li>
+<li>Ensure all game logic is static HTML/CSS/JS with no backend.</li>
+<li>Asset/polish subagent</li>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, and tune UI/game feel.</li>
+<li>QA/browser/mobile subagent</li>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify tutorial/menu/objective/controls/restart/pause, and verify prompt links.</li>
+<li>Reflection/self-improvement subagent</li>
+<li>Write `ai/postmortems/day-001.md` after validation with what worked, what failed, and whether generator/template improvements are justified.</li>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile smoke passes.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li>`prompts/day-001.md` is copied to `release/games/001/prompt.md`.</li>
+<li>`release/games/001/prompt.html` renders the prompt in browser-readable HTML.</li>
+<li>Gallery card for Day 001 shows prompt availability and generation duration.</li>
+<li>Screenshot exists at `release/games/001/screenshot.png` and is non-empty.</li>
+<li>Image/source assets exist under `release/games/001/assets/source/` and optimized assets exist under `release/games/001/assets/`, or a documented emergency fallback exists.</li>
+<li>No console errors during desktop or mobile smoke.</li>
+<li>Old release folders unchanged except Day 001, which is currently listed in `release/regeneration-allowlist.json`.</li>
+<li>If Day 001 validates successfully, remove `001` from `release/regeneration-allowlist.json` in the same final commit.</li>
+<li>Do not delete `scripts/launch-nightly-hermes.sh`.</li>
+<li>Do not edit or delete files under `/home/aiko/.hermes/profiles/ryu/cron/100-days-games`.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>
+pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main
+</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code>
+# Screenshot/static checks: verify release/games/001/screenshot.png, prompt.md, prompt.html, index.html, and assets exist and are non-empty.
+# Browser smoke: open the local/static Day 001 route and verify menu, tutorial, gameplay, pause, restart, no console errors.
+# Mobile smoke: repeat at a phone viewport such as 390x844.
+# Docker/static smoke: build the Docker image locally, run it, curl /001/ and /games/001/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except allowlisted Day 001.
+</code></pre></main></body></html>
