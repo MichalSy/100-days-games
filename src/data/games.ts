@@ -12,6 +12,10 @@ function isoDate(date: Date): string {
   return date.toISOString().slice(0, 10);
 }
 
+function generatedDate(game: Partial<GameCard> | undefined): string | undefined {
+  return game?.generatedAt ? isoDate(new Date(game.generatedAt)) : undefined;
+}
+
 const generatedGames: Record<number, Partial<GameCard>> = {
   1: {
     status: 'generated',
@@ -45,12 +49,29 @@ const generatedGames: Record<number, Partial<GameCard>> = {
   }
 };
 
+const generatedEntries = Object.entries(generatedGames)
+  .map(([day, game]) => ({ day: Number(day), date: generatedDate(game) }))
+  .filter((entry): entry is { day: number; date: string } => Boolean(entry.date))
+  .sort((a, b) => a.day - b.day);
+
+const latestGeneratedEntry = generatedEntries.at(-1);
+const nextUpcomingBase = latestGeneratedEntry
+  ? new Date(`${latestGeneratedEntry.date}T00:00:00Z`)
+  : new Date(`${START_DATE}T00:00:00Z`);
+const nextUpcomingDay = latestGeneratedEntry ? latestGeneratedEntry.day : 1;
+
+function scheduledDate(day: number, generated: Partial<GameCard> | undefined): string {
+  const actualGeneratedDate = generatedDate(generated);
+  if (actualGeneratedDate) return actualGeneratedDate;
+  return isoDate(addDays(nextUpcomingBase, day - nextUpcomingDay));
+}
+
 export const games: GameCard[] = Array.from({ length: 100 }, (_, index) => {
   const day = index + 1;
   const generated = generatedGames[day];
   return {
     day,
-    date: isoDate(addDays(new Date(`${START_DATE}T00:00:00Z`), index)),
+    date: scheduledDate(day, generated),
     status: generated?.status ?? 'upcoming',
     title: generated?.title ?? `Day ${day.toString().padStart(3, '0')}`,
     description: generated?.description ?? 'Not generated yet. The nightly agent will create exactly one detailed prompt and one self-contained game for this day.',

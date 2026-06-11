@@ -16,13 +16,15 @@ The scheduled Hermes job should run this prompt with GPT-5.5 and high reasoning.
 4. Copy the prompt into `release/games/NNN/prompt.md` and render `release/games/NNN/prompt.html`.
 5. The game must be static HTML/JS/CSS and work without a backend.
 6. The game must work on desktop browser and smartphone viewport.
-7. The game must include menu, tutorial, objective, controls, and restart/pause behavior when relevant.
-8. The gallery card must show prompt availability and generation duration.
-9. Public route shape is `https://100-day-games.sytko.de/001` for Day 1, `/002` for Day 2, etc.
-10. Never modify or delete an existing `release/games/NNN/**` folder from `origin/main`, unless that exact day is explicitly listed in `release/regeneration-allowlist.json`; if a listed day is successfully regenerated and validated, remove it from the allowlist in the same final commit.
-11. Push only after the cron-run validation passes locally: build, release validation, browser smoke, mobile smoke, screenshot, Docker/static smoke, and immutable guard.
-12. GitHub Actions is a safety net for repository integrity and image build, not the primary game QA runner.
-13. Self-improvement happens only after game generation and testing.
+7. Smartphone UX is mobile-first: default to portrait-friendly play at about 390x844. Do not force a tiny landscape canvas on phones. If a mechanic truly requires landscape, implement an explicit orientation gate/rotate-phone message and verify the landscape mobile viewport separately.
+8. Layout must adapt responsively: HUD, tutorial, touch targets, and canvas/game area must remain readable and tappable on portrait phones (44px+ touch targets, no critical text below the fold, no tiny hazards/objectives).
+9. The game must include menu, tutorial, objective, controls, and restart/pause behavior when relevant.
+10. The gallery card must show prompt availability and generation duration.
+11. Public route shape is `https://100-day-games.sytko.de/001` for Day 1, `/002` for Day 2, etc.
+12. Never modify or delete an existing `release/games/NNN/**` folder from `origin/main`, unless that exact day is explicitly listed in `release/regeneration-allowlist.json`; if a listed day is successfully regenerated and validated, remove it from the allowlist in the same final commit.
+13. Push only after the cron-run validation passes locally: build, release validation, browser smoke, mobile smoke, screenshot, Docker/static smoke, and immutable guard.
+14. GitHub Actions is a safety net for repository integrity and image build, not the primary game QA runner.
+15. Self-improvement happens only after game generation and testing.
 
 ## Daily sequence
 

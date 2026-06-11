@@ -14,4 +14,10 @@ describe('100 day gallery data', () => {
   it('keeps future games visible before generation', () => {
     expect(games.every((game) => game.status === 'upcoming' || game.status === 'generated')).toBe(true);
   });
+
+  it('uses the real generation date for generated cards and schedules upcoming days after the latest generated day', () => {
+    expect(games[0].date).toBe('2026-06-11');
+    expect(games[1].date).toBe('2026-06-11');
+    expect(games[2].date).toBe('2026-06-12');
+  });
 });
