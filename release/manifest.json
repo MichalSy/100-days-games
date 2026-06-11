@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-11T00:55:00.000Z",
+  "generatedAt": "2026-06-11T03:52:00.000Z",
   "totalDays": 100,
-  "completedDays": 1,
+  "completedDays": 2,
   "games": [
     {
       "day": 1,
@@ -11,6 +11,15 @@
       "promptUrl": "/games/001/prompt.html",
       "screenshotUrl": "/games/001/screenshot.png",
       "generationDuration": "manual subagent run"
+    },
+    {
+      "day": 2,
+      "title": "Clockwork Cloud Courier",
+      "slug": "clockwork-cloud-courier",
+      "playUrl": "/002/",
+      "promptUrl": "/games/002/prompt.html",
+      "screenshotUrl": "/games/002/screenshot.png",
+      "generationDuration": "manual subagent run ~50 minutes"
     }
   ]
 }

@@ -27,6 +27,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/games/001/screenshot.png',
     generationDuration: 'manual subagent run',
     generatedAt: '2026-06-11T00:55:00Z'
+  },
+  2: {
+    status: 'generated',
+    title: 'Clockwork Cloud Courier',
+    slug: 'clockwork-cloud-courier',
+    genre: ['route-planning arcade', 'timed delivery', '2D'],
+    mode: '2d',
+    description: 'Pilot a brass bird-mail glider between floating post towers, using wind lanes and boost rings while avoiding turbulence and gear-storms.',
+    objective: 'Deliver all glowing letters before time expires, earn 3 stars, and chase the Golden Dispatch score banner.',
+    playUrl: '/002/',
+    promptUrl: '/games/002/prompt.html',
+    promptExcerpt: 'Deliver every glowing letter before the clock runs out by following tower numbers, wind lanes, and shortcut boost rings.',
+    screenshotUrl: '/games/002/screenshot.png',
+    generationDuration: 'manual subagent run ~50 minutes',
+    generatedAt: '2026-06-11T03:52:00Z'
   }
 };
 
