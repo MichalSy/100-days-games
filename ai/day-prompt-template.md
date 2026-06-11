@@ -13,6 +13,15 @@
 
 Explain why this idea was selected and how it differs from recent games.
 
+## Mode variety / 3D cadence
+
+Before locking the concept, inspect the latest generated modes in `src/data/games.ts`:
+
+- Do not let the series become all 2D.
+- After at most three consecutive generated 2D games, this day must be 3D or a clearly meaningful hybrid.
+- If the current streak is already two 2D games, strongly prefer 3D now unless the prompt documents why exactly one more 2D is necessary and how the next day will be forced to 3D.
+- A 3D game should use real spatial gameplay/camera/depth (for example Three.js/WebGL, 3D physics, depth-based navigation, orbit/behind/iso camera), not just 2D art with perspective decoration.
+
 ## Design
 
 - Objective:
@@ -68,6 +77,7 @@ The archived `release/games/NNN/prompt.html` must be a consistent rendered HTML 
 ## Acceptance criteria
 
 - Static build passes.
+- Mode choice follows the 3D cadence rule: no more than three consecutive generated 2D games; 3D/hybrid is real spatial gameplay, not just decorative perspective.
 - Desktop smoke passes.
 - Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial, usable touch controls, and no forced landscape canvas unless explicitly justified.
 - If landscape is required, a rotate-phone gate is present and a landscape mobile smoke pass is documented.
