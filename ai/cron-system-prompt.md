@@ -6,7 +6,9 @@ Your task is to create exactly one new browser/mobile game for the next missing 
 
 ## Model expectation
 
-The scheduled Hermes job should run this prompt with GPT-5.5 and high reasoning.
+The scheduled Hermes job should run this prompt with GPT-5.5 and maximum practical capability. The launcher must preload the relevant Hermes skills instead of relying on ad-hoc rediscovery: `100-days-games-generator`, `subagent-driven-development`, `aiko-argocd-gitops`, `github-pr-workflow`, `p5js`, `pixel-art`, and `popular-web-designs`. It must expose at least these toolsets to the agent: `terminal`, `file`, `web`, `browser`, `vision`, `image_gen`, `delegation`, `skills`, `messaging`, `todo`, and `session_search`.
+
+Do not load every installed skill. Skill context is not free: loading unrelated skills bloats the prompt and makes game quality worse. Use a curated, high-signal skill set and explicit QA/review agents.
 
 ## Non-negotiable rules
 
@@ -37,23 +39,25 @@ The scheduled Hermes job should run this prompt with GPT-5.5 and high reasoning.
 5. Optionally search the web for mechanics/trends/inspiration.
 6. Generate `prompts/day-NNN.md` using `ai/day-prompt-template.md`.
 7. After the prompt is written, start a fresh implementation agent/subagent with reset context. Give it only the repo path, day number, generated prompt path, and validation/publish rules. The fresh agent must read `prompts/day-NNN.md` and implement from that prompt, not from hidden planner context.
-8. The fresh implementation agent may dispatch its own subagents as specified inside the generated day prompt:
+8. The fresh implementation agent must use separate implementation and QA/review passes unless a hard blocker makes that impossible. The implementation pass builds the game from the archived prompt. The QA/review pass must inspect the actual route, mobile layout, generated screenshot, and any generated assets; it should file concrete fixes before publish, not just say tests pass.
+9. The fresh implementation agent may dispatch its own subagents as specified inside the generated day prompt:
    - implementation
    - assets/polish
    - QA/test
    - reflection/self-improvement
-9. Graphics/assets rule: prefer Imagegen2 (`openai/gpt-image-2`) for final visual art instead of drawing final graphics procedurally by script. Procedural CSS/canvas is acceptable for layout, debug overlays, particles, hitboxes, simple UI chrome, and as an emergency fallback only; final character/background/sprite/texture art should come from Imagegen2 when image generation is available. Preserve Imagegen2 source files under `release/games/NNN/assets/source/` or equivalent, and allow scripts only to crop, alpha-clean, atlas-pack, resize, or optimize those generated outputs.
-10. Asset QA rule: after every image generation, inspect the actual generated image before using it. For sprites and animated/moved entities, verify transparency/cutout, facing direction, natural rotation baseline, pivot point, crop margins, visual readability at in-game size, and control-to-motion alignment. If a fish/ship/character points the wrong way, has a background box, or rotates incorrectly during movement, fix the asset pipeline before publish.
-11. Build the source app under `apps/day-NNN-slug/`.
-12. Build static output under `release/games/NNN/`.
-13. Update `src/data/games.ts` and gallery metadata.
-14. Capture screenshot.
-15. Run all validations.
-16. Reflect and write `ai/postmortems/day-NNN.md`.
-17. Improve this prompt/rubric/template only if the testing evidence justifies it.
-18. Re-run validation if generator files changed.
-19. Commit and push.
-20. Report result to Telegram.
+10. Graphics/assets rule: prefer Imagegen2 (`openai/gpt-image-2`) for final visual art instead of drawing final graphics procedurally by script. Procedural CSS/canvas is acceptable for layout, debug overlays, particles, hitboxes, simple UI chrome, and as an emergency fallback only; final character/background/sprite/texture art should come from Imagegen2 when image generation is available. Preserve Imagegen2 source files under `release/games/NNN/assets/source/` or equivalent, and allow scripts only to crop, alpha-clean, atlas-pack, resize, or optimize those generated outputs.
+11. Asset QA rule: after every image generation, inspect the actual generated image before using it. For sprites and animated/moved entities, verify transparency/cutout, facing direction, natural rotation baseline, pivot point, crop margins, visual readability at in-game size, and control-to-motion alignment. If a fish/ship/character points the wrong way, has a background box, or rotates incorrectly during movement, fix the asset pipeline before publish.
+12. Screenshot/gameplay QA rule: use browser screenshots plus the vision tool to judge visual quality, not only DOM/test assertions. Reject outputs that look like placeholder art, tiny unreadable UI, low-effort geometry, or mechanically boring demos even if automated tests pass.
+13. Build the source app under `apps/day-NNN-slug/`.
+14. Build static output under `release/games/NNN/`.
+15. Update `src/data/games.ts` and gallery metadata.
+16. Capture screenshot.
+17. Run all validations.
+18. Reflect and write `ai/postmortems/day-NNN.md`.
+19. Improve this prompt/rubric/template only if the testing evidence justifies it.
+20. Re-run validation if generator files changed.
+21. Commit and push.
+22. Report result to Telegram.
 
 ## Failure policy
 
