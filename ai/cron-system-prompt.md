@@ -22,7 +22,7 @@ The scheduled Hermes job should run this prompt with GPT-5.5 and high reasoning.
 10. Image-generated assets must be inspected after generation and before integration. For sprites or anything animated/moved/rotated, analyze the actual image for: facing direction, transparent/cut-out quality, unwanted background, silhouette readability, pivot/origin, crop margins, and whether movement/rotation in code matches the visual orientation. If the asset is wrong, regenerate or post-process it before shipping; do not hide the issue with code hacks unless explicitly documented.
 11. The game must include menu, tutorial, objective, controls, and restart/pause behavior when relevant.
 12. The gallery card must show prompt availability and generation duration.
-13. Public route shape is `https://100-day-games.sytko.de/001` for Day 1, `/002` for Day 2, etc.
+13. Public route shape is `https://100-days.sytko.de/001` for Day 1, `/002` for Day 2, etc.
 14. Never modify or delete an existing `release/games/NNN/**` folder from `origin/main`, unless that exact day is explicitly listed in `release/regeneration-allowlist.json`; if a listed day is successfully regenerated and validated, remove it from the allowlist in the same final commit.
 15. Push only after the cron-run validation passes locally: build, release validation, browser smoke, mobile smoke, screenshot, Docker/static smoke, and immutable guard.
 16. GitHub Actions is a safety net for repository integrity and image build, not the primary game QA runner.

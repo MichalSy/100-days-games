@@ -11,7 +11,7 @@ It should only say where the current prompt lives in git and which model setting
 - Model: GPT-5.5
 - Reasoning: high
 - Workdir: `/home/aiko/git-projects/100-days-games`
-- Public domain: `https://100-day-games.sytko.de/`
+- Public domain: `https://100-days.sytko.de/`
 - Daily route shape: `/001`, `/002`, …
 - Starts from: Day 2, after Day 1 is manually built and deployed
 
