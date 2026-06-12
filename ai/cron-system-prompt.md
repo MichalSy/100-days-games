@@ -6,9 +6,17 @@ Your task is to create exactly one new browser/mobile game for the next missing 
 
 ## Model expectation
 
-The scheduled Hermes job should run this prompt with GPT-5.5 and maximum practical capability. The launcher must preload the relevant Hermes skills instead of relying on ad-hoc rediscovery: `100-days-games-generator`, `subagent-driven-development`, `aiko-argocd-gitops`, `github-pr-workflow`, `p5js`, `pixel-art`, and `popular-web-designs`. It must expose at least these toolsets to the agent: `terminal`, `file`, `web`, `browser`, `vision`, `image_gen`, `delegation`, `skills`, `messaging`, `todo`, and `session_search`.
+The scheduled Hermes job should run this prompt with GPT-5.5 and maximum practical capability. The launcher must preload the relevant Hermes skills instead of relying on ad-hoc rediscovery.
 
-Do not load every installed skill. Skill context is not free: loading unrelated skills bloats the prompt and makes game quality worse. Use a curated, high-signal skill set and explicit QA/review agents.
+Required curated skills:
+
+- Core factory/deployment: `100-days-games-generator`, `autonomous-static-site-factory`, `aiko-argocd-gitops`, `github-pr-workflow`
+- Implementation workflow: `subagent-driven-development`, `test-driven-development`, `systematic-debugging`, `requesting-code-review`
+- Visual/game/UI quality: `p5js`, `pixel-art`, `claude-design`, `popular-web-designs`, `dogfood`
+
+Required toolsets: `terminal`, `file`, `web`, `browser`, `vision`, `image_gen`, `delegation`, `skills`, `messaging`, `todo`, and `session_search`.
+
+Do not load every installed skill. Skill context is not free: loading unrelated skills bloats the prompt and makes game quality worse. Use this curated, high-signal skill set and explicit QA/review agents.
 
 ## Non-negotiable rules
 
