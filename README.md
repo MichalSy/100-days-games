@@ -44,4 +44,4 @@ scripts/            Daily runner, release validation, guards
 
 ## Deployment
 
-GitHub Actions builds `ghcr.io/michalsy/100-days-games`. The existing `gitops-config` repo deploys that image to k3s/ArgoCD at `https://100-days.sytko.de/`, with daily games at `/001`, `/002`, …. Internally immutable releases remain under `release/games/NNN/**` and Nginx maps `/NNN` to that folder.
+GitHub Actions builds `ghcr.io/michalsy/100-days-games`. The existing `gitops-config` repo deploys that image to k3s/ArgoCD at `https://100-day-games.sytko.de/`, with daily games at random Japanese-word routes such as `/akari/`, `/tsubasa/`, …. Internally immutable releases remain under `release/games/NNN/**`; public playable aliases live under `release/<japanese-word>/`.

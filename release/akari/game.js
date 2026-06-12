@@ -4,7 +4,7 @@
   const W = canvas.width, H = canvas.height;
   const $ = (id) => document.getElementById(id);
   const img = (src) => { const i = new Image(); i.src = src; return i; };
-  const assets = { koi: img('../games/001/assets/koi.png'), pond: img('../games/001/assets/pond.png'), sparks: img('../games/001/assets/lantern-sparks.png') };
+  const assets = { koi: img('./assets/koi.png'), pond: img('./assets/pond.png'), sparks: img('./assets/lantern-sparks.png') };
   const bestKey = 'koi-lantern-drift-best-v1';
   let best = Number(localStorage.getItem(bestKey) || 0);
   let state = 'title', last = 0, waveTimer = 0, currentTimer = 0, bloomTimer = 0;

@@ -7,27 +7,27 @@
       "day": 1,
       "title": "Koi Lantern Drift",
       "slug": "koi-lantern-drift",
-      "playUrl": "/001/",
-      "promptUrl": "/games/001/prompt.html",
-      "screenshotUrl": "/games/001/screenshot.png",
+      "playUrl": "/akari/",
+      "promptUrl": "/akari/prompt.html",
+      "screenshotUrl": "/akari/screenshot.png",
       "generationDuration": "manual subagent run"
     },
     {
       "day": 2,
       "title": "Clockwork Cloud Courier",
       "slug": "clockwork-cloud-courier",
-      "playUrl": "/002/",
-      "promptUrl": "/games/002/prompt.html",
-      "screenshotUrl": "/games/002/screenshot.png",
+      "playUrl": "/tsubasa/",
+      "promptUrl": "/tsubasa/prompt.html",
+      "screenshotUrl": "/tsubasa/screenshot.png",
       "generationDuration": "manual subagent run ~50 minutes"
     },
     {
       "day": 3,
       "title": "Neon Bonsai Skyforge",
       "slug": "neon-bonsai-skyforge",
-      "playUrl": "/003/",
-      "promptUrl": "/games/003/prompt.html",
-      "screenshotUrl": "/games/003/screenshot.png",
+      "playUrl": "/komorebi/",
+      "promptUrl": "/komorebi/prompt.html",
+      "screenshotUrl": "/komorebi/screenshot.png",
       "generationDuration": "manual subagent run ~75 minutes"
     }
   ]

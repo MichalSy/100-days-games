@@ -1,0 +1,260 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Day 003 Game Generation Prompt</title><style>body{margin:0;background:#070719;color:#f6fbff;font:16px/1.55 system-ui,Segoe UI,sans-serif}main{max-width:980px;margin:auto;padding:28px 18px 70px}.back{display:inline-block;margin:0 0 18px;color:#7ff;text-decoration:none;border:1px solid #48d;border-radius:999px;padding:8px 12px}h1,h2,h3{line-height:1.1;color:#fff}h1{font-size:clamp(2rem,6vw,4rem);text-shadow:0 0 24px #f4c}h2{margin-top:2rem;border-top:1px solid #284;padding-top:1rem;color:#9ff}h3{color:#ffd86b}li{margin:.3rem 0}code{background:#151530;padding:.1rem .3rem;border-radius:.3rem}pre{overflow:auto;background:#101028;border:1px solid #334;border-radius:14px;padding:14px}blockquote{border-left:4px solid #5ff;padding-left:14px;color:#cff}.meta{color:#9df}</style></head><body><main><a class="back" href="/003/">← Back to Neon Bonsai Skyforge</a>
+<h1>Day 003 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 003</li>
+<li>Title: Neon Bonsai Skyforge</li>
+<li>Slug: neon-bonsai-skyforge</li>
+<li>Mode: 3D</li>
+<li>Genre: spatial arcade crafting / ring-navigation score chase</li>
+<li>Mood/style: luminous cyber-Japanese bonsai floating above a night city, glassy koi-orb drone, neon sap trails, cozy high-tech shrine, readable mobile-first 3D</li>
+</ul>
+<h2>Why this game today</h2>
+<p>Day 001 and Day 002 were both 2D arcade games: Day 001 used calm top-down collection and hazard avoidance in a pond, while Day 002 used 2D route planning and timed delivery in the sky. The current generated-mode streak is therefore two consecutive 2D games. This day should strongly prefer 3D now, and it deliberately selects real spatial gameplay instead of another flat canvas game.</p>
+<p>Day 003 is a real 3D WebGL game: the player pilots a small luminous forge-drone through depth-separated bonsai branch rings, steers around floating lantern hazards, collects colored sap motes in 3D lanes, and returns energy to a central bonsai core. The camera follows from behind/above with visible parallax, depth, ring alignment, and z-axis movement. The game should still be simple enough for a static browser/mobile release and readable at a portrait phone viewport around 390x844.</p>
+<p>The concept differs from the first two days by emphasizing spatial depth, camera alignment, lane/ring timing, and short crafting choices: collected motes can be banked into root, branch, or blossom upgrades that change scoring and survival for a run.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently has Day 001 mode <code>2d</code> and Day 002 mode <code>2d</code>, so the latest generated streak is two 2D games.</p>
+<p>Mode decision: Day 003 must be <code>3d</code>. Implement real Three.js/WebGL spatial gameplay with:</p>
+<ul>
+<li>A perspective camera following the player through a floating 3D route.</li>
+<li>Player movement on x/y with forward z motion through depth-separated rings and hazards.</li>
+<li>3D objects for rings, motes, lantern hazards, and bonsai core, not just 2D sprites pasted on a flat canvas.</li>
+<li>Clear depth cues: fog, scale, parallax, shadows/glow, ring distance markers, and lane guide lines.</li>
+<li>Mobile-friendly portrait framing so the central route is readable without forcing landscape.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Pilot the neon forge-drone through bonsai branch rings, collect colored sap motes, avoid cracked lantern hazards, and bank energy into the floating bonsai core before the forge meter overheats.</li>
+<li>Win condition: Reach a score of 2400 and complete all three forge upgrades in one run to trigger the “Skyforge Bloom” banner. After that, continue in endless score-chase mode.</li>
+<li>Lose condition: The drone loses all hull petals from hazard collisions or the forge heat meter reaches 100% because the player misses too many cooling rings.</li>
+<li>Core loop:</li>
+</ul>
+<ol>
+<li>Start from the title/menu screen.</li>
+<li>Read a compact tutorial explaining 3D steering, rings, sap motes, hazards, forge heat, banking upgrades, pause, and restart.</li>
+<li>Fly forward automatically through a floating 3D bonsai route.</li>
+<li>Steer left/right/up/down to pass through green cooling rings and gold score rings.</li>
+<li>Collect red/root, blue/branch, and pink/blossom sap motes.</li>
+<li>Avoid cracked lantern hazards, thorn clusters, and unstable gate fragments.</li>
+<li>When near a bonsai core checkpoint, tap/click one of three large upgrade buttons to bank collected sap into Root Shield, Branch Magnet, or Blossom Multiplier.</li>
+<li>Survive escalating ring patterns and chase a better score/bloom time.</li>
+</ol>
+<ul>
+<li>15+ minute play-value strategy:</li>
+</ul>
+<p>  - Save best score, best bloom time, and best upgrade completion in localStorage.</p>
+<p>  - Include three route phases with distinct spatial patterns: Root Spiral, Branch Weave, Blossom Gate.</p>
+<p>  - Rotate ring layouts and sap colors from a deterministic day seed so runs vary but stay fair.</p>
+<p>  - Add upgrade strategy: Root Shield absorbs one crash, Branch Magnet gently attracts nearby sap, Blossom Multiplier boosts points for perfect ring streaks.</p>
+<p>  - Add combo rewards for consecutive clean rings and sap collections without collision.</p>
+<p>  - Add visible mastery checklist: trigger Skyforge Bloom, reach 12x clean-ring streak, complete a no-crash phase, score 3600.</p>
+<p>  - Endless mode after bloom increases forward speed and hazard density every 30 seconds.</p>
+<ul>
+<li>Difficulty scaling:</li>
+</ul>
+<p>  - 0-30 seconds: slow forward speed, large rings, sparse hazards, generous sap placement.</p>
+<p>  - 30-75 seconds: rings shift vertically, hazards appear near off-center routes, heat rises faster when missing cooling rings.</p>
+<p>  - 75-140 seconds: spiral ring paths, moving lantern hazards, fewer safe gaps, faster forward motion.</p>
+<p>  - 140+ seconds: overlapping ring choices, more thorn clusters, stronger heat pressure.</p>
+<p>  - Keep difficulty fair on mobile: rings are large and high-contrast, hazards have warning glow, lane markers show target depth, collisions have forgiving radii.</p>
+<ul>
+<li>Scoring/rewards:</li>
+</ul>
+<p>  - Gold ring: +120 points times clean-ring combo.</p>
+<p>  - Green cooling ring: -12% heat and +80 points.</p>
+<p>  - Sap mote: +35 points and adds one colored sap to the matching upgrade pool.</p>
+<p>  - Perfect ring streak: combo increases every 3 clean rings up to 5x.</p>
+<p>  - Upgrade banked: +250 points and activates the upgrade effect.</p>
+<p>  - No-crash phase bonus: +400 points.</p>
+<p>  - Skyforge Bloom: +800 points, bloom animation, and endless-mode unlock for the current run.</p>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+</ul>
+<p>  - WASD or arrow keys: steer the drone left/right/up/down in the 3D lane.</p>
+<p>  - Space or Shift: brief focus glide that slows steering and reduces heat gain for precision; limited by a recharge meter.</p>
+<p>  - 1 / 2 / 3 or click upgrade buttons at checkpoints: bank sap into Root Shield, Branch Magnet, or Blossom Multiplier.</p>
+<p>  - P: pause/resume.</p>
+<p>  - R: restart current run.</p>
+<p>  - Enter or click: start from menu / confirm restart.</p>
+<ul>
+<li>Mobile/touch:</li>
+</ul>
+<p>  - Drag anywhere on the 3D playfield to steer the drone toward the finger target.</p>
+<p>  - Large on-screen Focus button, minimum 56px target.</p>
+<p>  - Three large checkpoint upgrade buttons when banking is available; stack them vertically or as thumb-friendly cards below the HUD.</p>
+<p>  - On-screen Pause and Restart controls with 44px+ targets.</p>
+<p>  - Avoid tiny virtual joysticks; use forgiving drag-to-target steering.</p>
+<ul>
+<li>Mobile layout/orientation:</li>
+</ul>
+<p>  - Default target is portrait phone play at about 390x844; the game must be readable and playable without requiring landscape.</p>
+<p>  - The 3D canvas should fill the central viewport with a top HUD and bottom touch controls that do not obscure the player or next ring.</p>
+<p>  - Use large high-contrast labels and compact HUD rows: score, best, heat, hull, combo, phase.</p>
+<p>  - Tutorial text must not sit below the fold on 390x844; use concise bullets and scroll only for optional details.</p>
+<p>  - No landscape-only gate; portrait is the supported default.</p>
+<h2>Menu and tutorial</h2>
+<p>Define and implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<p>   - Shows title “Neon Bonsai Skyforge”.</p>
+<p>   - Shows Day 003 badge, best score, best bloom time, and mode badge “3D”.</p>
+<p>   - Shows primary Start button.</p>
+<p>   - Shows “How to play” tutorial panel by default.</p>
+<p>   - Clearly tells the player this is a 3D depth/ring flight game.</p>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<p>   - Objective: “Fly through 3D bonsai rings, collect sap, and forge all three upgrades.”</p>
+<p>   - Movement: desktop keys or mobile drag steer the drone through depth-separated rings.</p>
+<p>   - Rings: green rings cool the forge, gold rings build score and combo.</p>
+<p>   - Sap/upgrades: collect colored sap, then bank it at bonsai checkpoints.</p>
+<p>   - Hazards: cracked lanterns and thorns damage hull and break combo.</p>
+<p>   - Pause/restart: P/R on desktop or buttons on mobile.</p>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<p>   - Score, best score, heat meter, hull petals, combo, current phase, sap counts, upgrade status, focus energy.</p>
+<p>   - Pause and restart controls visible or accessible.</p>
+<ol>
+<li>Checkpoint upgrade overlay</li>
+</ol>
+<p>   - Appears only near a bonsai core checkpoint.</p>
+<p>   - Lets player bank collected sap into Root Shield, Branch Magnet, or Blossom Multiplier.</p>
+<p>   - Each choice has a one-line readable effect description.</p>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<p>   - Resume, restart, tutorial reminder, and control summary.</p>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<p>   - Final score, best score, bloom status, upgrades completed, mastery objectives achieved, restart button.</p>
+<ol>
+<li>Skyforge Bloom overlay/banner</li>
+</ol>
+<p>   - Trigger once per run when score reaches 2400 and all three upgrades are completed.</p>
+<p>   - Non-blocking 3D blossom burst/glow animation, then fades while endless play continues.</p>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: characters, backgrounds, textures, sprite sheets, icons, and key decorative pieces. The 3D game may use Three.js primitives for geometry, particles, collision markers, ring meshes, and generated glow materials, but final decorative texture/artwork should come from generated images when available. Archive the source generated art under <code>release/games/003/assets/source/</code> and use optimized/cropped/resized copies under <code>release/games/003/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid tiny details that disappear at final in-game size, and use high-contrast silhouettes.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Forge-drone sprite/texture source</li>
+</ol>
+<p>   - Target: transparent PNG, square source, final optimized texture around 512x512 or 256x256.</p>
+<p>   - Archive path: <code>release/games/003/assets/source/forge-drone-source.png</code></p>
+<p>   - Optimized path: <code>release/games/003/assets/forge-drone.png</code></p>
+<p>   - Imagegen2 prompt: “A small luminous koi-orb forge drone for a 3D browser arcade game, cyber Japanese design, glass orb body, tiny brass fins, neon pink and cyan glow, clean centered silhouette, transparent or plain dark background, no text, no watermark, readable at small size.”</p>
+<p>   - Aspect ratio: square.</p>
+<ol>
+<li>Floating neon bonsai / sky city background source</li>
+</ol>
+<p>   - Target: portrait-friendly or crop-safe wide background texture suitable for a 3D skybox/backdrop.</p>
+<p>   - Archive path: <code>release/games/003/assets/source/neon-bonsai-sky-source.png</code></p>
+<p>   - Optimized path: <code>release/games/003/assets/neon-bonsai-sky.png</code></p>
+<p>   - Imagegen2 prompt: “A luminous cyber Japanese bonsai tree floating above a soft night city skyline, neon sap trails, shrine lanterns, deep blue violet sky, cozy futuristic atmosphere, open readable center area, crop-safe for portrait mobile game background, no text, no characters, no watermark.”</p>
+<p>   - Aspect ratio: portrait or landscape only if center-crop safe for phone portrait.</p>
+<ol>
+<li>Sap/ring/icon sheet source</li>
+</ol>
+<p>   - Target: square icon sheet for UI and texture decals.</p>
+<p>   - Archive path: <code>release/games/003/assets/source/skyforge-icons-source.png</code></p>
+<p>   - Optimized path: <code>release/games/003/assets/skyforge-icons.png</code></p>
+<p>   - Imagegen2 prompt: “Small readable icon sheet for a neon bonsai 3D arcade game: gold rings, green cooling rings, red root sap, blue branch sap, pink blossom sap, cracked lantern hazard, thorn cluster, blossom burst, transparent or plain dark background, high contrast, no text, no watermark.”</p>
+<p>   - Aspect ratio: square.</p>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas/CSS/Three.js materials, document the failure in <code>ai/postmortems/day-003.md</code>, and still keep source/fallback files under the same asset paths. Procedural code may crop, resize, alpha-clean, atlas-pack, optimize, animate, or place generated assets; it should not create the final drone/background/icon artwork from scratch unless using that emergency fallback.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, and especially sprites/textures that move, rotate, or animate, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the forge-drone, verify transparent/cutout quality or clean background removal, readable silhouette, centered pivot, crop margins, no unwanted text/watermarks, and a clear forward/up visual axis.</li>
+<li>Verify control-to-motion alignment in-game: when steering left/right/up/down, the drone tilt and visual heading should match movement rather than appearing sideways or upside-down.</li>
+<li>For the background, verify important bonsai/city shapes remain visible after portrait mobile crop and do not hide rings or hazards.</li>
+<li>For icon sheets, verify icons are distinct at final HUD size and hazards cannot be confused with collectibles.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship a broken sprite/texture just because tests pass.</li>
+</ul>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/003/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 003 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<p>   - Build the static 3D game under <code>apps/day-003-neon-bonsai-skyforge/</code>.</p>
+<p>   - Integrate it into the release output under <code>release/games/003/</code>.</p>
+<p>   - Also create the public playable route under <code>release/003/</code>.</p>
+<p>   - Use static HTML/CSS/JS with Three.js/WebGL and no backend.</p>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<p>   - Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, and tune mobile readability/game feel.</p>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<p>   - Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, 3D depth gameplay, and 390x844 portrait layout.</p>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<p>   - Write <code>ai/postmortems/day-003.md</code> after validation with what worked, what failed, generated-image inspection notes, and whether generator/template improvements are justified.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Mode choice follows the 3D cadence rule: Day 003 is real 3D spatial gameplay, not decorative perspective on a flat 2D canvas.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial, usable touch controls, no forced landscape canvas, and visible 3D ring depth.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-003.md</code> is copied to <code>release/games/003/prompt.md</code>.</li>
+<li><code>release/games/003/prompt.html</code> renders the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Gallery card for Day 003 shows prompt availability and generation duration.</li>
+<li>Screenshot exists at <code>release/games/003/screenshot.png</code> and is non-empty.</li>
+<li>Image/source assets exist under <code>release/games/003/assets/source/</code> and optimized assets exist under <code>release/games/003/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; moving/animated drone texture has verified cutout/background removal, forward axis, pivot/crop, readability, and control-to-motion alignment.</li>
+<li>No console errors during desktop or mobile smoke.</li>
+<li>Existing <code>release/games/001/<strong></code> and <code>release/games/002/</strong></code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>
+pnpm typecheck
+
+pnpm test
+
+pnpm build
+
+pnpm release:validate
+
+pnpm test:smoke
+
+pnpm test:immutable -- --base origin/main
+
+</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code>
+# Screenshot/static checks: verify release/games/003/screenshot.png, prompt.md, prompt.html, index.html, /003/index.html, optimized assets, and source assets exist and are non-empty.
+
+# Prompt copy check: cmp prompts/day-003.md release/games/003/prompt.md
+
+# Prompt HTML check: verify release/games/003/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;.
+
+# Browser smoke: open the local/static Day 003 route and verify menu, tutorial, 3D gameplay, upgrade checkpoint or gameplay progression, pause, restart, no console errors.
+
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable touch steering and readable HUD.
+
+# Static screenshot check: inspect release/games/003/screenshot.png for non-empty readable game content.
+
+# Docker/static smoke: build the Docker image locally, run it, curl /003/ and /games/003/prompt.html, then stop the container.
+
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 003.
+
+</code></pre>
+</main></body></html>

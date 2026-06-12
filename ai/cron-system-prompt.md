@@ -32,7 +32,7 @@ Do not load every installed skill. Skill context is not free: loading unrelated 
 10. Image-generated assets must be inspected after generation and before integration. For sprites or anything animated/moved/rotated, analyze the actual image for: facing direction, transparent/cut-out quality, unwanted background, silhouette readability, pivot/origin, crop margins, and whether movement/rotation in code matches the visual orientation. If the asset is wrong, regenerate or post-process it before shipping; do not hide the issue with code hacks unless explicitly documented.
 11. The game must include menu, tutorial, objective, controls, and restart/pause behavior when relevant.
 12. The gallery card must show prompt availability and generation duration.
-13. Public route shape is `https://100-days.sytko.de/001` for Day 1, `/002` for Day 2, etc.
+13. Public route shape uses unique random romanized Japanese words, not numeric paths, e.g. `https://100-day-games.sytko.de/akari/`. For each new day, choose one short lowercase ASCII romaji word from Japanese (for example: akari, tsubasa, komorebi, hikari, yume, sora, kaze, nami, hotaru, midori, tsuki, ame, mori, hana, ryu, kumo, yuki, asa, haru, natsu, aki, fuyu), avoid words already used in `src/data/games.ts`, create the public playable alias under `release/<word>/`, and set `playUrl`, `promptUrl`, and `screenshotUrl` to that public alias. Keep immutable archive files under `release/games/NNN/`.
 14. Never modify or delete an existing `release/games/NNN/**` folder from `origin/main`, unless that exact day is explicitly listed in `release/regeneration-allowlist.json`; if a listed day is successfully regenerated and validated, remove it from the allowlist in the same final commit.
 15. Push only after the cron-run validation passes locally: build, release validation, browser smoke, mobile smoke, screenshot, Docker/static smoke, and immutable guard.
 16. GitHub Actions is a safety net for repository integrity and image build, not the primary game QA runner.
@@ -57,7 +57,7 @@ Do not load every installed skill. Skill context is not free: loading unrelated 
 11. Asset QA rule: after every image generation, inspect the actual generated image before using it. For sprites and animated/moved entities, verify transparency/cutout, facing direction, natural rotation baseline, pivot point, crop margins, visual readability at in-game size, and control-to-motion alignment. If a fish/ship/character points the wrong way, has a background box, or rotates incorrectly during movement, fix the asset pipeline before publish.
 12. Screenshot/gameplay QA rule: use browser screenshots plus the vision tool to judge visual quality, not only DOM/test assertions. Reject outputs that look like placeholder art, tiny unreadable UI, low-effort geometry, or mechanically boring demos even if automated tests pass.
 13. Build the source app under `apps/day-NNN-slug/`.
-14. Build static output under `release/games/NNN/`.
+14. Build immutable static archive output under `release/games/NNN/`, then create the public playable Japanese-word alias under `release/<word>/`.
 15. Update `src/data/games.ts` and gallery metadata.
 16. Capture screenshot.
 17. Run all validations.
