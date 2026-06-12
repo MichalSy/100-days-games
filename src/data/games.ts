@@ -46,6 +46,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/games/002/screenshot.png',
     generationDuration: 'manual subagent run ~50 minutes',
     generatedAt: '2026-06-11T03:52:00Z'
+  },
+  3: {
+    status: 'generated',
+    title: 'Neon Bonsai Skyforge',
+    slug: 'neon-bonsai-skyforge',
+    genre: ['spatial arcade crafting', 'ring-navigation', '3D'],
+    mode: '3d',
+    description: 'Pilot a luminous forge-drone through depth-separated bonsai rings, collect colored sap motes, avoid cracked lanterns, and bank upgrades at floating bonsai cores.',
+    objective: 'Reach 2400 points and complete Root, Branch, and Blossom upgrades to trigger Skyforge Bloom, then continue the endless score chase.',
+    playUrl: '/003/',
+    promptUrl: '/games/003/prompt.html',
+    promptExcerpt: 'Fly through 3D bonsai rings, collect sap, and forge all three upgrades before heat or hazards end the run.',
+    screenshotUrl: '/games/003/screenshot.png',
+    generationDuration: 'manual subagent run ~75 minutes',
+    generatedAt: '2026-06-12T04:10:00Z'
   }
 };
 

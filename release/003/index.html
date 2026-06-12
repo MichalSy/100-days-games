@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Day 003 - Neon Bonsai Skyforge</title>
+  <meta name="description" content="A 3D neon bonsai ring-flight arcade crafting game for Day 003 of 100 Days Games." />
+  <link rel="stylesheet" href="/games/003/styles.css" />
+</head>
+<body>
+  <main id="gameShell" aria-label="Neon Bonsai Skyforge game">
+    <canvas id="gameCanvas" aria-label="3D flight route"></canvas>
+    <section id="hud" aria-live="polite">
+      <div><b>Score</b><span id="score">0</span></div>
+      <div><b>Best</b><span id="best">0</span></div>
+      <div><b>Heat</b><meter id="heat" min="0" max="100" value="0"></meter></div>
+      <div><b>Hull</b><span id="hull">✿✿✿</span></div>
+      <div><b>Combo</b><span id="combo">1x</span></div>
+      <div><b>Phase</b><span id="phase">Root Spiral</span></div>
+      <div><b>Sap</b><span id="sap">R0 B0 P0</span></div>
+      <div><b>Focus</b><meter id="focus" min="0" max="100" value="100"></meter></div>
+    </section>
+    <nav id="topButtons" aria-label="Game controls">
+      <button id="pauseBtn" type="button">Pause</button>
+      <button id="restartBtn" type="button">Restart</button>
+      <a href="/games/003/prompt.html">Prompt</a>
+    </nav>
+    <button id="focusBtn" type="button">Focus glide</button>
+    <section id="upgrades" class="hidden" aria-label="Checkpoint upgrades">
+      <h2>Bonsai core checkpoint</h2>
+      <p>Bank collected sap into one forge upgrade.</p>
+      <button data-upgrade="root">1 Root Shield <small>absorbs one crash</small></button>
+      <button data-upgrade="branch">2 Branch Magnet <small>pulls nearby sap</small></button>
+      <button data-upgrade="blossom">3 Blossom Multiplier <small>boosts perfect streaks</small></button>
+    </section>
+    <section id="overlay" class="panel" aria-live="assertive">
+      <div class="badge">Day 003 · 3D</div>
+      <h1>Neon Bonsai Skyforge</h1>
+      <p class="lede">A real 3D depth/ring flight game above a luminous cyber-Japanese bonsai city.</p>
+      <p id="recordLine">Best score 0 · best bloom —</p>
+      <div class="tutorial">
+        <h2>How to play</h2>
+        <ul>
+          <li><b>Objective:</b> Fly through 3D bonsai rings, collect sap, and forge all three upgrades.</li>
+          <li><b>Movement:</b> WASD/arrows or mobile drag steer through depth-separated rings.</li>
+          <li><b>Rings:</b> green cools heat, gold builds score and combo.</li>
+          <li><b>Sap:</b> collect red, blue, pink motes, then bank at bonsai checkpoints.</li>
+          <li><b>Hazards:</b> cracked lanterns and thorns damage hull and break combo.</li>
+          <li><b>Keys:</b> Space/Shift focus glide, P pause, R restart, 1/2/3 upgrades.</li>
+        </ul>
+      </div>
+      <div class="actions"><button id="startBtn" type="button">Start run</button><a href="/games/003/prompt.html">View prompt</a></div>
+    </section>
+    <div id="bloom" class="hidden">Skyforge Bloom!</div>
+  </main>
+  <script type="module" src="/games/003/game.js"></script>
+</body>
+</html>
