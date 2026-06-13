@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 004 Game Generation Prompt</title>
+  <style>
+    :root{color-scheme:dark;--bg:#071022;--panel:#101d34;--text:#fff4d0;--muted:#bad9ff;--gold:#ffd66b}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0,rgba(117,181,255,.22),transparent 24rem),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.62}
+    main{max-width:980px;margin:0 auto;padding:28px 18px 64px}a{color:var(--gold)}.back{display:inline-flex;min-height:44px;align-items:center;padding:0 16px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.07);text-decoration:none;font-weight:800}article{margin-top:20px;padding:clamp(18px,3vw,34px);border:1px solid rgba(255,255,255,.14);border-radius:24px;background:rgba(16,29,52,.78);box-shadow:0 20px 70px rgba(0,0,0,.28)}h1{font-size:clamp(2.1rem,7vw,4rem);line-height:1;margin:.55rem 0 1rem}h2{margin-top:2rem;color:#bfe6ff}h3{color:#ffe5a1}code{background:rgba(0,0,0,.28);padding:.12rem .3rem;border-radius:.35rem}pre{overflow:auto;padding:1rem;border-radius:14px;background:#050914;border:1px solid rgba(255,255,255,.12)}li{margin:.25rem 0}p,li{max-width:78ch}
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="./index.html">← Back to game</a>
+    <article>
+<h1>Day 004 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 004</li>
+<li>Title: Hikari Firefly Cartographer</li>
+<li>Slug: hikari-firefly-cartographer</li>
+<li>Public route word: hikari</li>
+<li>Mode: 2D</li>
+<li>Genre: mobile-first path-drawing arcade puzzle / light-routing score chase</li>
+<li>Mood/style: quiet summer shrine garden at blue hour, glowing fireflies, ink-map overlays, warm paper lanterns, soft magical realism, readable portrait-phone game UI</li>
+</ul>
+<h2>Why this game today</h2>
+<p>Day 001 and Day 002 were both 2D arcade games, while Day 003 deliberately broke that streak with a real 3D Three.js spatial ring-flight game. The latest generated-mode streak in <code>src/data/games.ts</code> is therefore one <code>3d</code> game, so Day 004 may return to 2D without violating the 3D cadence rule.</p>
+<p>Day 004 should still avoid feeling like another simple top-down collection game. It uses a different interaction vocabulary: the player draws short glowing route strokes on a moonlit map to guide wandering fireflies into lantern constellations. The core challenge is spatial planning and timing: route strokes fade, shadows erase light, and lanterns ask for fireflies in color/order patterns. This makes the game mobile-native and tactile rather than keyboard-first.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 001 mode <code>2d</code>, Day 002 mode <code>2d</code>, and Day 003 mode <code>3d</code>.</p>
+<p>Mode decision: Day 004 is allowed to be <code>2d</code> because the current 2D streak is zero after Day 003. To preserve variety, it must differ strongly from Days 001-003 by focusing on drawn light paths, pattern routing, and portrait touch control rather than vehicle steering, delivery, or 3D ring flight.</p>
+<p>Day 005 should consider 3D or hybrid again if Day 004 causes a new 2D streak, but Day 004 itself is valid as a mobile-first 2D entry.</p>
+<h2>Design</h2>
+<ul>
+<li>Objective: Draw temporary glowing trails that guide colored fireflies from drifting groves into matching shrine lanterns before the garden clock reaches dawn.</li>
+<li>Win condition: Complete three lantern constellations and reach 1800 points to trigger “Hikari Dawn Map”. After winning, continue into endless score chase with faster shadows and rarer rainbow fireflies.</li>
+<li>Lose condition: The dawn timer expires before the current constellation is completed, or the garden shadow meter fills because too many fireflies are lost to shadows.</li>
+<li>Core loop:</li>
+<ol>
+<li>Start on a title/menu screen with the Day 004 badge, objective, best score, and concise tutorial.</li>
+<li>Fireflies of different colors drift from groves around the garden.</li>
+<li>The player draws short luminous route strokes with mouse/touch; nearby fireflies follow the stroke direction like a flowing path.</li>
+<li>Lanterns around the map request specific colors or simple sequences, shown as large readable icons.</li>
+<li>Shadow cats, wind swirls, and dark puddles move through the garden and erase route strokes or scare fireflies unless avoided.</li>
+<li>Complete lantern requests to unlock the next constellation pattern and earn route ink refills.</li>
+<li>Use a limited “Moon Pulse” button to briefly freeze shadows and attract fireflies toward active strokes.</li>
+<li>Pause/restart are always available.</li>
+</ol>
+<li>15+ minute play-value strategy:</li>
+<ul>
+<li>Save best score, fastest Dawn Map time, highest constellation streak, and best endless wave in localStorage.</li>
+<li>Include three handmade constellation phases: Lantern Triangle, River Bridge, and Dawn Spiral.</li>
+<li>Randomize firefly spawn timing, shadow-cat patrols, and bonus rainbow firefly appearances from a deterministic Day 004 seed.</li>
+<li>Add mastery badges: complete a constellation without losing fireflies, maintain a 10-delivery streak, finish Dawn Map under 150 seconds, score 3000 in endless.</li>
+<li>Add combo scoring for consecutive correct deliveries without drawing wasteful extra strokes.</li>
+<li>Add strategic tension: route ink is limited but refills on clean lantern deliveries; drawing sloppy paths reduces end-of-phase bonus.</li>
+</ul>
+<li>Difficulty scaling:</li>
+<ul>
+<li>0-45 seconds: two firefly colors, one slow shadow, generous lantern requests.</li>
+<li>45-110 seconds: three colors, moving wind swirls, lanterns ask for two-step sequences.</li>
+<li>110-180 seconds: four colors, faster shadows, puddles erase route segments, tighter timer pressure.</li>
+<li>Endless mode: shadow speed and lantern pattern length increase every wave; rainbow fireflies can satisfy any color but are rare.</li>
+<li>Keep mobile fair: large collision/attraction radii, clear paths, strong color+shape labeling for colorblind readability, no tiny text.</li>
+</ul>
+<li>Scoring/rewards:</li>
+<ul>
+<li>Correct firefly delivered: +80 points.</li>
+<li>Correct sequence completion: +220 points plus ink refill.</li>
+<li>Wrong lantern bounce: -35 points and brief firefly confusion, not instant failure.</li>
+<li>Firefly lost to shadow: shadow meter +12% and combo reset.</li>
+<li>Efficient route bonus: +150 if a constellation is completed under the ink budget.</li>
+<li>Hikari Dawn Map: +700 points and endless mode unlock.</li>
+</ul>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<ul>
+<li>Mouse drag: draw a glowing route stroke. Strokes are short-lived and consume ink.</li>
+<li>Space: Moon Pulse if charged.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+<li>Enter/click: start from menu or confirm restart.</li>
+</ul>
+<li>Mobile/touch:</li>
+<ul>
+<li>Drag on the garden to draw paths directly under the thumb/finger.</li>
+<li>Large Moon Pulse button at the lower right, minimum 56px target.</li>
+<li>Pause and Restart buttons with 44px+ targets.</li>
+<li>Avoid virtual joysticks; the game is path-drawing first.</li>
+</ul>
+<li>Mobile layout/orientation:</li>
+<ul>
+<li>Default target is portrait phone play at about 390x844; do not require landscape.</li>
+<li>Canvas/garden should fill the central viewport with HUD at top and touch controls at bottom/edges.</li>
+<li>Tutorial must fit on first portrait screen without critical controls below the fold.</li>
+<li>HUD labels must be legible: score, timer, ink, shadow, combo, current request, and phase.</li>
+<li>Request icons must be large enough to read on phone; combine color with simple shapes/labels so hue alone is not required.</li>
+</ul>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+<ul>
+<li>Shows title “Hikari Firefly Cartographer”.</li>
+<li>Shows Day 004 badge, mode badge “2D”, public route <code>/hikari/</code>, best score, and fastest Dawn Map if available.</li>
+<li>Shows primary Start button and a visible prompt link.</li>
+<li>Shows “How to play” tutorial panel by default.</li>
+</ul>
+<li>Tutorial text</li>
+<ul>
+<li>Objective: “Draw glowing paths to guide fireflies into matching lantern constellations.”</li>
+<li>Movement: mouse/touch drag draws short route strokes; fireflies follow nearby glowing strokes.</li>
+<li>Lanterns: deliver requested colors/sequences to complete constellations.</li>
+<li>Ink: strokes consume ink; clean deliveries refill it.</li>
+<li>Shadows: cats, wind, and puddles erase paths or scare fireflies.</li>
+<li>Moon Pulse: freezes shadows briefly and attracts fireflies to active strokes.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<li>In-game HUD</li>
+<ul>
+<li>Score, best score, dawn timer, ink meter, shadow meter, combo, current phase, current lantern request, Moon Pulse charge.</li>
+<li>Pause and restart controls visible or accessible.</li>
+</ul>
+<li>Pause overlay</li>
+<ul>
+<li>Resume, restart, tutorial reminder, and controls summary.</li>
+</ul>
+<li>Game-over/results overlay</li>
+<ul>
+<li>Final score, best score, completed constellations, Dawn Map status, mastery badges, restart button.</li>
+</ul>
+<li>Hikari Dawn Map banner</li>
+<ul>
+<li>Trigger once per run after three constellations and 1800 score.</li>
+<li>Non-blocking glow burst and map-completion animation, then endless play continues.</li>
+</ul>
+</ol>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: character/background/sprites/icons/decorative pieces. Canvas code may animate, crop, alpha-clean, resize, composite, optimize, draw particles/strokes/UI chrome, and create debug/collision shapes; it should not create final character/background/icon art from scratch unless Imagegen2 is truly unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/004/assets/source/</code> and use optimized playable copies under <code>release/games/004/assets/</code>. Also copy optimized playable assets into <code>apps/day-004-hikari-firefly-cartographer/assets/</code> and the public alias <code>release/hikari/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid tiny details that disappear at final in-game size, and keep high-contrast silhouettes.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Firefly keeper / map charm sprite source</li>
+<ul>
+<li>Target: transparent PNG, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/004/assets/source/firefly-keeper-source.png</code></li>
+<li>Optimized path: <code>release/games/004/assets/firefly-keeper.png</code></li>
+<li>Imagegen2 prompt: “A small cute firefly cartographer charm for a mobile browser arcade game, Japanese summer shrine mood, tiny cloak shaped like a folded map, glowing lantern staff, warm golden firefly aura, centered readable silhouette, transparent or plain dark background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<li>Moonlit shrine garden background source</li>
+<ul>
+<li>Target: portrait-friendly or center-crop-safe background suitable for a phone game canvas.</li>
+<li>Archive path: <code>release/games/004/assets/source/moon-garden-source.png</code></li>
+<li>Optimized path: <code>release/games/004/assets/moon-garden.png</code></li>
+<li>Imagegen2 prompt: “A moonlit Japanese shrine garden at blue hour for a portrait mobile game, stone paths, pond edge, paper lantern posts, soft hydrangea and bamboo silhouettes, open readable center play area, warm firefly glow, painterly but clean, no characters, no text, no watermark, crop-safe with important details away from edges.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<li>Lantern/firefly/icon sheet source</li>
+<ul>
+<li>Target: square icon sheet for UI and sprite decals.</li>
+<li>Archive path: <code>release/games/004/assets/source/hikari-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/004/assets/hikari-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a firefly light-routing arcade game: red firefly, blue firefly, gold firefly, violet firefly, rainbow firefly, paper lantern, moon pulse, shadow cat, wind swirl, dark puddle, ink droplet, dawn map burst, transparent or plain dark background, high contrast, no text, no watermark.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+</ol>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas assets, document the failure in <code>ai/postmortems/day-004.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the firefly keeper sprite, verify transparent/cutout quality or clean background removal, readable silhouette, centered pivot, crop margins, no unwanted text/watermarks, and a clear upright/facing direction.</li>
+<li>Verify control-to-motion alignment in-game: the keeper/charm and firefly sprites should not appear sideways while following paths or pulsing toward strokes.</li>
+<li>For the background, verify the center play area remains readable after portrait mobile crop and does not hide strokes/fireflies/lantern requests.</li>
+<li>For icon sheets, verify icons are distinct at final HUD/request size and hazards cannot be confused with collectibles.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/004/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 004 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+<ul>
+<li>Build the static 2D game under <code>apps/day-004-hikari-firefly-cartographer/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/004/</code>.</li>
+<li>Create the public playable route under <code>release/hikari/</code>.</li>
+<li>Use static HTML/CSS/JS and no backend.</li>
+</ul>
+<li>Asset/polish subagent</li>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, and tune mobile readability/game feel.</li>
+</ul>
+<li>QA/browser/mobile subagent</li>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, path drawing gameplay, and 390x844 portrait layout.</li>
+</ul>
+<li>Reflection/self-improvement subagent</li>
+<ul>
+<li>Write <code>ai/postmortems/day-004.md</code> after validation with what worked, what failed, generated-image inspection notes, and whether generator/template improvements are justified.</li>
+</ul>
+</ol>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Mode choice follows the cadence rule: after Day 003&#x27;s <code>3d</code>, Day 004 may be <code>2d</code>; it must be clearly different through path-drawing/light-routing gameplay.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial, usable direct touch path drawing, no forced landscape canvas, and 44px+ controls.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-004.md</code> is copied exactly to <code>release/games/004/prompt.md</code>.</li>
+<li><code>release/games/004/prompt.html</code> renders the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/hikari/index.html</code>, <code>release/hikari/prompt.html</code>, <code>release/hikari/screenshot.png</code>, and <code>release/hikari/assets/</code> exist and work.</li>
+<li>Gallery card for Day 004 shows prompt availability, generation duration, public <code>/hikari/</code> links, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/004/screenshot.png</code> and is non-empty/readable.</li>
+<li>Image/source assets exist under <code>release/games/004/assets/source/</code> and optimized assets exist under <code>release/games/004/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; moving sprites/icons have verified cutout/background removal, direction/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>No console errors during desktop or mobile smoke.</li>
+<li>Existing <code>release/games/001/**</code>, <code>release/games/002/**</code>, and <code>release/games/003/**</code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/004/screenshot.png, prompt.md, prompt.html, index.html, release/hikari/index.html, release/hikari/prompt.html, release/hikari/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-004.md release/games/004/prompt.md
+# Prompt HTML check: verify release/games/004/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;.
+# Browser smoke: open the local/static /hikari/ route and verify menu, tutorial, gameplay start, path drawing, Moon Pulse, pause, restart, prompt link, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable touch drawing and readable HUD.
+# Static screenshot check: inspect release/games/004/screenshot.png for non-empty readable game content.
+# Docker/static smoke: build the Docker image locally, run it, curl /hikari/ and /hikari/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 004.</code></pre>
+    </article>
+  </main>
+</body>
+</html>

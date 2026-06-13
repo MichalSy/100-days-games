@@ -61,6 +61,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/komorebi/screenshot.png',
     generationDuration: 'manual subagent run ~75 minutes',
     generatedAt: '2026-06-12T04:10:00Z'
+  },
+  4: {
+    status: 'generated',
+    title: 'Hikari Firefly Cartographer',
+    slug: 'hikari-firefly-cartographer',
+    genre: ['path-drawing arcade puzzle', 'light-routing', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Draw glowing routes through a moonlit shrine garden to guide colored fireflies into matching lantern constellations before dawn.',
+    objective: 'Complete three lantern constellations and reach 1800 points to trigger Hikari Dawn Map, then continue into endless shadow waves.',
+    playUrl: '/hikari/',
+    promptUrl: '/hikari/prompt.html',
+    promptExcerpt: 'Draw short light paths, route fireflies by color, dodge moving shadows, and finish the Hikari Dawn Map before the garden clock reaches dawn.',
+    screenshotUrl: '/hikari/screenshot.png',
+    generationDuration: 'manual subagent run ~90 minutes',
+    generatedAt: '2026-06-13T17:31:45Z'
   }
 };
 

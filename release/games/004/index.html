@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Day 004 — Hikari Firefly Cartographer</title>
+  <meta name="description" content="Draw glowing paths to guide colored fireflies into matching shrine lantern constellations before dawn." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="shell" aria-label="Hikari Firefly Cartographer game">
+    <section class="game-wrap">
+      <canvas id="garden" width="900" height="1500" aria-label="Moonlit shrine garden path drawing game canvas"></canvas>
+
+      <div class="hud" aria-live="polite">
+        <div><span>Score</span><strong id="score">0</strong></div>
+        <div><span>Best</span><strong id="best">0</strong></div>
+        <div><span>Dawn</span><strong id="timer">180s</strong></div>
+        <div><span>Ink</span><meter id="ink" min="0" max="100" value="100">100</meter></div>
+        <div><span>Shadow</span><meter id="shadow" min="0" max="100" value="0">0</meter></div>
+        <div><span>Combo</span><strong id="combo">x0</strong></div>
+        <div><span>Phase</span><strong id="phase">Triangle</strong></div>
+        <div><span>Request</span><strong id="request">—</strong></div>
+        <div><span>Moon</span><meter id="pulse" min="0" max="100" value="100">100</meter></div>
+      </div>
+
+      <div class="touch-controls" aria-label="Touch controls">
+        <button id="pulseBtn" class="pulse-button" type="button">Moon Pulse</button>
+        <button id="pauseBtn" type="button">Pause</button>
+        <button id="restartQuick" type="button">Restart</button>
+      </div>
+
+      <div id="titleScreen" class="overlay title-screen">
+        <div class="panel wide">
+          <div class="title-row">
+            <img src="./assets/firefly-keeper.png" alt="Firefly keeper charm" />
+            <div>
+              <p class="badge">Day 004 · 2D · /hikari/</p>
+              <h1>Hikari Firefly Cartographer</h1>
+              <p class="lead">Draw temporary glowing routes on a moonlit shrine map and guide colored fireflies into lantern constellations before dawn.</p>
+            </div>
+          </div>
+          <p class="best-line">Best score: <strong id="bestTitle">0</strong> · Fastest Dawn Map: <strong id="fastestTitle">—</strong> · Best endless wave: <strong id="waveTitle">0</strong></p>
+          <button id="startBtn" class="primary" type="button">Start mapping light</button>
+          <article class="tutorial">
+            <h2>How to play</h2>
+            <ul>
+              <li><strong>Objective:</strong> Draw glowing paths to guide fireflies into matching lantern constellations.</li>
+              <li><strong>Movement:</strong> Mouse/touch drag draws short route strokes; fireflies follow nearby glowing strokes.</li>
+              <li><strong>Lanterns:</strong> Deliver requested colors/sequences to complete constellations.</li>
+              <li><strong>Ink:</strong> Strokes consume ink; clean deliveries refill it.</li>
+              <li><strong>Shadows:</strong> Cats, wind, and puddles erase paths or scare fireflies.</li>
+              <li><strong>Moon Pulse:</strong> Freezes shadows briefly and attracts fireflies to active strokes.</li>
+              <li><strong>Pause/restart:</strong> P/R on desktop or visible buttons on mobile.</li>
+            </ul>
+          </article>
+          <a class="prompt-link" href="./prompt.html">Read archived prompt</a>
+        </div>
+      </div>
+
+      <div id="pauseOverlay" class="overlay hidden">
+        <div class="panel small">
+          <h2>Paused</h2>
+          <p>Draw short, deliberate strokes; fireflies read the direction of the nearest glowing route. Deliver the current color sequence shown in the HUD.</p>
+          <p>Desktop: mouse drag, Space Moon Pulse, P pause, R restart. Mobile: drag directly on the garden, then use Moon Pulse / Pause / Restart.</p>
+          <button id="resumeBtn" class="primary" type="button">Resume</button>
+          <button id="restartPauseBtn" type="button">Restart run</button>
+        </div>
+      </div>
+
+      <div id="resultsOverlay" class="overlay hidden">
+        <div class="panel small">
+          <h2 id="resultTitle">Dawn reached</h2>
+          <p>Final score: <strong id="finalScore">0</strong> · Best: <strong id="bestOver">0</strong></p>
+          <p>Constellations: <strong id="finalPhases">0</strong> · Dawn Map: <strong id="finalDawn">Not completed</strong></p>
+          <ul id="masteryList" class="mastery"></ul>
+          <button id="restartOverBtn" class="primary" type="button">Restart map</button>
+          <button id="titleOverBtn" type="button">Title screen</button>
+        </div>
+      </div>
+
+      <div id="dawnBanner" class="dawn-banner hidden" role="status">Hikari Dawn Map complete ✦ Endless shadows awaken</div>
+    </section>
+  </main>
+  <script src="./game.js" defer></script>
+</body>
+</html>

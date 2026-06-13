@@ -11,8 +11,8 @@ The scheduled Hermes job should run this prompt with GPT-5.5 and maximum practic
 Required curated skills:
 
 - Core factory/deployment: `100-days-games-generator`, `autonomous-static-site-factory`, `aiko-argocd-gitops`, `github-pr-workflow`
-- Implementation workflow: `subagent-driven-development`, `test-driven-development`, `systematic-debugging`, `requesting-code-review`
-- Visual/game/UI quality: `p5js`, `pixel-art`, `claude-design`, `popular-web-designs`, `dogfood`
+- Implementation workflow: `subagent-driven-development`, `software-quality-lifecycle`
+- Visual/game/UI quality: `p5js`, `creative/pixel-art`, `claude-design`, `popular-web-designs`, `dogfood`
 
 Required toolsets: `terminal`, `file`, `web`, `browser`, `vision`, `image_gen`, `delegation`, `skills`, `messaging`, `todo`, and `session_search`.
 

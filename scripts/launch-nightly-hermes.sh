@@ -19,7 +19,7 @@ fi
 STAMP="$(date -u +%Y%m%dT%H%M%SZ)"
 LOG="$LOG_DIR/$STAMP.log"
 
-PROMPT="Run the daily 100-days-games generator with high reasoning.\n\nRepository/workdir: $REPO\n\nRead and follow the current git-tracked source prompt exactly: $REPO/ai/cron-system-prompt.md\n\nDo not use this launcher text as the game-generation prompt. First generate the detailed day prompt under prompts/day-NNN.md. Then start a fresh implementation subagent/agent with reset context that receives only repo path, day number, generated prompt path, and validation/publish rules. Build/test/publish from that archived prompt. Before pushing verify locally: build, release validation, browser smoke, mobile smoke, screenshot/static checks, Docker/static smoke, immutable guard. After deployment, verify ArgoCD/k3s and live URL. Send Michal a Telegram report with final URLs and verification status. Do not delete scripts/launch-nightly-hermes.sh or files under $RUNTIME_DIR."
+PROMPT="Run the daily 100-days-games generator with maximum practical capability.\n\nRepository/workdir: $REPO\n\nPreloaded skills are mandatory context, not optional: 100-days-games-generator,autonomous-static-site-factory,aiko-argocd-gitops,github-pr-workflow,subagent-driven-development,software-quality-lifecycle,p5js,creative/pixel-art,claude-design,popular-web-designs,dogfood. Use them where relevant, especially visual design/game-feel skills and programming/QA skills.\n\nRead and follow the current git-tracked source prompt exactly: $REPO/ai/cron-system-prompt.md\n\nDo not use this launcher text as the game-generation prompt. First generate the detailed day prompt under prompts/day-NNN.md. Then start fresh implementation/review agents with reset context that receive only repo path, day number, generated prompt path, and validation/publish rules. Use at least separate implementation and QA/review passes unless a hard blocker makes that impossible. Build/test/publish from that archived prompt. Before pushing verify locally: build, release validation, browser smoke, mobile smoke, screenshot/static checks, Docker/static smoke, immutable guard. Use vision to inspect generated screenshots/assets before publishing. After deployment, verify ArgoCD/k3s and live URL. Send Michal a Telegram report with final URLs and verification status. Do not delete scripts/launch-nightly-hermes.sh or files under $RUNTIME_DIR."
 
 cd "$REPO"
 (
@@ -29,7 +29,7 @@ cd "$REPO"
   HERMES_PROFILE=ryu hermes --profile ryu chat \
     --provider openai-codex \
     --model gpt-5.5 \
-    --toolsets terminal,file,web,browser,image_gen,delegation,skills,messaging \
+    --toolsets terminal,file,web,browser,vision,image_gen,delegation,skills,messaging,todo,session_search \
     --query "$PROMPT"
   RC=$?
   echo "[$(date -Is)] Hermes nightly generator exited rc=$RC"

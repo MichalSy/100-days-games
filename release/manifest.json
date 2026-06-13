@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-12T04:10:00.000Z",
+  "generatedAt": "2026-06-13T17:31:45.000Z",
   "totalDays": 100,
-  "completedDays": 3,
+  "completedDays": 4,
   "games": [
     {
       "day": 1,
@@ -29,6 +29,15 @@
       "promptUrl": "/komorebi/prompt.html",
       "screenshotUrl": "/komorebi/screenshot.png",
       "generationDuration": "manual subagent run ~75 minutes"
+    },
+    {
+      "day": 4,
+      "title": "Hikari Firefly Cartographer",
+      "slug": "hikari-firefly-cartographer",
+      "playUrl": "/hikari/",
+      "promptUrl": "/hikari/prompt.html",
+      "screenshotUrl": "/hikari/screenshot.png",
+      "generationDuration": "manual subagent run ~90 minutes"
     }
   ]
 }
