@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-13T17:31:45.000Z",
+  "generatedAt": "2026-06-14T01:43:31.000Z",
   "totalDays": 100,
-  "completedDays": 4,
+  "completedDays": 5,
   "games": [
     {
       "day": 1,
@@ -38,6 +38,15 @@
       "promptUrl": "/hikari/prompt.html",
       "screenshotUrl": "/hikari/screenshot.png",
       "generationDuration": "manual subagent run ~90 minutes"
+    },
+    {
+      "day": 5,
+      "title": "Yume Lantern Railrunner",
+      "slug": "yume-lantern-railrunner",
+      "playUrl": "/yume/",
+      "promptUrl": "/yume/prompt.html",
+      "screenshotUrl": "/yume/screenshot.png",
+      "generationDuration": "manual subagent run ~100 minutes"
     }
   ]
 }

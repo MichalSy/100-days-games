@@ -76,6 +76,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/hikari/screenshot.png',
     generationDuration: 'manual subagent run ~90 minutes',
     generatedAt: '2026-06-13T17:31:45Z'
+  },
+  5: {
+    status: 'generated',
+    title: 'Yume Lantern Railrunner',
+    slug: 'yume-lantern-railrunner',
+    genre: ['3D lane runner', 'dream-rail navigation', 'mobile-first arcade'],
+    mode: '3d',
+    description: 'Ride a tiny lantern tram through a dreamlike paper-theater night sky, switch rails in 3D depth, collect tickets, pass moon gates, and arrive before dawn.',
+    objective: 'Reach 2600 points and clear Moon Platform, Paper Crane Bridge, and Dawn Bell Loop to trigger Yume Dawn Arrival, then continue into endless night-loop scoring.',
+    playUrl: '/yume/',
+    promptUrl: '/yume/prompt.html',
+    promptExcerpt: 'Switch rails, collect dream tickets, pass glowing moon gates, avoid cracked nightmare tracks, and ring the Lucid Bell when the 3D path blurs.',
+    screenshotUrl: '/yume/screenshot.png',
+    generationDuration: 'manual subagent run ~100 minutes',
+    generatedAt: '2026-06-14T01:43:31Z'
   }
 };
 

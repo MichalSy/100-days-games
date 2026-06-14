@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Day 005 — Yume Lantern Railrunner</title>
+  <meta name="description" content="Switch rails in a 3D dream corridor, collect tickets, pass moon gates, and arrive before dawn." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="shell" aria-label="Yume Lantern Railrunner game">
+    <section class="game-wrap">
+      <canvas id="railCanvas" aria-label="3D dream rail lane runner canvas"></canvas>
+
+      <div class="hud" aria-live="polite">
+        <div><span>Score</span><strong id="score">0</strong></div>
+        <div><span>Best</span><strong id="best">0</strong></div>
+        <div><span>Hearts</span><strong id="hearts">♡♡♡</strong></div>
+        <div><span>Sleep</span><meter id="sleep" min="0" max="100" value="100">100</meter></div>
+        <div><span>Combo</span><strong id="combo">x0</strong></div>
+        <div><span>Station</span><strong id="station">Moon</strong></div>
+        <div><span>Speed</span><strong id="speed">0</strong></div>
+        <div><span>Bell</span><meter id="bell" min="0" max="100" value="0">0</meter></div>
+      </div>
+
+      <div id="forkHint" class="fork-hint hidden" role="status">Fork ahead: follow the gold rail</div>
+      <div id="dawnBanner" class="dawn-banner hidden" role="status">Yume Dawn Arrival ✦ Endless night-loop begins</div>
+
+      <div class="touch-controls" aria-label="Touch controls">
+        <button id="leftBtn" class="lane" type="button">← Rail</button>
+        <button id="bellBtn" class="bell" type="button">Lucid Bell</button>
+        <button id="rightBtn" class="lane" type="button">Rail →</button>
+      </div>
+      <div class="top-controls" aria-label="Game controls">
+        <button id="pauseBtn" type="button">Pause</button>
+        <button id="restartQuick" type="button">Restart</button>
+      </div>
+
+      <div id="titleScreen" class="overlay title-screen">
+        <div class="panel wide">
+          <div class="title-row">
+            <img src="./assets/lantern-tram.png" alt="Lantern tram art" />
+            <div>
+              <p class="badge">Day 005 · 3D · /yume/</p>
+              <h1>Yume Lantern Railrunner</h1>
+              <p class="lead">Ride a tiny lantern tram through a paper-theater night sky. Commit to safe rails, collect dream tickets, and ring the Lucid Bell when the path blurs.</p>
+            </div>
+          </div>
+          <p class="best-line">Best score: <strong id="bestTitle">0</strong> · Best Dawn Arrival: <strong id="arrivalTitle">—</strong> · Best gate streak: <strong id="streakTitle">0</strong> · Night loop: <strong id="loopTitle">0</strong></p>
+          <button id="startBtn" class="primary" type="button">Start dream run</button>
+          <article class="tutorial">
+            <h2>How to play</h2>
+            <ul>
+              <li><strong>Objective:</strong> Switch rails, collect dream tickets, pass moon gates, and arrive before dawn.</li>
+              <li><strong>Movement:</strong> Arrows/A-D or mobile swipe/tap buttons change lanes.</li>
+              <li><strong>Gates:</strong> Align with glowing moon gates and avoid closed nightmare frames.</li>
+              <li><strong>Lucid Bell:</strong> Slows time and reveals the next safe rail when charged.</li>
+              <li><strong>Hazards:</strong> Cracked rails and black paper moths damage lantern hearts.</li>
+              <li><strong>Pause/restart:</strong> P/R on desktop or visible buttons on mobile.</li>
+            </ul>
+          </article>
+          <a class="prompt-link" href="./prompt.html">Read archived prompt</a>
+        </div>
+      </div>
+
+      <div id="pauseOverlay" class="overlay hidden">
+        <div class="panel small">
+          <h2>Paused</h2>
+          <p>Read depth: tickets and lit rails preview the safe lane sequence. Build clean moon-gate streaks for combo score. Lucid Bell slows the corridor and outlines safe fork rails.</p>
+          <p>Desktop: Arrow keys/A-D change rail, Space or Shift rings Lucid Bell, P pauses, R restarts. Mobile: swipe or use the large Rail buttons.</p>
+          <a class="prompt-link" href="./prompt.html">Prompt</a>
+          <button id="resumeBtn" class="primary" type="button">Resume</button>
+          <button id="restartPauseBtn" type="button">Restart run</button>
+        </div>
+      </div>
+
+      <div id="resultsOverlay" class="overlay hidden">
+        <div class="panel small">
+          <h2 id="resultTitle">Dream ended</h2>
+          <p>Final score: <strong id="finalScore">0</strong> · Best: <strong id="bestOver">0</strong></p>
+          <p>Station reached: <strong id="finalStation">Moon Platform</strong> · Dawn Arrival: <strong id="finalDawn">Not yet</strong></p>
+          <p>Clean-gate streak: <strong id="finalStreak">0</strong></p>
+          <ul id="masteryList" class="mastery"></ul>
+          <button id="restartOverBtn" class="primary" type="button">Restart dream</button>
+          <button id="titleOverBtn" type="button">Title screen</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>
