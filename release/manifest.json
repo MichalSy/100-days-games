@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-14T01:43:31.000Z",
+  "generatedAt": "2026-06-15T01:44:30.000Z",
   "totalDays": 100,
-  "completedDays": 5,
+  "completedDays": 6,
   "games": [
     {
       "day": 1,
@@ -47,6 +47,15 @@
       "promptUrl": "/yume/prompt.html",
       "screenshotUrl": "/yume/screenshot.png",
       "generationDuration": "manual subagent run ~100 minutes"
+    },
+    {
+      "day": 6,
+      "title": "Sora Tideglass Observatory",
+      "slug": "sora-tideglass-observatory",
+      "playUrl": "/sora/",
+      "promptUrl": "/sora/prompt.html",
+      "screenshotUrl": "/sora/screenshot.png",
+      "generationDuration": "manual subagent run ~120 minutes"
     }
   ]
 }

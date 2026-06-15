@@ -1,0 +1,237 @@
+:root {
+  color-scheme: dark;
+  --ink: #eef9ff;
+  --muted: #aac5d1;
+  --cyan: #65e8ff;
+  --gold: #ffd166;
+  --rose: #ff6888;
+  --violet: #9d89ff;
+  --glass: rgba(7, 20, 34, 0.72);
+  --glass-strong: rgba(9, 30, 50, 0.9);
+  --line: rgba(187, 236, 255, 0.23);
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.48);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-width: 320px; min-height: 100%; background: #061321; }
+body {
+  overflow: hidden;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  touch-action: none;
+}
+button, a { font: inherit; }
+button { cursor: pointer; color: inherit; }
+a { color: inherit; text-decoration: none; }
+
+.skyBackdrop {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(3, 11, 25, 0.15), rgba(3, 10, 20, 0.82)),
+    url('./assets/sora-observatory-sky.png') center/cover no-repeat;
+  filter: saturate(1.04) contrast(1.03);
+  transform: scale(1.02);
+}
+.skyBackdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 43%, rgba(4, 12, 23, 0.08), rgba(4, 12, 23, 0.58) 48%, rgba(4, 12, 23, 0.85) 100%),
+    radial-gradient(circle at 48% 58%, rgba(101, 232, 255, 0.17), transparent 32%);
+}
+
+.gameShell { position: fixed; inset: 0; overflow: hidden; }
+#gameCanvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; outline: none; }
+.hidden { display: none !important; }
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: max(14px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
+  background: linear-gradient(180deg, rgba(2, 9, 19, 0.42), rgba(2, 9, 19, 0.82));
+  backdrop-filter: blur(10px) saturate(1.1);
+}
+.titleScreen { overflow-y: auto; place-items: start center; }
+.titleCard, .modalCard {
+  width: min(760px, 100%);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(10, 34, 56, 0.88), rgba(5, 18, 34, 0.86));
+  box-shadow: var(--shadow), inset 0 1px rgba(255,255,255,0.1);
+}
+.titleCard { margin: 10px 0; padding: clamp(18px, 3.6vw, 32px); text-align: center; }
+.titleTopline { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 8px; }
+.titleTopline span, .hudGrid div, .helper, .banner, .badgeList span {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px rgba(255,255,255,0.08);
+}
+.titleTopline span { border-radius: 999px; padding: 7px 11px; color: var(--muted); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.charm { width: min(190px, 42vw); aspect-ratio: 1; object-fit: contain; filter: drop-shadow(0 0 28px rgba(101,232,255,0.32)); margin-top: -4px; }
+.eyebrow { margin: 0; color: var(--gold); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.74rem; font-weight: 800; }
+h1 { margin: 8px auto; max-width: 680px; font-size: clamp(2.25rem, 8vw, 5.2rem); line-height: 0.88; letter-spacing: -0.08em; }
+.lede { margin: 12px auto 0; max-width: 590px; color: var(--muted); line-height: 1.5; font-weight: 600; }
+.bestPanel { margin: 16px auto; color: var(--cyan); font-weight: 800; }
+.menuActions, .modalActions { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+.primaryAction, .secondaryAction, .buttonLike {
+  min-height: 56px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+.primaryAction { border: 0; color: #07101b; background: linear-gradient(135deg, var(--gold), var(--cyan)); box-shadow: 0 16px 44px rgba(101,232,255,0.25); }
+.secondaryAction, .buttonLike { background: rgba(255,255,255,0.07); }
+.tutorialPanel { margin-top: 18px; padding: 16px; border-radius: 22px; text-align: left; background: rgba(4, 14, 28, 0.62); border: 1px solid var(--line); }
+.tutorialPanel h2 { margin: 0 0 8px; color: var(--gold); }
+.tutorialPanel ul { margin: 0; padding-left: 1.1rem; color: var(--muted); line-height: 1.42; }
+.tutorialPanel li + li { margin-top: 5px; }
+.tutorialPanel strong { color: var(--ink); }
+
+.hud {
+  position: absolute;
+  z-index: 4;
+  top: max(10px, env(safe-area-inset-top));
+  left: max(10px, env(safe-area-inset-left));
+  right: max(10px, env(safe-area-inset-right));
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 9px;
+  align-items: start;
+  pointer-events: none;
+}
+.hudGrid { display: grid; grid-template-columns: repeat(8, minmax(62px, 1fr)); gap: 7px; }
+.hudGrid div { border-radius: 14px; padding: 7px 8px; min-width: 0; background: rgba(4, 15, 27, 0.72); backdrop-filter: blur(10px); }
+.hudGrid span { display: block; color: var(--muted); font-size: 0.62rem; line-height: 1; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 900; }
+.hudGrid strong { display: block; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.92rem; }
+.tideWrap { grid-column: 1 / -1; display: grid; grid-template-columns: auto 1fr; gap: 9px; align-items: center; padding: 8px 10px; border-radius: 14px; background: rgba(4, 15, 27, 0.66); border: 1px solid var(--line); backdrop-filter: blur(10px); color: var(--muted); font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; }
+.tideTrack { height: 12px; border-radius: 999px; background: rgba(255,255,255,0.1); overflow: hidden; }
+.tideTrack i { display: block; width: 0%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--cyan), var(--gold), var(--rose)); box-shadow: 0 0 16px var(--cyan); transition: width 0.16s ease; }
+.hudButtons { display: flex; gap: 7px; pointer-events: auto; }
+.hudButtons button { min-height: 44px; border-radius: 999px; border: 1px solid var(--line); background: rgba(4,15,27,0.8); padding: 0 12px; font-weight: 900; }
+
+.helper {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: calc(max(10px, env(safe-area-inset-top)) + 98px);
+  transform: translateX(-50%);
+  border-radius: 999px;
+  padding: 8px 13px;
+  background: rgba(4, 15, 27, 0.75);
+  color: var(--cyan);
+  pointer-events: none;
+  font-size: 0.78rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+.banner {
+  position: absolute;
+  z-index: 8;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 18px 22px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(255,209,102,0.92), rgba(101,232,255,0.9));
+  color: #07101b;
+  box-shadow: 0 0 90px rgba(101,232,255,0.48);
+  text-align: center;
+  font-size: clamp(1.2rem, 4.8vw, 2.4rem);
+  font-weight: 1000;
+  letter-spacing: -0.04em;
+}
+
+.controlPad {
+  position: absolute;
+  z-index: 5;
+  left: max(10px, env(safe-area-inset-left));
+  right: max(10px, env(safe-area-inset-right));
+  bottom: max(10px, env(safe-area-inset-bottom));
+  display: grid;
+  grid-template-columns: 1fr 68px 1fr 1fr;
+  gap: 9px;
+  align-items: center;
+  pointer-events: auto;
+}
+.rotateButton, .stillButton {
+  min-height: 64px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: rgba(5, 21, 38, 0.86);
+  backdrop-filter: blur(12px);
+  font-weight: 1000;
+  box-shadow: inset 0 1px rgba(255,255,255,0.12), 0 12px 35px rgba(0,0,0,0.28);
+}
+.stillButton { background: linear-gradient(135deg, rgba(101,232,255,0.82), rgba(157,137,255,0.78)); color: #061321; }
+.stillButton:disabled { opacity: 0.45; color: var(--ink); background: rgba(5, 21, 38, 0.82); }
+.dial { width: 68px; height: 68px; border-radius: 50%; border: 2px solid rgba(255,209,102,0.7); background: radial-gradient(circle, rgba(255,255,255,0.12), rgba(5, 21, 38, 0.85)); position: relative; box-shadow: 0 0 22px rgba(255,209,102,0.18); }
+.dial span { position: absolute; left: 50%; top: 10px; width: 4px; height: 26px; margin-left: -2px; border-radius: 999px; transform-origin: 50% 24px; background: var(--gold); box-shadow: 0 0 10px var(--gold); }
+
+.modal { background: rgba(2, 9, 19, 0.58); }
+.modalCard { padding: 24px; text-align: center; }
+.modalCard h2 { margin: 0; font-size: clamp(1.8rem, 7vw, 3.4rem); letter-spacing: -0.06em; }
+.modalCard p { color: var(--muted); line-height: 1.55; }
+.resultStats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; margin: 16px 0; }
+.resultStats div { border: 1px solid var(--line); border-radius: 16px; padding: 12px; background: rgba(255,255,255,0.06); }
+.resultStats span { display: block; color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 900; }
+.resultStats strong { display: block; margin-top: 4px; font-size: 1.35rem; color: var(--cyan); }
+.badgeList { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 14px; }
+.badgeList span { border-radius: 999px; padding: 7px 10px; color: var(--gold); font-weight: 900; font-size: 0.78rem; }
+
+body.flashMistake .gameShell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  background: radial-gradient(circle, transparent 45%, rgba(255, 60, 91, 0.34));
+  animation: flashOut 0.38s ease forwards;
+}
+@keyframes flashOut { from { opacity: 1; } to { opacity: 0; } }
+
+@media (max-width: 760px) {
+  .hud { grid-template-columns: 1fr; }
+  .hudGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .hudGrid div { padding: 6px; border-radius: 12px; }
+  .hudGrid strong { font-size: 0.78rem; }
+  .hudButtons { position: absolute; right: 0; top: calc(100% + 7px); }
+  .helper { top: 198px; max-width: calc(100vw - 20px); overflow: hidden; text-overflow: ellipsis; }
+  .controlPad { grid-template-columns: 1fr 64px 1fr; }
+  .stillButton { grid-column: 1 / -1; }
+  .titleCard { border-radius: 22px; }
+  .tutorialPanel { font-size: 0.86rem; }
+  h1 { font-size: clamp(2rem, 11vw, 3.25rem); }
+  .charm { width: min(142px, 36vw); }
+}
+
+@media (max-width: 420px) {
+  .titleScreen { align-items: start; }
+  .titleCard { padding: 12px; margin: 6px 0; border-radius: 18px; }
+  .titleTopline { gap: 5px; margin-bottom: 4px; }
+  .titleTopline span { padding: 5px 8px; font-size: 0.66rem; }
+  .charm { display: none; }
+  .eyebrow { font-size: 0.64rem; letter-spacing: 0.12em; }
+  h1 { font-size: clamp(1.72rem, 9.2vw, 2.45rem); line-height: 0.92; margin: 5px auto; }
+  .lede { margin-top: 6px; font-size: 0.82rem; line-height: 1.32; }
+  .bestPanel { margin: 8px auto; font-size: 0.78rem; }
+  .menuActions { gap: 7px; }
+  .tutorialPanel { margin-top: 9px; padding: 10px; font-size: 0.76rem; line-height: 1.22; }
+  .tutorialPanel h2 { margin-bottom: 5px; font-size: 1rem; }
+  .tutorialPanel ul { line-height: 1.24; }
+  .tutorialPanel li + li { margin-top: 2px; }
+  .primaryAction, .secondaryAction, .buttonLike { min-height: 48px; padding: 0 14px; }
+  .hudGrid { gap: 5px; }
+  .hudGrid span { font-size: 0.56rem; }
+  .hudGrid strong { font-size: 0.72rem; }
+  .controlPad { gap: 7px; }
+  .rotateButton, .stillButton { min-height: 58px; border-radius: 18px; }
+}

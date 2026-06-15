@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 006 Game Generation Prompt</title>
+  <style>
+    :root { color-scheme: dark; --bg:#061321; --panel:#0b2135; --ink:#effaff; --muted:#a9c6d2; --cyan:#65e8ff; --gold:#ffd166; --line:rgba(187,236,255,.22); }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; color:var(--ink); background: radial-gradient(circle at 50% 0%, rgba(101,232,255,.18), transparent 34%), linear-gradient(180deg,#071a2c,var(--bg)); line-height:1.65; }
+    main { width:min(960px, calc(100% - 28px)); margin:0 auto; padding:28px 0 64px; }
+    nav { position:sticky; top:0; z-index:2; display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:18px; padding:12px 0; backdrop-filter:blur(12px); }
+    a { color:var(--cyan); font-weight:800; text-decoration:none; }
+    .back { display:inline-flex; min-height:44px; align-items:center; border:1px solid var(--line); border-radius:999px; padding:0 16px; background:rgba(255,255,255,.06); }
+    article { border:1px solid var(--line); border-radius:28px; padding:clamp(18px,4vw,42px); background:linear-gradient(180deg,rgba(11,33,53,.92),rgba(5,18,34,.9)); box-shadow:0 24px 90px rgba(0,0,0,.42); }
+    h1 { font-size:clamp(2.2rem,7vw,4.8rem); line-height:.94; letter-spacing:-.07em; margin:0 0 20px; }
+    h2 { margin:34px 0 10px; color:var(--gold); font-size:1.45rem; }
+    h3 { margin:24px 0 8px; color:var(--cyan); }
+    p, li { color:var(--muted); }
+    strong, code { color:var(--ink); }
+    ul, ol { padding-left:1.4rem; }
+    li + li { margin-top:6px; }
+    pre { overflow:auto; padding:16px; border-radius:16px; background:#03101d; border:1px solid var(--line); }
+    code { font-family:'JetBrains Mono','SFMono-Regular',Consolas,monospace; font-size:.92em; }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a class="back" href="./">← Back to Sora Tideglass Observatory</a><span>Day 006 · archived prompt</span></nav>
+    <article>
+      <h1>Day 006 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 006</li>
+<li>Title: Sora Tideglass Observatory</li>
+<li>Slug: sora-tideglass-observatory</li>
+<li>Public route word: sora</li>
+<li>Mode: hybrid 3D</li>
+<li>Genre: mobile-first 3D light-reflection puzzle arcade / observatory alignment score chase</li>
+<li>Mood/style: floating night-sky observatory above calm clouds, brass-and-glass Japanese instrument craft, moonlit prisms, tide pools in the sky, quiet puzzle tension, tactile mobile play, readable portrait 3D</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The current generated series is:</p>
+<ul>
+<li>Day 001 <code>2d</code>: Koi pond collection and drift survival.</li>
+<li>Day 002 <code>2d</code>: sky courier route delivery.</li>
+<li>Day 003 <code>3d</code>: neon bonsai ring-flight crafting.</li>
+<li>Day 004 <code>2d</code>: firefly path drawing / light routing.</li>
+<li>Day 005 <code>3d</code>: dream-rail lane runner.</li>
+</ul>
+<p>The latest generated mode is Day 005 <code>3d</code>, so Day 006 does not need to force another 3D entry, but it should still avoid defaulting to flat canvas repetition. Day 006 uses a meaningful hybrid 3D form: the player manipulates a compact 3D observatory board and physically routes moonbeams through depth-separated prisms. It is not a runner, delivery game, path drawing game, ring flight game, or top-down collection game. The key verbs are rotate, align, preview, commit, and stabilize.</p>
+<p>Recent screenshot variety notes:</p>
+<ul>
+<li>Day 003 had dark cyber-bonsai ring flight with a forward route and HUD-heavy WebGL.</li>
+<li>Day 004 had a richly illustrated moon garden with fireflies and direct line drawing.</li>
+<li>Day 005 had a deep blue rail corridor and bottom lane controls.</li>
+</ul>
+<p>Day 006 should be visually calmer and more puzzle-instrument-like: a floating circular observatory table, tall prism towers, visible moonbeam lines, cloud horizon, and a soft gold/cyan tideglass palette. The camera should be slightly isometric/orbiting over a 3D board rather than behind a moving vehicle.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general web/game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 003 <code>3d</code>, Day 004 <code>2d</code>, Day 005 <code>3d</code>. The current latest 2D streak is zero.</p>
+<p>Mode decision: Day 006 is <code>hybrid 3D</code>. It must use real 3D spatial gameplay, not just 2D art with perspective decoration:</p>
+<ul>
+<li>Use Three.js/WebGL or equivalent static browser 3D rendering for a perspective/isometric observatory board.</li>
+<li>Render the observatory table, prism towers, moonbeam source, lens rings, tideglass reservoirs, hazards, and constellation targets as 3D objects or depth-aware textured planes.</li>
+<li>Gameplay must depend on object positions/rotations in 3D space: players rotate/select prisms and route beams across depth-separated sockets.</li>
+<li>Beam previews must visibly travel through 3D space with glow/fog/depth cues.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Align floating prism towers and tideglass lenses so moonbeams reach constellation receivers before the sky tide overflows the observatory.</li>
+<li>Win condition: Complete three constellations — Crane, Fox, and Dawn Gate — and reach 2200 points to trigger “Sora Star-Tide Calibration”. After calibration, continue in endless score chase with new constellation orders.</li>
+<li>Lose condition: The tide meter fills to 100% because too many beams miss, unstable eclipse shards strike active lenses, or the player runs out of calibration time in a phase.</li>
+<li>Core loop:</li>
+</ul>
+<ol>
+<li>Start on a title/menu screen with Day 006 badge, mode badge “Hybrid 3D”, route <code>/sora/</code>, best score, best calibration time, tutorial, prompt link, and large Start button.</li>
+<li>A 3D floating observatory board appears with a central moonbeam emitter, several prism sockets, constellation receivers, and a tideglass meter.</li>
+<li>Player taps/clicks a prism tower to select it, then rotates it clockwise/counter-clockwise or drags a large radial dial to change its beam angle.</li>
+<li>The current moonbeam previews bounce/branch through prisms; when the beam reaches the requested receiver color/shape, that star node charges.</li>
+<li>Charge all required star nodes in the constellation pattern to complete the phase and refill a little tide stability.</li>
+<li>Avoid sending beams into eclipse shards, cracked prism faces, or wrong-color receivers too often; mistakes raise the tide meter and break combo.</li>
+<li>Use “Still Sky” when charged to slow shard drift and freeze beam decay briefly.</li>
+<li>Pause/restart remain available throughout.</li>
+</ol>
+<ul>
+<li>15+ minute play-value strategy:</li>
+<li>Save best score, fastest Star-Tide Calibration time, longest perfect alignment streak, and highest endless constellation wave in localStorage.</li>
+<li>Include three authored constellation phases:</li>
+<li>Crane: two prisms, clear beam route, slow tide, teaches rotate/select.</li>
+<li>Fox: three prisms, one branching prism, eclipse shard drift, color matching.</li>
+<li>Dawn Gate: four prisms, moving receiver, tide pressure, optional bonus star route.</li>
+<li>Deterministic Day 006 seed varies prism socket order, receiver positions, and bonus star timing while keeping first runs fair.</li>
+<li>Mastery badges: finish Crane without a miss, complete all three constellations under 160 seconds, make a 12-node perfect streak, reach 3600 in endless.</li>
+<li>Strategic scoring: fast correct alignment, minimal rotations, perfect routes, bonus stars, and clean phase bonuses all matter.</li>
+<li>Endless mode after win adds one extra target per wave, faster tide rise, and drifting shards, but keeps hit areas readable on mobile.</li>
+<li>Difficulty scaling:</li>
+<li>0-35 seconds: two fixed prism towers, generous receiver, slow tide.</li>
+<li>35-95 seconds: three prisms, one wrong-color receiver, first eclipse shard, faster decay if beam is left misaligned.</li>
+<li>95-160 seconds: four prisms, branch prism, moving receiver arc, optional bonus target.</li>
+<li>160+ seconds/endless: denser constellations, shard drift, shorter perfect-route windows.</li>
+<li>Keep mobile fair: big selectable prism sockets, large radial controls, high-contrast beams, color+shape labels, forgiving beam hit radius, no tiny star nodes required for survival.</li>
+<li>Scoring/rewards:</li>
+<li>Correct star node charged: +95 points times alignment combo.</li>
+<li>Perfect route with no wrong hits: +180 bonus.</li>
+<li>Bonus comet star: +160 and +15% Still Sky charge.</li>
+<li>Complete constellation: +360 plus tide meter -18%.</li>
+<li>Minimal-rotation bonus: +120 if phase used fewer than target rotations.</li>
+<li>Still Sky unused phase bonus: +140.</li>
+<li>Sora Star-Tide Calibration: +700 and endless mode unlock.</li>
+<li>Wrong receiver or shard hit: +8% tide, combo reset, brief warning flash.</li>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<li>Mouse click: select prism/lens tower.</li>
+<li>A/D or Arrow Left/Right: rotate selected prism counter-clockwise/clockwise.</li>
+<li>Q/E: cycle selected prism.</li>
+<li>Space or Shift: activate Still Sky when charged.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+<li>Enter/click: start from menu or confirm restart.</li>
+<li>Mobile/touch:</li>
+<li>Tap large prism towers to select.</li>
+<li>Use two large rotate buttons or a thumb-friendly radial dial at the bottom; controls must be at least 56px tall.</li>
+<li>Swipe horizontally on the selected prism also rotates in 15-degree steps.</li>
+<li>Large Still Sky button near lower right, at least 56px target.</li>
+<li>Pause and Restart controls with 44px+ targets.</li>
+<li>No tiny virtual joystick. The interaction is tap-select plus large rotate controls.</li>
+<li>Mobile layout/orientation:</li>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>3D canvas fills the central viewport, with compact HUD at top and thumb controls at bottom.</li>
+<li>HUD must remain legible: score, best, tide meter, phase/constellation, combo, selected prism, Still Sky charge.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but core controls/objective must be visible.</li>
+<li>Beam and receiver symbols must combine color, shape, and short labels where needed so hue alone is not required.</li>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<ul>
+<li>Shows title “Sora Tideglass Observatory”.</li>
+<li>Shows Day 006 badge, mode badge “Hybrid 3D”, public route <code>/sora/</code>, best score, best calibration time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+</ul>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<ul>
+<li>Objective: “Rotate prism towers to guide moonbeams into each constellation before the tideglass overflows.”</li>
+<li>Selection: click/tap a prism tower; selected tower glows.</li>
+<li>Rotation: desktop A/D or mobile rotate buttons/radial dial turn the prism.</li>
+<li>Beam logic: beams reflect through prism arrows; charge all requested star nodes.</li>
+<li>Hazards: eclipse shards and wrong receivers raise the tide.</li>
+<li>Still Sky: slows shard drift and stabilizes the beam when charged.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<ul>
+<li>Score, best score, tide meter, combo, current constellation, charged nodes, selected prism, phase timer, Still Sky charge.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<ol>
+<li>Prism helper overlay</li>
+</ol>
+<ul>
+<li>Non-blocking hint near selected prism showing current angle and next rotation step.</li>
+<li>Must not cover the active beam path on mobile.</li>
+</ul>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, prompt link.</li>
+</ul>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<ul>
+<li>Final score, best score, constellation reached, calibration status, perfect streak, mastery badges, restart button.</li>
+</ul>
+<ol>
+<li>Sora Star-Tide Calibration banner</li>
+</ol>
+<ul>
+<li>Trigger once per run after all three constellations and 2200 score.</li>
+<li>Non-blocking cloud horizon brightening, star lines lock into place, tideglass chime; endless play continues after the banner fades.</li>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: observatory charm/texture, sky observatory background, icon sheet, and key decorative pieces. Three.js primitives may render prism geometry, beams, receivers, particles, collision volumes, guide rings, and UI chrome. Procedural code may crop, resize, alpha-clean, atlas-pack, optimize, animate, or place generated assets; it should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/006/assets/source/</code> and use optimized playable copies under <code>release/games/006/assets/</code>. Also copy optimized playable assets into <code>apps/day-006-sora-tideglass-observatory/assets/</code> and the public alias <code>release/sora/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid tiny details that disappear at final in-game size, and keep high-contrast silhouettes.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Tideglass observatory charm/source texture</li>
+</ol>
+<ul>
+<li>Target: transparent PNG, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/006/assets/source/tideglass-observatory-source.png</code></li>
+<li>Optimized path: <code>release/games/006/assets/tideglass-observatory.png</code></li>
+<li>Imagegen2 prompt: “A miniature floating Japanese sky observatory charm for a 3D mobile browser puzzle game, brass crescent telescope, glass tide hourglass, small shrine roof silhouette, moonlit cyan and warm gold glow, centered readable silhouette, transparent or plain dark background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Floating sky observatory background source</li>
+</ol>
+<ul>
+<li>Target: portrait-friendly background/skybox texture suitable for an isometric 3D board.</li>
+<li>Archive path: <code>release/games/006/assets/source/sora-observatory-sky-source.png</code></li>
+<li>Optimized path: <code>release/games/006/assets/sora-observatory-sky.png</code></li>
+<li>Imagegen2 prompt: “A floating night-sky observatory above soft clouds for a portrait mobile 3D puzzle game, moon, calm blue horizon, distant paper lantern constellations, brass instruments, open readable center area for a 3D board, Japanese magical realism, cyan and gold palette, crop-safe for phone portrait, no characters, no text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<ol>
+<li>Prism/tideglass icon sheet source</li>
+</ol>
+<ul>
+<li>Target: square icon sheet for UI and decals.</li>
+<li>Archive path: <code>release/games/006/assets/source/sora-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/006/assets/sora-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a sky observatory moonbeam puzzle game: moonbeam, prism tower, tideglass meter, Still Sky bell, crane constellation, fox constellation, dawn gate, eclipse shard, bonus comet star, perfect route badge, transparent or plain dark background, high contrast, no text, no watermark.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas/Three.js materials, document the failure in <code>ai/postmortems/day-006.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the observatory charm, verify transparent/cutout quality or clean background removal, readable silhouette, centered pivot, crop margins, no unwanted text/watermarks, and a stable upright orientation.</li>
+<li>Verify control-to-motion alignment in-game: selected prism rotation and beam direction should visually correspond to rotate buttons/dial direction; the charm/board must not appear sideways or upside-down.</li>
+<li>For the background, verify the center board area remains readable after portrait mobile crop and does not hide beams, prisms, receivers, or hazards.</li>
+<li>For icon sheets, verify icons are distinct at final HUD/button size and hazards cannot be confused with bonus stars or constellation targets.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/006/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 006 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<ul>
+<li>Build the static hybrid 3D game under <code>apps/day-006-sora-tideglass-observatory/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/006/</code>.</li>
+<li>Create the public playable route under <code>release/sora/</code>.</li>
+<li>Use static HTML/CSS/JS with Three.js/WebGL and no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+</ul>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, and tune mobile readability/game feel.</li>
+</ul>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, 3D board interaction, prism selection/rotation, Still Sky, and 390x844 portrait layout.</li>
+</ul>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<ul>
+<li>Write <code>ai/postmortems/day-006.md</code> after validation with what worked, what failed, generated-image inspection notes, code-isolation confirmation, and whether generator/template improvements are justified.</li>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 006 is meaningful hybrid 3D spatial gameplay with a 3D board, prism towers, depth-aware beams, and rotation/alignment mechanics.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial, usable tap/rotate controls, no forced landscape canvas, and 44px+ controls.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-006.md</code> is copied exactly to <code>release/games/006/prompt.md</code>.</li>
+<li><code>release/games/006/prompt.html</code> renders the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/sora/index.html</code>, <code>release/sora/prompt.html</code>, <code>release/sora/screenshot.png</code>, and <code>release/sora/assets/</code> exist and work.</li>
+<li>Gallery card for Day 006 shows prompt availability, generation duration, public <code>/sora/</code> links, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/006/screenshot.png</code> and is non-empty/readable.</li>
+<li>Image/source assets exist under <code>release/games/006/assets/source/</code> and optimized assets exist under <code>release/games/006/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; moving/interactive prism/board visuals have verified cutout/background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>No console errors during desktop or mobile smoke.</li>
+<li>Existing <code>release/games/001/**</code>, <code>release/games/002/**</code>, <code>release/games/003/**</code>, <code>release/games/004/**</code>, and <code>release/games/005/**</code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/006/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/sora/index.html, release/sora/prompt.html, release/sora/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-006.md release/games/006/prompt.md
+# Prompt HTML check: verify release/games/006/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;.
+# Browser smoke: open the local/static /sora/ route and verify menu, tutorial, gameplay start, prism selection, rotate controls, Still Sky path, pause, restart, prompt link, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable tap/rotate controls and readable HUD.
+# Static screenshot check: inspect release/games/006/screenshot.png for non-empty readable game content.
+# Docker/static smoke: build the Docker image locally, run it, curl /sora/ and /sora/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 006.</code></pre>
+    </article>
+  </main>
+</body>
+</html>

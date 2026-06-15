@@ -12,6 +12,7 @@ Score each daily game after real browser/mobile testing.
 - Prompt completeness: 0–5
 - One-shot success: 0–5
 - Difference from recent games: 0–5
+- Code isolation: 0–5 (implementation was written from scratch; previous games' HTML/CSS/JS/source folders were not opened, inspected, copied, diffed, grepped, or adapted; only metadata/prompts/postmortems/screenshots were used for variety analysis)
 - Mode variety / 3D cadence: 0–5 (no more than three consecutive 2D games; after two 2D games, 3D is preferred; 3D/hybrid must use real depth/spatial gameplay)
 
 A game may only publish if build/test/smoke requirements pass, regardless of subjective score.

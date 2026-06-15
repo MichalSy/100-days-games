@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#071525" />
+  <title>Sora Tideglass Observatory — Day 006</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="skyBackdrop" aria-hidden="true"></div>
+  <main id="gameShell" class="gameShell">
+    <canvas id="gameCanvas" aria-label="3D tideglass observatory board"></canvas>
+
+    <section id="titleScreen" class="overlay titleScreen" aria-labelledby="gameTitle">
+      <div class="titleCard">
+        <div class="titleTopline">
+          <span>Day 006</span>
+          <span>Hybrid 3D</span>
+          <span>/sora/</span>
+        </div>
+        <img class="charm" src="./assets/tideglass-observatory.png" alt="Miniature brass and glass sky observatory charm" />
+        <p class="eyebrow">Moonbeam alignment score chase</p>
+        <h1 id="gameTitle">Sora Tideglass Observatory</h1>
+        <p class="lede">Rotate prism towers to guide moonbeams into each constellation before the tideglass overflows.</p>
+        <div class="bestPanel" id="menuBests">Best score 0 · fastest calibration —</div>
+        <div class="menuActions">
+          <button id="startButton" class="primaryAction" type="button">Start calibration</button>
+          <a class="secondaryAction" href="./prompt.html">View prompt</a>
+        </div>
+        <article class="tutorialPanel" aria-label="Tutorial">
+          <h2>Tutorial</h2>
+          <ul>
+            <li><strong>Objective:</strong> guide moonbeams into each constellation before the tideglass overflows.</li>
+            <li><strong>Select:</strong> click/tap a prism tower; the selected tower glows.</li>
+            <li><strong>Rotate:</strong> use A/D, arrows, swipe, or the large rotate buttons.</li>
+            <li><strong>Charge stars:</strong> align prism arrows until each requested node fills.</li>
+            <li><strong>Defend the sky:</strong> avoid shards/wrong receivers, use Still Sky when charged, pause/restart from the HUD.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="hud" class="hud hidden" aria-label="Game status">
+      <div class="hudGrid">
+        <div><span>Score</span><strong id="scoreText">0</strong></div>
+        <div><span>Best</span><strong id="bestText">0</strong></div>
+        <div><span>Constellation</span><strong id="phaseText">Crane</strong></div>
+        <div><span>Charged</span><strong id="chargedText">0/2</strong></div>
+        <div><span>Combo</span><strong id="comboText">x1</strong></div>
+        <div><span>Selected</span><strong id="selectedText">Prism 1</strong></div>
+        <div><span>Time</span><strong id="timerText">0.0s</strong></div>
+        <div><span>Still Sky</span><strong id="stillText">0%</strong></div>
+      </div>
+      <div class="tideWrap" aria-label="Tide meter">
+        <span>Tideglass</span>
+        <div class="tideTrack"><i id="tideFill"></i></div>
+      </div>
+      <div class="hudButtons">
+        <button id="pauseButton" type="button">Pause</button>
+        <button id="restartButton" type="button">Restart</button>
+      </div>
+    </section>
+
+    <div id="helper" class="helper hidden">Prism 1 · 0° · next step 15°</div>
+    <div id="banner" class="banner hidden">Sora Star-Tide Calibration</div>
+
+    <section id="controlPad" class="controlPad hidden" aria-label="Touch controls">
+      <button id="rotateLeft" class="rotateButton" type="button" aria-label="Rotate selected prism counter-clockwise">↺ Rotate</button>
+      <div class="dial" id="dial" aria-label="Selected prism radial dial"><span id="dialNeedle"></span></div>
+      <button id="rotateRight" class="rotateButton" type="button" aria-label="Rotate selected prism clockwise">Rotate ↻</button>
+      <button id="stillButton" class="stillButton" type="button">Still Sky</button>
+    </section>
+
+    <section id="pauseOverlay" class="overlay modal hidden" aria-label="Paused">
+      <div class="modalCard">
+        <h2>Observatory paused</h2>
+        <p>Resume the beam preview, or restart this run. Controls: tap/click prisms, rotate with A/D or buttons, Space for Still Sky, R to restart.</p>
+        <div class="modalActions">
+          <button id="resumeButton" class="primaryAction" type="button">Resume</button>
+          <button id="restartPauseButton" class="secondaryAction buttonLike" type="button">Restart</button>
+          <a class="secondaryAction" href="./prompt.html">Prompt</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultsOverlay" class="overlay modal hidden" aria-label="Game results">
+      <div class="modalCard resultsCard">
+        <h2 id="resultTitle">Tideglass overflow</h2>
+        <div id="resultStats" class="resultStats"></div>
+        <div id="badgeList" class="badgeList"></div>
+        <div class="modalActions">
+          <button id="restartResultsButton" class="primaryAction" type="button">Restart</button>
+          <a class="secondaryAction" href="./prompt.html">Prompt</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

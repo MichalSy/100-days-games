@@ -13,6 +13,10 @@
 
 Explain why this idea was selected and how it differs from recent games.
 
+## Code isolation / no previous game source
+
+The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old `apps/day-*` folders, old `release/games/NNN/` HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game's HTML/CSS/JS must come from this prompt and general web/game knowledge, not from earlier game implementations.
+
 ## Mode variety / 3D cadence
 
 Before locking the concept, inspect the latest generated modes in `src/data/games.ts`:
@@ -77,6 +81,7 @@ The archived `release/games/NNN/prompt.html` must be a consistent rendered HTML 
 ## Acceptance criteria
 
 - Static build passes.
+- Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.
 - Mode choice follows the 3D cadence rule: no more than three consecutive generated 2D games; 3D/hybrid is real spatial gameplay, not just decorative perspective.
 - Desktop smoke passes.
 - Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial, usable touch controls, and no forced landscape canvas unless explicitly justified.

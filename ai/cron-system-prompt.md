@@ -29,24 +29,25 @@ Do not load every installed skill. Skill context is not free: loading unrelated 
 7. Smartphone UX is mobile-first: default to portrait-friendly play at about 390x844. Do not force a tiny landscape canvas on phones. If a mechanic truly requires landscape, implement an explicit orientation gate/rotate-phone message and verify the landscape mobile viewport separately.
 8. Layout must adapt responsively: HUD, tutorial, touch targets, and canvas/game area must remain readable and tappable on portrait phones (44px+ touch targets, no critical text below the fold, no tiny hazards/objectives).
 9. Game modes must vary across the series. Do not default to 2D. Analyze `src/data/games.ts` before selecting the next concept; after at most three consecutive generated 2D games, the next generated game must be 3D or a clearly meaningful hybrid. With the current Day 001 and Day 002 both being 2D, Day 003 may be 2D only if Day 004 is planned/forced as 3D; choosing 3D already for Day 003 is preferred if feasible.
-10. Image-generated assets must be inspected after generation and before integration. For sprites or anything animated/moved/rotated, analyze the actual image for: facing direction, transparent/cut-out quality, unwanted background, silhouette readability, pivot/origin, crop margins, and whether movement/rotation in code matches the visual orientation. If the asset is wrong, regenerate or post-process it before shipping; do not hide the issue with code hacks unless explicitly documented.
-11. The game must include menu, tutorial, objective, controls, and restart/pause behavior when relevant.
-12. The gallery card must show prompt availability and generation duration.
-13. Public route shape uses unique random romanized Japanese words, not numeric paths, e.g. `https://100-day-games.sytko.de/akari/`. For each new day, choose one short lowercase ASCII romaji word from Japanese (for example: akari, tsubasa, komorebi, hikari, yume, sora, kaze, nami, hotaru, midori, tsuki, ame, mori, hana, ryu, kumo, yuki, asa, haru, natsu, aki, fuyu), avoid words already used in `src/data/games.ts`, create the public playable alias under `release/<word>/`, and set `playUrl`, `promptUrl`, and `screenshotUrl` to that public alias. Keep immutable archive files under `release/games/NNN/`.
-14. Never modify or delete an existing `release/games/NNN/**` folder from `origin/main`, unless that exact day is explicitly listed in `release/regeneration-allowlist.json`; if a listed day is successfully regenerated and validated, remove it from the allowlist in the same final commit.
-15. Push only after the cron-run validation passes locally: build, release validation, browser smoke, mobile smoke, screenshot, Docker/static smoke, and immutable guard.
-16. GitHub Actions is a safety net for repository integrity and image build, not the primary game QA runner.
-17. Self-improvement happens only after game generation and testing.
+10. Code isolation is mandatory. The game generator and every implementation/polish subagent must not open, inspect, copy, diff, grep, or base code on previous games' implementation files, including `apps/day-*`, `release/games/[old-day]/**/{index.html,styles.css,game.js,*.js,*.css}`, and public alias folders for old days. Previous games may be inspected only through metadata/prompts/postmortems/screenshots needed for variety decisions, never through their source code. Build the new game's HTML/CSS/JS from the new day prompt and general web/game knowledge, not from earlier game code.
+11. Image-generated assets must be inspected after generation and before integration. For sprites or anything animated/moved/rotated, analyze the actual image for: facing direction, transparent/cut-out quality, unwanted background, silhouette readability, pivot/origin, crop margins, and whether movement/rotation in code matches the visual orientation. If the asset is wrong, regenerate or post-process it before shipping; do not hide the issue with code hacks unless explicitly documented.
+12. The game must include menu, tutorial, objective, controls, and restart/pause behavior when relevant.
+13. The gallery card must show prompt availability and generation duration.
+14. Public route shape uses unique random romanized Japanese words, not numeric paths, e.g. `https://100-day-games.sytko.de/akari/`. For each new day, choose one short lowercase ASCII romaji word from Japanese (for example: akari, tsubasa, komorebi, hikari, yume, sora, kaze, nami, hotaru, midori, tsuki, ame, mori, hana, ryu, kumo, yuki, asa, haru, natsu, aki, fuyu), avoid words already used in `src/data/games.ts`, create the public playable alias under `release/<word>/`, and set `playUrl`, `promptUrl`, and `screenshotUrl` to that public alias. Keep immutable archive files under `release/games/NNN/`.
+15. Never modify or delete an existing `release/games/NNN/**` folder from `origin/main`, unless that exact day is explicitly listed in `release/regeneration-allowlist.json`; if a listed day is successfully regenerated and validated, remove it from the allowlist in the same final commit.
+16. Push only after the cron-run validation passes locally: build, release validation, browser smoke, mobile smoke, screenshot, Docker/static smoke, and immutable guard.
+17. GitHub Actions is a safety net for repository integrity and image build, not the primary game QA runner.
+18. Self-improvement happens only after game generation and testing.
 
 ## Daily sequence
 
 1. Pull latest `main`.
 2. Determine the next missing day.
-3. Analyze previous prompts/manifests/postmortems and count the consecutive latest generated modes (`2d`, `3d`, `hybrid`) from `src/data/games.ts`.
+3. Analyze previous prompts/manifests/postmortems/screenshots and count the consecutive latest generated modes (`2d`, `3d`, `hybrid`) from `src/data/games.ts`. Do not read previous games' implementation source code for this analysis.
 4. Choose a concept/mode that improves variety: if the current streak has three 2D games, select 3D or meaningful hybrid; if the current streak has two 2D games, strongly prefer 3D now unless there is a documented reason to make exactly one more 2D.
 5. Optionally search the web for mechanics/trends/inspiration.
 6. Generate `prompts/day-NNN.md` using `ai/day-prompt-template.md`.
-7. After the prompt is written, start a fresh implementation agent/subagent with reset context. Give it only the repo path, day number, generated prompt path, and validation/publish rules. The fresh agent must read `prompts/day-NNN.md` and implement from that prompt, not from hidden planner context.
+7. After the prompt is written, start a fresh implementation agent/subagent with reset context. Give it only the repo path, day number, generated prompt path, validation/publish rules, and the code-isolation rule. The fresh agent must read `prompts/day-NNN.md` and implement from that prompt, not from hidden planner context or previous games' source code.
 8. The fresh implementation agent must use separate implementation and QA/review passes unless a hard blocker makes that impossible. The implementation pass builds the game from the archived prompt. The QA/review pass must inspect the actual route, mobile layout, generated screenshot, and any generated assets; it should file concrete fixes before publish, not just say tests pass.
 9. The fresh implementation agent may dispatch its own subagents as specified inside the generated day prompt:
    - implementation
@@ -56,12 +57,12 @@ Do not load every installed skill. Skill context is not free: loading unrelated 
 10. Graphics/assets rule: prefer Imagegen2 (`openai/gpt-image-2`) for final visual art instead of drawing final graphics procedurally by script. Procedural CSS/canvas is acceptable for layout, debug overlays, particles, hitboxes, simple UI chrome, and as an emergency fallback only; final character/background/sprite/texture art should come from Imagegen2 when image generation is available. Preserve Imagegen2 source files under `release/games/NNN/assets/source/` or equivalent, and allow scripts only to crop, alpha-clean, atlas-pack, resize, or optimize those generated outputs.
 11. Asset QA rule: after every image generation, inspect the actual generated image before using it. For sprites and animated/moved entities, verify transparency/cutout, facing direction, natural rotation baseline, pivot point, crop margins, visual readability at in-game size, and control-to-motion alignment. If a fish/ship/character points the wrong way, has a background box, or rotates incorrectly during movement, fix the asset pipeline before publish.
 12. Screenshot/gameplay QA rule: use browser screenshots plus the vision tool to judge visual quality, not only DOM/test assertions. Reject outputs that look like placeholder art, tiny unreadable UI, low-effort geometry, or mechanically boring demos even if automated tests pass.
-13. Build the source app under `apps/day-NNN-slug/`.
+13. Build the source app under `apps/day-NNN-slug/` from scratch. Do not copy or adapt files from any prior `apps/day-*` or `release/games/[old-day]` folder.
 14. Build immutable static archive output under `release/games/NNN/`, then create the public playable Japanese-word alias under `release/<word>/`.
 15. Update `src/data/games.ts` and gallery metadata.
 16. Capture screenshot.
 17. Run all validations.
-18. Reflect and write `ai/postmortems/day-NNN.md`.
+18. Reflect and write `ai/postmortems/day-NNN.md`, including an explicit code-isolation note confirming that no previous game implementation code was inspected or copied.
 19. Improve this prompt/rubric/template only if the testing evidence justifies it.
 20. Re-run validation if generator files changed.
 21. Commit and push.

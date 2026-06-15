@@ -91,6 +91,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/yume/screenshot.png',
     generationDuration: 'manual subagent run ~100 minutes',
     generatedAt: '2026-06-14T01:43:31Z'
+  },
+  6: {
+    status: 'generated',
+    title: 'Sora Tideglass Observatory',
+    slug: 'sora-tideglass-observatory',
+    genre: ['3D puzzle arcade', 'moonbeam alignment', 'mobile-first hybrid'],
+    mode: 'hybrid',
+    description: 'Rotate prism towers on a floating sky observatory board to guide moonbeams through depth-aware paths into constellation receivers before the tideglass overflows.',
+    objective: 'Complete Crane, Fox, and Dawn Gate constellations and reach 2200 points to trigger Sora Star-Tide Calibration, then continue into endless constellation waves.',
+    playUrl: '/sora/',
+    promptUrl: '/sora/prompt.html',
+    promptExcerpt: 'Select prism towers, rotate moonbeam angles, charge constellation nodes, avoid eclipse shards, and stabilize the sky with Still Sky before the tideglass overflows.',
+    screenshotUrl: '/sora/screenshot.png',
+    generationDuration: 'manual subagent run ~120 minutes',
+    generatedAt: '2026-06-15T01:44:30Z'
   }
 };
 
