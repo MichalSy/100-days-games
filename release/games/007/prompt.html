@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Day 007 Game Generation Prompt</title>
+<style>
+:root{color-scheme:dark;--bg:#07191b;--panel:#102b2d;--paper:#fff4d8;--ink:#173034;--muted:#5d7475;--teal:#2bc7bd;--coral:#ff7965;--gold:#f6ca55}*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-rounded,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 20% 0%,rgba(43,199,189,.24),transparent 32%),linear-gradient(180deg,#061416,#0d3134 46%,#45181c);color:var(--paper);line-height:1.65}.wrap{width:min(980px,calc(100% - 28px));margin:0 auto;padding:28px 0 54px}.top{position:sticky;top:0;z-index:2;margin:0 -14px 24px;padding:12px 14px;background:rgba(7,25,27,.78);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.12)}a{color:#fff0a5;font-weight:850}.back{display:inline-flex;min-height:44px;align-items:center;padding:9px 14px;border:1px solid rgba(255,255,255,.24);border-radius:999px;text-decoration:none;background:rgba(255,255,255,.08)}article{background:linear-gradient(180deg,rgba(255,244,216,.98),rgba(255,232,188,.96));color:var(--ink);border:3px solid rgba(255,255,255,.48);border-radius:30px;padding:clamp(18px,4vw,42px);box-shadow:0 30px 90px rgba(0,0,0,.32)}h1{font-size:clamp(2rem,6vw,4rem);line-height:1.02;margin:.1em 0 .45em;color:#801e23;letter-spacing:-.05em}h2{margin:1.5em 0 .45em;color:#075f64;font-size:clamp(1.3rem,3vw,2rem)}h3{margin:1.15em 0 .35em;color:#96321e}p{margin:.55em 0}ul,ol{padding-left:1.35rem;margin:.45em 0 .9em}li{margin:.28em 0}code{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(7,95,100,.1);border:1px solid rgba(7,95,100,.18);border-radius:7px;padding:.08em .32em}pre{overflow:auto;background:#082326;color:#fff4d8;border-radius:18px;padding:16px;border:1px solid rgba(255,255,255,.14)}pre code{background:transparent;border:0;padding:0}strong{color:#6f1a1f}@media(max-width:520px){.wrap{width:min(100% - 16px,980px);padding-top:8px}article{border-radius:22px;padding:16px}.top{margin:0 -8px 14px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<nav class="top"><a class="back" href="./index.html">← Back to Nami Bento Tide Kitchen</a></nav>
+<article>
+<h1>Day 007 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 007</li>
+<li>Title: Nami Bento Tide Kitchen</li>
+<li>Slug: nami-bento-tide-kitchen</li>
+<li>Public route word: nami</li>
+<li>Mode: 2D</li>
+<li>Genre: mobile-first time-management puzzle arcade / conveyor-lane cooking score chase</li>
+<li>Mood/style: bright seaside Japanese bento stall at late morning, teal waves, lacquer trays, warm rice steam, cute kitchen charm, tactile drag-and-tap play, cheerful but skillful portrait-phone UI</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The current generated series in <code>src/data/games.ts</code> is:</p>
+<ul>
+<li>Day 001 <code>2d</code>: calm koi pond collection and drift survival.</li>
+<li>Day 002 <code>2d</code>: 2D timed delivery route planning.</li>
+<li>Day 003 <code>3d</code>: neon bonsai ring-flight crafting.</li>
+<li>Day 004 <code>2d</code>: firefly path drawing / light routing.</li>
+<li>Day 005 <code>3d</code>: dream-rail lane runner.</li>
+<li>Day 006 <code>hybrid</code>: 3D moonbeam/prism alignment puzzle.</li>
+</ul>
+<p>The latest generated mode is Day 006 <code>hybrid</code>, so there is no active 2D streak. Day 007 may be 2D without violating cadence, but it must feel unlike the existing 2D entries. This game uses a new interaction vocabulary: fast order reading, ingredient lane management, drag/tap sorting, short-term memory, and combo routing inside a compact cooking station. It is not a vehicle game, not path drawing, not light routing, not 3D ring/rail movement, and not top-down survival.</p>
+<p>Recent screenshot variety notes:</p>
+<ul>
+<li>Day 004 was a dark moonlit garden with fireflies and direct path drawing.</li>
+<li>Day 005 was a deep-blue 3D rail corridor with bottom lane buttons.</li>
+<li>Day 006 was a cool cyan/gold 3D observatory board with prism rotation controls.</li>
+</ul>
+<p>Day 007 should shift the series into a warmer, brighter, food-craft palette: seafoam teal, lacquer red, rice cream, pickled yellow, nori green, and coral accents. The screen should read like a cozy seaside kitchen counter, with moving tide/conveyor lanes, customer/order cards, and large thumb-friendly ingredient trays.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game's HTML/CSS/JS must come from this prompt and general web/game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 004 <code>2d</code>, Day 005 <code>3d</code>, and Day 006 <code>hybrid</code>. The latest generated 2D streak is zero.</p>
+<p>Mode decision: Day 007 is <code>2D</code>, intentionally chosen after two non-flat entries to provide a tactile mobile-first arcade puzzle. The design must still be rich and game-like, not a static clicker or simple matching demo:</p>
+<ul>
+<li>Use a responsive 2D canvas or DOM/canvas hybrid with animated ingredient lanes, tray slots, customer order cards, hazards, feedback bursts, and score/state transitions.</li>
+<li>Gameplay must depend on timing and spatial placement: ingredients drift on tide belts; players drag or tap them into tray slots in the requested sequence before customers leave.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+<li>The next day is free to choose 2D/3D/hybrid based on the future cadence, but after Day 007 the latest 2D streak will be one.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Assemble accurate bento orders by catching ingredients from tide conveyors and placing them into lacquer tray slots before the customer patience timer empties.</li>
+<li>Win condition: Complete three service waves — Morning Ferry, Lunch Bell, and Festival Rush — and reach 2400 points to trigger “Nami Grand Bento Service”. After that, continue in endless rush mode for score chasing.</li>
+<li>Lose condition: The stall receives three complaint shells from wrong ingredients, missed orders, or letting the tide spoil too many ingredients.</li>
+<li>Core loop:</li>
+</ul>
+<ol>
+<li>Start on a title/menu screen with Day 007 badge, mode badge “2D”, public route <code>/nami/</code>, best score, best Grand Service time, tutorial, prompt link, and large Start button.</li>
+<li>Customer order cards appear at the top with large ingredient icons and color/shape labels.</li>
+<li>Ingredients float in from left/right on two or three animated tide conveyor lanes in the center.</li>
+<li>Player taps an ingredient then taps a tray slot, or drags the ingredient directly into the slot. Correct ingredients snap in with a satisfying steam/chime burst.</li>
+<li>Finished trays are served automatically when all requested slots are filled in order, awarding combo and patience bonuses.</li>
+<li>Hazards and modifiers appear: greedy crabs steal exposed ingredients, rogue wave splashes shuffle one lane, and wasabi decoys look tempting but cause complaints if placed incorrectly.</li>
+<li>Use the “Calm Tide” special when charged to slow conveyor movement, reveal order hints, and push crabs away briefly.</li>
+<li>Pause/restart remain available throughout.</li>
+</ol>
+<ul>
+<li>15+ minute play-value strategy:</li>
+<li>Save best score, fastest Grand Service time, highest clean-order streak, and endless wave in localStorage.</li>
+<li>Include three authored service waves:</li>
+<li>Morning Ferry: two-slot orders, slow tide, rice/tamago/nori basics, no decoys for the first few orders.</li>
+<li>Lunch Bell: three-slot orders, two simultaneous customers, first crabs, wasabi decoys, quicker patience drain.</li>
+<li>Festival Rush: four-slot orders, lane shuffle waves, bonus golden shrimp, tighter combo windows, customer priority decisions.</li>
+<li>Deterministic Day 007 seed varies order sequences, crab timing, bonus ingredient appearances, and lane speeds while keeping early orders fair.</li>
+<li>Mastery badges: complete Morning Ferry without a complaint, serve 12 clean orders in a row, trigger Grand Service under 170 seconds, reach 4200 in endless.</li>
+<li>Strategic scoring rewards clean and fast service: sequence accuracy, patience remaining, combo chains, unused Calm Tide, and bonus ingredients matter.</li>
+<li>Endless mode after Grand Service adds more simultaneous customers and faster tide belts but keeps ingredients large and readable on mobile.</li>
+<li>Difficulty scaling:</li>
+<li>0-45 seconds: one customer, two-slot orders, slow lanes, large tray slots.</li>
+<li>45-105 seconds: two customers, three-slot orders, crabs begin crossing, decoys appear rarely.</li>
+<li>105-170 seconds: faster lanes, wave-shuffle events, four-slot festival orders, customer priority choices.</li>
+<li>170+ seconds/endless: denser order queue, more crabs/decoys, shorter patience timers, but no tiny objects required for survival.</li>
+<li>Keep mobile fair: ingredients at least 42px visual size, tray slots at least 50px, touch targets 56px+, forgiving drop radii, strong icon silhouettes, and short labels for colorblind readability.</li>
+<li>Scoring/rewards:</li>
+<li>Correct ingredient placed: +35 points times combo tier.</li>
+<li>Complete order: +170 points plus patience bonus up to +120.</li>
+<li>Perfect sequence order: +90 bonus and +12% Calm Tide charge.</li>
+<li>Golden shrimp bonus ingredient: +160 if placed in a wildcard garnish slot.</li>
+<li>Complete service wave: +360 and remove one complaint shell if below max complaints.</li>
+<li>Nami Grand Bento Service: +800 and endless mode unlock.</li>
+<li>Wrong ingredient: complaint meter +1 shell fragment, combo reset, ingredient returns to tide if possible.</li>
+<li>Spoiled/missed ingredient: small patience penalty, not instant failure.</li>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<li>Mouse click/tap: select ingredient or tray slot.</li>
+<li>Mouse drag: drag ingredient into tray slot.</li>
+<li>Arrow keys / A-D: move selection focus between visible ingredients/tray slots for keyboard accessibility.</li>
+<li>Space or Shift: activate Calm Tide when charged.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+<li>Enter/click: start from menu or confirm restart.</li>
+<li>Mobile/touch:</li>
+<li>Tap ingredient then tap target tray slot, or drag ingredient directly; both must work.</li>
+<li>Large Calm Tide button near lower right, at least 56px target.</li>
+<li>Pause and Restart controls with 44px+ targets.</li>
+<li>No virtual joystick. The interaction is direct tap/drag sorting.</li>
+<li>Mobile layout/orientation:</li>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact HUD with score, best, complaints, wave, combo, Calm Tide meter.</li>
+<li>Below HUD: customer order cards with large icons and patience bars.</li>
+<li>Center: tide conveyor lanes with readable ingredients and crab hazards.</li>
+<li>Bottom: active bento tray slots plus large Calm Tide / Pause / Restart controls.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, ingredient placement, hazards, and special power must be visible.</li>
+<li>Ingredient icons must combine art, color, silhouette, and short labels such as RICE, NORI, EGG, FISH, SHRIMP, PICKLE so hue alone is not required.</li>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<ul>
+<li>Shows title “Nami Bento Tide Kitchen”.</li>
+<li>Shows Day 007 badge, mode badge “2D”, public route <code>/nami/</code>, best score, best Grand Service if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+</ul>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<ul>
+<li>Objective: “Catch tide ingredients, fill each bento order in sequence, and keep customers happy.”</li>
+<li>Placement: tap/drag ingredients into matching tray slots.</li>
+<li>Orders: customer cards show the needed ingredient sequence and patience bar.</li>
+<li>Hazards: crabs steal ingredients, rogue waves shuffle lanes, wasabi decoys cause complaints if served incorrectly.</li>
+<li>Calm Tide: slows lanes and pushes crabs away when charged.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<ul>
+<li>Score, best score, complaints shells, current wave, orders served, combo, Calm Tide charge, elapsed time.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<ol>
+<li>Customer/order overlay</li>
+</ol>
+<ul>
+<li>Order cards remain readable on mobile and never hide the active tray.</li>
+<li>The currently recommended next ingredient should pulse subtly after two seconds of inactivity.</li>
+</ul>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, prompt link.</li>
+</ul>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<ul>
+<li>Final score, best score, wave reached, Grand Service status, clean-order streak, mastery badges, restart button.</li>
+</ul>
+<ol>
+<li>Nami Grand Bento Service banner</li>
+</ol>
+<ul>
+<li>Trigger once per run after all three service waves and 2400 score.</li>
+<li>Non-blocking sunny wave sparkle, tray seals stamp into place, customers cheer; endless play continues after the banner fades.</li>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: mascot/chef charm, seaside kitchen background, ingredient/icon sheet, customer/order decorative pieces. Canvas/SVG/DOM code may animate, crop, alpha-clean, resize, composite, optimize, draw particles, collision rings, UI chrome, tray slot outlines, tide lane masks, and debug shapes. It should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/007/assets/source/</code> and use optimized playable copies under <code>release/games/007/assets/</code>. Also copy optimized playable assets into <code>apps/day-007-nami-bento-tide-kitchen/assets/</code> and the public alias <code>release/nami/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid tiny details that disappear at final in-game size, and keep high-contrast silhouettes.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Bento chef / tide kitchen mascot source</li>
+</ol>
+<ul>
+<li>Target: transparent PNG, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/007/assets/source/nami-chef-source.png</code></li>
+<li>Optimized path: <code>release/games/007/assets/nami-chef.png</code></li>
+<li>Imagegen2 prompt: “A small cute seaside Japanese bento chef mascot for a mobile browser arcade cooking game, wave-pattern apron, tiny lacquer tray, warm rice steam, seafoam teal and coral accents, centered readable silhouette, transparent or plain light background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Seaside bento stall background source</li>
+</ol>
+<ul>
+<li>Target: portrait-friendly background suitable for a phone game cooking counter.</li>
+<li>Archive path: <code>release/games/007/assets/source/nami-kitchen-source.png</code></li>
+<li>Optimized path: <code>release/games/007/assets/nami-kitchen.png</code></li>
+<li>Imagegen2 prompt: “A bright seaside Japanese bento stall counter for a portrait mobile arcade game, ocean waves beyond the stall, lacquer trays, bamboo baskets, rice steam, warm late-morning sunlight, open readable center area for conveyor lanes and tray UI, seafoam teal, rice cream, lacquer red, coral accents, crop-safe for phone portrait, no characters, no text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<ol>
+<li>Bento ingredient icon sheet source</li>
+</ol>
+<ul>
+<li>Target: square icon sheet for ingredients, hazards, and UI decals.</li>
+<li>Archive path: <code>release/games/007/assets/source/nami-ingredients-source.png</code></li>
+<li>Optimized path: <code>release/games/007/assets/nami-ingredients.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a cute bento tide kitchen arcade game: rice ball, nori strip, tamago egg, salmon fish, shrimp, pickle, wasabi decoy, golden shrimp bonus, crab hazard, rogue wave, calm tide shell, complaint shell, lacquer bento tray, customer ticket, transparent or plain light background, high contrast, no text, no watermark.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas assets, document the failure in <code>ai/postmortems/day-007.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the chef mascot, verify transparent/cutout quality or clean background removal, readable silhouette, centered pivot, crop margins, no unwanted text/watermarks, and a clear upright orientation.</li>
+<li>Verify control-to-motion alignment in-game: ingredients should move along tide lanes without appearing sideways or visually ambiguous, drag ghost offsets must align with the finger/cursor, and tray snap feedback must land on the correct slot.</li>
+<li>For the background, verify the center lane/tray area remains readable after portrait mobile crop and does not hide ingredients, order cards, crabs, or tray slots.</li>
+<li>For the icon sheet, verify ingredients are distinct at final 42-56px size and hazards/decoys cannot be confused with valid order ingredients or golden bonuses.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/007/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&amp;lt;pre&amp;gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 007 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<ul>
+<li>Build the static 2D game under <code>apps/day-007-nami-bento-tide-kitchen/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/007/</code>.</li>
+<li>Create the public playable route under <code>release/nami/</code>.</li>
+<li>Use static HTML/CSS/JS with no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+</ul>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, and tune mobile readability/game feel.</li>
+</ul>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, customer orders, ingredient drag/tap placement, Calm Tide, crabs/waves/decoys, and 390x844 portrait layout.</li>
+</ul>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<ul>
+<li>Write <code>ai/postmortems/day-007.md</code> after validation with what worked, what failed, generated-image inspection notes, code-isolation confirmation, and whether generator/template improvements are justified.</li>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 007 is allowed as 2D because the latest 2D streak is zero after Day 006 hybrid, and it strongly differs through cooking/order-management gameplay.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/order cards, usable tap/drag controls, no forced landscape canvas, and 44px+ controls.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-007.md</code> is copied exactly to <code>release/games/007/prompt.md</code>.</li>
+<li><code>release/games/007/prompt.html</code> renders the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/nami/index.html</code>, <code>release/nami/prompt.html</code>, <code>release/nami/screenshot.png</code>, and <code>release/nami/assets/</code> exist and work.</li>
+<li>Gallery card for Day 007 shows prompt availability, generation duration, public <code>/nami/</code> links, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/007/screenshot.png</code> and is non-empty/readable.</li>
+<li>Image/source assets exist under <code>release/games/007/assets/source/</code> and optimized assets exist under <code>release/games/007/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; moving/interactive ingredient visuals have verified cutout/background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>No console errors during desktop or mobile smoke.</li>
+<li>Existing <code>release/games/001/**</code>, <code>release/games/002/**</code>, <code>release/games/003/**</code>, <code>release/games/004/**</code>, <code>release/games/005/**</code>, and <code>release/games/006/**</code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>
+pnpm typecheck
+
+pnpm test
+
+pnpm build
+
+pnpm release:validate
+
+pnpm test:smoke
+
+pnpm test:immutable -- --base origin/main
+
+</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code>
+# Screenshot/static checks: verify release/games/007/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/nami/index.html, release/nami/prompt.html, release/nami/screenshot.png, optimized assets, and source assets exist and are non-empty.
+
+# Prompt copy check: cmp prompts/day-007.md release/games/007/prompt.md
+
+# Prompt HTML check: verify release/games/007/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;.
+
+# Browser smoke: open the local/static /nami/ route and verify menu, tutorial, gameplay start, ingredient tap/drag placement, customer order completion, Calm Tide, pause, restart, prompt link, no console errors.
+
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable tap/drag controls and readable HUD/order cards.
+
+# Static screenshot check: inspect release/games/007/screenshot.png for non-empty readable game content.
+
+# Docker/static smoke: build the Docker image locally, run it, curl /nami/ and /nami/prompt.html, then stop the container.
+
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 007.
+
+</code></pre>
+</article>
+</main>
+</body>
+</html>

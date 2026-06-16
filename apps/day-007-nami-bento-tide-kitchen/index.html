@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#18a7a4" />
+    <title>Nami Bento Tide Kitchen — Day 007</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="game-shell" aria-label="Nami Bento Tide Kitchen game">
+      <canvas id="gameCanvas" aria-label="Animated tide conveyor kitchen lanes" role="img"></canvas>
+
+      <section id="menu" class="overlay menu-overlay" aria-labelledby="menuTitle">
+        <div class="menu-card">
+          <div class="badge-row">
+            <span class="badge">Day 007</span>
+            <span class="badge teal">2D</span>
+            <span class="badge coral">/nami/</span>
+          </div>
+          <img class="mascot" src="./assets/nami-chef.png" alt="Nami bento chef mascot holding a lacquer tray" />
+          <p class="eyebrow">Seaside order puzzle arcade</p>
+          <h1 id="menuTitle">Nami Bento Tide Kitchen</h1>
+          <p class="lead">Catch tide ingredients, fill each bento order in sequence, and keep customers happy.</p>
+          <div class="best-grid" aria-live="polite">
+            <span><strong id="menuBest">0</strong><small>Best score</small></span>
+            <span><strong id="menuGrand">—</strong><small>Best Grand Service</small></span>
+            <span><strong id="menuStreak">0</strong><small>Clean streak</small></span>
+          </div>
+          <div class="menu-actions">
+            <button id="startButton" class="primary-btn" type="button">Start service</button>
+            <a class="prompt-link" href="./prompt.html">View prompt</a>
+          </div>
+          <article class="tutorial-panel">
+            <h2>Tutorial</h2>
+            <ul>
+              <li><strong>Objective:</strong> catch tide ingredients and fill each customer sequence before patience drains.</li>
+              <li><strong>Placement:</strong> tap an ingredient then a tray slot, or drag it directly into the slot.</li>
+              <li><strong>Orders:</strong> cards show the needed icons and a patience bar. Pick the priority card when two arrive.</li>
+              <li><strong>Hazards:</strong> crabs steal exposed food, rogue waves shuffle lanes, and wasabi decoys cause complaints.</li>
+              <li><strong>Calm Tide:</strong> spend charge to slow lanes, pulse hints, and push crabs away.</li>
+              <li><strong>Desktop:</strong> arrows/A-D move focus, Space/Shift calms tide, P pauses, R restarts.</li>
+            </ul>
+            <img src="./assets/nami-ingredients.png" alt="Ingredient and hazard icon sheet" />
+          </article>
+        </div>
+      </section>
+
+      <section id="pauseOverlay" class="overlay hidden" aria-labelledby="pauseTitle">
+        <div class="dialog-card">
+          <h2 id="pauseTitle">Service paused</h2>
+          <p>Resume when ready. Keep the next tray slot glowing in your mind, and use Calm Tide when crabs crowd the counter.</p>
+          <div class="dialog-actions">
+            <button id="resumeButton" class="primary-btn" type="button">Resume</button>
+            <button id="restartPauseButton" type="button">Restart</button>
+            <a href="./prompt.html">Prompt</a>
+          </div>
+          <p class="controls-copy">Tap/drag ingredients · P pause · R restart · Space/Shift Calm Tide</p>
+        </div>
+      </section>
+
+      <section id="resultsOverlay" class="overlay hidden" aria-labelledby="resultsTitle">
+        <div class="dialog-card results-card">
+          <h2 id="resultsTitle">Bento service complete</h2>
+          <div id="resultsStats" class="results-stats"></div>
+          <div id="badgeList" class="badge-list"></div>
+          <div class="dialog-actions">
+            <button id="restartResultsButton" class="primary-btn" type="button">Restart run</button>
+            <a href="./prompt.html">View prompt</a>
+          </div>
+        </div>
+      </section>
+
+      <aside id="grandBanner" class="grand-banner hidden" aria-live="assertive">
+        <strong>Nami Grand Bento Service!</strong>
+        <span>Sunny wave sparkle — endless rush unlocked.</span>
+      </aside>
+
+      <div class="hud" aria-live="polite">
+        <span>Score <strong id="scoreText">0</strong></span>
+        <span>Best <strong id="bestText">0</strong></span>
+        <span>Shells <strong id="complaintsText">○○○</strong></span>
+        <span>Wave <strong id="waveText">Morning Ferry</strong></span>
+        <span>Served <strong id="servedText">0</strong></span>
+        <span>Combo <strong id="comboText">x1</strong></span>
+        <span>Time <strong id="timeText">0:00</strong></span>
+      </div>
+
+      <div id="orders" class="orders" aria-label="Customer orders"></div>
+
+      <div class="bottom-panel">
+        <div id="trayTitle" class="tray-title">Tap an order, then fill slots in sequence</div>
+        <div id="traySlots" class="tray-slots" aria-label="Active bento tray slots"></div>
+        <div class="control-row">
+          <button id="calmButton" class="calm-btn" type="button" aria-label="Activate Calm Tide">
+            <span>Calm Tide</span><strong id="calmMeter">0%</strong>
+          </button>
+          <button id="pauseButton" type="button">Pause</button>
+          <button id="restartButton" type="button">Restart</button>
+        </div>
+      </div>
+    </main>
+    <script src="./game.js" type="module"></script>
+  </body>
+</html>

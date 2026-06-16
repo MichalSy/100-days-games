@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-15T01:44:30.000Z",
+  "generatedAt": "2026-06-16T01:44:33.000Z",
   "totalDays": 100,
-  "completedDays": 6,
+  "completedDays": 7,
   "games": [
     {
       "day": 1,
@@ -56,6 +56,15 @@
       "promptUrl": "/sora/prompt.html",
       "screenshotUrl": "/sora/screenshot.png",
       "generationDuration": "manual subagent run ~120 minutes"
+    },
+    {
+      "day": 7,
+      "title": "Nami Bento Tide Kitchen",
+      "slug": "nami-bento-tide-kitchen",
+      "playUrl": "/nami/",
+      "promptUrl": "/nami/prompt.html",
+      "screenshotUrl": "/nami/screenshot.png",
+      "generationDuration": "manual subagent run ~95 minutes"
     }
   ]
 }

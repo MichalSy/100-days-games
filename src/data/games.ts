@@ -106,6 +106,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/sora/screenshot.png',
     generationDuration: 'manual subagent run ~120 minutes',
     generatedAt: '2026-06-15T01:44:30Z'
+  },
+  7: {
+    status: 'generated',
+    title: 'Nami Bento Tide Kitchen',
+    slug: 'nami-bento-tide-kitchen',
+    genre: ['time-management puzzle', 'conveyor cooking', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Run a bright seaside bento stall by catching tide-lane ingredients, filling customer orders in sequence, dodging crabs and wasabi decoys, and chaining clean service combos.',
+    objective: 'Complete Morning Ferry, Lunch Bell, and Festival Rush while reaching 2400 points to trigger Nami Grand Bento Service, then continue into endless rush scoring.',
+    playUrl: '/nami/',
+    promptUrl: '/nami/prompt.html',
+    promptExcerpt: 'Catch tide ingredients, drag or tap them into bento tray slots, satisfy customer order cards, calm the conveyor waves, and keep complaint shells away.',
+    screenshotUrl: '/nami/screenshot.png',
+    generationDuration: 'manual subagent run ~95 minutes',
+    generatedAt: '2026-06-16T01:44:33Z'
   }
 };
 
