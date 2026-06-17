@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="Day 008: Mori Mosslight Seedkeeper, a mobile-first 3D moss routing arcade game." />
+    <title>Mori Mosslight Seedkeeper — Day 008</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%8C%BF%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="gameShell" class="game-shell" aria-label="Mori Mosslight Seedkeeper game">
+      <section id="menuOverlay" class="overlay menu-overlay" aria-labelledby="title">
+        <div class="menu-card">
+          <div class="badge-row" aria-label="game badges">
+            <span class="badge">Day 008</span>
+            <span class="badge">3D</span>
+            <span class="badge">/mori/</span>
+          </div>
+          <img class="mascot" src="assets/mori-seedkeeper.png" alt="Mosslight seedkeeper mascot holding a lantern" />
+          <h1 id="title">Mori Mosslight Seedkeeper</h1>
+          <p class="tagline">Rotate moss tiles, guide dew into seedling basins, and keep soot mites away.</p>
+          <div class="record-strip">
+            <span>Best <strong id="menuBest">0</strong></span>
+            <span>Bloom <strong id="menuBloom">—</strong></span>
+          </div>
+          <div class="menu-actions">
+            <button id="startBtn" class="primary big-button">Start tending</button>
+            <a class="prompt-link" href="prompt.html">View Day 008 prompt</a>
+          </div>
+          <article class="tutorial" aria-label="Tutorial">
+            <h2>How to play</h2>
+            <ul>
+              <li><strong>Objective:</strong> rotate moss tiles, guide dew into seedling basins, and keep soot mites away.</li>
+              <li><strong>Rotation:</strong> A/D or the large rotate buttons turn the selected root tile.</li>
+              <li><strong>Dew routing:</strong> glowing beads follow connected roots and slopes; deliver them to the requested basin.</li>
+              <li><strong>Root Bridge:</strong> tap the marked socket, then place a temporary bridge to cross gaps.</li>
+              <li><strong>Hazards:</strong> lost dew raises drought; soot mites stress seedlings.</li>
+              <li><strong>Mosslight Lantern:</strong> press Space/Shift or the lantern button when charged to push mites back.</li>
+              <li><strong>Pause/restart:</strong> P/R on desktop or the visible buttons on mobile.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="hud" aria-label="Run status">
+        <div class="hud-cell"><span>Score</span><strong id="scoreText">0</strong></div>
+        <div class="hud-cell"><span>Best</span><strong id="bestText">0</strong></div>
+        <div class="hud-cell"><span>Seedlings</span><strong id="seedText">3/3</strong></div>
+        <div class="hud-cell meter-cell"><span>Drought</span><meter id="droughtMeter" min="0" max="100" value="0"></meter><b id="droughtText">0%</b></div>
+        <div class="hud-cell"><span>Chapter</span><strong id="chapterText">Fern Steps</strong></div>
+        <div class="hud-cell"><span>Grown</span><strong id="grownText">0</strong></div>
+        <div class="hud-cell"><span>Combo</span><strong id="comboText">x1</strong></div>
+        <div class="hud-cell request-cell"><span>Request</span><strong id="requestText">FERN</strong></div>
+        <div class="hud-cell meter-cell"><span>Mosslight</span><meter id="lanternMeter" min="0" max="100" value="0"></meter><b id="lanternText">0%</b></div>
+      </section>
+
+      <div id="canvasWrap" class="canvas-wrap" aria-label="3D moss shrine board"></div>
+      <div id="helper" class="helper" aria-live="polite">Select a moss tile to rotate its glowing root.</div>
+      <div id="toast" class="toast" aria-live="polite"></div>
+      <div id="bloomBanner" class="bloom-banner" hidden>Mori Mosslight Bloom! Endless forest-night begins.</div>
+
+      <nav class="control-panel" aria-label="Game controls">
+        <button id="cycleBtn" class="control-btn">Next tile<br><kbd>Q/E</kbd></button>
+        <button id="rotateLeftBtn" class="control-btn rotate">⟲ Rotate<br><kbd>A/←</kbd></button>
+        <button id="rotateRightBtn" class="control-btn rotate">Rotate ⟳<br><kbd>D/→</kbd></button>
+        <button id="bridgeBtn" class="control-btn">Root Bridge<br><kbd>B</kbd></button>
+        <button id="lanternBtn" class="control-btn lantern">Mosslight<br><kbd>Space</kbd></button>
+        <button id="pauseBtn" class="control-btn small">Pause<br><kbd>P</kbd></button>
+        <button id="restartBtn" class="control-btn small">Restart<br><kbd>R</kbd></button>
+      </nav>
+
+      <section id="pauseOverlay" class="overlay modal-overlay" hidden aria-labelledby="pauseTitle">
+        <div class="modal-card">
+          <h2 id="pauseTitle">Paused under the cedar roots</h2>
+          <p>Route dew before the next pulse, save the Root Bridge for crossings, and fire Mosslight only when mites threaten a basin.</p>
+          <ul>
+            <li>Click/tap tiles to select. A/D or rotate buttons turn root channels.</li>
+            <li>B toggles the temporary bridge on the marked socket.</li>
+            <li>Space/Shift uses Mosslight Lantern when charged.</li>
+          </ul>
+          <div class="modal-actions">
+            <button id="resumeBtn" class="primary big-button">Resume</button>
+            <button id="pauseRestartBtn" class="big-button">Restart run</button>
+            <a class="prompt-link" href="prompt.html">Prompt</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="resultsOverlay" class="overlay modal-overlay" hidden aria-labelledby="resultsTitle">
+        <div class="modal-card">
+          <h2 id="resultsTitle">Seedkeeper results</h2>
+          <p id="resultsSummary">The moss garden rests.</p>
+          <div id="badgeList" class="badge-list" aria-label="Mastery badges"></div>
+          <div class="modal-actions">
+            <button id="resultsRestartBtn" class="primary big-button">Restart</button>
+            <a class="prompt-link" href="prompt.html">Prompt</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="game.js"></script>
+  </body>
+</html>

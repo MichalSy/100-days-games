@@ -121,6 +121,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/nami/screenshot.png',
     generationDuration: 'manual subagent run ~95 minutes',
     generatedAt: '2026-06-16T01:44:33Z'
+  },
+  8: {
+    status: 'generated',
+    title: 'Mori Mosslight Seedkeeper',
+    slug: 'mori-mosslight-seedkeeper',
+    genre: ['3D garden-routing strategy arcade', 'terrarium stewardship', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Inspect a miniature moss shrine board, rotate raised root tiles, place a temporary bridge, pulse a lantern, and route rolling dew beads into thirsty seedling basins before drought and soot mites overwhelm the grove.',
+    objective: 'Complete Fern Steps, Cedar Gate, and Kodama Bloom while reaching 2600 points to trigger Mori Mosslight Bloom, then continue into endless forest-night scoring.',
+    playUrl: '/mori/',
+    promptUrl: '/mori/prompt.html',
+    promptExcerpt: 'Rotate moss/root tiles in a 3D forest shrine, guide glowing dew through slopes and bridges into requested basins, and keep soot mites away with Mosslight.',
+    screenshotUrl: '/mori/screenshot.png',
+    generationDuration: 'manual subagent run with timeout recovery ~120 minutes',
+    generatedAt: '2026-06-17T01:46:03Z'
   }
 };
 

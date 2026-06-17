@@ -1,0 +1,208 @@
+:root {
+  color-scheme: dark;
+  --ink: #f1ffe4;
+  --muted: #b7d5a8;
+  --panel: rgba(10, 22, 14, 0.78);
+  --panel-strong: rgba(13, 32, 18, 0.94);
+  --gold: #ffd56f;
+  --moss: #73e06d;
+  --dew: #91f4ff;
+  --danger: #ff826f;
+  --shadow: rgba(0, 0, 0, 0.42);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #07100b; color: var(--ink); }
+button, a { font: inherit; }
+button { color: var(--ink); }
+a { color: var(--dew); }
+
+.game-shell {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  min-height: 620px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(3,8,6,.28), rgba(3,8,6,.72)),
+    url("assets/mori-terrarium.png") center / cover no-repeat;
+  touch-action: manipulation;
+}
+
+.canvas-wrap {
+  position: absolute;
+  inset: 126px 0 122px;
+  z-index: 1;
+}
+.canvas-wrap canvas { display: block; width: 100%; height: 100%; }
+
+.hud {
+  position: absolute;
+  inset: max(8px, env(safe-area-inset-top)) 8px auto;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+  pointer-events: none;
+}
+.hud-cell {
+  min-height: 44px;
+  border: 1px solid rgba(151, 240, 131, 0.23);
+  border-radius: 14px;
+  background: rgba(5, 18, 10, 0.68);
+  box-shadow: 0 8px 24px var(--shadow), inset 0 0 16px rgba(115, 224, 109, 0.08);
+  padding: 5px 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  backdrop-filter: blur(8px);
+}
+.hud-cell span { font-size: 0.63rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); white-space: nowrap; }
+.hud-cell strong, .hud-cell b { font-size: clamp(.78rem, 2.8vw, 1.04rem); line-height: 1.05; }
+.meter-cell { grid-column: span 2; }
+meter { width: 100%; height: 8px; }
+meter::-webkit-meter-bar { background: rgba(255,255,255,.12); border-radius: 999px; }
+meter::-webkit-meter-optimum-value { background: linear-gradient(90deg, var(--moss), var(--gold)); border-radius: 999px; }
+#droughtMeter::-webkit-meter-optimum-value { background: linear-gradient(90deg, #95e6ad, var(--danger)); }
+
+.control-panel {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: max(8px, env(safe-area-inset-bottom));
+  z-index: 4;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+  pointer-events: auto;
+}
+.control-btn, .big-button {
+  min-height: 58px;
+  border: 1px solid rgba(185, 255, 147, 0.28);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(36,75,35,.96), rgba(12,35,19,.96));
+  box-shadow: 0 8px 22px rgba(0,0,0,.34), inset 0 0 16px rgba(128,255,112,.08);
+  color: var(--ink);
+  font-weight: 800;
+  cursor: pointer;
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+}
+.control-btn:active, .control-btn.active, .big-button:active { transform: translateY(1px); filter: brightness(1.2); }
+.control-btn:disabled { opacity: .48; cursor: not-allowed; }
+.control-btn.rotate { background: linear-gradient(180deg, rgba(32,105,67,.98), rgba(13,48,34,.98)); }
+.control-btn.lantern { background: linear-gradient(180deg, rgba(126,91,28,.98), rgba(55,36,12,.98)); }
+.control-btn.small { min-height: 50px; font-size: .88rem; }
+kbd { font-size: .64rem; color: var(--gold); font-weight: 700; }
+
+.helper, .toast, .bloom-banner {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: min(88vw, 520px);
+  border: 1px solid rgba(158,255,164,.26);
+  border-radius: 999px;
+  background: rgba(3, 17, 10, .72);
+  padding: 8px 14px;
+  color: var(--ink);
+  text-align: center;
+  box-shadow: 0 8px 28px rgba(0,0,0,.4);
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+}
+.helper { bottom: 190px; font-size: .83rem; }
+.toast { top: 118px; opacity: 0; transition: opacity .25s ease; }
+.toast.show { opacity: 1; }
+.bloom-banner {
+  top: 42%;
+  border-radius: 24px;
+  padding: 18px 22px;
+  font-size: clamp(1.25rem, 5vw, 2rem);
+  font-weight: 900;
+  color: #fff7c8;
+  background: radial-gradient(circle, rgba(159,255,118,.95), rgba(24,93,44,.82) 55%, rgba(5,18,10,.92));
+  animation: bloomPulse 1.6s ease-in-out infinite alternate;
+}
+@keyframes bloomPulse { from { filter: drop-shadow(0 0 10px #89ff88); } to { filter: drop-shadow(0 0 28px #fff3a0); } }
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom));
+  background: rgba(2, 8, 5, 0.46);
+  overflow: auto;
+}
+.overlay[hidden] { display: none; }
+.menu-card, .modal-card {
+  width: min(720px, 100%);
+  border: 1px solid rgba(181,255,150,.3);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(8,25,13,.93), rgba(5,14,8,.94));
+  box-shadow: 0 24px 70px rgba(0,0,0,.55), inset 0 0 40px rgba(116,226,95,.08);
+  padding: 18px;
+}
+.menu-overlay { align-items: start; }
+.menu-card { margin: 2px auto; text-align: center; }
+.badge-row, .record-strip, .menu-actions, .modal-actions, .badge-list { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; align-items: center; }
+.badge, .record-strip span, .badge-list span {
+  border: 1px solid rgba(255,213,111,.35);
+  border-radius: 999px;
+  background: rgba(255,213,111,.12);
+  padding: 6px 10px;
+  color: #fff3bc;
+  font-weight: 800;
+}
+.mascot {
+  width: clamp(94px, 27vw, 150px);
+  aspect-ratio: 1;
+  border-radius: 28px;
+  margin-top: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 24px rgba(255,213,111,.2);
+}
+h1 { margin: 8px 0 5px; font-size: clamp(1.75rem, 7vw, 3.2rem); line-height: .96; }
+h2 { margin: 0 0 8px; }
+.tagline { margin: 0 auto 10px; max-width: 48ch; color: var(--muted); }
+.primary { background: linear-gradient(180deg, #7edc64, #2f7638); color: #061209; text-shadow: none; }
+.prompt-link { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 10px 14px; border-radius: 999px; background: rgba(145,244,255,.12); border: 1px solid rgba(145,244,255,.3); font-weight: 800; text-decoration: none; }
+.tutorial { margin-top: 12px; text-align: left; border-radius: 22px; background: rgba(255,255,255,.05); padding: 12px; }
+.tutorial ul, .modal-card ul { margin: 8px 0 0; padding-left: 20px; color: #dff5d5; }
+.tutorial li, .modal-card li { margin: 4px 0; }
+.modal-card { text-align: center; }
+.modal-card p { color: var(--muted); }
+
+@media (min-width: 760px) {
+  .game-shell { min-height: 700px; }
+  .canvas-wrap { inset: 96px 0 104px; }
+  .hud { grid-template-columns: repeat(9, minmax(80px, 1fr)); }
+  .meter-cell { grid-column: span 1; }
+  .control-panel { grid-template-columns: repeat(7, minmax(92px, 1fr)); max-width: 940px; margin: 0 auto; }
+  .helper { bottom: 120px; }
+  .menu-card { margin-top: 16px; }
+}
+
+@media (max-width: 430px) {
+  .game-shell { min-height: 100svh; }
+  .hud { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
+  .hud-cell { min-height: 42px; padding: 4px 6px; border-radius: 12px; }
+  .hud-cell span { font-size: .55rem; }
+  .meter-cell { grid-column: span 2; }
+  .canvas-wrap { inset: 128px 0 148px; }
+  .control-panel { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .control-btn { min-height: 58px; border-radius: 14px; font-size: .82rem; }
+  .control-btn.small { min-height: 50px; }
+  .helper { bottom: 208px; font-size: .76rem; padding: 7px 10px; }
+  .toast { top: 116px; font-size: .78rem; }
+  .overlay { padding: 8px; }
+  .menu-card { padding: 12px; border-radius: 22px; }
+  .tutorial { font-size: .82rem; }
+  .tutorial li { margin: 2px 0; }
+  .mascot { display: none; }
+  h1 { font-size: 1.75rem; }
+  .big-button { min-height: 56px; }
+}

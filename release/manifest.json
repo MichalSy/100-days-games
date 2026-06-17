@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-16T01:44:33.000Z",
+  "generatedAt": "2026-06-17T01:46:03.000Z",
   "totalDays": 100,
-  "completedDays": 7,
+  "completedDays": 8,
   "games": [
     {
       "day": 1,
@@ -65,6 +65,15 @@
       "promptUrl": "/nami/prompt.html",
       "screenshotUrl": "/nami/screenshot.png",
       "generationDuration": "manual subagent run ~95 minutes"
+    },
+    {
+      "day": 8,
+      "title": "Mori Mosslight Seedkeeper",
+      "slug": "mori-mosslight-seedkeeper",
+      "playUrl": "/mori/",
+      "promptUrl": "/mori/prompt.html",
+      "screenshotUrl": "/mori/screenshot.png",
+      "generationDuration": "manual subagent run with timeout recovery ~120 minutes"
     }
   ]
 }

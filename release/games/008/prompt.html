@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 008 Game Generation Prompt</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%8C%BF%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: dark; --bg:#07100b; --panel:#102016; --ink:#efffe5; --muted:#b7d5a8; --line:#32543a; --dew:#91f4ff; --gold:#ffd56f; }
+    body { margin:0; background:radial-gradient(circle at top,#17331f,#07100b 58%); color:var(--ink); font:16px/1.62 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { width:min(920px, calc(100% - 28px)); margin:0 auto; padding:26px 0 56px; }
+    a { color:var(--dew); font-weight:800; }
+    .back { display:inline-flex; padding:10px 14px; border:1px solid rgba(145,244,255,.35); border-radius:999px; background:rgba(145,244,255,.1); text-decoration:none; }
+    h1,h2,h3 { line-height:1.08; color:#f5ffe8; }
+    h1 { font-size:clamp(2rem,7vw,4rem); margin:18px 0 10px; }
+    h2 { margin-top:34px; padding-top:18px; border-top:1px solid var(--line); color:#d6ffc1; }
+    h3 { color:var(--gold); }
+    p,li { color:var(--muted); }
+    code { color:#eaffbd; background:rgba(255,255,255,.08); padding:.08em .3em; border-radius:5px; }
+    pre { overflow:auto; border:1px solid var(--line); border-radius:18px; background:#050b08; padding:16px; }
+    pre code { display:block; padding:0; background:transparent; white-space:pre; color:#ddffdc; }
+    ul { padding-left:1.35rem; }
+    li { margin:.35rem 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="index.html">← Back to game</a>
+    <h1>Day 008 Game Generation Prompt</h1>
+    <h2>Game identity</h2>
+    <ul>
+    <li>Day: 008</li>
+    <li>Title: Mori Mosslight Seedkeeper</li>
+    <li>Slug: mori-mosslight-seedkeeper</li>
+    <li>Public route word: mori</li>
+    <li>Mode: 3D</li>
+    <li>Genre: mobile-first 3D garden-routing strategy arcade / terrarium stewardship score chase</li>
+    <li>Mood/style: miniature mossy forest shrine diorama, glowing dew beads, tiny kodama seedlings, cedar roots, warm lantern-green highlights, tactile board-game pieces, calm nature craft with escalating arcade pressure, readable portrait-phone 3D</li>
+    </ul>
+    <h2>Why this game today</h2>
+    <p>The current generated series in <code>src/data/games.ts</code> is:</p>
+    <ul>
+    <li>Day 001 <code>2d</code>: calm koi pond collection and drift survival.</li>
+    <li>Day 002 <code>2d</code>: timed sky-courier route planning.</li>
+    <li>Day 003 <code>3d</code>: neon bonsai ring-flight crafting.</li>
+    <li>Day 004 <code>2d</code>: firefly path drawing / light routing.</li>
+    <li>Day 005 <code>3d</code>: dream-rail lane runner.</li>
+    <li>Day 006 <code>hybrid</code>: 3D moonbeam/prism alignment puzzle.</li>
+    <li>Day 007 <code>2d</code>: seaside bento order-management cooking arcade.</li>
+    </ul>
+    <p>The latest generated-mode streak is one 2D game after Day 007. Day 008 deliberately returns to real 3D to keep the cadence strong and prevent the series from drifting back toward flat canvas games.</p>
+    <p>Day 008 must feel unlike the previous entries:</p>
+    <ul>
+    <li>It is not steering a vehicle or lane runner.</li>
+    <li>It is not path drawing with direct lines.</li>
+    <li>It is not beam/prism reflection.</li>
+    <li>It is not cooking/order sorting.</li>
+    <li>It is not pure collection survival.</li>
+    </ul>
+    <p>The new verb set is: inspect a small 3D forest diorama, place and rotate moss/root tiles, route rolling dew beads through elevation and slopes, protect seedling basins from soot mites, and time a special lantern pulse. The mood shifts from Day 007's bright kitchen counter to a damp, emerald, forest-floor shrine with tiny crafted 3D pieces and soft natural glow.</p>
+    <p>Recent screenshot variety notes:</p>
+    <ul>
+    <li>Day 005 was a deep blue 3D rail corridor with bottom lane buttons.</li>
+    <li>Day 006 was a cool cyan/gold 3D observatory board with prism rotation controls.</li>
+    <li>Day 007 was a warm top-down/2D bento counter with horizontal conveyor lanes and many HUD cards.</li>
+    </ul>
+    <p>Day 008 should use a compact isometric/perspective 3D board: moss platforms, little root bridges, dew marbles, seedling cups, lantern posts, and forest backdrop. The screen should be quieter and more tactile than the recent HUD-heavy games, while still having clear arcade feedback.</p>
+    <h2>Code isolation / no previous game source</h2>
+    <p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game's HTML/CSS/JS must come from this prompt and general web/game knowledge, not from earlier game implementations.</p>
+    <h2>Mode variety / 3D cadence</h2>
+    <p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 005 <code>3d</code>, Day 006 <code>hybrid</code>, and Day 007 <code>2d</code>. The latest generated 2D streak is one.</p>
+    <p>Mode decision: Day 008 is <code>3D</code>. It must implement real spatial gameplay, not decorative perspective:</p>
+    <ul>
+    <li>Use Three.js/WebGL or equivalent static browser 3D rendering.</li>
+    <li>Render a perspective/isometric forest-shrine board with actual depth, height tiers, ramps, slopes, seedling basins, dew paths, hazards, and camera depth cues.</li>
+    <li>Gameplay must depend on 3D positions and elevations: dew beads roll/flow across tile pieces, down ramps, over root bridges, and into basins.</li>
+    <li>Player actions must manipulate board pieces in 3D: select a tile, rotate its slope/root connector, place a temporary root bridge, or pulse a lantern to repel soot mites.</li>
+    <li>Portrait mobile is the default supported layout; no landscape gate.</li>
+    </ul>
+    <h2>Design</h2>
+    <ul>
+    <li>Objective: Guide glowing dew beads across a 3D moss shrine board into thirsty seedling basins while protecting the seedlings from soot mites and drought.</li>
+    <li>Win condition: Complete three growth chapters — Fern Steps, Cedar Gate, and Kodama Bloom — and reach 2600 points to trigger “Mori Mosslight Bloom”. After Bloom, continue into endless forest-night scoring.</li>
+    <li>Lose condition: Three seedlings wither because dew is lost off the board, soot mites reach basins, or the drought meter fills to 100%.</li>
+    <li>Core loop:</li>
+    <li>Start on a title/menu screen with Day 008 badge, mode badge “3D”, public route <code>/mori/</code>, best score, best Bloom time, tutorial, prompt link, and a large Start button.</li>
+    <li>Show a compact 3D forest shrine board made of moss tiles at different heights, with seedling basins around the edges and a dew source near the center/top.</li>
+    <li>Dew beads spawn in timed pulses and roll/flow along connected moss/root channels according to tile orientation and slope arrows.</li>
+    <li>Player taps/clicks a tile to select it, then rotates the tile connector or slope using large controls. Some phases allow placing a temporary root bridge on an empty socket.</li>
+    <li>Correctly routed dew charges seedling basins; fully charged basins grow leaves and score combo points.</li>
+    <li>Soot mites occasionally crawl along roots toward basins. The player can route dew through cleansing moss or use the Mosslight Lantern special to push mites back.</li>
+    <li>Misrouted dew falls into leaf gutters, raising drought. Too many mites or drought events wither seedlings.</li>
+    <li>Pause/restart remain available throughout.</li>
+    <li>15+ minute play-value strategy:</li>
+    <li>Save best score, fastest Mosslight Bloom time, longest perfect dew-chain streak, and highest endless grove wave in localStorage.</li>
+    <li>Include three authored growth chapters:</li>
+    <li>Fern Steps: simple two-height board, one dew source, two basins, slow mites, teaches selection and rotation.</li>
+    <li>Cedar Gate: three-height board, split channels, temporary root bridge, first moving soot mite, drought pressure.</li>
+    <li>Kodama Bloom: four basins, crossing root paths, timed dew bursts, cleansing moss, multiple mites, route-priority decisions.</li>
+    <li>Deterministic Day 008 seed varies dew burst order, basin requests, mite spawn timing, bridge sockets, and bonus firefly dew while keeping early runs fair.</li>
+    <li>Mastery badges: finish Fern Steps without losing dew, grow 12 basins in a row, trigger Mosslight Bloom under 170 seconds, reach 4300 in endless.</li>
+    <li>Strategic scoring rewards foresight: route dew before it spawns, save bridge pieces for hard crossings, use Mosslight Lantern only when mites threaten, and maintain clean dew streaks.</li>
+    <li>Endless forest-night after Bloom adds more basins, faster dew pulses, higher drought pressure, and trickier root connectors while keeping tile targets large on mobile.</li>
+    <li>Difficulty scaling:</li>
+    <li>0-45 seconds: two simple rotatable tiles, one basin sequence, slow dew beads, no instant penalties.</li>
+    <li>45-105 seconds: split route tiles, two requested basins, first soot mites, one bridge socket.</li>
+    <li>105-170 seconds: height changes, crossing roots, cleansing moss, more frequent dew pulses, active basin priority.</li>
+    <li>170+ seconds/endless: denser requests, faster mites, shorter planning windows, more rewarding combo chains.</li>
+    <li>Keep mobile fair: large 3D tiles, thick glowing route lines, visible direction arrows, 56px+ action controls, generous hit testing, no tiny collectible required for survival.</li>
+    <li>Scoring/rewards:</li>
+    <li>Dew bead delivered to requested basin: +65 points times dew-chain combo.</li>
+    <li>Basin fully grown: +220 points and drought meter -8%.</li>
+    <li>Perfect dew pulse with no lost bead: +140 bonus and +12% Mosslight charge.</li>
+    <li>Cleansing moss mite removal: +95 points.</li>
+    <li>Complete chapter: +420 points plus restore one withered seedling if below max.</li>
+    <li>Mori Mosslight Bloom: +850 points and endless grove unlock.</li>
+    <li>Dew lost off board: +7% drought and combo reset.</li>
+    <li>Soot mite reaches basin: seedling stress +1; repeated stress withers a seedling.</li>
+    </ul>
+    <h2>Controls and layout</h2>
+    <ul>
+    <li>Desktop:</li>
+    <li>Mouse click: select a moss/root tile, basin, or bridge socket.</li>
+    <li>A/D or Arrow Left/Right: rotate selected tile counter-clockwise/clockwise.</li>
+    <li>Q/E: cycle selectable tiles.</li>
+    <li>Space or Shift: activate Mosslight Lantern when charged.</li>
+    <li>B: place/remove a temporary root bridge when a bridge socket is selected.</li>
+    <li>P: pause/resume.</li>
+    <li>R: restart current run.</li>
+    <li>Enter/click: start from menu or confirm restart.</li>
+    <li>Mobile/touch:</li>
+    <li>Tap a large tile to select it; selected tile glows and displays direction arrows.</li>
+    <li>Use two large rotate buttons at the bottom, each at least 56px tall.</li>
+    <li>Tap a bridge socket then tap the large “Root Bridge” button to place or recall the bridge.</li>
+    <li>Large Mosslight button near lower right, at least 56px target.</li>
+    <li>Pause and Restart controls with 44px+ targets.</li>
+    <li>No tiny virtual joystick. Interaction is tap-select plus large rotate/place controls.</li>
+    <li>Mobile layout/orientation:</li>
+    <li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+    <li>Top: compact HUD with score, best, seedlings, drought meter, chapter, combo, current basin request, Mosslight charge.</li>
+    <li>Center: 3D board fills the main viewport with the camera angled enough to see height differences and rolling dew.</li>
+    <li>Bottom: large rotate left/right, Root Bridge, Mosslight, Pause/Restart controls; controls must not cover the selected tile or requested basin labels.</li>
+    <li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, rotation, bridge, mites, and Mosslight special must be visible.</li>
+    <li>Tile/basin signs must combine color, shape, icon, and short text labels such as FERN, CEDAR, KODA, DEW so hue alone is not required.</li>
+    </ul>
+    <h2>Menu and tutorial</h2>
+    <p>Implement these states:</p>
+    <ul>
+    <li>Title screen</li>
+    <li>Shows title “Mori Mosslight Seedkeeper”.</li>
+    <li>Shows Day 008 badge, mode badge “3D”, public route <code>/mori/</code>, best score, best Bloom time if available, and a prompt link.</li>
+    <li>Shows a large Start button and visible tutorial panel by default.</li>
+    <li>Tutorial text</li>
+    <li>Objective: “Rotate moss tiles, guide dew into seedling basins, and keep soot mites away.”</li>
+    <li>Rotation: desktop A/D or mobile rotate buttons turn the selected root tile.</li>
+    <li>Dew routing: glowing beads follow connected roots and slopes; deliver them to the requested basin.</li>
+    <li>Root Bridge: place a temporary bridge on marked sockets to cross gaps.</li>
+    <li>Hazards: lost dew raises drought; soot mites stress seedlings.</li>
+    <li>Mosslight Lantern: pushes mites back and slows drought when charged.</li>
+    <li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+    <li>In-game HUD</li>
+    <li>Score, best score, seedling health, drought meter, chapter, grown basins, combo, selected tile, current request, Mosslight charge.</li>
+    <li>Pause/restart controls visible or immediately accessible.</li>
+    <li>Selected-tile helper overlay</li>
+    <li>Non-blocking hint near selected tile showing connector directions and next rotation.</li>
+    <li>Must not cover active dew paths or basins on mobile.</li>
+    <li>Pause overlay</li>
+    <li>Resume, restart, tutorial reminder, controls summary, prompt link.</li>
+    <li>Game-over/results overlay</li>
+    <li>Final score, best score, chapter reached, Bloom status, perfect dew-chain streak, mastery badges, restart button.</li>
+    <li>Mori Mosslight Bloom banner</li>
+    <li>Trigger once per run after all three growth chapters and 2600 score.</li>
+    <li>Non-blocking emerald lantern bloom, seedlings sprout, kodama fireflies rise; endless play continues after the banner fades.</li>
+    </ul>
+    <h2>Assets</h2>
+    <p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: seedkeeper mascot/charm, forest shrine background, moss/root icon sheet, and key decorative pieces. Three.js primitives may render the board geometry, route channels, dew beads, basins, mites, hit volumes, guide arrows, particles, and UI chrome. Procedural code may crop, resize, alpha-clean, atlas-pack, optimize, animate, or place generated assets; it should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+    <p>Archive source generated art under <code>release/games/008/assets/source/</code> and use optimized playable copies under <code>release/games/008/assets/</code>. Also copy optimized playable assets into <code>apps/day-008-mori-mosslight-seedkeeper/assets/</code> and the public alias <code>release/mori/assets/</code>.</p>
+    <p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid tiny details that disappear at final in-game size, and keep high-contrast silhouettes.</p>
+    <p>Generate or provide at least these final art assets:</p>
+    <ul>
+    <li>Mosslight seedkeeper mascot/source charm</li>
+    <li>Target: transparent PNG, square source, final optimized texture around 512x512 or 256x256.</li>
+    <li>Archive path: <code>release/games/008/assets/source/mori-seedkeeper-source.png</code></li>
+    <li>Optimized path: <code>release/games/008/assets/mori-seedkeeper.png</code></li>
+    <li>Imagegen2 prompt: “A tiny magical Japanese forest seedkeeper mascot for a 3D mobile browser garden puzzle game, kodama-like wooden spirit with moss cloak, small paper lantern, acorn satchel, cedar leaf crown, warm emerald and gold glow, centered readable silhouette, transparent or plain dark forest background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+    <li>Aspect ratio: square.</li>
+    <li>Forest shrine terrarium background source</li>
+    <li>Target: portrait-friendly background/skybox texture suitable for an isometric 3D moss board.</li>
+    <li>Archive path: <code>release/games/008/assets/source/mori-terrarium-source.png</code></li>
+    <li>Optimized path: <code>release/games/008/assets/mori-terrarium.png</code></li>
+    <li>Imagegen2 prompt: “A miniature mossy Japanese forest shrine terrarium for a portrait mobile 3D puzzle game, cedar roots, stone lanterns, tiny moss platforms, dewdrops, soft morning mist, open readable center area for a 3D board, emerald green, bark brown, warm lantern gold, crop-safe for phone portrait, no characters, no text, no watermark.”</li>
+    <li>Aspect ratio: portrait.</li>
+    <li>Moss/root garden icon sheet source</li>
+    <li>Target: square icon sheet for UI and board decals.</li>
+    <li>Archive path: <code>release/games/008/assets/source/mori-icons-source.png</code></li>
+    <li>Optimized path: <code>release/games/008/assets/mori-icons.png</code></li>
+    <li>Imagegen2 prompt: “Small readable icon sheet for a mosslight forest shrine puzzle game: glowing dew bead, seedling basin, root bridge, moss tile, fern chapter badge, cedar gate badge, kodama bloom badge, soot mite hazard, drought leaf, Mosslight lantern, cleansing moss, perfect dew chain badge, transparent or plain dark forest background, high contrast, no text, no watermark.”</li>
+    <li>Aspect ratio: square.</li>
+    </ul>
+    <p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas/Three.js materials, document the failure in <code>ai/postmortems/day-008.md</code>, and still keep source/fallback files under the same asset paths.</p>
+    <h3>Mandatory generated-image QA</h3>
+    <p>For every generated image, include a real inspection step after generation and before integration:</p>
+    <ul>
+    <li>Analyze the actual generated file visually, not just the prompt text.</li>
+    <li>For the seedkeeper mascot, verify transparent/cutout quality or clean background removal, readable silhouette, centered pivot, crop margins, no unwanted text/watermarks, and a stable upright orientation.</li>
+    <li>Verify control-to-motion alignment in-game: dew beads must visibly follow the channel direction; tile rotation controls must rotate route arrows in the expected direction; root bridge placement must align with the selected socket.</li>
+    <li>For the background, verify the center board area remains readable after portrait mobile crop and does not hide dew beads, tiles, basins, soot mites, or action controls.</li>
+    <li>For the icon sheet, verify icons are distinct at final HUD/button size and hazards cannot be confused with dew or bonuses.</li>
+    <li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+    </ul>
+    <h2>Prompt page output</h2>
+    <p>The archived <code>release/games/008/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+    <ul>
+    <li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 008 Game Generation Prompt</code>.</li>
+    <li>A back-to-game link near the top.</li>
+    <li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+    <li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+    </ul>
+    <h2>Subagents to dispatch</h2>
+    <ul>
+    <li>Implementation subagent</li>
+    <li>Build the static 3D game under <code>apps/day-008-mori-mosslight-seedkeeper/</code>.</li>
+    <li>Integrate it into immutable release output under <code>release/games/008/</code>.</li>
+    <li>Create the public playable route under <code>release/mori/</code>.</li>
+    <li>Use static HTML/CSS/JS with Three.js/WebGL and no backend.</li>
+    <li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+    <li>If vendoring <code>three.module*.js</code>, also copy the matching <code>three.core*.js</code> beside it in the app, release archive, and <code>/mori/</code> alias assets.</li>
+    <li>Asset/polish subagent</li>
+    <li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, and tune mobile readability/game feel.</li>
+    <li>QA/browser/mobile subagent</li>
+    <li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, 3D board interaction, tile selection/rotation, root bridge, Mosslight Lantern, dew routing, mites/drought, and 390x844 portrait layout.</li>
+    <li>Reflection/self-improvement subagent</li>
+    <li>Write <code>ai/postmortems/day-008.md</code> after validation with what worked, what failed, generated-image inspection notes, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+    </ul>
+    <h2>Acceptance criteria</h2>
+    <ul>
+    <li>Static build passes.</li>
+    <li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+    <li>Mode choice follows the cadence rule: Day 008 is real 3D spatial gameplay with a perspective/isometric board, height tiers, route channels, rolling/flowing dew beads, basins, hazards, and player manipulation of 3D tile pieces.</li>
+    <li>Desktop smoke passes.</li>
+    <li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial, usable tap/rotate/place controls, no forced landscape canvas, and 44px+ controls.</li>
+    <li>Prompt is visible from gallery and release folder.</li>
+    <li><code>prompts/day-008.md</code> is copied exactly to <code>release/games/008/prompt.md</code>.</li>
+    <li><code>release/games/008/prompt.html</code> renders the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+    <li>Public alias <code>release/mori/index.html</code>, <code>release/mori/prompt.html</code>, <code>release/mori/screenshot.png</code>, and <code>release/mori/assets/</code> exist and work.</li>
+    <li>Gallery card for Day 008 shows prompt availability, generation duration, public <code>/mori/</code> links, and actual generated date.</li>
+    <li>Screenshot exists at <code>release/games/008/screenshot.png</code> and is non-empty/readable.</li>
+    <li>Image/source assets exist under <code>release/games/008/assets/source/</code> and optimized assets exist under <code>release/games/008/assets/</code>, or a documented emergency fallback exists.</li>
+    <li>Every generated image has an inspection note in the postmortem or QA notes; moving/interactive dew/tile/bridge visuals have verified cutout/background handling where relevant, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+    <li>No console errors during desktop or mobile smoke.</li>
+    <li>Existing <code>release/games/001/</code>, <code>release/games/002/</code>, <code>release/games/003/</code>, <code>release/games/004/</code>, <code>release/games/005/</code>, <code>release/games/006/</code>, and <code>release/games/007/**</code> from origin/main remain unchanged.</li>
+    <li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+    <li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+    <li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+    </ul>
+    <h2>Exact validation commands</h2>
+    <pre><code>pnpm typecheck
+    pnpm test
+    pnpm build
+    pnpm release:validate
+    pnpm test:smoke
+    pnpm test:immutable -- --base origin/main</code></pre>
+    <p>Additional required local checks before push:</p>
+    <pre><code># Screenshot/static checks: verify release/games/008/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/mori/index.html, release/mori/prompt.html, release/mori/screenshot.png, optimized assets, and source assets exist and are non-empty.
+    # Prompt copy check: cmp prompts/day-008.md release/games/008/prompt.md and cmp prompts/day-008.md release/mori/prompt.md.
+    # Prompt HTML check: verify release/games/008/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+    # Browser smoke: open the local/static /mori/ route and verify menu, tutorial, gameplay start, tile selection, rotate controls, root bridge, Mosslight path, pause, restart, prompt link, no console errors.
+    # Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable tap/rotate controls and readable HUD/board.
+    # Static screenshot check: inspect release/games/008/screenshot.png for non-empty readable game content.
+    # Image QA: inspect every generated Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-008.md.
+    # Docker/static smoke: build the Docker image locally, run it, curl /mori/ and /mori/prompt.html, then stop the container.
+    # Immutable guard: confirm no release/games folders from origin/main changed except new Day 008.</code></pre>
+
+  </main>
+</body>
+</html>
