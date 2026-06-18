@@ -1,0 +1,197 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --ink: #070817;
+  --indigo: #0b1235;
+  --indigo-2: #14214b;
+  --washi: #f3dfbd;
+  --washi-2: #cda975;
+  --amber: #ffbd5c;
+  --silver: #d9efff;
+  --verm: #df5645;
+  --near: #ffe0a3;
+  --mid: #a9d5ff;
+  --far: #9c8dff;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: radial-gradient(circle at 50% 0%, #1b285d 0, #090b22 42%, #02030a 100%); color: var(--washi); overflow-x: hidden; }
+body { touch-action: manipulation; }
+button, a { font: inherit; }
+button {
+  min-height: 48px;
+  border: 1px solid rgba(255, 224, 163, 0.42);
+  border-radius: 16px;
+  color: var(--washi);
+  background: linear-gradient(180deg, rgba(32,45,91,.95), rgba(12,16,44,.95));
+  box-shadow: 0 8px 18px rgba(0,0,0,.25), inset 0 1px rgba(255,255,255,.08);
+  cursor: pointer;
+  user-select: none;
+}
+button:active { transform: translateY(1px) scale(.99); }
+button:disabled { opacity: .45; cursor: not-allowed; }
+.primary { background: linear-gradient(180deg, #eb9d43, #9f392f); color: #1b0e09; font-weight: 900; border-color: #ffd99b; }
+.big { min-height: 58px; padding: 0 26px; font-size: 1.05rem; }
+.prompt-link { color: var(--silver); text-underline-offset: 3px; font-weight: 800; }
+
+.game-shell {
+  position: relative;
+  width: min(100vw, 650px);
+  height: 100svh;
+  min-height: 0;
+  margin: 0 auto;
+  padding: env(safe-area-inset-top) 10px env(safe-area-inset-bottom);
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.hud {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 5px;
+  padding-top: 7px;
+  z-index: 2;
+}
+.hud div {
+  min-height: 42px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  background: rgba(6,8,25,.72);
+  padding: 5px 6px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+.hud b { display: block; color: #9fb9e8; font-size: .62rem; letter-spacing: .06em; text-transform: uppercase; }
+.hud span { display: block; font-weight: 900; font-size: .82rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.target-panel {
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  grid-template-areas: "title title" "beat recipe" "helper helper";
+  gap: 5px 9px;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid rgba(217,239,255,.22);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(16,25,66,.78), rgba(6,8,25,.7));
+  box-shadow: 0 10px 25px rgba(0,0,0,.22);
+  z-index: 2;
+}
+.target-title { grid-area: title; display: flex; justify-content: space-between; align-items: center; gap: 8px; font-weight: 900; color: var(--silver); }
+#beatCanvas { grid-area: beat; width: 74px; height: 74px; }
+.recipe { grid-area: recipe; display: flex; flex-wrap: wrap; gap: 5px; }
+.chip {
+  border-radius: 999px;
+  padding: 6px 8px;
+  font-size: .72rem;
+  font-weight: 900;
+  background: rgba(242,220,184,.12);
+  border: 1px solid rgba(242,220,184,.27);
+  color: var(--washi);
+}
+.chip.need { border-color: var(--amber); background: rgba(255,189,92,.18); }
+.chip.depth-far { color: #c9c1ff; }
+.chip.depth-mid { color: #afe0ff; }
+.chip.depth-near { color: #ffe5ac; }
+.helper { grid-area: helper; margin: 0; color: #d7c6ab; font-size: .78rem; line-height: 1.25; }
+
+.stage-wrap {
+  position: relative;
+  min-height: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #0a0c20;
+  border: 1px solid rgba(255,224,163,.28);
+  box-shadow: 0 20px 50px rgba(0,0,0,.38), inset 0 0 0 1px rgba(255,255,255,.04);
+  perspective: 800px;
+}
+#stage { display: block; width: 100%; height: 100%; min-height: 0; touch-action: none; cursor: grab; }
+#stage.dragging { cursor: grabbing; }
+.lane-labels { position: absolute; inset: 11% 9px 17% auto; display: flex; flex-direction: column; justify-content: space-around; pointer-events: none; }
+.lane-labels span { font-size: .64rem; font-weight: 1000; letter-spacing: .12em; padding: 4px 6px; border-radius: 999px; background: rgba(5,7,20,.55); color: var(--silver); border: 1px solid rgba(255,255,255,.15); }
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+  padding-bottom: 8px;
+  z-index: 3;
+}
+.controls button { min-height: 56px; padding: 6px 4px; font-size: .78rem; font-weight: 900; }
+#cueBtn { grid-column: span 2; font-size: .92rem; }
+#freezeBtn { grid-column: span 2; }
+
+.overlay {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  width: min(100vw, 650px);
+  margin: 0 auto;
+  padding: max(18px, env(safe-area-inset-top)) 18px max(18px, env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 18%, rgba(50,72,145,.94), rgba(7,8,23,.98) 62%);
+}
+.overlay.hidden { display: none; }
+.title-screen { justify-content: flex-start; overflow-y: auto; }
+.moon-seal { margin-top: 6px; border: 2px solid var(--verm); color: #ffd8c4; border-radius: 999px; padding: 6px 14px; font-weight: 1000; letter-spacing: .08em; text-transform: uppercase; background: rgba(119,25,22,.35); }
+.title-mascot { width: min(35vw, 150px); aspect-ratio: 1; object-fit: contain; filter: drop-shadow(0 12px 24px rgba(0,0,0,.5)); }
+h1 { margin: 0; font-size: clamp(2rem, 9vw, 4.2rem); line-height: .9; max-width: 10ch; text-wrap: balance; }
+.subtitle { margin: 0; max-width: 36rem; color: #d9c2a0; }
+.badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.badges span { display: inline-flex; align-items: center; min-height: 30px; padding: 5px 10px; border-radius: 999px; border: 1px solid rgba(255,224,163,.28); background: rgba(255,224,163,.1); color: #ffe7b4; font-size: .75rem; font-weight: 900; }
+.records { display: grid; grid-template-columns: 1fr 1fr; width: min(100%, 380px); gap: 8px; margin: 0; }
+.records div, .result-stats div { border: 1px solid rgba(255,255,255,.13); border-radius: 14px; background: rgba(0,0,0,.22); padding: 9px; }
+.records dt { font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: #aabce5; }
+.records dd { margin: 0; font-size: 1.15rem; font-weight: 1000; }
+.tutorial-card { width: min(100%, 570px); text-align: left; padding: 13px; border-radius: 18px; border: 1px solid rgba(255,224,163,.22); background: rgba(3,5,17,.48); }
+.tutorial-card h2 { margin: 0 0 7px; font-size: 1.05rem; }
+.tutorial-card ul { margin: 0; padding-left: 1.1rem; }
+.tutorial-card li { margin: 4px 0; font-size: .86rem; line-height: 1.26; }
+.overlay.small { inset: auto 12px 12px; width: min(calc(100vw - 24px), 620px); border-radius: 24px; border: 1px solid rgba(255,224,163,.32); padding: 18px; justify-content: center; background: linear-gradient(180deg, rgba(22,31,77,.97), rgba(4,5,18,.98)); box-shadow: 0 24px 80px rgba(0,0,0,.56); }
+.overlay.small h2 { margin: 0; font-size: 1.6rem; }
+.overlay-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; align-items: center; }
+.overlay-actions button, .overlay-actions a { min-width: 120px; }
+.result-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; width: 100%; }
+.toast {
+  position: fixed;
+  z-index: 12;
+  left: 50%;
+  top: max(12px, env(safe-area-inset-top));
+  transform: translateX(-50%) translateY(-130%);
+  opacity: 0;
+  transition: .22s ease;
+  max-width: min(92vw, 560px);
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: #120b07;
+  background: linear-gradient(90deg, var(--silver), var(--amber));
+  font-weight: 1000;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,.36);
+}
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+@media (min-width: 560px) {
+  .game-shell { padding-left: 16px; padding-right: 16px; }
+  .hud { grid-template-columns: repeat(8, 1fr); }
+  .stage-wrap { min-height: 520px; }
+  #stage { min-height: 520px; }
+  .controls { grid-template-columns: repeat(8, 1fr); }
+  #cueBtn, #freezeBtn { grid-column: span 1; }
+  .controls button { font-size: .85rem; }
+}
+
+@media (max-height: 760px) {
+  .hud div { min-height: 35px; padding: 3px; }
+  .target-panel { padding: 5px 7px; }
+  #beatCanvas { width: 58px; height: 58px; }
+  .stage-wrap { min-height: 320px; }
+  #stage { min-height: 320px; }
+  .controls button { min-height: 50px; }
+}

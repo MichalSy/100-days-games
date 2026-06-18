@@ -136,6 +136,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/mori/screenshot.png',
     generationDuration: 'manual subagent run with timeout recovery ~120 minutes',
     generatedAt: '2026-06-17T01:46:03Z'
+  },
+  9: {
+    status: 'generated',
+    title: 'Tsuki Shadow Puppet Troupe',
+    slug: 'tsuki-shadow-puppet-troupe',
+    genre: ['silhouette timing puzzle', 'stage-layer arcade', 'mobile-first hybrid'],
+    mode: 'hybrid',
+    description: 'Conduct a moonlit paper-theater troupe by sliding three shadow puppet rods through near, mid, and far rails, setting poses, collecting charms, and cueing silhouettes on the beat.',
+    objective: 'Complete Candle Prologue, Fox-Moon Chase, and Silver Curtain Finale while reaching 2500 points to trigger Tsuki Full-Moon Ovation, then continue into endless encore scoring.',
+    playUrl: '/tsuki/',
+    promptUrl: '/tsuki/prompt.html',
+    promptExcerpt: 'Pose puppets, slide rods across depth rails, match moon-script silhouette recipes, dodge lane-specific ink blots, and cue on the silver beat window.',
+    screenshotUrl: '/tsuki/screenshot.png',
+    generationDuration: 'manual subagent run with timeout recovery ~120 minutes',
+    generatedAt: '2026-06-18T01:42:15Z'
   }
 };
 

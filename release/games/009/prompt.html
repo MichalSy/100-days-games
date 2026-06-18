@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#090b22" />
+  <title>Day 009 Game Generation Prompt</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23090b22'/%3E%3Ccircle cx='32' cy='24' r='15' fill='%23d9efff'/%3E%3Cpath d='M16 45c8-11 24-11 32 0' stroke='%23ffbd5c' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: dark; --bg:#070817; --panel:#11183a; --ink:#f3dfbd; --muted:#c6b28d; --accent:#ffbd5c; --silver:#d9efff; --line:rgba(255,255,255,.14); }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: radial-gradient(circle at 50% 0%, #1b285d, var(--bg) 45%, #02030a); color: var(--ink); line-height: 1.62; }
+    main { width: min(980px, calc(100% - 28px)); margin: 0 auto; padding: 26px 0 64px; }
+    .topbar { display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; margin-bottom:18px; }
+    .back { display:inline-flex; min-height:44px; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; color:#130b08; background:linear-gradient(90deg,var(--silver),var(--accent)); text-decoration:none; font-weight:900; }
+    article { padding: clamp(18px, 4vw, 42px); border:1px solid var(--line); border-radius:28px; background:rgba(7,10,31,.78); box-shadow:0 24px 80px rgba(0,0,0,.38); }
+    h1 { margin: 0 0 14px; font-size: clamp(2rem, 6vw, 4rem); line-height: .95; color: var(--silver); text-wrap: balance; }
+    h2 { margin-top: 2.2rem; padding-top: 1.1rem; border-top: 1px solid var(--line); color: var(--accent); }
+    h3 { color: #ffe0a3; }
+    p, li { color: var(--ink); }
+    ul, ol { padding-left: 1.35rem; }
+    li { margin: .25rem 0; }
+    code { padding:.12em .34em; border-radius:6px; background:rgba(217,239,255,.12); color:var(--silver); }
+    pre { overflow:auto; padding:16px; border-radius:16px; border:1px solid var(--line); background:#02030a; }
+    pre code { padding:0; background:transparent; }
+    a { color: var(--silver); text-underline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="topbar"><a class="back" href="index.html">← Back to game</a><strong>100 Days Games · Day 009</strong></div>
+    <article>
+      <h1>Day 009 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 009</li>
+<li>Title: Tsuki Shadow Puppet Troupe</li>
+<li>Slug: tsuki-shadow-puppet-troupe</li>
+<li>Public route word: tsuki</li>
+<li>Mode: hybrid</li>
+<li>Genre: mobile-first 2.5D silhouette timing puzzle / stage-layer arcade score chase</li>
+<li>Mood/style: moonlit Japanese paper-theater stage, translucent washi screens, hand-cut shadow puppets, indigo night, warm candle amber, silver moonlight, theatrical but readable portrait-phone play</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The current generated series in <code>src/data/games.ts</code> is:</p>
+<ul>
+<li>Day 001 <code>2d</code>: calm koi pond collection and drift survival.</li>
+<li>Day 002 <code>2d</code>: timed sky-courier route planning.</li>
+<li>Day 003 <code>3d</code>: neon bonsai ring-flight crafting.</li>
+<li>Day 004 <code>2d</code>: firefly path drawing / light routing.</li>
+<li>Day 005 <code>3d</code>: dream-rail lane runner.</li>
+<li>Day 006 <code>hybrid</code>: moonbeam/prism alignment puzzle.</li>
+<li>Day 007 <code>2d</code>: seaside bento order-management cooking arcade.</li>
+<li>Day 008 <code>3d</code>: moss/root tile routing on a 3D forest shrine board.</li>
+</ul>
+<p>The latest generated mode is Day 008 <code>3d</code>, so there is no active 2D streak. Day 009 uses <code>hybrid</code> to broaden the series without repeating a full 3D board or vehicle/cooking/routing idea. It should feel like a playable paper-theater performance rather than another path-routing, beam-alignment, lane-runner, or sorting game.</p>
+<p>Recent screenshot variety notes:</p>
+<ul>
+<li>Day 006 was a cool blue/gold observatory board with prism rotation controls and a wide circular play field.</li>
+<li>Day 007 was a bright warm bento counter with horizontal tide lanes, order cards, and food icons.</li>
+<li>Day 008 was an emerald 3D moss shrine board with top HUD, labeled basin edges, and bottom rotation controls.</li>
+</ul>
+<p>Day 009 should shift into a stage-performance silhouette palette: deep indigo, ink black, washi cream, candle amber, silver moon, and vermilion stamp accents. The main play area should be a vertical puppet stage with layered curtains/screens and clearly separated near/mid/far shadow puppet rods. The new verb set is: cue puppet poses, slide rods between depth lanes, align silhouettes with moon-script target shapes, hit beat windows, rescue drifting paper charms, and improvise with a Moon Freeze special.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game's HTML/CSS/JS must come from this prompt and general web/game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 006 <code>hybrid</code>, Day 007 <code>2d</code>, and Day 008 <code>3d</code>. The latest generated 2D streak is zero.</p>
+<p>Mode decision: Day 009 is <code>hybrid</code>. It must be a meaningful hybrid, not just a flat 2D game with decorative perspective:</p>
+<ul>
+<li>Use a 2D canvas/DOM game layer plus real depth-lane logic and visual parallax: near, mid, and far puppet rods have different scale, opacity, blur, timing offsets, hit windows, and collision/overlap behavior.</li>
+<li>Gameplay must depend on depth order: target silhouettes require specific puppet layers to be in front/behind, ink-blot hazards only strike certain depth lanes, and paper charms drift through lane-specific wind.</li>
+<li>The visual treatment should use CSS perspective/parallax or canvas transforms to make the washi screens and puppets feel spatial, while remaining performant on phones.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Conduct a moonlit shadow-puppet troupe by moving three puppet rods through depth lanes and cueing poses so their combined silhouettes match incoming moon-script target shapes before the rhythm window closes.</li>
+<li>Win condition: Complete three performance acts — Candle Prologue, Fox-Moon Chase, and Silver Curtain Finale — and reach 2500 points to trigger “Tsuki Full-Moon Ovation”. After Ovation, continue into endless encore scoring.</li>
+<li>Lose condition: The audience loses three lanterns because too many cue windows are missed, ink blots strike active puppets, or the stage focus meter empties.</li>
+<li>Core loop:</li>
+<ol>
+<li>Start on a title/menu screen with Day 009 badge, mode badge “hybrid”, public route <code>/tsuki/</code>, best score, best Ovation time, tutorial, prompt link, and a large Start button.</li>
+<li>A vertical washi theater stage fills the center. Three puppet rods sit on near/mid/far depth rails, each with a distinct puppet shape and large handle.</li>
+<li>Moon-script target cards descend or pulse at the top of the stage, showing a silhouette recipe: pose icons, depth order, and beat count.</li>
+<li>Player taps/clicks a puppet rod to select it, slides it left/right within its lane, changes its pose, and optionally swaps its depth rail when a target requires a front/back silhouette.</li>
+<li>When the beat ring reaches the cue zone, the player taps “Cue Scene” or presses Space. Correct combined silhouettes score with a paper-lantern burst and extend combo.</li>
+<li>Ink blots, tangled strings, and gusts of paper wind interrupt specific lanes. The player can dodge by moving a puppet to another depth lane or activate Moon Freeze when charged.</li>
+<li>Paper charm bonuses drift through the stage; collecting them without breaking the silhouette alignment charges Moon Freeze and awards mastery bonuses.</li>
+<li>Pause/restart remain available throughout.</li>
+</ol>
+<li>15+ minute play-value strategy:</li>
+<ul>
+<li>Save best score, fastest Full-Moon Ovation time, longest perfect cue streak, highest endless encore act, and collected theater stamps in localStorage.</li>
+<li>Include three authored performance acts:</li>
+<ul>
+<li>Candle Prologue: two-puppet silhouettes, slow beat rings, one depth swap tutorial, no lane hazards for the first cues.</li>
+<li>Fox-Moon Chase: three puppet silhouettes, moving fox/moon target recipes, first ink blots, tangled strings, charm collection.</li>
+<li>Silver Curtain Finale: layered front/back silhouettes, alternating beat tempos, gusts that move charms between lanes, stage focus pressure.</li>
+</ul>
+<li>Deterministic Day 009 seed varies target recipe order, charm drift, ink-blot timing, audience bonus prompts, and encore tempo while keeping the opening fair.</li>
+<li>Mastery badges: complete Candle Prologue without a miss, land 15 perfect cues, trigger Full-Moon Ovation under 175 seconds, finish an encore act with all three audience lanterns lit, collect 30 paper charms.</li>
+<li>Strategic scoring rewards reading ahead: pre-position rods, keep the correct depth order, time cue windows, use Moon Freeze only during cluttered recipes, and decide whether a charm is worth risking a cue.</li>
+<li>Endless encore after Ovation adds more recipe permutations, shorter beat windows, cross-lane hazards, and faster charm drift without shrinking touch targets.</li>
+</ul>
+<li>Difficulty scaling:</li>
+<ul>
+<li>0-45 seconds: two puppets, large cue window, slow target cards, obvious depth order.</li>
+<li>45-105 seconds: three puppets, first depth swaps, lane-specific ink blot warnings, medium cue windows.</li>
+<li>105-175 seconds: mixed pose/depth recipes, charm risk decisions, beat tempo changes, stage focus decay.</li>
+<li>175+ seconds/endless: denser target queue, alternating tempos, faster ink warnings, higher score multipliers, but all core controls remain large and reachable.</li>
+<li>Keep mobile fair: puppet handles at least 48px visual size, action buttons at least 56px tall, forgiving drag/tap hit zones, clear beat ring, short icon labels, and no tiny hazards required for survival.</li>
+</ul>
+<li>Scoring/rewards:</li>
+<ul>
+<li>Correct puppet position/pose within cue window: +45 points per puppet.</li>
+<li>Perfect full-scene cue: +210 points times combo tier and +14% Moon Freeze charge.</li>
+<li>Good but not perfect cue: +110 points, smaller combo gain.</li>
+<li>Paper charm collected while still matching the target: +90 points.</li>
+<li>Act completed: +380 points and restore one audience lantern if below max.</li>
+<li>Tsuki Full-Moon Ovation: +850 points and endless encore unlock.</li>
+<li>Missed cue: audience lantern stress +1, combo reset, stage focus -10%.</li>
+<li>Ink blot hits active puppet: stage focus -18%, puppet briefly stunned, combo reset.</li>
+</ul>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<ul>
+<li>Mouse click/tap: select a puppet rod, pose button, depth lane, or target helper.</li>
+<li>Mouse drag: slide selected puppet rod along its lane.</li>
+<li>A/D or Arrow Left/Right: move selected puppet left/right.</li>
+<li>W/S or Arrow Up/Down: swap selected puppet to far/near depth rail when legal.</li>
+<li>Q/E: cycle selected puppet.</li>
+<li>Z/X/C or 1/2/3: set pose for selected puppet.</li>
+<li>Space or Enter: Cue Scene.</li>
+<li>Shift or M: activate Moon Freeze when charged.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+</ul>
+<li>Mobile/touch:</li>
+<ul>
+<li>Tap a large puppet handle to select; drag horizontally to slide it within its rail.</li>
+<li>Use large Pose Previous / Pose Next buttons to change pose.</li>
+<li>Use large Far / Near depth buttons to swap depth rails.</li>
+<li>Tap large “Cue Scene” button for the beat window.</li>
+<li>Tap Moon Freeze when charged.</li>
+<li>Pause and Restart controls with 44px+ targets.</li>
+<li>No virtual joystick. Interaction is tap-select, drag rods, and large action buttons.</li>
+</ul>
+<li>Mobile layout/orientation:</li>
+<ul>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact HUD with score, best, audience lanterns, act, combo, stage focus, current target, Moon Freeze charge.</li>
+<li>Upper center: target recipe card and beat ring, always readable.</li>
+<li>Center: washi stage with three depth rails and puppets; rail labels NEAR/MID/FAR or icon equivalents must remain legible.</li>
+<li>Bottom: large Pose, Far/Near, Cue Scene, Moon Freeze, Pause, and Restart controls; controls must not hide the stage target zone.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, puppet movement, pose, depth, cue timing, hazards, and Moon Freeze must be visible.</li>
+<li>Target recipes must combine shape, icon, short text, and depth chips so hue alone is not required.</li>
+</ul>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+<ul>
+<li>Shows title “Tsuki Shadow Puppet Troupe”.</li>
+<li>Shows Day 009 badge, mode badge “hybrid”, public route <code>/tsuki/</code>, best score, best Ovation time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+</ul>
+<li>Tutorial text</li>
+<ul>
+<li>Objective: “Match the moon-script silhouettes by posing puppets, sliding rods, and cueing on the beat.”</li>
+<li>Puppet rods: select and drag a rod to place it on the stage.</li>
+<li>Poses: switch the selected puppet pose to match target icons.</li>
+<li>Depth: near/mid/far lanes change which shadow appears in front and which hazards can hit.</li>
+<li>Cue timing: tap Cue Scene when the beat ring enters the silver cue zone.</li>
+<li>Hazards: ink blots stun puppets, tangled strings block swaps, gusts move paper charms.</li>
+<li>Moon Freeze: slows target timing, suspends ink blots, and highlights the correct depth order when charged.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<li>In-game HUD</li>
+<ul>
+<li>Score, best score, audience lantern health, act, cue streak/combo, stage focus, elapsed time, current target, Moon Freeze charge.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<li>Target helper overlay</li>
+<ul>
+<li>Non-blocking hint near the target recipe showing needed puppet names, pose icons, and depth order.</li>
+<li>Must not cover active puppet handles or cue controls on mobile.</li>
+</ul>
+<li>Pause overlay</li>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, prompt link.</li>
+</ul>
+<li>Game-over/results overlay</li>
+<ul>
+<li>Final score, best score, act reached, Ovation status, perfect cue streak, mastery badges, restart button.</li>
+</ul>
+<li>Tsuki Full-Moon Ovation banner</li>
+<ul>
+<li>Trigger once per run after all three acts and 2500 score.</li>
+<li>Non-blocking silver moon bloom, paper lanterns rise, audience silhouettes clap, endless encore continues after the banner fades.</li>
+</ul>
+</ol>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: puppet troupe mascot/lead puppet, moonlit paper-theater background, puppet/icon sheet, and key decorative pieces. Canvas/SVG/DOM code may animate, crop, alpha-clean, resize, composite, optimize, draw beat rings, rails, helper lines, particles, hit zones, UI chrome, and debug shapes. It should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/009/assets/source/</code> and use optimized playable copies under <code>release/games/009/assets/</code>. Also copy optimized playable assets into <code>apps/day-009-tsuki-shadow-puppet-troupe/assets/</code> and the public alias <code>release/tsuki/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny silhouette details that disappear at final in-game size, and keep high-contrast puppet shapes.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Shadow puppet lead mascot source</li>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/009/assets/source/tsuki-lead-puppet-source.png</code></li>
+<li>Optimized path: <code>release/games/009/assets/tsuki-lead-puppet.png</code></li>
+<li>Imagegen2 prompt: “A charming Japanese shadow puppet troupe lead character for a mobile browser stage-timing game, hand-cut washi paper puppet with fox mask, small moon fan, bamboo control rods, indigo and warm candle amber accents, centered readable silhouette, transparent or plain dark stage background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<li>Moonlit paper theater background source</li>
+<ul>
+<li>Target: portrait-friendly background suitable for a phone game stage with an open center play area.</li>
+<li>Archive path: <code>release/games/009/assets/source/tsuki-theater-source.png</code></li>
+<li>Optimized path: <code>release/games/009/assets/tsuki-theater.png</code></li>
+<li>Imagegen2 prompt: “A moonlit Japanese paper shadow-puppet theater stage for a portrait mobile arcade puzzle game, layered washi screens, bamboo frame, hanging lanterns, silver full moon visible through paper, deep indigo night, warm candle amber edges, open readable center area for puppet rails and silhouettes, crop-safe for phone portrait, no characters, no text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<li>Puppet pose and theater icon sheet source</li>
+<ul>
+<li>Target: square icon sheet for puppets, poses, hazards, target recipe chips, and UI decals.</li>
+<li>Archive path: <code>release/games/009/assets/source/tsuki-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/009/assets/tsuki-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a Japanese shadow puppet theater timing game: fox puppet pose, crane puppet pose, moon fan pose, near/mid/far depth chips, cue beat ring, paper charm, ink blot hazard, tangled string, gust swirl, moon freeze icon, audience lantern, full moon ovation stamp, transparent or plain dark indigo background, high contrast silhouettes, no text, no watermark.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+</ol>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas silhouette assets, document the failure in <code>ai/postmortems/day-009.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the lead puppet mascot, verify transparent/cutout quality or clean background removal, readable silhouette, centered pivot, crop margins, no unwanted text/watermarks, and clear upright rod/puppet orientation.</li>
+<li>Verify control-to-motion alignment in-game: dragging rods should visually move the selected puppet along the same horizontal rail, Far/Near controls should match the visible depth order/scale, pose buttons should update the selected puppet silhouette, and Cue Scene feedback should align with the beat ring.</li>
+<li>For the background, verify the center stage remains readable after portrait mobile crop and does not hide puppet handles, target recipes, beat ring, hazards, or bottom controls.</li>
+<li>For the icon sheet, verify pose icons, depth chips, charms, hazards, and Moon Freeze are distinct at final HUD/button size and cannot be confused with each other.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/009/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 009 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+<ul>
+<li>Build the static hybrid game under <code>apps/day-009-tsuki-shadow-puppet-troupe/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/009/</code>.</li>
+<li>Create the public playable route under <code>release/tsuki/</code>.</li>
+<li>Use static HTML/CSS/JS with no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+</ul>
+<li>Asset/polish subagent</li>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, and tune mobile readability/game feel.</li>
+</ul>
+<li>QA/browser/mobile subagent</li>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, puppet selection, rod dragging, pose changes, depth swaps, Cue Scene, Moon Freeze, hazards, 390x844 portrait layout, generated screenshot, and generated assets.</li>
+</ul>
+<li>Reflection/self-improvement subagent</li>
+<ul>
+<li>Write <code>ai/postmortems/day-009.md</code> after validation with what worked, what failed, generated-image inspection notes, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+</ol>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 009 is a meaningful <code>hybrid</code> after Day 008 <code>3d</code>, with actual depth-lane gameplay and visual parallax rather than decorative perspective only.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/target cards, usable rod/pose/depth/cue controls, no forced landscape canvas, and 44px+ controls.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-009.md</code> is copied exactly to <code>release/games/009/prompt.md</code> and <code>release/tsuki/prompt.md</code>.</li>
+<li><code>release/games/009/prompt.html</code> and <code>release/tsuki/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/tsuki/index.html</code>, <code>release/tsuki/prompt.html</code>, <code>release/tsuki/screenshot.png</code>, and <code>release/tsuki/assets/</code> exist and work.</li>
+<li>Gallery card for Day 009 shows prompt availability, generation duration, public <code>/tsuki/</code> links, mode <code>hybrid</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/009/screenshot.png</code> and is non-empty/readable.</li>
+<li>Image/source assets exist under <code>release/games/009/assets/source/</code> and optimized assets exist under <code>release/games/009/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; moving/interactive puppet visuals have verified cutout/background handling, orientation/pivot/crop, readability, depth order, and control-to-motion alignment.</li>
+<li>No console errors during desktop or mobile smoke.</li>
+<li>Existing <code>release/games/001/<strong></code> through <code>release/games/008/</strong></code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/009/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/tsuki/index.html, release/tsuki/prompt.html, release/tsuki/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-009.md release/games/009/prompt.md and cmp prompts/day-009.md release/tsuki/prompt.md.
+# Prompt HTML check: verify release/games/009/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+# Browser smoke: open the local/static /tsuki/ route and verify menu, tutorial, gameplay start, puppet selection, rod dragging or keyboard movement, pose changes, depth swaps, Cue Scene, Moon Freeze control, pause, restart, prompt link, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable tap/drag controls and readable HUD/target/stage.
+# Static screenshot check: inspect release/games/009/screenshot.png for non-empty readable game content.
+# Image QA: inspect every generated Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-009.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /tsuki/ and /tsuki/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 009.</code></pre>
+
+    </article>
+  </main>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#090b22" />
+    <meta
+      name="description"
+      content="Day 009: Tsuki Shadow Puppet Troupe, a mobile-first hybrid depth-lane shadow puppet timing game."
+    />
+    <title>Tsuki Shadow Puppet Troupe - Day 009</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23090b22'/%3E%3Ccircle cx='32' cy='24' r='15' fill='%23d9efff'/%3E%3Cpath d='M16 45c8-11 24-11 32 0' stroke='%23ffbd5c' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell" aria-label="Tsuki Shadow Puppet Troupe game">
+      <section id="titleScreen" class="overlay title-screen" aria-labelledby="titleHeading">
+        <div class="moon-seal">Day 009</div>
+        <img class="title-mascot" src="assets/tsuki-lead-puppet.png" alt="Fox-masked shadow puppet troupe leader" />
+        <h1 id="titleHeading">Tsuki Shadow Puppet Troupe</h1>
+        <p class="subtitle">Conduct hand-cut silhouettes across near, mid, and far stage rails.</p>
+        <div class="badges" aria-label="Game badges">
+          <span>hybrid</span>
+          <span>/tsuki/</span>
+          <span>portrait ready</span>
+        </div>
+        <dl class="records">
+          <div><dt>Best score</dt><dd id="bestScoreTitle">0</dd></div>
+          <div><dt>Best Ovation</dt><dd id="bestOvationTitle">--</dd></div>
+        </dl>
+        <button id="startBtn" class="primary big">Start Performance</button>
+        <a class="prompt-link" href="prompt.html">View generation prompt</a>
+        <article class="tutorial-card">
+          <h2>How to perform</h2>
+          <ul>
+            <li><strong>Objective:</strong> Match the moon-script silhouettes by posing puppets, sliding rods, and cueing on the beat.</li>
+            <li><strong>Puppet rods:</strong> Tap a handle, then drag left or right along its rail.</li>
+            <li><strong>Poses:</strong> Use Pose Prev/Next or Z/X/C to match target icons.</li>
+            <li><strong>Depth:</strong> Near/mid/far lanes change front order, scale, timing offsets, and which hazards can hit.</li>
+            <li><strong>Cue timing:</strong> Tap Cue Scene when the beat ring enters the silver cue zone.</li>
+            <li><strong>Hazards:</strong> Ink blots stun lane puppets; tangles briefly block depth swaps; gusts push charms.</li>
+            <li><strong>Moon Freeze:</strong> When charged, slow timing, suspend ink, and reveal the correct depth order.</li>
+            <li><strong>Pause/restart:</strong> P/R on desktop or visible buttons below.</li>
+          </ul>
+        </article>
+      </section>
+
+      <header class="hud" aria-live="polite">
+        <div><b>Score</b><span id="score">0</span></div>
+        <div><b>Best</b><span id="bestScore">0</span></div>
+        <div><b>Lanterns</b><span id="lanterns" aria-label="Audience lantern health">🏮🏮🏮</span></div>
+        <div><b>Act</b><span id="actName">Candle Prologue</span></div>
+        <div><b>Combo</b><span id="combo">x1</span></div>
+        <div><b>Focus</b><span id="focus">100%</span></div>
+        <div><b>Time</b><span id="elapsed">0:00</span></div>
+        <div><b>Moon</b><span id="freezeMeter">0%</span></div>
+      </header>
+
+      <section class="target-panel" aria-label="Current moon script target">
+        <div class="target-title"><span id="targetAct">Target</span><span id="beatText">cue soon</span></div>
+        <canvas id="beatCanvas" width="96" height="96" aria-hidden="true"></canvas>
+        <div id="targetRecipe" class="recipe" aria-label="Target recipe"></div>
+        <p id="helperText" class="helper">Cue on silver. Match pose, lane, and left/center/right mark.</p>
+      </section>
+
+      <section class="stage-wrap" aria-label="Washi puppet stage">
+        <canvas id="stage" width="720" height="960"></canvas>
+        <div class="lane-labels" aria-hidden="true"><span>FAR</span><span>MID</span><span>NEAR</span></div>
+      </section>
+
+      <section class="controls" aria-label="Game controls">
+        <button id="posePrevBtn">Pose ◀</button>
+        <button id="poseNextBtn">Pose ▶</button>
+        <button id="farBtn">Far ↑</button>
+        <button id="nearBtn">Near ↓</button>
+        <button id="cueBtn" class="primary">Cue Scene</button>
+        <button id="freezeBtn">Moon Freeze</button>
+        <button id="pauseBtn">Pause</button>
+        <button id="restartBtn">Restart</button>
+      </section>
+
+      <section id="pauseOverlay" class="overlay small hidden" aria-label="Paused">
+        <h2>Intermission</h2>
+        <p>Resume the stage, restart the run, or review controls. Match pose chips, rail names, and left/center/right marks, then cue on silver.</p>
+        <p><strong>Keys:</strong> A/D move, W/S depth, Q/E select, Z/X/C poses, Space cue, Shift moon freeze, P pause, R restart.</p>
+        <div class="overlay-actions">
+          <button id="resumeBtn" class="primary">Resume</button>
+          <button id="restartPauseBtn">Restart</button>
+          <a class="prompt-link" href="prompt.html">Prompt</a>
+        </div>
+      </section>
+
+      <section id="resultOverlay" class="overlay small hidden" aria-label="Results">
+        <h2 id="resultTitle">Curtain Call</h2>
+        <div id="resultStats" class="result-stats"></div>
+        <div id="badgesEarned" class="badges earned"></div>
+        <div class="overlay-actions">
+          <button id="restartResultBtn" class="primary">Play Again</button>
+          <a class="prompt-link" href="prompt.html">Prompt</a>
+        </div>
+      </section>
+
+      <div id="toast" class="toast" role="status" aria-live="assertive"></div>
+    </main>
+    <script src="game.js" defer></script>
+  </body>
+</html>

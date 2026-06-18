@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-17T01:46:03.000Z",
+  "generatedAt": "2026-06-18T01:42:15.000Z",
   "totalDays": 100,
-  "completedDays": 8,
+  "completedDays": 9,
   "games": [
     {
       "day": 1,
@@ -73,6 +73,15 @@
       "playUrl": "/mori/",
       "promptUrl": "/mori/prompt.html",
       "screenshotUrl": "/mori/screenshot.png",
+      "generationDuration": "manual subagent run with timeout recovery ~120 minutes"
+    },
+    {
+      "day": 9,
+      "title": "Tsuki Shadow Puppet Troupe",
+      "slug": "tsuki-shadow-puppet-troupe",
+      "playUrl": "/tsuki/",
+      "promptUrl": "/tsuki/prompt.html",
+      "screenshotUrl": "/tsuki/screenshot.png",
       "generationDuration": "manual subagent run with timeout recovery ~120 minutes"
     }
   ]
