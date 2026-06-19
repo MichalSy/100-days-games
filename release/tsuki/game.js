@@ -38,6 +38,78 @@
   let lastTime = 0;
   let toastTimer = 0;
   let loopStarted = false;
+  const audio = {
+    ctx: null,
+    master: null,
+    enabled: false,
+    lastSoundAt: 0
+  };
+  window.__day009Audio = audio;
+
+  function ensureAudio() {
+    if (audio.ctx) {
+      if (audio.ctx.state === 'suspended') audio.ctx.resume().catch(() => {});
+      audio.enabled = true;
+      return;
+    }
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    audio.ctx = new AudioCtx();
+    audio.master = audio.ctx.createGain();
+    audio.master.gain.value = 0.16;
+    audio.master.connect(audio.ctx.destination);
+    audio.enabled = true;
+  }
+
+  function playTone(freq, duration = 0.14, type = 'sine', gain = 0.18, when = 0) {
+    if (!audio.enabled || !audio.ctx || !audio.master) return;
+    const now = audio.ctx.currentTime + when;
+    const osc = audio.ctx.createOscillator();
+    const amp = audio.ctx.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, now);
+    amp.gain.setValueAtTime(0.0001, now);
+    amp.gain.exponentialRampToValueAtTime(Math.max(0.0002, gain), now + 0.012);
+    amp.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+    osc.connect(amp).connect(audio.master);
+    osc.start(now);
+    osc.stop(now + duration + 0.03);
+  }
+
+  function playChord(freqs, duration = 0.22, type = 'sine', gain = 0.09) {
+    freqs.forEach((freq, i) => playTone(freq, duration + i * 0.025, type, gain, i * 0.035));
+  }
+
+  function playNoise(duration = 0.18, gain = 0.11, filterFreq = 700) {
+    if (!audio.enabled || !audio.ctx || !audio.master) return;
+    const now = audio.ctx.currentTime;
+    const buffer = audio.ctx.createBuffer(1, Math.max(1, audio.ctx.sampleRate * duration), audio.ctx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < data.length; i += 1) data[i] = (Math.random() * 2 - 1) * (1 - i / data.length);
+    const source = audio.ctx.createBufferSource();
+    const filter = audio.ctx.createBiquadFilter();
+    const amp = audio.ctx.createGain();
+    source.buffer = buffer;
+    filter.type = 'bandpass';
+    filter.frequency.value = filterFreq;
+    filter.Q.value = 3;
+    amp.gain.setValueAtTime(gain, now);
+    amp.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+    source.connect(filter).connect(amp).connect(audio.master);
+    source.start(now);
+  }
+
+  function playBeatCues() {
+    if (!state || state.status !== 'playing' || !audio.enabled) return;
+    const phase = beatPhase();
+    if (phase < state.lastBeatPhase) playTone(260 + state.act * 38, 0.045, 'triangle', 0.045);
+    if (inCueWindow() && !state.cueWindowSounded) {
+      playChord([740, 930], 0.09, 'sine', 0.045);
+      state.cueWindowSounded = true;
+    }
+    if (!inCueWindow()) state.cueWindowSounded = false;
+    state.lastBeatPhase = phase;
+  }
 
   function loadRecords() {
     try {
@@ -83,7 +155,9 @@
       puppets: initialPuppets(),
       tangleLane: -1,
       tangleTimer: 0,
-      seed: 9009
+      seed: 9009,
+      lastBeatPhase: 0,
+      cueWindowSounded: false
     };
   }
 
@@ -93,6 +167,8 @@
   }
 
   function startGame() {
+    ensureAudio();
+    playChord([392, 494, 659], 0.22, 'triangle', 0.08);
     state = createState();
     state.status = 'playing';
     state.running = true;
@@ -173,6 +249,7 @@
     updateHazards(dt * slow);
     updateCharms(dt * slow);
     updateParticles(dt);
+    playBeatCues();
     maybeSpawn(dt);
     if (state.focus <= 0 || state.lanterns <= 0) endGame(false);
     updateHUD();
@@ -228,6 +305,7 @@
         state.score += aligned ? 90 : 35;
         state.freeze = Math.min(100, state.freeze + (aligned ? 12 : 6));
         state.charmsCollected += 1;
+        playChord([784, 988], 0.12, 'sine', 0.055);
         records.charms = Math.max(records.charms || 0, state.charmsCollected);
         burst(c.x, c.y, '#f8dfaa', 12);
         state.charms.splice(i, 1);
@@ -295,6 +373,7 @@
       state.freeze = Math.min(100, state.freeze + (exact ? 14 : 8));
       state.actCueCount += 1;
       burst(0.5, 0.45, exact ? '#d9efff' : '#ffbd5c', exact ? 35 : 20);
+      playChord(exact ? [523, 659, 784, 1046] : [440, 554, 659], exact ? 0.32 : 0.22, 'triangle', exact ? 0.085 : 0.07);
       toast(`${exact ? 'Perfect' : 'Good'} scene +${gained}!`);
       advanceActIfReady();
       createTarget(false);
@@ -302,6 +381,7 @@
       state.score += 110;
       state.combo = 1;
       state.focus = Math.max(0, state.focus - 5);
+      playTone(330, 0.12, 'triangle', 0.07);
       burst(0.5, 0.45, '#a9d5ff', 12);
       toast('Partial silhouette held. +110, but combo reset.');
       createTarget(false);
@@ -316,6 +396,8 @@
     state.focus = Math.max(0, state.focus - 10);
     state.combo = 1;
     state.streak = 0;
+    playNoise(0.2, 0.12, 260);
+    playTone(155, 0.24, 'sawtooth', 0.055);
     burst(0.5, 0.45, '#df5645', 16);
     toast(`Audience lantern dims: ${reason}.`);
     createTarget(false);
@@ -352,6 +434,7 @@
     state.freezeActive = 5.2;
     state.hazards.length = 0;
     burst(0.5, 0.28, '#d9efff', 42);
+    playChord([659, 880, 1175], 0.35, 'sine', 0.075);
     toast('Moon Freeze: timing slowed, ink suspended, depth order revealed.');
     updateTargetUI();
   }

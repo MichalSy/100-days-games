@@ -56,6 +56,76 @@ let crowsCalmed = 0;
 let endlessWave = 0;
 let completedCommissions = 0;
 const saved = loadSave();
+const audio = {
+  ctx: null,
+  master: null,
+  enabled: false
+};
+window.__day010Audio = audio;
+
+function ensureAudio() {
+  if (audio.ctx) {
+    if (audio.ctx.state === 'suspended') audio.ctx.resume().catch(() => {});
+    audio.enabled = true;
+    return;
+  }
+  const AudioCtx = window.AudioContext || window.webkitAudioContext;
+  if (!AudioCtx) return;
+  audio.ctx = new AudioCtx();
+  audio.master = audio.ctx.createGain();
+  audio.master.gain.value = 0.18;
+  audio.master.connect(audio.ctx.destination);
+  audio.enabled = true;
+}
+
+function playTone(freq, duration = 0.28, type = 'sine', gain = 0.1, when = 0) {
+  if (!audio.enabled || !audio.ctx || !audio.master) return;
+  const now = audio.ctx.currentTime + when;
+  const osc = audio.ctx.createOscillator();
+  const amp = audio.ctx.createGain();
+  osc.type = type;
+  osc.frequency.setValueAtTime(freq, now);
+  amp.gain.setValueAtTime(0.0001, now);
+  amp.gain.exponentialRampToValueAtTime(Math.max(0.0002, gain), now + 0.015);
+  amp.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+  osc.connect(amp).connect(audio.master);
+  osc.start(now);
+  osc.stop(now + duration + 0.04);
+}
+
+function playChime(pitchIndex, success = true) {
+  const base = [392, 523, 659][pitchIndex] || 440;
+  if (success) {
+    playTone(base, 0.42, 'sine', 0.095);
+    playTone(base * 2, 0.34, 'triangle', 0.045, 0.035);
+    playTone(base * 2.5, 0.22, 'sine', 0.028, 0.08);
+  } else {
+    playTone(base * 0.72, 0.24, 'sawtooth', 0.055);
+    playTone(130, 0.28, 'square', 0.035, 0.04);
+  }
+}
+
+function playWind(duration = 0.5, gain = 0.08, filterFreq = 520) {
+  if (!audio.enabled || !audio.ctx || !audio.master) return;
+  const now = audio.ctx.currentTime;
+  const buffer = audio.ctx.createBuffer(1, Math.max(1, audio.ctx.sampleRate * duration), audio.ctx.sampleRate);
+  const data = buffer.getChannelData(0);
+  for (let i = 0; i < data.length; i++) {
+    const fade = 1 - i / data.length;
+    data[i] = (Math.random() * 2 - 1) * fade * fade;
+  }
+  const source = audio.ctx.createBufferSource();
+  const filter = audio.ctx.createBiquadFilter();
+  const amp = audio.ctx.createGain();
+  source.buffer = buffer;
+  filter.type = 'bandpass';
+  filter.frequency.value = filterFreq;
+  filter.Q.value = 1.6;
+  amp.gain.setValueAtTime(gain, now);
+  amp.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+  source.connect(filter).connect(amp).connect(audio.master);
+  source.start(now);
+}
 
 init();
 
@@ -256,6 +326,10 @@ function onPointerDown(event) {
 }
 
 function startGame() {
+  ensureAudio();
+  playWind(0.42, 0.055, 760);
+  playTone(392, 0.22, 'triangle', 0.07);
+  playTone(523, 0.26, 'triangle', 0.06, 0.06);
   resetRun(true);
   state = 'running';
   runStart = performance.now();
@@ -308,6 +382,9 @@ function togglePause() {
 function triggerPulse() {
   if (resonance < 100 || state !== 'running') return;
   resonance = 0; pulseUntil = performance.now() + 6200;
+  playWind(0.85, 0.11, 920);
+  playTone(784, 0.4, 'sine', 0.08);
+  playTone(1175, 0.46, 'sine', 0.045, 0.08);
   crows.forEach((crow) => { crow.scatter = true; crowsCalmed += 1; addScore(110); });
   previewIdealBell();
   spawnSparkle(new THREE.Vector3(0, 0.1, 0), 0xffe179, 38);
@@ -356,6 +433,7 @@ function spawnGust(now) {
   const result = findCatchBell(note);
   if (!result) {
     missGust('missed the open bell mouth');
+    playWind(0.38, 0.075, 280);
     spawnGustVisual(null, note, false);
     return;
   }
@@ -363,10 +441,13 @@ function spawnGust(now) {
   const pitchOk = PITCHES[bell.pitchIndex].id === note.pitch;
   if (!pitchOk) {
     wrongPitch(bell);
+    playChime(bell.pitchIndex, false);
     spawnGustVisual(bell, note, false);
     return;
   }
   bell.ringUntil = now + 900;
+  playWind(0.26, 0.04, 880);
+  playChime(bell.pitchIndex, true);
   spawnGustVisual(bell, note, true);
   spawnSparkle(bell.group.position, PITCHES[bell.pitchIndex].color, 16);
   addScore(60 * comboTier());
@@ -459,6 +540,8 @@ function collectNearbyCharms(pos) {
 }
 
 function spawnCrow() {
+  playTone(185, 0.11, 'sawtooth', 0.035);
+  playTone(145, 0.16, 'sawtooth', 0.028, 0.08);
   const group = new THREE.Group();
   const body = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.46, 5), new THREE.MeshStandardMaterial({ color: 0x151729, emissive: 0x34175c, emissiveIntensity: 0.45 }));
   body.rotation.z = Math.PI / 2;
@@ -508,6 +591,9 @@ function comboTier() { return Math.min(3, 1 + Math.floor(combo / 5)); }
 
 function completeCommission() {
   completedCommissions += 1;
+  playTone(523, 0.18, 'triangle', 0.06);
+  playTone(659, 0.2, 'triangle', 0.055, 0.08);
+  playTone(784, 0.25, 'triangle', 0.05, 0.16);
   addScore(430 + (perfectCommission ? 240 : 0));
   if (perfectCommission) resonance = Math.min(100, resonance + 14);
   cracks = Math.max(0, cracks - 1);
@@ -523,6 +609,8 @@ function completeCommission() {
 
 function triggerGrandChime() {
   grandChime = true; grandBannerUntil = performance.now() + 3800; dom.grandBanner.classList.remove('hidden');
+  [392, 523, 659, 784, 1046].forEach((freq, i) => playTone(freq, 0.55, 'sine', 0.07, i * 0.085));
+  playWind(1.1, 0.1, 1100);
   addScore(900); resonance = 100; bells.forEach((bell) => bell.ringUntil = performance.now() + 2500); spawnSparkle(new THREE.Vector3(0, 0.2, 0), 0xffdf72, 80);
   if (!saved.bestGrandTime || elapsed < saved.bestGrandTime) saved.bestGrandTime = elapsed;
   endlessWave = 0; commissionIndex = COMMISSIONS.length;
