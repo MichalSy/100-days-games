@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 010 Game Generation Prompt</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='48' font-size='46'%3E%F0%9F%8E%90%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: dark; --bg:#071824; --panel:#102b3a; --ink:#eaf8fb; --muted:#aac7d0; --gold:#ffd36d; --teal:#56e8ff; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; background: radial-gradient(circle at top, #174863, var(--bg) 42%); color:var(--ink); line-height:1.62; }
+    main { width:min(940px, calc(100% - 2rem)); margin:0 auto; padding:2rem 0 4rem; }
+    a { color:var(--teal); font-weight:800; }
+    .back { display:inline-flex; margin-bottom:1rem; padding:.65rem .9rem; border:1px solid rgba(116,237,255,.35); border-radius:999px; background:rgba(255,255,255,.06); text-decoration:none; }
+    h1 { font-size:clamp(2.1rem, 7vw, 4.6rem); line-height:.98; margin:.3rem 0 1rem; color:#fff; }
+    h2 { margin-top:2rem; color:var(--gold); border-top:1px solid rgba(255,255,255,.14); padding-top:1rem; }
+    h3 { color:#bff6ff; }
+    p, li { color:#d7edf3; }
+    code { background:rgba(255,255,255,.1); border-radius:.35rem; padding:.05rem .28rem; }
+    pre { overflow:auto; padding:1rem; border-radius:1rem; background:#04111a; border:1px solid rgba(255,255,255,.13); }
+    ul, ol { padding-left:1.4rem; }
+    li { margin:.28rem 0; }
+    .card { border:1px solid rgba(178,238,255,.22); border-radius:1.3rem; background:rgba(8,29,43,.82); padding:1.2rem; box-shadow:0 20px 60px rgba(0,0,0,.25); }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="./index.html">← Back to game</a>
+    <article class="card">
+<h1>Day 010 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 010</li>
+<li>Title: Kaze Windbell Atelier</li>
+<li>Slug: kaze-windbell-atelier</li>
+<li>Public route word: kaze</li>
+<li>Mode: 3D</li>
+<li>Genre: mobile-first 3D wind-routing / resonance puzzle arcade score chase</li>
+<li>Mood/style: breezy Japanese hilltop atelier at blue hour, glass furin windbells, braided cords, paper tanzaku strips, gold dusk light, teal wind ribbons, lacquered wood, calm craft turning into playful storm pressure</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The current generated series in <code>src/data/games.ts</code> ends with:</p>
+<ul>
+<li>Day 007 <code>2d</code>: bright seaside bento order-management and conveyor cooking.</li>
+<li>Day 008 <code>3d</code>: emerald moss shrine board with rotating root tiles, dew routing, and seedling basins.</li>
+<li>Day 009 <code>hybrid</code>: indigo paper-theater depth lanes, puppet posing, beat cue timing, and stage silhouettes.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>hybrid</code> game, so there is no active 2D streak. Day 010 deliberately returns to real <code>3D</code> spatial play to keep the cadence strong after the hybrid stage game. It must not repeat recent verbs: no cooking orders, no puppet cue timing, no moss/root tile board, no lane runner, no prism/beam alignment, and no vehicle/ring flight. The new verb set is: rotate suspended 3D windbells, catch and redirect visible gust ribbons through height-separated chime arcs, tune requested bell sequences, collect floating tanzaku charms, and calm storm crows with a Resonance Pulse.</p>
+<p>Recent screenshot variety notes to avoid repeating:</p>
+<ul>
+<li>Day 007 used a warm food-counter background, horizontal conveyor lanes, pale cream panels, and bottom bento tray controls.</li>
+<li>Day 008 used a green 3D board centered in a forest floor scene with many square route tiles and bottom rotate/bridge buttons.</li>
+<li>Day 009 used a portrait indigo/washi puppet stage with near/mid/far horizontal rails, beat cue ring, and dark theatrical UI.</li>
+</ul>
+<p>Day 010 should shift to a lighter open-air vertical composition: hanging bells at different depths/heights, curved wind ribbons, paper strips fluttering, glass highlights, and a hilltop sky/courtyard rather than a flat board or stage. The main play area should feel like a small 3D mobile diorama seen from a gentle front/isometric camera, with bells hanging in space and the player&#x27;s choices changing actual wind paths through depth.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general web/game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 007 <code>2d</code>, Day 008 <code>3d</code>, and Day 009 <code>hybrid</code>. The latest generated mode streak is one <code>hybrid</code>; latest 2D streak is zero.</p>
+<p>Mode decision: Day 010 is <code>3D</code>. It must implement real spatial gameplay, not decorative perspective:</p>
+<ul>
+<li>Use Three.js/WebGL or equivalent static-browser 3D rendering.</li>
+<li>Render a perspective windbell atelier with actual depth layers, height-separated hanging bells, curved visible gust ribbons, charm particles, storm crows, and camera depth cues.</li>
+<li>Gameplay must depend on 3D positions and rotations: each bell has yaw/tilt/tuning state that changes which incoming gust ribbon it catches and which depth/height outlet it sends sound/wind toward.</li>
+<li>Player actions must manipulate 3D objects: select a hanging bell, rotate its mouth/cord direction, tune its pitch family, and trigger Resonance Pulse.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Tune a hilltop atelier of glass windbells by rotating and pitch-tuning hanging bells so glowing gust ribbons pass through requested bell sequences before the evening storm scatters the charms.</li>
+<li>Win condition: Complete three atelier commissions — Porch Breeze, Lantern Eaves, and Storm-Calm Finale — and reach 2700 points to trigger “Kaze Grand Chime”. After Grand Chime, continue into endless twilight commissions.</li>
+<li>Lose condition: The storm meter fills because too many gusts miss their requested bells, storm crows snatch tanzaku charms, or three fragile bells crack from wrong-pitch overloads.</li>
+<li>Core loop:</li>
+<ol>
+<li>Start on a title/menu screen with Day 010 badge, mode badge “3D”, public route <code>/kaze/</code>, best score, best Grand Chime time, tutorial, prompt link, and a large Start button.</li>
+<li>Show a compact 3D atelier frame: five to seven hanging furin bells arranged at near/mid/far depths and low/mid/high cords, with a wind source at one side and target lantern receivers at the other/top.</li>
+<li>A commission card requests a short sequence such as “Blue LOW → Amber MID → Silver HIGH” using both text/chips and icons.</li>
+<li>Visible gust ribbons enter the scene in pulses. They curve toward the nearest bell opening that is facing them; correctly aligned/tuned bells ring, redirect the ribbon, and fill the next requested note.</li>
+<li>Player taps/clicks a bell to select it, then uses large controls to rotate left/right, tilt high/low, and cycle pitch color/family. On desktop, keyboard shortcuts mirror those controls.</li>
+<li>Tanzaku charm bonuses drift through the scene; catching them with a correctly tuned wind path charges Resonance Pulse.</li>
+<li>Storm crows sweep through specific depth layers and can snatch charms or rattle bells. Resonance Pulse slows gust timing, scares crows, and briefly previews the ideal bell order.</li>
+<li>Pause/restart remain available throughout.</li>
+</ol>
+<li>15+ minute play-value strategy:</li>
+<ul>
+<li>Save best score, fastest Kaze Grand Chime time, longest perfect commission streak, highest endless twilight wave, and collected charm stamps in localStorage.</li>
+<li>Include three authored commissions:</li>
+<ul>
+<li>Porch Breeze: three bells, slow gusts, no crows, teaches selection/rotation/tuning and one height change.</li>
+<li>Lantern Eaves: five bells, two height layers, first storm crow lane, drifting charm risk/reward, mixed pitch families.</li>
+<li>Storm-Calm Finale: seven bells, near/mid/far depth changes, alternating gust entry points, faster crows, wrong-pitch overload pressure.</li>
+</ul>
+<li>Deterministic Day 010 seed varies commission order, gust entry height, charm drift, crow lane timing, and bonus wind spirals while keeping the opening fair.</li>
+<li>Mastery badges: complete Porch Breeze without a miss, ring 18 perfect notes in a row, trigger Grand Chime under 180 seconds, calm 12 storm crows, finish an endless commission with no cracked bells.</li>
+<li>Strategic scoring rewards planning ahead: pre-align bell mouths, tune pitch before gust arrival, choose when a charm is worth diverting wind, and save Resonance Pulse for crowded finale patterns.</li>
+<li>Endless twilight after Grand Chime adds more commission permutations, shorter gust windows, alternating depth lanes, and stronger crow pressure without shrinking mobile controls.</li>
+</ul>
+<li>Difficulty scaling:</li>
+<ul>
+<li>0-45 seconds: three bells, one gust source, broad catch cones, slow commission card, no instant penalties.</li>
+<li>45-110 seconds: five bells, two heights, first crows, two pitch families, charm drift.</li>
+<li>110-180 seconds: seven bells, three depth layers, mixed entry points, wrong-pitch overload, shorter setup time.</li>
+<li>180+ seconds/endless: denser sequences, faster gust pulses, more crow feints, higher combo multipliers, same 44px+ controls.</li>
+<li>Keep mobile fair: large bell hit zones, clear selected-bell halo, thick wind ribbons, readable commission chips, 56px+ main action buttons, and no tiny collectible required for survival.</li>
+</ul>
+<li>Scoring/rewards:</li>
+<ul>
+<li>Correct note in the requested sequence: +60 points times combo tier.</li>
+<li>Perfect full commission with no missed gust: +240 points and +14% Resonance charge.</li>
+<li>Tanzaku charm collected by a valid wind path: +85 points.</li>
+<li>Storm crow calmed by Resonance Pulse: +110 points.</li>
+<li>Complete an atelier commission: +430 points and repair one cracked bell if below max.</li>
+<li>Kaze Grand Chime: +900 points and endless twilight unlock.</li>
+<li>Missed gust: storm meter +8%, combo reset.</li>
+<li>Wrong-pitch overload: selected bell crack stress +1, storm meter +5%, combo reset.</li>
+<li>Crow snatches a charm: storm meter +6%; repeated crow hits can crack a bell.</li>
+</ul>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<ul>
+<li>Mouse click: select a hanging windbell, commission chip, or start/pause overlay button.</li>
+<li>A/D or Arrow Left/Right: rotate selected bell mouth left/right.</li>
+<li>W/S or Arrow Up/Down: tilt selected bell outlet high/low.</li>
+<li>Q/E: cycle selectable bells.</li>
+<li>Z/X/C or 1/2/3: set pitch family (Blue low, Amber mid, Silver high) for selected bell.</li>
+<li>Space or Enter: trigger Resonance Pulse when charged; also start from menu.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+</ul>
+<li>Mobile/touch:</li>
+<ul>
+<li>Tap a large bell body/label to select it; selected bell gets a halo and helper card.</li>
+<li>Use large Rotate ◀ / Rotate ▶ buttons to change yaw.</li>
+<li>Use large Tilt High / Tilt Low buttons to change outlet height.</li>
+<li>Use large Pitch button to cycle Blue/Amber/Silver.</li>
+<li>Tap Resonance Pulse when charged.</li>
+<li>Pause and Restart controls with 44px+ targets.</li>
+<li>No virtual joystick. Interaction is tap-select plus large action buttons.</li>
+</ul>
+<li>Mobile layout/orientation:</li>
+<ul>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact HUD with score, best, bells intact, storm meter, commission/chapter, combo, current commission, Resonance charge.</li>
+<li>Upper center: commission card with requested note sequence, chip labels, progress ticks, and remaining gust window.</li>
+<li>Center: 3D windbell atelier fills the main viewport with bells, gust ribbons, charms, crows, and target lanterns visible.</li>
+<li>Bottom: large rotate, tilt, pitch, Resonance, pause, and restart controls; controls must not cover selected bell or active wind ribbon endpoints.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, bell selection, rotate/tilt/tune, gust routing, crows, Resonance, pause/restart must be visible.</li>
+<li>Commission requests must combine color, text labels, icons, and height chips so hue alone is not required.</li>
+</ul>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+<ul>
+<li>Shows title “Kaze Windbell Atelier”.</li>
+<li>Shows Day 010 badge, mode badge “3D”, public route <code>/kaze/</code>, best score, best Grand Chime time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+</ul>
+<li>Tutorial text</li>
+<ul>
+<li>Objective: “Rotate and tune hanging windbells so gust ribbons ring the requested notes.”</li>
+<li>Bell selection: tap/click a bell, then rotate/tilt/tune with buttons or keys.</li>
+<li>Gust routing: wind follows the open bell mouth and redirects through depth/height layers.</li>
+<li>Pitch: commission chips require Blue low, Amber mid, and Silver high note families.</li>
+<li>Hazards: missed gusts raise storm; storm crows can snatch charms and crack rattled bells.</li>
+<li>Resonance Pulse: slows gusts, scares crows, and previews the next good bell when charged.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<li>In-game HUD</li>
+<ul>
+<li>Score, best score, intact bells, storm meter, commission name, combo, elapsed time, current sequence, selected bell, Resonance charge.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<li>Selected-bell helper overlay</li>
+<ul>
+<li>Non-blocking helper near the selected bell showing yaw arrow, tilt, pitch family, and likely next catch/outlet.</li>
+<li>Must not cover active gust ribbons, target lanterns, or bottom controls on mobile.</li>
+</ul>
+<li>Pause overlay</li>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, prompt link.</li>
+</ul>
+<li>Game-over/results overlay</li>
+<ul>
+<li>Final score, best score, commission reached, Grand Chime status, perfect note streak, mastery badges, restart button.</li>
+</ul>
+<li>Kaze Grand Chime banner</li>
+<ul>
+<li>Trigger once per run after all three commissions and 2700 score.</li>
+<li>Non-blocking gold/teal wind spiral, all bells ring, tanzaku strips rise, crows scatter; endless twilight continues after the banner fades.</li>
+</ul>
+</ol>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: windbell keeper mascot, hilltop atelier background, furin/icon sheet, and key decorative pieces. Three.js primitives may render bell glass bodies, cords, wind ribbons, lantern receivers, charm particles, crows, hit volumes, guide arrows, and UI chrome. Procedural code may crop, resize, alpha-clean, atlas-pack, optimize, animate, or place generated assets; it should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/010/assets/source/</code> and use optimized playable copies under <code>release/games/010/assets/</code>. Also copy optimized playable assets into <code>apps/day-010-kaze-windbell-atelier/assets/</code> and the public alias <code>release/kaze/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny glass details that disappear at final in-game size, and keep high-contrast silhouettes for mascot/charm/crow shapes.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Windbell keeper mascot/source charm</li>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/010/assets/source/kaze-keeper-source.png</code></li>
+<li>Optimized path: <code>release/games/010/assets/kaze-keeper.png</code></li>
+<li>Imagegen2 prompt: “A charming Japanese windbell atelier keeper mascot for a mobile 3D browser puzzle arcade game, small shrine artisan with teal haori, braided cord, glass furin bell, paper tanzaku charm, breezy gold and cyan accents, centered readable silhouette, transparent or plain light sky background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<li>Hilltop windbell atelier background source</li>
+<ul>
+<li>Target: portrait-friendly background/skybox texture suitable behind a 3D hanging-bell diorama with an open readable center.</li>
+<li>Archive path: <code>release/games/010/assets/source/kaze-atelier-source.png</code></li>
+<li>Optimized path: <code>release/games/010/assets/kaze-atelier.png</code></li>
+<li>Imagegen2 prompt: “A breezy Japanese hilltop windbell atelier at blue hour for a portrait mobile 3D puzzle game, wooden eaves, hanging glass furin bells, paper tanzaku strips, distant town lights, soft gold lanterns, teal evening sky, open readable center area for 3D gameplay, crop-safe for phone portrait, no characters, no text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<li>Windbell icon sheet source</li>
+<ul>
+<li>Target: square icon sheet for UI and object decals.</li>
+<li>Archive path: <code>release/games/010/assets/source/kaze-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/010/assets/kaze-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a Japanese windbell atelier puzzle game: blue low note bell, amber mid note bell, silver high note bell, gust ribbon, tanzaku paper charm, storm crow hazard, cracked bell, Resonance Pulse spiral, lantern receiver, perfect chime badge, Grand Chime stamp, transparent or plain teal sky background, high contrast, no text, no watermark.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+</ol>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas/Three.js materials, document the failure in <code>ai/postmortems/day-010.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the windbell keeper mascot, verify transparent/cutout quality or clean background removal, readable silhouette, centered pivot, crop margins, no unwanted text/watermarks, and stable upright orientation.</li>
+<li>Verify control-to-motion alignment in-game: Rotate left/right must visibly rotate the selected bell mouth in the expected direction, Tilt High/Low must move the outlet guide up/down, Pitch must update the selected bell color/label, and Resonance Pulse feedback must align with wind/crow behavior.</li>
+<li>For the background, verify the center play area remains readable after portrait mobile crop and does not hide bells, wind ribbons, commission cards, crows, charms, or action controls.</li>
+<li>For the icon sheet, verify pitch icons, charms, crows, cracked-bell warning, Resonance, and Grand Chime stamp are distinct at final HUD/button size and cannot be confused.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/010/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 010 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+<ul>
+<li>Build the static 3D game under <code>apps/day-010-kaze-windbell-atelier/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/010/</code>.</li>
+<li>Create the public playable route under <code>release/kaze/</code>.</li>
+<li>Use static HTML/CSS/JS with Three.js/WebGL and no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+<li>If vendoring <code>three.module*.js</code>, also copy the matching <code>three.core*.js</code> beside it in the app, release archive, and <code>/kaze/</code> alias assets.</li>
+</ul>
+<li>Asset/polish subagent</li>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, and tune mobile readability/game feel.</li>
+</ul>
+<li>QA/browser/mobile subagent</li>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, 3D bell interaction, bell selection, rotate/tilt/pitch controls, Resonance Pulse, wind routing, crows/storm, generated screenshot, generated assets, and 390x844 portrait layout.</li>
+</ul>
+<li>Reflection/self-improvement subagent</li>
+<ul>
+<li>Write <code>ai/postmortems/day-010.md</code> after validation with what worked, what failed, generated-image inspection notes, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+</ol>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 010 is real <code>3D</code> spatial gameplay with actual depth/height separated bells, wind ribbons, object rotations, pitch states, crows/charms, and camera depth cues.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/commission card, usable tap/rotate/tilt/pitch/resonance controls, no forced landscape canvas, and 44px+ controls.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-010.md</code> is copied exactly to <code>release/games/010/prompt.md</code> and <code>release/kaze/prompt.md</code>.</li>
+<li><code>release/games/010/prompt.html</code> and <code>release/kaze/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/kaze/index.html</code>, <code>release/kaze/prompt.html</code>, <code>release/kaze/screenshot.png</code>, and <code>release/kaze/assets/</code> exist and work.</li>
+<li>Gallery card for Day 010 shows prompt availability, generation duration, public <code>/kaze/</code> links, mode <code>3d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/010/screenshot.png</code> and is non-empty/readable.</li>
+<li>Image/source assets exist under <code>release/games/010/assets/source/</code> and optimized assets exist under <code>release/games/010/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; moving/interactive bell/wind/crow visuals have verified cutout/background handling where relevant, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>No console errors during desktop or mobile smoke.</li>
+<li>Existing <code>release/games/001/<strong></code> through <code>release/games/009/</strong></code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/010/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/kaze/index.html, release/kaze/prompt.html, release/kaze/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-010.md release/games/010/prompt.md and cmp prompts/day-010.md release/kaze/prompt.md.
+# Prompt HTML check: verify release/games/010/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+# Browser smoke: open the local/static /kaze/ route and verify menu, tutorial, gameplay start, bell selection, rotate controls, tilt controls, pitch cycling, Resonance control presence, pause, restart, prompt link, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable tap/rotate/tilt/pitch controls and readable HUD/commission/scene.
+# Static screenshot check: inspect release/games/010/screenshot.png for non-empty readable game content.
+# Image QA: inspect every generated Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-010.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /kaze/ and /kaze/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 010.</code></pre>
+    </article>
+  </main>
+</body>
+</html>

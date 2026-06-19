@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-18T01:42:15.000Z",
+  "generatedAt": "2026-06-19T01:31:46.000Z",
   "totalDays": 100,
-  "completedDays": 9,
+  "completedDays": 10,
   "games": [
     {
       "day": 1,
@@ -83,6 +83,15 @@
       "promptUrl": "/tsuki/prompt.html",
       "screenshotUrl": "/tsuki/screenshot.png",
       "generationDuration": "manual subagent run with timeout recovery ~120 minutes"
+    },
+    {
+      "day": 10,
+      "title": "Kaze Windbell Atelier",
+      "slug": "kaze-windbell-atelier",
+      "playUrl": "/kaze/",
+      "promptUrl": "/kaze/prompt.html",
+      "screenshotUrl": "/kaze/screenshot.png",
+      "generationDuration": "manual subagent run with timeout recovery ~140 minutes"
     }
   ]
 }

@@ -151,6 +151,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/tsuki/screenshot.png',
     generationDuration: 'manual subagent run with timeout recovery ~120 minutes',
     generatedAt: '2026-06-18T01:42:15Z'
+  },
+  10: {
+    status: 'generated',
+    title: 'Kaze Windbell Atelier',
+    slug: 'kaze-windbell-atelier',
+    genre: ['3D wind-routing puzzle', 'resonance arcade', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Tune a breezy hilltop atelier by rotating and pitch-tuning glass windbells so glowing gust ribbons ring requested note sequences while storm crows threaten the charms.',
+    objective: 'Complete Porch Breeze, Lantern Eaves, and Storm-Calm Finale while reaching 2700 points to trigger Kaze Grand Chime, then continue into endless twilight commissions.',
+    playUrl: '/kaze/',
+    promptUrl: '/kaze/prompt.html',
+    promptExcerpt: 'Rotate, tilt, and tune hanging 3D windbells so teal gust ribbons ring Blue, Amber, and Silver note sequences before the storm meter fills.',
+    screenshotUrl: '/kaze/screenshot.png',
+    generationDuration: 'manual subagent run with timeout recovery ~140 minutes',
+    generatedAt: '2026-06-19T01:31:46Z'
   }
 };
 
