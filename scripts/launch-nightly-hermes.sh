@@ -29,6 +29,7 @@ cd "$REPO"
   HERMES_PROFILE=ryu hermes --profile ryu chat \
     --provider openai-codex \
     --model gpt-5.5 \
+    --skills 100-days-games-generator,autonomous-static-site-factory,aiko-argocd-gitops,github-pr-workflow,subagent-driven-development,software-quality-lifecycle,p5js,creative/pixel-art,claude-design,popular-web-designs,dogfood \
     --toolsets terminal,file,web,browser,vision,image_gen,delegation,skills,messaging,todo,session_search \
     --query "$PROMPT"
   RC=$?

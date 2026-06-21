@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Hana Kimono Pattern Weaver — Day 011</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f1b2d'/%3E%3Cpath d='M32 10c5 9 13 9 19 5-1 9-6 16-15 17 9 1 14 8 15 17-6-4-14-4-19 5-5-9-13-9-19-5 1-9 6-16 15-17-9-1-14-8-15-17 6 4 14 4 19-5Z' fill='%23e78aa1'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%23f7d78a'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="game-shell" aria-label="Hana Kimono Pattern Weaver game">
+    <section class="status-ribbon" aria-label="Game status">
+      <div><span>Score</span><strong id="score">0</strong></div>
+      <div><span>Best</span><strong id="best">0</strong></div>
+      <div><span>Petals</span><strong id="petals">3/3</strong></div>
+      <div><span>Dye</span><strong id="dye">0%</strong></div>
+      <div><span>Combo</span><strong id="combo">x1</strong></div>
+    </section>
+
+    <section class="commission-card" aria-live="polite">
+      <div>
+        <p class="eyebrow" id="chapter">Sakura Lining</p>
+        <h1 id="commissionTitle">Hana Kimono Pattern Weaver</h1>
+        <p id="commissionText">Stamp, rotate, and mirror motifs before the dye dries.</p>
+      </div>
+      <div class="progress-stack">
+        <span id="time">0:00</span>
+        <span>/hana/ · Day 011 · 2D</span>
+      </div>
+    </section>
+
+    <section class="play-table">
+      <img class="table-bg" src="./assets/hana-workshop.png" alt="Kimono workshop table background" />
+      <div class="cloth-wrap">
+        <div class="cloth-title">Kimono cloth panel</div>
+        <div id="clothGrid" class="cloth-grid" role="grid" aria-label="Kimono motif placement grid"></div>
+        <div id="mothLayer" class="moth-layer" aria-hidden="true"></div>
+      </div>
+      <aside class="helper-card" id="helperCard">
+        <strong id="selectedLabel">Sakura</strong>
+        <span id="rotationLabel">Rotation 0° · normal</span>
+        <span id="hintLabel">Tap a cloth cell to place.</span>
+      </aside>
+    </section>
+
+    <section class="control-dock" aria-label="Pattern controls">
+      <div class="stamp-tray" id="stampTray" aria-label="Motif stamps"></div>
+      <div class="action-row">
+        <button id="rotateBtn" type="button">Rotate ↻</button>
+        <button id="flipBtn" type="button">Flip ⇄</button>
+        <button id="mirrorBtn" type="button">Mirror Guide</button>
+        <button id="repairBtn" type="button">Repair <span id="repairs">3</span></button>
+        <button id="pauseBtn" type="button">Pause</button>
+        <button id="restartBtn" type="button">Restart</button>
+      </div>
+    </section>
+  </main>
+
+  <section id="menuOverlay" class="overlay menu-overlay">
+    <div class="panel title-panel">
+      <div class="title-copy">
+        <p class="eyebrow">Day 011 · 2D · /hana/</p>
+        <h2>Hana Kimono Pattern Weaver</h2>
+        <p class="lede">Fulfill kimono commissions by stamping motifs, rotating and flipping them, keeping sleeve symmetry, and protecting the silk from moths.</p>
+        <div class="tutorial-grid">
+          <span>1. Pick a motif stamp.</span>
+          <span>2. Tap the kimono panel to place it.</span>
+          <span>3. Rotate/flip when the commission asks.</span>
+          <span>4. Use Mirror Guide for sleeve pairs.</span>
+          <span>5. Repair smudges sparingly.</span>
+          <span>6. Tap moths before they chew motifs.</span>
+        </div>
+        <div class="menu-actions">
+          <button id="startBtn" class="primary" type="button">Start weaving</button>
+          <a class="link-button" href="./prompt.html">View prompt</a>
+        </div>
+      </div>
+      <img src="./assets/hana-artisan.png" alt="Kimono artisan mascot holding a fabric stamp" />
+    </div>
+  </section>
+
+  <section id="pauseOverlay" class="overlay hidden">
+    <div class="panel small-panel">
+      <p class="eyebrow">Atelier paused</p>
+      <h2>Plan the next stitch</h2>
+      <p>Use Q/E or Rotate, F or Flip, M for Mirror Guide, and tap moths before they land.</p>
+      <button id="resumeBtn" class="primary" type="button">Resume</button>
+      <button id="pauseRestartBtn" type="button">Restart run</button>
+      <a href="./prompt.html">Read generation prompt</a>
+    </div>
+  </section>
+
+  <section id="resultOverlay" class="overlay hidden">
+    <div class="panel small-panel">
+      <p class="eyebrow" id="resultKicker">Results</p>
+      <h2 id="resultTitle">Atelier closed</h2>
+      <p id="resultText"></p>
+      <button id="resultRestartBtn" class="primary" type="button">Restart</button>
+      <a href="./prompt.html">View prompt</a>
+    </div>
+  </section>
+
+  <script src="./game.js" defer></script>
+</body>
+</html>

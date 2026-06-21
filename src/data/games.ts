@@ -166,6 +166,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/kaze/screenshot.png',
     generationDuration: 'manual subagent run with timeout recovery ~140 minutes',
     generatedAt: '2026-06-19T01:31:46Z'
+  },
+  11: {
+    status: 'generated',
+    title: 'Hana Kimono Pattern Weaver',
+    slug: 'hana-kimono-pattern-weaver',
+    genre: ['pattern-placement puzzle', 'textile atelier arcade', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Fulfill spring kimono workshop commissions by stamping, rotating, and flipping sakura, wave, crane, plum, and gold-thread motifs onto a shaped cloth panel before the dye dries.',
+    objective: 'Complete Sakura Lining, Crane Sleeve, and Festival Obi while reaching 2600 points to trigger Hana Grand Fitting, then continue into endless custom commissions.',
+    playUrl: '/hana/',
+    promptUrl: '/hana/prompt.html',
+    promptExcerpt: 'Stamp kimono motifs, preserve mirrored sleeve symmetry, repair dye smudges, stop silk moths, and finish each textile commission before the dye tray dries.',
+    screenshotUrl: '/hana/screenshot.png',
+    generationDuration: 'manual controller run with implementation/asset subagents ~150 minutes',
+    generatedAt: '2026-06-21T01:44:28Z'
   }
 };
 

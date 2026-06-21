@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 011 Game Generation Prompt</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23fff6ea'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='34'%3E%E2%9C%BF%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: light; --ink:#2b2028; --muted:#695b62; --paper:#fff9ef; --rose:#b4556d; --gold:#c99736; }
+    * { box-sizing: border-box; } body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background: radial-gradient(circle at top, #ffe8d7, #f6efe5 42%, #e8d7c4); line-height:1.62; }
+    main { width:min(980px, calc(100% - 28px)); margin:0 auto; padding:28px 0 56px; }
+    .nav { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:18px; }
+    a { color:#6c2345; font-weight:800; } .nav a { background:#fffaf2; border:1px solid rgba(91,49,67,.16); padding:10px 14px; border-radius:999px; text-decoration:none; }
+    article { background:rgba(255,249,239,.96); border:1px solid rgba(91,49,67,.16); border-radius:28px; padding:clamp(18px,4vw,42px); box-shadow:0 18px 48px rgba(61,35,38,.18); }
+    h1 { font-family:Georgia, 'Times New Roman', serif; font-size:clamp(2.2rem,7vw,4.5rem); line-height:1; margin:.1em 0 .35em; }
+    h2 { margin-top:2.1em; border-top:1px solid rgba(91,49,67,.14); padding-top:1em; color:#4a2639; }
+    h3 { color:#6b314d; } code { background:#f6e7d6; padding:.12em .34em; border-radius:6px; } pre { overflow:auto; background:#2d2028; color:#fff8ed; padding:16px; border-radius:16px; }
+    li { margin:.25em 0; } blockquote { border-left:4px solid var(--gold); margin-left:0; padding-left:1em; color:var(--muted); }
+  </style>
+</head>
+<body><main><nav class="nav"><a href="./index.html">← Back to game</a><a href="/">Gallery</a></nav><article><h1>Day 011 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 011</li>
+<li>Title: Hana Kimono Pattern Weaver</li>
+<li>Slug: hana-kimono-pattern-weaver</li>
+<li>Public route word: hana</li>
+<li>Mode: 2D</li>
+<li>Genre: mobile-first pattern-placement puzzle / textile atelier arcade score chase</li>
+<li>Mood/style: refined Japanese kimono workshop at spring dusk, lacquered fabric trays, washi order cards, blooming sakura motifs, indigo ink, ivory silk, muted rose, plum shadows, gold thread accents; tactile craft puzzle with crisp readable symbols rather than busy decoration</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The current generated series in <code>src/data/games.ts</code> ends with:</p>
+<ul>
+<li>Day 007 <code>2d</code>: seaside bento order-management and conveyor cooking.</li>
+<li>Day 008 <code>3d</code>: moss/root tile routing on a miniature forest shrine board.</li>
+<li>Day 009 <code>hybrid</code>: shadow-puppet depth lanes, pose matching, and beat cue timing.</li>
+<li>Day 010 <code>3d</code>: hilltop windbell atelier, real 3D hanging bells, wind ribbons, pitch tuning, crows, and storm pressure.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>3d</code>, and the latest 2D streak is zero. Day 011 may safely return to <code>2D</code> while preserving cadence. It deliberately shifts away from recent verbs: no route-building, no beam/wind routing, no lane runner, no cooking orders, no puppet beat timing, no 3D object tuning, no vehicle movement. The new verb set is: read a textile commission, stamp fabric motifs onto a kimono panel grid, rotate/flip motif blocks, preserve symmetry, manage dye saturation, clear moth/nick mistakes, and chain elegant pattern matches.</p>
+<p>Recent screenshot and visual variety notes:</p>
+<ul>
+<li>Day 008 used emerald moss, a chunky 3D board, square route tiles, and forest shrine texture.</li>
+<li>Day 009 used deep indigo/amber theater silhouettes, near/mid/far rails, and rhythm UI.</li>
+<li>Day 010 used teal/gold blue-hour 3D eaves, hanging windbells, a wide central diorama, top HUD boxes, and bottom rotation/tuning controls.</li>
+</ul>
+<p>Day 011 should be flatter, calmer, and more textile/editorial: a portrait atelier surface with a central kimono-shaped cloth panel, patterned stamp blocks, washi commission cards, fabric swatches, and blossom-thread particles. Avoid teal wind ribbons, hanging bells, storm/crow iconography, heavy 3D perspective, and the same six-box top HUD look. The composition should feel like laying fabric on a table, not steering objects through space.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general web/game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 008 <code>3d</code>, Day 009 <code>hybrid</code>, and Day 010 <code>3d</code>. The latest generated mode streak is one <code>3d</code>; latest 2D streak is zero.</p>
+<p>Mode decision: Day 011 is <code>2D</code>. This is allowed because the latest game is 3D and there is no 2D streak. The next day is not forced by cadence, but if Day 012 also chooses 2D, the planner should be mindful that Day 013 should strongly prefer 3D/hybrid before the series drifts flat.</p>
+<p>Day 011 must be a strong 2D game, not a placeholder:</p>
+<ul>
+<li>Use a responsive 2D canvas or DOM/canvas hybrid that works in portrait phones.</li>
+<li>The game should depend on spatial pattern composition: stamp shapes, rotations, mirror symmetry, motif adjacency, dye saturation, and commission constraints.</li>
+<li>Visual richness should come from Imagegen2 textile art plus crisp programmatic placement/interaction, not from procedural placeholder doodles.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Fulfill kimono workshop commissions by placing, rotating, and flipping motif stamps onto a kimono cloth panel so the final pattern matches the requested theme, symmetry, color balance, and motif count before the dye tray dries.</li>
+<li>Win condition: Complete three atelier chapters — Sakura Lining, Crane Sleeve, and Festival Obi — while reaching 2600 points to trigger “Hana Grand Fitting”. After Grand Fitting, continue into endless custom commissions.</li>
+<li>Lose condition: The dye tray dries out because too many placements miss constraints, moths chew pinned motifs, dye saturation overflows, or three customer patience petals fall.</li>
+<li>Core loop:</li>
+<ol>
+<li>Start on a title/menu screen with Day 011 badge, mode badge “2D”, public route <code>/hana/</code>, best score, best Grand Fitting time, tutorial, prompt link, and a large Start button.</li>
+<li>Show a portrait kimono cloth panel in the center with an 5x6 or 6x7 placement grid shaped like body/sleeves/obi, not a generic square board.</li>
+<li>A washi commission card requests a pattern using readable text + icons, for example: “Sakura x4 mirrored on sleeves, Wave border on hem, one Gold Crane on obi, keep Indigo under 40% saturation.”</li>
+<li>Player selects a motif stamp from a tray: Sakura, Wave, Crane, Plum Dot, Gold Thread, or Empty/Undo.</li>
+<li>Player taps/drag-drops onto cloth cells. Rotate and Flip controls adjust the stamp before/after placement. Mirror Guide previews the corresponding symmetric cell.</li>
+<li>Correct placements glow with stitched gold thread; wrong placements create dye smudges that can be repaired with limited blotting cloths.</li>
+<li>Silk moths drift toward pinned motifs. Tapping a moth before it lands saves the cloth; ignoring it chews a motif and costs patience.</li>
+<li>Completing a commission seals the fabric with a blossom stamp, awards points, restores one patience petal if needed, and introduces the next chapter.</li>
+<li>Pause/restart remain available throughout.</li>
+</ol>
+<li>15+ minute play-value strategy:</li>
+<ul>
+<li>Save best score, fastest Hana Grand Fitting time, longest perfect-commission streak, highest endless commission, and collected textile stamp badges in localStorage.</li>
+<li>Include three authored chapters:</li>
+<ul>
+<li>Sakura Lining: small kimono panel, simple mirrored sleeve pairs, slow dye timer, no moths for first commission.</li>
+<li>Crane Sleeve: larger panel, rotate/flip requirements, first moths, color-balance requests, repair cloth decisions.</li>
+<li>Festival Obi: full panel with obi band constraints, border continuity, forbidden cells, faster drying, multi-step commission chain.</li>
+</ul>
+<li>Deterministic Day 011 seed varies commission order, motif palette, moth approach timing, forbidden cells, bonus symmetry targets, and endless constraints while keeping the opening fair.</li>
+<li>Mastery badges: complete Sakura Lining without a smudge, finish 12 mirrored pairs, complete Grand Fitting under 185 seconds, repair no more than two mistakes, stop 20 moths, complete an endless commission with all patience petals.</li>
+<li>Strategic scoring rewards planning before placing: use Mirror Guide, preserve dye saturation, place border motifs first, decide when to spend a repair cloth, and leave high-value gold thread motifs for exact cells.</li>
+<li>Endless mode after Grand Fitting adds denser commission combinations, stricter color balance, more moth feints, and fewer repair cloths without shrinking touch targets.</li>
+</ul>
+<li>Difficulty scaling:</li>
+<ul>
+<li>0-45 seconds: 5x6 shaped panel, two motif types, large mirrored targets, broad timer, no moth penalty during tutorial placements.</li>
+<li>45-115 seconds: three to four motif types, rotate/flip constraints, first moths, first dye saturation cap.</li>
+<li>115-185 seconds: full panel, obi/border constraints, forbidden smudge cells, faster drying, multi-condition commission cards.</li>
+<li>185+ seconds/endless: combined symmetry + color + adjacency constraints, faster moths, higher combo multipliers, but same 44px+ controls and readable cells.</li>
+<li>Keep mobile fair: cloth cells must be large enough to tap around 390x844, motif icons remain distinct at final size, commission card uses short lines/chips, and no tiny moving hazard is required for survival.</li>
+</ul>
+<li>Scoring/rewards:</li>
+<ul>
+<li>Correct motif placement: +45 points times combo tier.</li>
+<li>Correct mirrored pair: +130 points and +8% Mirror Guide charge.</li>
+<li>Perfect commission with no smudges: +260 points and restore one repair cloth.</li>
+<li>Moth stopped before landing: +55 points; stop three in a row for a “Silk Guard” bonus.</li>
+<li>Dye balance bonus: +180 points if final color saturation stays inside requested range.</li>
+<li>Chapter complete: +420 points and restore one patience petal if below max.</li>
+<li>Hana Grand Fitting: +880 points and endless custom commissions unlock.</li>
+<li>Wrong motif/rotation/forbidden cell: one smudge, combo reset, dye tray dries faster.</li>
+<li>Moth chews pinned motif: patience -1 and that cell must be repaired/replaced.</li>
+</ul>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<ul>
+<li>Mouse click/tap: select motif stamp, cloth cell, rotate/flip/mirror/repair/pause/restart buttons.</li>
+<li>Mouse drag: drag selected motif from tray onto cloth cell.</li>
+<li>Arrow keys or WASD: move a keyboard focus cursor across cloth cells.</li>
+<li>1-6: select motif stamp.</li>
+<li>Q/E: rotate selected motif counterclockwise/clockwise.</li>
+<li>F: flip selected motif.</li>
+<li>M or Space: toggle/activate Mirror Guide when charged.</li>
+<li>Backspace or U: undo last placement when allowed.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+</ul>
+<li>Mobile/touch:</li>
+<ul>
+<li>Tap a large motif stamp in the tray, then tap a cloth cell to place it.</li>
+<li>Drag-and-drop from tray to cloth should also work, but tap-select/tap-place is mandatory for reliability.</li>
+<li>Use large Rotate, Flip, Undo/Repair, and Mirror Guide buttons.</li>
+<li>Tap moths directly when they approach; hit zones should be forgiving.</li>
+<li>Pause and Restart controls with 44px+ targets.</li>
+<li>No virtual joystick. The interaction model is tap-select, tap-place, rotate/flip, and optional drag.</li>
+</ul>
+<li>Mobile layout/orientation:</li>
+<ul>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact but distinct atelier status strip with score, best, patience petals, dye dryness, chapter, combo, and time. Avoid copying Day 010&#x27;s six equal dark boxes; use a softer textile ribbon or card layout.</li>
+<li>Below top: commission card with motif chips, symmetry/border/color constraints, progress ticks, and remaining dye window.</li>
+<li>Center: kimono cloth panel with shaped grid, readable motifs, mirrored ghost preview, smudge highlights, and moth approach paths.</li>
+<li>Bottom: motif tray and large action controls. The selected motif should be obvious, and controls must not cover the active cloth panel.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, motif selection, placement, rotate/flip, symmetry, smudges/repair, moths, and pause/restart must be visible.</li>
+<li>Commission requests must combine text, icons, shapes, and pattern chips so hue alone is not required.</li>
+</ul>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+<ul>
+<li>Shows title “Hana Kimono Pattern Weaver”.</li>
+<li>Shows Day 011 badge, mode badge “2D”, public route <code>/hana/</code>, best score, best Grand Fitting time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+</ul>
+<li>Tutorial text</li>
+<ul>
+<li>Objective: “Stamp, rotate, and mirror motifs to finish each kimono commission before the dye dries.”</li>
+<li>Motif selection: tap a stamp, then tap the cloth panel to place it.</li>
+<li>Rotate/flip: some commissions care about motif direction; rotate or flip before placing.</li>
+<li>Symmetry: sleeve and lining requests often need mirrored pairs; use Mirror Guide to preview partner cells.</li>
+<li>Dye/smudges: wrong placements create smudges; repair cloths are limited.</li>
+<li>Moths: tap silk moths before they chew pinned motifs.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<li>In-game HUD</li>
+<ul>
+<li>Score, best score, patience petals, dye dryness/timer, chapter name, combo, elapsed time, current commission, selected motif, repair cloths, Mirror Guide charge.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<li>Selected-motif helper</li>
+<ul>
+<li>Non-blocking helper showing current motif, rotation, flip state, and whether the hovered/tapped cell satisfies a commission condition.</li>
+<li>Must not cover cloth cells or bottom controls on mobile.</li>
+</ul>
+<li>Pause overlay</li>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, prompt link.</li>
+</ul>
+<li>Game-over/results overlay</li>
+<ul>
+<li>Final score, best score, chapter reached, Grand Fitting status, perfect commission streak, mastery badges, restart button.</li>
+</ul>
+<li>Hana Grand Fitting banner</li>
+<ul>
+<li>Trigger once per run after all three chapters and 2600 score.</li>
+<li>Non-blocking blossom-thread flourish across the completed kimono, gold seal stamp, customer silhouette bow, endless custom commissions continue after banner fades.</li>
+</ul>
+</ol>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: kimono artisan mascot, kimono workshop/table background, motif/icon sheet, and key decorative textile pieces. Canvas/SVG/DOM code may draw the interactive grid, placement highlights, hit zones, particles, guide lines, UI chrome, text labels, and simple debug shapes. It should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/011/assets/source/</code> and use optimized playable copies under <code>release/games/011/assets/</code>. Also copy optimized playable assets into <code>apps/day-011-hana-kimono-pattern-weaver/assets/</code> and the public alias <code>release/hana/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny textile details that disappear at final in-game size, and keep motif silhouettes distinct even when scaled down for grid cells.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Kimono artisan mascot/source charm</li>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/011/assets/source/hana-artisan-source.png</code></li>
+<li>Optimized path: <code>release/games/011/assets/hana-artisan.png</code></li>
+<li>Imagegen2 prompt: “A charming Japanese kimono pattern artisan mascot for a mobile browser puzzle arcade game, small friendly textile craftsperson with indigo apron, sakura hairpin, gold thread spool, holding a carved fabric stamp, muted rose and ivory accents, centered readable silhouette, transparent or plain warm washi background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<li>Kimono workshop table background source</li>
+<ul>
+<li>Target: portrait-friendly background suitable behind a flat 2D kimono-cloth puzzle panel with open readable center.</li>
+<li>Archive path: <code>release/games/011/assets/source/hana-workshop-source.png</code></li>
+<li>Optimized path: <code>release/games/011/assets/hana-workshop.png</code></li>
+<li>Imagegen2 prompt: “A refined Japanese kimono workshop table at spring dusk for a portrait mobile 2D puzzle game, folded silk bolts, lacquered stamp trays, washi paper commission cards, scattered sakura petals, indigo ink dish, warm lantern glow, open readable center area for a kimono cloth grid, crop-safe for phone portrait, no characters, no text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<li>Motif stamp and textile icon sheet source</li>
+<ul>
+<li>Target: square icon sheet for motif stamps, commission chips, hazards, rewards, and UI decals.</li>
+<li>Archive path: <code>release/games/011/assets/source/hana-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/011/assets/hana-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a Japanese kimono pattern weaving puzzle game: sakura blossom stamp, wave border stamp, crane stamp, plum dot, gold thread spool, mirror symmetry guide, repair blotting cloth, silk moth hazard, dye smudge, patience petal, Grand Fitting seal, transparent or plain ivory background, high contrast textile motifs, no text, no watermark.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+</ol>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas textile silhouettes, document the failure in <code>ai/postmortems/day-011.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the artisan mascot, verify transparent/cutout quality or clean background handling, readable silhouette, centered pivot, crop margins, no unwanted text/watermarks, and stable upright orientation.</li>
+<li>Verify control-to-motion alignment in-game: tapping a motif stamp must set the matching selected motif, Rotate must visibly rotate/mark orientation in the expected direction, Flip must mirror the selected stamp, Mirror Guide must preview the symmetric partner cell, and tapping/dragging a cloth cell must place the motif exactly where indicated.</li>
+<li>For the background, verify the center play area remains readable after portrait mobile crop and does not hide cloth cells, commission cards, moths, smudges, motif tray, or action controls.</li>
+<li>For the icon sheet, verify sakura, wave, crane, plum, gold thread, repair cloth, moth, smudge, petal, mirror, and Grand Fitting seal are distinct at final grid/HUD/button size and cannot be confused.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/011/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 011 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+<ul>
+<li>Build the static 2D game under <code>apps/day-011-hana-kimono-pattern-weaver/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/011/</code>.</li>
+<li>Create the public playable route under <code>release/hana/</code>.</li>
+<li>Use static HTML/CSS/JS with no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+</ul>
+<li>Asset/polish subagent</li>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, and tune mobile readability/game feel.</li>
+</ul>
+<li>QA/browser/mobile subagent</li>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, motif selection, tap placement, drag placement if implemented, rotate, flip, Mirror Guide, undo/repair, moth interaction, commission completion, generated screenshot, generated assets, and 390x844 portrait layout.</li>
+</ul>
+<li>Reflection/self-improvement subagent</li>
+<ul>
+<li>Write <code>ai/postmortems/day-011.md</code> after validation with what worked, what failed, generated-image inspection notes, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+</ol>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 011 is allowed as <code>2d</code> after Day 010 <code>3d</code>; it must be a fully playable pattern-placement game with meaningful spatial composition, not a static board mockup.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/commission card, usable tap-select/tap-place/rotate/flip/mirror/repair controls, no forced landscape canvas, and 44px+ controls.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-011.md</code> is copied exactly to <code>release/games/011/prompt.md</code> and <code>release/hana/prompt.md</code>.</li>
+<li><code>release/games/011/prompt.html</code> and <code>release/hana/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/hana/index.html</code>, <code>release/hana/prompt.html</code>, <code>release/hana/screenshot.png</code>, and <code>release/hana/assets/</code> exist and work.</li>
+<li>Gallery card for Day 011 shows prompt availability, generation duration, public <code>/hana/</code> links, mode <code>2d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/011/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/011/assets/source/</code> and optimized assets exist under <code>release/games/011/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive stamp/motif visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>If the game uses audio cues, initialize WebAudio only after user gesture and verify no autoplay errors. Audio is optional because this is not a rhythm/sound-themed day.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicon links to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/<strong></code> through <code>release/games/010/</strong></code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/011/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/hana/index.html, release/hana/prompt.html, release/hana/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-011.md release/games/011/prompt.md and cmp prompts/day-011.md release/hana/prompt.md.
+# Prompt HTML check: verify release/games/011/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+# Browser smoke: open the local/static /hana/ route and verify menu, tutorial, gameplay start, motif selection, tap placement, rotate, flip, Mirror Guide, undo/repair, moth interaction, pause, restart, prompt page, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable tap controls and readable HUD/commission/cloth panel.
+# Static screenshot check: inspect release/games/011/screenshot.png and release/hana/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-011.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /hana/ and /hana/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 011.</code></pre></article></main></body></html>

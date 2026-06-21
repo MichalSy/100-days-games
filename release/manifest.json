@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-19T01:31:46.000Z",
+  "generatedAt": "2026-06-21T01:44:28.000Z",
   "totalDays": 100,
-  "completedDays": 10,
+  "completedDays": 11,
   "games": [
     {
       "day": 1,
@@ -92,6 +92,15 @@
       "promptUrl": "/kaze/prompt.html",
       "screenshotUrl": "/kaze/screenshot.png",
       "generationDuration": "manual subagent run with timeout recovery ~140 minutes"
+    },
+    {
+      "day": 11,
+      "title": "Hana Kimono Pattern Weaver",
+      "slug": "hana-kimono-pattern-weaver",
+      "playUrl": "/hana/",
+      "promptUrl": "/hana/prompt.html",
+      "screenshotUrl": "/hana/screenshot.png",
+      "generationDuration": "manual controller run with implementation/asset subagents ~150 minutes"
     }
   ]
 }
