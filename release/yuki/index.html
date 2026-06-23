@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Day 012 · Yuki Snow Lantern Stacksmith</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1d33'/%3E%3Cpath d='M18 35h28v17H18zM23 25h18l6 10H17z' fill='%23eaf6ff'/%3E%3Crect x='27' y='38' width='10' height='10' rx='2' fill='%23ffbf5a'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="shell" id="shell">
+    <section class="hud ribbon" aria-label="Game status">
+      <div><span>Score</span><strong id="score">0</strong></div>
+      <div><span>Best</span><strong id="best">0</strong></div>
+      <div><span>Bells</span><strong id="patience">3/3</strong></div>
+      <div><span>Stability</span><strong id="stability">100%</strong></div>
+      <div><span>Warmth</span><strong id="warmth">18%</strong></div>
+      <div><span>Combo</span><strong id="combo">x1</strong></div>
+      <div><span>Time</span><strong id="time">0:00</strong></div>
+    </section>
+
+    <section class="commission" aria-live="polite">
+      <div>
+        <p class="eyebrow" id="chapterRoute">/yuki/ · Day 012 · 3D</p>
+        <h2 id="chapterName">First Snow Base</h2>
+        <p id="chapterText">Build a broad stable base around the candle.</p>
+      </div>
+      <div class="chips" id="chapterChips"></div>
+    </section>
+
+    <section class="stageWrap" aria-label="3D snow lantern workbench">
+      <canvas id="gameCanvas"></canvas>
+      <div class="sceneBadges">
+        <div id="windBadge">Wind: calm</div>
+        <div id="ghostBadge">Ghost: center</div>
+      </div>
+      <div class="helper" id="helperCard">
+        <strong id="blockName">Cube</strong>
+        <span id="blockHelp">Position the ghost, rotate, then drop.</span>
+      </div>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="controls" aria-label="Touch controls">
+      <div class="queue" id="queue" aria-label="Incoming snow blocks"></div>
+      <div class="pad" aria-label="Position controls">
+        <button type="button" id="frontBtn">Front ↑</button>
+        <button type="button" id="leftBtn">← Left</button>
+        <button type="button" id="rightBtn">Right →</button>
+        <button type="button" id="backBtn">Back ↓</button>
+      </div>
+      <div class="actions" aria-label="Action controls">
+        <button type="button" id="rotateBtn">Rotate ↻</button>
+        <button type="button" id="dropBtn" class="primary">Drop</button>
+        <button type="button" id="ventBtn">Vent</button>
+        <button type="button" id="shieldBtn">Shield</button>
+        <button type="button" id="pauseBtn">Pause</button>
+        <button type="button" id="restartBtn">Restart</button>
+      </div>
+    </section>
+
+    <section class="overlay" id="menuOverlay" aria-modal="true" role="dialog">
+      <div class="panel menuPanel">
+        <img src="./assets/yuki-artisan.png" alt="Yuki snow lantern artisan mascot" />
+        <div>
+          <p class="eyebrow">Day 012 · 3D · /yuki/</p>
+          <h1>Yuki Snow Lantern Stacksmith</h1>
+          <p class="lede">Stack and carve 3D snow blocks into stable lanterns before the candle melts or the wind snuffs it.</p>
+          <div class="menuStats" id="menuStats">Best score 0 · Grand Illumination not reached yet</div>
+          <ul class="tutorial">
+            <li>Tap a block, shift the ghost left/right/front/back, rotate, then drop.</li>
+            <li>Keep the plumb line near center; red stress means collapse risk.</li>
+            <li>Warmth melts snow. Vent cools the candle but weakens support.</li>
+            <li>Gust arrows warn wind; Shield at the right time protects the flame.</li>
+            <li>Pause/restart are always visible. Keyboard: arrows/WASD, Q/E, Space, F, M, P, R.</li>
+          </ul>
+          <div class="menuActions">
+            <button type="button" id="startBtn" class="primary">Start stacking</button>
+            <a href="./prompt.html">View prompt</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="overlay hidden" id="pauseOverlay" aria-modal="true" role="dialog">
+      <div class="panel smallPanel">
+        <h2>Paused</h2>
+        <p>Plan the next block: wider base, centered plumb line, vents only when warmth climbs.</p>
+        <button type="button" id="resumeBtn" class="primary">Resume</button>
+        <button type="button" id="pauseRestartBtn">Restart run</button>
+        <a href="./prompt.html">View generation prompt</a>
+      </div>
+    </section>
+
+    <section class="overlay hidden" id="resultOverlay" aria-modal="true" role="dialog">
+      <div class="panel smallPanel">
+        <h2 id="resultTitle">Lantern Complete</h2>
+        <p id="resultText">Final score</p>
+        <div id="badgeList" class="badgeList"></div>
+        <button type="button" id="againBtn" class="primary">Play again</button>
+        <a href="./prompt.html">View prompt</a>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

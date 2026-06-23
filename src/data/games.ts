@@ -181,6 +181,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/hana/screenshot.png',
     generationDuration: 'manual controller run with implementation/asset subagents ~150 minutes',
     generatedAt: '2026-06-21T01:44:28Z'
+  },
+  12: {
+    status: 'generated',
+    title: 'Yuki Snow Lantern Stacksmith',
+    slug: 'yuki-snow-lantern-stacksmith',
+    genre: ['3D stacking arcade', 'balance-crafting', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Build carved 3D snow lanterns in a quiet winter shrine courtyard by rotating, shifting, dropping, venting, and shielding chunky snow blocks around a candle core.',
+    objective: 'Complete First Snow Base, Fox Path Window, and Shrine Dawn Spire while reaching 2800 points to trigger Yuki Grand Illumination, then continue into endless lantern commissions.',
+    playUrl: '/yuki/',
+    promptUrl: '/yuki/prompt.html',
+    promptExcerpt: 'Stack 3D snow blocks around a candle, keep the plumb line centered, carve vents, face fox windows correctly, and shield winter gusts.',
+    screenshotUrl: '/yuki/screenshot.png',
+    generationDuration: 'manual subagent run with existing generated assets ~120 minutes',
+    generatedAt: '2026-06-23T01:37:47Z'
   }
 };
 

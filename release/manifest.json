@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-21T01:44:28.000Z",
+  "generatedAt": "2026-06-23T01:37:47.000Z",
   "totalDays": 100,
-  "completedDays": 11,
+  "completedDays": 12,
   "games": [
     {
       "day": 1,
@@ -101,6 +101,15 @@
       "promptUrl": "/hana/prompt.html",
       "screenshotUrl": "/hana/screenshot.png",
       "generationDuration": "manual controller run with implementation/asset subagents ~150 minutes"
+    },
+    {
+      "day": 12,
+      "title": "Yuki Snow Lantern Stacksmith",
+      "slug": "yuki-snow-lantern-stacksmith",
+      "playUrl": "/yuki/",
+      "promptUrl": "/yuki/prompt.html",
+      "screenshotUrl": "/yuki/screenshot.png",
+      "generationDuration": "manual subagent run with existing generated assets ~120 minutes"
     }
   ]
 }

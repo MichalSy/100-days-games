@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Day 012 Game Generation Prompt</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23132846'/%3E%3Cpath d='M14 40h36L43 20H21z' fill='%23f6fbff'/%3E%3Cpath d='M28 31h8v13h-8z' fill='%23ffc463'/%3E%3C/svg%3E" />
+<style>:root{color-scheme:dark;--bg:#081828;--panel:#102b46;--ink:#f4fbff;--muted:#b9d4e7;--line:rgba(222,244,255,.22);--amber:#ffc463}body{margin:0;font-family:Inter,ui-rounded,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top,#21476b,var(--bg) 42%);color:var(--ink);line-height:1.62}main{width:min(980px,calc(100% - 28px));margin:0 auto;padding:28px 0 56px}nav a,.top-link{display:inline-flex;align-items:center;gap:.4rem;color:#241604;background:linear-gradient(#fff3ce,#ffc463);padding:.7rem 1rem;border-radius:999px;font-weight:800;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.22)}article{margin-top:18px;padding:clamp(18px,4vw,34px);border:1px solid var(--line);border-radius:28px;background:rgba(16,43,70,.82);box-shadow:0 24px 80px rgba(0,0,0,.32)}h1{margin:.2rem 0 1rem;font-size:clamp(2rem,6vw,4rem);line-height:.95}h2{margin:2rem 0 .7rem;padding-top:1rem;border-top:1px solid var(--line);color:#dff5ff}h3{margin:1.4rem 0 .4rem;color:#ffe1a6}p,li{color:var(--muted)}ul,ol{padding-left:1.4rem}li{margin:.35rem 0}code{color:#fff1bf;background:rgba(255,255,255,.08);padding:.1rem .3rem;border-radius:.35rem}pre{overflow:auto;padding:1rem;border-radius:18px;border:1px solid var(--line);background:#06111f}</style></head>
+<body><main><nav><a class="top-link" href="./index.html">← Back to game</a></nav><article><h1>Day 012 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 012</li>
+<li>Title: Yuki Snow Lantern Stacksmith</li>
+<li>Slug: yuki-snow-lantern-stacksmith</li>
+<li>Public route word: yuki</li>
+<li>Mode: 3D</li>
+<li>Genre: mobile-first 3D stacking / balance-crafting arcade score chase</li>
+<li>Mood/style: quiet winter shrine courtyard, powder snow, carved snow lanterns, warm candle amber inside icy blue dusk, vermilion torii accents, porcelain-white snow blocks, crisp silhouettes, cozy tension; tactile 3D construction rather than routing, cooking, rhythm, or pattern stamping</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 007 <code>2d</code>: seaside bento order-management and conveyor cooking.</li>
+<li>Day 008 <code>3d</code>: moss/root tile routing on a miniature forest shrine board.</li>
+<li>Day 009 <code>hybrid</code>: shadow-puppet depth lanes, pose matching, and beat cue timing.</li>
+<li>Day 010 <code>3d</code>: windbell tuning/routing with hanging 3D bells and gust ribbons.</li>
+<li>Day 011 <code>2d</code>: kimono textile motif stamping, symmetry, and moth pressure.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>2d</code>, so cadence allows either 2D or 3D, but Day 012 deliberately chooses real <code>3D</code> to keep the series varied and avoid drifting into flat puzzle boards after Day 011. The new verb set is: rotate a snowy shrine pedestal, choose carved snow blocks, drop/slide them onto a 3D lantern stack, balance weight and warmth, carve vents, shield flame from gusts, and complete sculptural lantern commissions.</p>
+<p>Recent screenshot variety notes to avoid repeating:</p>
+<ul>
+<li>Day 009 used a centered portrait puppet stage with dark indigo/amber rails and cue buttons.</li>
+<li>Day 010 used teal-blue 3D hanging bells, horizontal eaves, wind ribbons, and a wide top HUD.</li>
+<li>Day 011 used a pale textile table, kimono-shaped grid, warm rose/ivory palette, right-side stamp tray, and flat 2D cells.</li>
+</ul>
+<p>Day 012 should visually shift to a snowy vertical courtyard: a central 3D pedestal and lantern stack rising upward, drifting powder, amber candle glow inside translucent snow, cool twilight blues, vermilion shrine details, and chunky tactile blocks. Avoid route lines, wind ribbons, rail lanes, textile grids, food counters, puppet stages, and repeated six-box HUD layouts.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game's HTML/CSS/JS must come from this prompt and general web/game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 009 <code>hybrid</code>, Day 010 <code>3d</code>, and Day 011 <code>2d</code>. The latest generated mode streak is one <code>2d</code>.</p>
+<p>Mode decision: Day 012 is <code>3D</code>. It must implement real spatial gameplay, not decorative perspective:</p>
+<ul>
+<li>Use Three.js/WebGL or equivalent static-browser 3D rendering.</li>
+<li>Render an actual 3D snow-lantern work area with a rotating base, height-stacked blocks, depth-visible overhangs, falling pieces, candle glow, wind gust effects, and camera depth cues.</li>
+<li>Gameplay must depend on 3D positions, orientation, stack height, center of mass, overhang, melt heat, and piece shape. A flat 2D grid with fake perspective is not enough.</li>
+<li>Player actions must manipulate 3D objects: select a block, rotate yaw, shift the drop lane left/right/front/back, drop/settle blocks, carve a vent, and shield the lantern flame.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Build stable carved snow lanterns for shrine visitors by stacking 3D snow blocks around a candle core, matching requested silhouettes, keeping the center of mass balanced, and preventing the flame from melting or blowing out the sculpture.</li>
+<li>Win condition: Complete three winter commissions — First Snow Base, Fox Path Window, and Shrine Dawn Spire — while reaching 2800 points to trigger “Yuki Grand Illumination”. After Grand Illumination, continue into endless lantern commissions.</li>
+<li>Lose condition: The lantern collapses from imbalance, the candle flame is snuffed by gusts, melt heat cracks too many blocks, or three visitor patience bells fall.</li>
+<li>Core loop:</li>
+</ul>
+<ol>
+<li>Start on a title/menu screen with Day 012 badge, mode badge “3D”, public route <code>/yuki/</code>, best score, best Grand Illumination time, tutorial, prompt link, and a large Start button.</li>
+<li>Show a 3D winter shrine courtyard with a central circular pedestal, candle core, and a vertical stack area. The player sees incoming snow blocks, current stability, warmth, height, and commission silhouette.</li>
+<li>A commission card requests a lantern form using text and chips, for example: “Build 5 layers, keep fox-window opening on front, use two curved caps, warmth below 65%, no red warning overhangs.”</li>
+<li>Player selects from incoming snow-block pieces: cube brick, slab, arch/window block, curved roof cap, tiny snow fox charm, and vent chisel.</li>
+<li>Player rotates the pedestal/camera or the current piece, shifts the drop target left/right/front/back, then taps Drop to settle the block onto the stack.</li>
+<li>Correctly balanced layers glow with amber candle light through the snow; risky overhangs show blue-red stress halos. Carving a vent lowers melt heat but weakens nearby support.</li>
+<li>Wind gusts sweep across a visible depth direction. Player can tap Shield to protect the candle flame, but shielding too long slows scoring and raises melt heat.</li>
+<li>Completing a commission seals the lantern with a vermilion shrine stamp, awards points, restores one patience bell if needed, and starts the next chapter.</li>
+<li>Pause/restart remain available throughout.</li>
+</ol>
+<ul>
+<li>15+ minute play-value strategy:</li>
+<li>Save best score, fastest Yuki Grand Illumination time, tallest stable lantern, longest perfect-stack streak, highest endless commission, and collected winter stamp badges in localStorage.</li>
+<li>Include three authored commissions:</li>
+<li>First Snow Base: broad base, cube/slab blocks, slow gusts, no collapse for the first tutorial drop, teaches rotate/shift/drop and balance meter.</li>
+<li>Fox Path Window: arch/window pieces, front/back orientation matters, first candle warmth constraint, first gust-shield decision, fox charm bonus.</li>
+<li>Shrine Dawn Spire: taller stack, curved roof caps, stricter center-of-mass, vent carving tradeoffs, alternating gust directions, faster patience pressure.</li>
+<li>Deterministic Day 012 seed varies block queue, gust direction/timing, commission silhouette, fox charm bonus placement, snow quality, and endless constraints while keeping the opening fair.</li>
+<li>Mastery badges: finish First Snow Base without red stress, stack 12 blocks without collapse, trigger Grand Illumination under 190 seconds, keep candle warmth below 50%, shield 10 gusts, finish an endless commission with all patience bells.</li>
+<li>Strategic scoring rewards planning ahead: make a wide base, rotate arch windows to match requested face, carve vents only when heat demands it, accept smaller bonuses to keep balance, and save Shield for strong gusts.</li>
+<li>Endless mode after Grand Illumination adds taller silhouette requests, trickier roof caps, shorter gust warnings, weaker snow blocks, and stricter warmth/balance targets without shrinking touch controls.</li>
+<li>Difficulty scaling:</li>
+<li>0-45 seconds: three to four blocks, broad pedestal, forgiving center-of-mass, slow gust preview, no instant collapse during tutorial.</li>
+<li>45-115 seconds: arch/window pieces, front/back orientation, warmth cap, first fox charm, gust Shield timing.</li>
+<li>115-190 seconds: taller stack, curved caps, vent carving, alternating gusts, narrower stability margin.</li>
+<li>190+ seconds/endless: denser commissions, weaker blocks, faster gust warnings, stronger melt pressure, higher combo multipliers, same readable mobile controls.</li>
+<li>Keep mobile fair: blocks and drop ghost must be large, stress halos thick, commission text short, 56px+ main buttons, no tiny moving hazard required for survival.</li>
+<li>Scoring/rewards:</li>
+<li>Stable block placed: +55 points times combo tier.</li>
+<li>Correct requested piece/orientation/face: +95 points.</li>
+<li>Balanced layer completed with no red stress: +180 points and +10% Shield charge.</li>
+<li>Fox charm aligned to requested face: +140 points.</li>
+<li>Gust shielded without overheating: +80 points.</li>
+<li>Commission complete: +450 points and restore one patience bell if below max.</li>
+<li>Yuki Grand Illumination: +920 points and endless winter commissions unlock.</li>
+<li>Risky overhang: combo reset and stability warning.</li>
+<li>Collapse: patience -1, score penalty, rebuild from last sealed layer if patience remains.</li>
+<li>Candle snuffed or overheated: patience -1 and warmth reset with a cracked block penalty.</li>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<li>Mouse click/tap: select incoming block, action button, start/pause overlay button, or prompt link.</li>
+<li>Mouse drag: rotate the view/pedestal gently around the stack.</li>
+<li>A/D or Arrow Left/Right: shift the drop ghost left/right.</li>
+<li>W/S or Arrow Up/Down: shift the drop ghost front/back.</li>
+<li>Q/E: rotate the current piece counterclockwise/clockwise.</li>
+<li>Space or Enter: drop current piece.</li>
+<li>F: carve vent if the selected piece or top layer allows it.</li>
+<li>Shift or M: Shield when charged / hold briefly during gust warning.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+<li>Mobile/touch:</li>
+<li>Tap a large incoming block card to select it.</li>
+<li>Swipe/drag on the 3D scene to rotate the view/pedestal gently.</li>
+<li>Use large Shift Left, Shift Right, Shift Front, Shift Back buttons or a four-way D-pad cluster with 44px+ targets.</li>
+<li>Use large Rotate, Drop, Vent, and Shield buttons.</li>
+<li>Pause and Restart controls with 44px+ targets.</li>
+<li>No virtual joystick for movement. Interaction is tap-select, shift ghost, rotate, drop, vent, shield, and optional scene drag.</li>
+<li>Mobile layout/orientation:</li>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact winter status ribbon with score, best, patience bells, stability, warmth, chapter, combo, and time. Do not copy Day 010's equal dark stat boxes; use frost-glass chips and a single readable ribbon.</li>
+<li>Below top: commission card with silhouette request, face/orientation chips, stability/warmth targets, and progress ticks.</li>
+<li>Center: 3D snow lantern stack on pedestal, with drop ghost, balance plumb line, wind direction ribbon, candle glow, and stress halos visible.</li>
+<li>Bottom: incoming block queue and large action controls. Controls must not cover the stack or commission card.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, block selection, shift/rotate/drop, balance, warmth, vent, shield, pause/restart must be visible.</li>
+<li>Commission requests must combine text, icons, silhouette chips, and face labels so hue alone is not required.</li>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<ul>
+<li>Shows title “Yuki Snow Lantern Stacksmith”.</li>
+<li>Shows Day 012 badge, mode badge “3D”, public route <code>/yuki/</code>, best score, best Grand Illumination time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+</ul>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<ul>
+<li>Objective: “Stack and carve 3D snow blocks into stable lanterns before the candle melts or the wind snuffs it.”</li>
+<li>Block selection: tap an incoming block, then position the ghost over the stack.</li>
+<li>Shift/rotate/drop: use the direction buttons and Rotate before dropping.</li>
+<li>Balance: keep the plumb line near the center; red stress halos mean collapse risk.</li>
+<li>Warmth/vents: candle warmth melts snow; carve vents to cool it, but vents weaken support.</li>
+<li>Wind/Shield: gust arrows show incoming wind; shield the flame at the right time.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<ul>
+<li>Score, best score, patience bells, stability meter, warmth meter, commission name, combo, elapsed time, current block, Shield charge.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<ol>
+<li>Placement helper</li>
+</ol>
+<ul>
+<li>Non-blocking helper near the bottom/side showing current block shape, yaw, target face, expected stability, and whether it satisfies the commission.</li>
+<li>Must not cover active stack, drop ghost, or bottom controls on mobile.</li>
+</ul>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, prompt link.</li>
+</ul>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<ul>
+<li>Final score, best score, commission reached, Grand Illumination status, tallest stable lantern, mastery badges, restart button.</li>
+</ul>
+<ol>
+<li>Yuki Grand Illumination banner</li>
+</ol>
+<ul>
+<li>Trigger once per run after all three commissions and 2800 score.</li>
+<li>Non-blocking amber candle bloom inside the stack, snow sparkle burst, shrine visitors bow, vermilion seal stamp; endless winter commissions continue after banner fades.</li>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: snow-lantern artisan mascot, winter shrine courtyard background, snow block/icon sheet, and key decorative pieces. Three.js primitives may render interactive blocks, stack physics approximations, candle light, stress halos, drop ghost, wind ribbons, particles, hit volumes, guide arrows, and UI chrome. Procedural code may crop, resize, alpha-clean, atlas-pack, optimize, animate, or place generated assets; it should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/012/assets/source/</code> and use optimized playable copies under <code>release/games/012/assets/</code>. Also copy optimized playable assets into <code>apps/day-012-yuki-snow-lantern-stacksmith/assets/</code> and the public alias <code>release/yuki/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny snow details that disappear at final in-game size, and keep mascot/block silhouettes distinct against both snow-white and dusk-blue backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Snow lantern artisan mascot/source charm</li>
+</ol>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/012/assets/source/yuki-artisan-source.png</code></li>
+<li>Optimized path: <code>release/games/012/assets/yuki-artisan.png</code></li>
+<li>Imagegen2 prompt: “A charming Japanese winter snow-lantern artisan mascot for a mobile 3D browser stacking puzzle arcade game, small friendly shrine craftsperson in indigo winter haori and mittens, holding a carved snow lantern block and tiny amber candle, vermilion scarf accent, centered readable silhouette, transparent or plain pale snow background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Winter shrine courtyard background source</li>
+</ol>
+<ul>
+<li>Target: portrait-friendly background/skybox texture suitable behind a 3D snow-lantern stacking diorama with open readable center.</li>
+<li>Archive path: <code>release/games/012/assets/source/yuki-courtyard-source.png</code></li>
+<li>Optimized path: <code>release/games/012/assets/yuki-courtyard.png</code></li>
+<li>Imagegen2 prompt: “A quiet Japanese winter shrine courtyard at blue dusk for a portrait mobile 3D puzzle game, powder snow, vermilion torii gate edges, stone path, warm lantern glow, falling snow, carved snow lanterns on the sides, open readable center area for a 3D stacking pedestal, crop-safe for phone portrait, no characters, no text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<ol>
+<li>Snow block and UI icon sheet source</li>
+</ol>
+<ul>
+<li>Target: square icon sheet for incoming block cards, commission chips, warnings, rewards, and UI decals.</li>
+<li>Archive path: <code>release/games/012/assets/source/yuki-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/012/assets/yuki-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a Japanese snow lantern stacking puzzle game: cube snow block, slab block, arch window block, curved roof cap, tiny snow fox charm, candle flame, vent chisel, wind gust arrow, shield charm, collapse crack warning, balance plumb line, Grand Illumination seal, transparent or plain icy blue background, high contrast, no text, no watermark.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas/Three.js materials, document the failure in <code>ai/postmortems/day-012.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the snow-lantern artisan mascot, verify transparent/cutout quality or clean background handling, readable silhouette, centered pivot, crop margins, no unwanted text/watermarks, and stable upright orientation.</li>
+<li>Verify control-to-motion alignment in-game: Shift Left/Right/Front/Back must move the drop ghost in the expected screen/depth direction, Rotate must visibly rotate the current piece, Drop must settle the block exactly where previewed, Vent must affect the intended layer/block, and Shield feedback must align with wind/flame behavior.</li>
+<li>For the background, verify the center play area remains readable after portrait mobile crop and does not hide the stack, drop ghost, commission card, wind warning, stress halos, or controls.</li>
+<li>For the icon sheet, verify cube, slab, arch, roof cap, fox charm, flame, vent chisel, wind, shield, crack, plumb line, and Grand Illumination seal are distinct at final HUD/button size and cannot be confused.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/012/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 012 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<ul>
+<li>Build the static 3D game under <code>apps/day-012-yuki-snow-lantern-stacksmith/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/012/</code>.</li>
+<li>Create the public playable route under <code>release/yuki/</code>.</li>
+<li>Use static HTML/CSS/JS with Three.js/WebGL and no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+<li>If vendoring <code>three.module*.js</code>, also copy the matching <code>three.core*.js</code> beside it in the app, release archive, and <code>/yuki/</code> alias assets.</li>
+</ul>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, and tune mobile readability/game feel.</li>
+</ul>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, 3D scene rendering, block selection, shift controls, rotate, drop, vent, shield, commission completion feedback, generated screenshot, generated assets, and 390x844 portrait layout.</li>
+</ul>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<ul>
+<li>Write <code>ai/postmortems/day-012.md</code> after validation with what worked, what failed, generated-image inspection notes, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 012 is real <code>3d</code> with actual spatial stacking, depth-aware placement, camera/pedestal rotation, center-of-mass/stability, warmth, wind, and 3D object manipulation.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/commission card, usable block/shift/rotate/drop/vent/shield controls, no forced landscape canvas, and 44px+ controls.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-012.md</code> is copied exactly to <code>release/games/012/prompt.md</code> and <code>release/yuki/prompt.md</code>.</li>
+<li><code>release/games/012/prompt.html</code> and <code>release/yuki/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/yuki/index.html</code>, <code>release/yuki/prompt.html</code>, <code>release/yuki/screenshot.png</code>, and <code>release/yuki/assets/</code> exist and work.</li>
+<li>Gallery card for Day 012 shows prompt availability, generation duration, public <code>/yuki/</code> links, mode <code>3d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/012/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/012/assets/source/</code> and optimized assets exist under <code>release/games/012/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive block/lantern visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>If the game uses audio cues, initialize WebAudio only after user gesture and verify no autoplay errors. Audio is optional because this is not a rhythm/sound-themed day.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicon links to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/<strong></code> through <code>release/games/011/</strong></code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/012/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/yuki/index.html, release/yuki/prompt.html, release/yuki/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-012.md release/games/012/prompt.md and cmp prompts/day-012.md release/yuki/prompt.md.
+# Prompt HTML check: verify release/games/012/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+# Browser smoke: open the local/static /yuki/ route and verify menu, tutorial, gameplay start, 3D render, block selection, shift left/right/front/back, rotate, drop, vent, Shield control presence, pause, restart, prompt page, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable tap controls and readable HUD/commission/scene.
+# Static screenshot check: inspect release/games/012/screenshot.png and release/yuki/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-012.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /yuki/ and /yuki/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 012.</code></pre>
+</article></main></body></html>
