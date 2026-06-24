@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Day 013: Ame Parasol Puddle Conductor — a mobile-first hybrid rain-procession timing arcade game." />
+  <title>Ame Parasol Puddle Conductor — Day 013</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' font-size='48'%3E%E2%98%94%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="game-shell" aria-label="Ame Parasol Puddle Conductor game">
+    <section class="hud-ribbon" aria-label="Game status">
+      <div class="hud-chip"><span>Score</span><strong id="score">0</strong></div>
+      <div class="hud-chip"><span>Best</span><strong id="best">0</strong></div>
+      <div class="hud-chip"><span>Dry</span><strong id="dryness">100%</strong></div>
+      <div class="hud-chip"><span>Joy</span><strong id="joy">3/3</strong></div>
+      <div class="hud-chip"><span>Storm</span><strong id="storm">0%</strong></div>
+      <div class="hud-chip"><span>Combo</span><strong id="combo">x1</strong></div>
+      <div class="hud-chip"><span>Time</span><strong id="time">0:00</strong></div>
+    </section>
+
+    <section class="request-card" aria-live="polite">
+      <div>
+        <span id="routeBadge" class="route-badge">/ame/ · Day 013 · hybrid</span>
+        <h1 id="chapterTitle">Market Drizzle</h1>
+        <p id="chapterGoal">Escort guests through the first soft rain.</p>
+      </div>
+      <div class="goal-chips" id="goalChips"></div>
+    </section>
+
+    <section class="stage-wrap">
+      <canvas id="gameCanvas" width="900" height="620" aria-label="Rainy shrine path playfield"></canvas>
+      <div id="helper" class="helper-card">Select a parasol to conduct the procession.</div>
+    </section>
+
+    <section class="controls" aria-label="Game controls">
+      <div class="parasol-tray" id="parasolTray" aria-label="Parasol selector"></div>
+      <button id="prevLane" type="button">◀ Lane</button>
+      <button id="nextLane" type="button">Lane ▶</button>
+      <button id="tiltLeft" type="button">Tilt ◀</button>
+      <button id="tiltRight" type="button">Tilt ▶</button>
+      <button id="wide" type="button">Wide</button>
+      <button id="thunder" type="button">Thunder 0%</button>
+      <button id="pauseBtn" type="button">Pause</button>
+      <button id="restartBtn" type="button">Restart</button>
+    </section>
+  </main>
+
+  <div id="overlay" class="overlay show" role="dialog" aria-modal="true" aria-labelledby="overlayTitle">
+    <div class="overlay-card">
+      <div class="overlay-art"><img src="./assets/ame-guide.png" alt="Rain procession guide mascot" /></div>
+      <div class="overlay-copy">
+        <p class="eyebrow">Day 013 · Hybrid · /ame/</p>
+        <h2 id="overlayTitle">Ame Parasol Puddle Conductor</h2>
+        <p id="overlayText" class="lead">Move and tilt paper parasols to keep shrine guests dry through the rainy procession.</p>
+        <div class="tutorial-grid">
+          <p><strong>Place:</strong> tap a parasol, then drag it or use Lane buttons to shelter guests.</p>
+          <p><strong>Tilt:</strong> angle shelter left/right to deflect rain into gutters.</p>
+          <p><strong>Puddles:</strong> tap glowing reflections to open stepping-stones.</p>
+          <p><strong>Thunder Drum:</strong> pauses rain and reopens reflections when charged.</p>
+          <p><strong>Goal:</strong> finish three chapters, score 2700, and trigger Ame Moonlit Procession.</p>
+          <p><strong>Keys:</strong> arrows/WASD move, Q/E tilt, Z/X wide, Space thunder, P pause, R restart.</p>
+        </div>
+        <div class="overlay-actions">
+          <button id="startBtn" type="button">Start Procession</button>
+          <button id="resumeBtn" type="button" class="ghost hidden">Resume</button>
+          <button id="overlayRestartBtn" type="button" class="ghost">Restart</button>
+          <a href="./prompt.html">View prompt</a>
+        </div>
+        <p id="resultLine" class="result-line"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="./game.js"></script>
+</body>
+</html>

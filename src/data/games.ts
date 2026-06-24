@@ -196,6 +196,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/yuki/screenshot.png',
     generationDuration: 'manual subagent run with existing generated assets ~120 minutes',
     generatedAt: '2026-06-23T01:37:47Z'
+  },
+  13: {
+    status: 'generated',
+    title: 'Ame Parasol Puddle Conductor',
+    slug: 'ame-parasol-puddle-conductor',
+    genre: ['hybrid shelter-management arcade', 'rain-procession timing', 'mobile-first score chase'],
+    mode: 'hybrid',
+    description: 'Conduct a rainy shrine-market procession by moving and tilting paper parasols, keeping guests dry, opening puddle reflection stepping-stones, and deflecting rain curtains into gutters.',
+    objective: 'Complete Market Drizzle, Red Bridge Crossing, and Lantern Downpour while reaching 2700 points to trigger Ame Moonlit Procession, then continue into endless rainy-night commissions.',
+    playUrl: '/ame/',
+    promptUrl: '/ame/prompt.html',
+    promptExcerpt: 'Move and tilt wagasa parasols across layered shrine paths, shelter guests from rain curtains, open puddle reflections, and charge Thunder Drum.',
+    screenshotUrl: '/ame/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation subagent ~130 minutes',
+    generatedAt: '2026-06-24T01:38:28Z'
   }
 };
 

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-23T01:37:47.000Z",
+  "generatedAt": "2026-06-24T01:38:28.000Z",
   "totalDays": 100,
-  "completedDays": 12,
+  "completedDays": 13,
   "games": [
     {
       "day": 1,
@@ -110,6 +110,15 @@
       "promptUrl": "/yuki/prompt.html",
       "screenshotUrl": "/yuki/screenshot.png",
       "generationDuration": "manual subagent run with existing generated assets ~120 minutes"
+    },
+    {
+      "day": 13,
+      "title": "Ame Parasol Puddle Conductor",
+      "slug": "ame-parasol-puddle-conductor",
+      "playUrl": "/ame/",
+      "promptUrl": "/ame/prompt.html",
+      "screenshotUrl": "/ame/screenshot.png",
+      "generationDuration": "manual controller run with Imagegen2 assets and implementation subagent ~130 minutes"
     }
   ]
 }

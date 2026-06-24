@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 013 Game Generation Prompt</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' font-size='48'%3E%E2%98%94%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: dark; --bg:#061421; --panel:#0d2232; --ink:#f7fbff; --muted:#b9d0dc; --line:rgba(173,227,244,.28); --gold:#ffd06a; --cyan:#75e4ff; }
+    * { box-sizing:border-box; } body { margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:radial-gradient(circle at 20% 0%, rgba(117,228,255,.13), transparent 28rem), linear-gradient(180deg,#061421,#08101a); color:var(--ink); line-height:1.62; }
+    main { width:min(940px, calc(100% - 28px)); margin:0 auto; padding:34px 0 70px; }
+    .topbar { display:flex; justify-content:space-between; gap:14px; align-items:center; margin-bottom:18px; }
+    a { color:var(--gold); font-weight:850; text-decoration:none; } a:hover { text-decoration:underline; }
+    article { border:1px solid var(--line); border-radius:28px; padding:clamp(20px,4vw,42px); background:rgba(9,31,47,.86); box-shadow:0 24px 80px rgba(0,0,0,.28); }
+    h1 { font-size:clamp(2.2rem,7vw,4.8rem); line-height:.95; letter-spacing:-.06em; margin:.1em 0 .35em; }
+    h2 { margin-top:2.1em; padding-top:.7em; border-top:1px solid var(--line); color:#e9fbff; }
+    h3 { color:var(--cyan); }
+    p, li { color:#dcecf4; } code { background:rgba(255,255,255,.09); padding:.1em .35em; border-radius:.4em; color:#fff; }
+    pre { overflow:auto; padding:16px; border-radius:16px; background:#020a12; border:1px solid var(--line); } pre code { background:transparent; padding:0; }
+    ul, ol { padding-left:1.35rem; } li + li { margin-top:.35rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="topbar"><a href="./index.html">← Back to game</a><a href="./prompt.md">Raw Markdown</a></nav>
+    <article>
+      <h1>Day 013 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 013</li>
+<li>Title: Ame Parasol Puddle Conductor</li>
+<li>Slug: ame-parasol-puddle-conductor</li>
+<li>Public route word: ame</li>
+<li>Mode: hybrid</li>
+<li>Genre: mobile-first rain-procession timing / isometric shelter-management arcade score chase</li>
+<li>Mood/style: rainy Japanese shrine market at early evening, lacquer-red bridge rails, glossy stone paths, paper wagasa parasols, lantern reflections in puddles, soft teal rain haze, plum-violet storm clouds, warm amber vendor light; cozy tactical rain choreography rather than stacking, routing, textile stamping, windbell tuning, cooking, or vehicle movement</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 009 <code>hybrid</code>: shadow-puppet depth lanes, pose matching, and beat cue timing.</li>
+<li>Day 010 <code>3d</code>: windbell tuning/routing with hanging 3D bells and gust ribbons.</li>
+<li>Day 011 <code>2d</code>: kimono textile motif stamping, symmetry, and moth pressure.</li>
+<li>Day 012 <code>3d</code>: snow-lantern stacking with 3D blocks, balance, warmth, and gust shielding.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>3d</code>, and the latest 2D streak is zero. Day 013 deliberately chooses <code>hybrid</code>: not a full 3D object-manipulation game immediately after Day 012, but more spatial than a flat board. It should use layered/isometric depth, crossing footpaths, rain curtains, puddle reflection gates, and depth-aware guest movement so positioning matters in near/mid/far lanes. The new verb set is: place and tilt paper parasols over walking guests, conduct a rainy procession across layered shrine paths, bounce rain streaks into gutters, open reflection stepping-stones at puddles, manage guest dryness/joy, and time Thunder Drum pauses.</p>
+<p>Recent screenshot and visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 010 used teal/gold blue-hour eaves, hanging windbells, wind ribbons, and bottom rotation/tuning controls.</li>
+<li>Day 011 used a pale textile table, kimono-shaped grid, motif stamp tray, rose/ivory palette, and flat cloth cells.</li>
+<li>Day 012 used dark winter shrine blues, a central 3D snow pedestal/stack, block queue, shift/drop controls, and snow/torii geometry.</li>
+</ul>
+<p>Day 013 should visually shift to rain-slick motion and crowd protection: a diagonal/isometric stone path network under rain, moving guests with colorful parasols, circular shelter zones, puddle reflections that briefly become stepping-stones, gutter channels along the edges, lantern glow reflected on the floor, and a gentle festival-market ambience. Avoid block stacking, 3D construction, kimono grids, stamp trays, hanging bells, wind ribbons, snow palettes, puppet rails, and repeated six-box HUD layouts.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 010 <code>3d</code>, Day 011 <code>2d</code>, and Day 012 <code>3d</code>. The latest generated mode streak is one <code>3d</code>; latest 2D streak is zero.</p>
+<p>Mode decision: Day 013 is <code>hybrid</code>. It must be meaningful spatial hybrid gameplay, not decorative perspective:</p>
+<ul>
+<li>Use a responsive 2D canvas/DOM-canvas hybrid with an isometric or pseudo-depth playfield.</li>
+<li>Render at least three depth lanes/paths where objects can visually pass in front of/behind each other.</li>
+<li>Gameplay must depend on lane/depth/overlap: parasol shelter circles cover guests only when they are in the correct lane and radius; puddle stepping-stones open on timed reflections; rain curtains sweep across specific path bands.</li>
+<li>Player actions manipulate spatial shelter and timing: select/move parasols, rotate/tilt them to change shelter shape, trigger Thunder Drum pause, and route rain into gutters.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Guide festival guests through a rainy shrine-market procession by placing and tilting paper parasols, keeping guests dry and cheerful, opening puddle reflection stepping-stones, and channeling heavy rain into gutters before the storm overwhelms the route.</li>
+<li>Win condition: Complete three procession chapters — Market Drizzle, Red Bridge Crossing, and Lantern Downpour — while reaching 2700 points to trigger “Ame Moonlit Procession”. After Moonlit Procession, continue into endless rainy-night commissions.</li>
+<li>Lose condition: Guest dryness reaches zero, three guest joy charms break, the storm bowl fills from missed rain channels, or too many guests are stranded by closed puddle reflections.</li>
+<li>Core loop:</li>
+</ul>
+<p>1. Start on a title/menu screen with Day 013 badge, mode badge “hybrid”, public route <code>/ame/</code>, best score, best Moonlit Procession time, tutorial, prompt link, and a large Start button.</p>
+<p>2. Show a portrait-friendly isometric shrine path with near/mid/far walking lanes, lantern booths at the edges, puddle pools, and gutter channels.</p>
+<p>3. A procession card requests guest groups, for example: “Escort 6 guests, keep dryness above 70%, open 3 reflection stones, collect 4 lantern stamps.”</p>
+<p>4. Guests enter from the top-left or side gate and walk along visible paths toward the shrine exit. Each guest has a small dryness/joy indicator and a preferred parasol color/shape.</p>
+<p>5. Player taps/drag-selects one of several wagasa parasols, moves it to a lane, and uses Tilt Left / Tilt Right / Wide / Narrow controls to reshape its shelter zone. Shelter zones protect guests only when lane and radius match.</p>
+<p>6. Rain curtains sweep through lanes in timed waves. Correctly tilted parasols deflect rain streaks into gutter channels for score and storm relief.</p>
+<p>7. Puddle reflections pulse open for short windows. Tapping a puddle or placing a parasol reflection on it creates stepping-stones that let guests cross without losing joy.</p>
+<p>8. Thunder Drum charges from clean deflections and lantern stamps. Triggering it pauses rain curtains, reopens all reflection stones briefly, and highlights the safest path.</p>
+<p>9. Pause/restart remain available throughout.</p>
+<ul>
+<li>15+ minute play-value strategy:</li>
+</ul>
+<p>- Save best score, fastest Ame Moonlit Procession time, longest dry guest streak, highest endless procession, and collected umbrella stamp badges in localStorage.</p>
+<p>- Include three authored chapters:</p>
+<p>- Market Drizzle: two parasols, one gentle rain curtain, one puddle, broad shelter zones, teaches drag/tap placement and tilt.</p>
+<p>- Red Bridge Crossing: three parasols, near/mid/far paths, narrow bridge chokepoint, two puddles, first joy charm risk, first color preference bonus.</p>
+<p>- Lantern Downpour: four parasols, alternating rain curtains, gutter routing bonuses, fast reflection windows, multiple guest groups, Thunder Drum timing pressure.</p>
+<p>- Deterministic Day 013 seed varies guest order, rain curtain timing, puddle pulse schedule, lantern stamp positions, preferred parasol colors, and endless path requests while keeping the opening fair.</p>
+<p>- Mastery badges: finish Market Drizzle with all guests dry, open 10 reflection stones, trigger Moonlit Procession under 185 seconds, deflect 30 rain streaks into gutters, complete Lantern Downpour without a broken joy charm, finish an endless chapter with 90%+ dryness.</p>
+<p>- Strategic scoring rewards anticipation: place parasols ahead of guest paths, angle them before heavy rain arrives, decide when a puddle is worth opening, save Thunder Drum for bridge/downpour overlap, and keep one parasol near the exit for late stragglers.</p>
+<p>- Endless mode after Moonlit Procession adds denser guests, shorter reflection windows, trickier lane splits, stronger storm bowl pressure, and higher combo multipliers without shrinking touch controls.</p>
+<ul>
+<li>Difficulty scaling:</li>
+</ul>
+<p>- 0-45 seconds: two parasols, slow guests, broad shelters, a single puddle, no instant joy penalties.</p>
+<p>- 45-115 seconds: three parasols, color preference bonuses, bridge chokepoint, two rain lanes, first gutter-routing score objective.</p>
+<p>- 115-185 seconds: four parasols, alternating rain curtains, short reflection pulses, multi-group path splits, storm bowl pressure.</p>
+<p>- 185+ seconds/endless: faster rain pulses, overlapping guest groups, moving lantern stamp bonuses, tighter shelter requirements, same readable controls.</p>
+<p>- Keep mobile fair: guest icons and parasol handles must be large, shelter rings thick, path lanes readable, request text short, 56px+ main controls, no tiny hazards required for survival.</p>
+<ul>
+<li>Scoring/rewards:</li>
+</ul>
+<p>- Guest protected during a rain tick: +28 points times combo tier.</p>
+<p>- Rain deflected into gutter: +45 points and +4% Thunder charge.</p>
+<p>- Reflection stepping-stone opened with a guest crossing: +90 points.</p>
+<p>- Lantern stamp collected by dry guest: +120 points.</p>
+<p>- Full group escorted with dryness above target: +320 points and restore one joy charm.</p>
+<p>- Chapter complete: +460 points.</p>
+<p>- Ame Moonlit Procession: +900 points and endless rainy-night commissions unlock.</p>
+<p>- Guest soaked by heavy rain: dryness loss, combo reset, storm bowl +4%.</p>
+<p>- Guest stranded at closed puddle: joy charm damage and storm bowl +6%.</p>
+<p>- Mis-tilted parasol causing rain splashback: small dryness loss and combo reset.</p>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+</ul>
+<p>- Mouse click/tap: select parasol, puddle, action button, start/pause overlay button, or prompt link.</p>
+<p>- Mouse drag: move selected parasol along the isometric path/lane; drag handles should snap to legal shelter anchors.</p>
+<p>- A/D or Arrow Left/Right: move selected parasol to previous/next lane anchor.</p>
+<p>- W/S or Arrow Up/Down: nudge selected parasol up/down the current path.</p>
+<p>- Q/E: tilt selected parasol left/right.</p>
+<p>- Z/X: widen/narrow shelter shape.</p>
+<p>- Space or Enter: trigger Thunder Drum when charged; also start from menu.</p>
+<p>- P: pause/resume.</p>
+<p>- R: restart current run.</p>
+<ul>
+<li>Mobile/touch:</li>
+</ul>
+<p>- Tap a large parasol body/handle to select it; selected parasol gets a bright ring and helper card.</p>
+<p>- Drag selected parasol to a legal path anchor or tap anchor dots to move it.</p>
+<p>- Use large Tilt Left, Tilt Right, Wide/Narrow, Thunder Drum, Pause, and Restart buttons.</p>
+<p>- Tap puddles during reflection pulses to open stepping-stones.</p>
+<p>- No virtual joystick. Interaction is tap-select, drag/tap-place, tilt/width controls, puddle taps, and Thunder Drum.</p>
+<ul>
+<li>Mobile layout/orientation:</li>
+</ul>
+<p>- Default target is portrait phone play around 390x844; do not require landscape.</p>
+<p>- Top: compact rain-ribbon HUD with score, best, dryness, joy charms, storm bowl, chapter, combo, and time. Avoid the Day 012 dark equal stat boxes; use flowing rain tabs or lantern-paper strips.</p>
+<p>- Below top: procession card with group goal, dryness target, reflection/gutter requirements, and progress ticks.</p>
+<p>- Center: isometric shrine path playfield with guests, parasols, shelter rings, rain curtains, gutters, puddles, and lantern stamps. It must remain readable without zooming.</p>
+<p>- Bottom: parasol selector/status plus large Tilt/Wide/Thunder/Pause/Restart controls. Controls must not cover active guests or puddle crossings.</p>
+<p>- Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, parasol placement, tilt/wide controls, rain curtains, puddle reflections, gutters, Thunder Drum, pause/restart must be visible.</p>
+<p>- Requests must combine text, icons, pattern chips, and labels so hue alone is not required.</p>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<p>- Shows title “Ame Parasol Puddle Conductor”.</p>
+<p>- Shows Day 013 badge, mode badge “hybrid”, public route <code>/ame/</code>, best score, best Moonlit Procession time if available, and a prompt link.</p>
+<p>- Shows a large Start button and visible tutorial panel by default.</p>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<p>- Objective: “Move and tilt paper parasols to keep shrine guests dry through the rainy procession.”</p>
+<p>- Parasol selection: tap a parasol, then drag it or tap anchor dots to place shelter over guests.</p>
+<p>- Tilt/width: adjust the shelter shape so rain deflects into gutters and covers the correct lane.</p>
+<p>- Puddles: tap glowing reflections to open stepping-stones before guests arrive.</p>
+<p>- Rain/storm: heavy rain raises the storm bowl if it is not sheltered or deflected.</p>
+<p>- Thunder Drum: pauses rain, opens reflections, and highlights safe path when charged.</p>
+<p>- Pause/restart: P/R on desktop or visible buttons on mobile.</p>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<p>- Score, best score, group dryness, joy charms, storm bowl, chapter name, combo, elapsed time, current request, selected parasol, Thunder charge.</p>
+<p>- Pause/restart controls visible or immediately accessible.</p>
+<ol>
+<li>Selected-parasol helper</li>
+</ol>
+<p>- Non-blocking helper near selected parasol showing lane, tilt, width, current protected guest count, and likely gutter deflection.</p>
+<p>- Must not cover guests, puddles, or bottom controls on mobile.</p>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<p>- Resume, restart, tutorial reminder, controls summary, prompt link.</p>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<p>- Final score, best score, chapter reached, Moonlit Procession status, dry guest streak, mastery badges, restart button.</p>
+<ol>
+<li>Ame Moonlit Procession banner</li>
+</ol>
+<p>- Trigger once per run after all three chapters and 2700 score.</p>
+<p>- Non-blocking lantern reflection bloom, rain slows to glitter, guests bow under opened parasols, shrine bell silhouette; endless rainy-night commissions continue after the banner fades.</p>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: rain procession guide mascot, rainy shrine-market background, parasol/guest/icon sheet, and key decorative pieces. Canvas/SVG/DOM code may draw the interactive shelter rings, path anchors, rain streaks, gutters, puddle pulses, hit zones, helper labels, particles, and UI chrome. It should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/013/assets/source/</code> and use optimized playable copies under <code>release/games/013/assets/</code>. Also copy optimized playable assets into <code>apps/day-013-ame-parasol-puddle-conductor/assets/</code> and the public alias <code>release/ame/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny rain details that disappear at final in-game size, and keep parasol/guest silhouettes distinct against both teal rain and warm lantern backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Rain procession guide mascot/source charm</li>
+</ol>
+<p>- Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</p>
+<p>- Archive path: <code>release/games/013/assets/source/ame-guide-source.png</code></p>
+<p>- Optimized path: <code>release/games/013/assets/ame-guide.png</code></p>
+<p>- Imagegen2 prompt: “A charming Japanese rainy shrine procession guide mascot for a mobile hybrid browser arcade puzzle game, small friendly attendant wearing indigo rain coat and holding a red paper wagasa parasol, amber lantern charm, teal rain accents, centered readable silhouette, transparent or plain pale rainy background, no text, no watermark, sprite-friendly, high contrast at small size.”</p>
+<p>- Aspect ratio: square.</p>
+<ol>
+<li>Rainy shrine-market path background source</li>
+</ol>
+<p>- Target: portrait-friendly background suitable behind an isometric rain-procession playfield with open readable center.</p>
+<p>- Archive path: <code>release/games/013/assets/source/ame-market-source.png</code></p>
+<p>- Optimized path: <code>release/games/013/assets/ame-market.png</code></p>
+<p>- Imagegen2 prompt: “A rainy Japanese shrine market path at early evening for a portrait mobile arcade puzzle game, wet stone paths, lacquer-red bridge rail, paper lantern stalls at the sides, puddle reflections, soft teal rain haze, warm amber lights, open readable center area for moving guests and parasols, crop-safe for phone portrait, no characters, no text, no watermark.”</p>
+<p>- Aspect ratio: portrait.</p>
+<ol>
+<li>Parasol, guest, rain, and UI icon sheet source</li>
+</ol>
+<p>- Target: square icon sheet for parasol selectors, guest groups, hazards, rewards, and UI decals.</p>
+<p>- Archive path: <code>release/games/013/assets/source/ame-icons-source.png</code></p>
+<p>- Optimized path: <code>release/games/013/assets/ame-icons.png</code></p>
+<p>- Imagegen2 prompt: “Small readable icon sheet for a Japanese rainy parasol procession puzzle game: red wagasa parasol, blue wagasa parasol, gold wagasa parasol, smiling guest, dryness droplet, joy charm, rain curtain, gutter channel, puddle reflection stepping-stone, thunder drum, lantern stamp, storm bowl warning, transparent or plain pale teal background, high contrast, no text, no watermark.”</p>
+<p>- Aspect ratio: square.</p>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas parasol and rain silhouettes, document the failure in <code>ai/postmortems/day-013.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the rain procession guide mascot, verify transparent/cutout quality or clean background handling, readable silhouette, centered pivot, crop margins, no unwanted text/watermarks, stable upright orientation, and that the parasol direction does not imply wrong gameplay controls.</li>
+<li>Verify control-to-motion alignment in-game: dragging/tapping must move the selected parasol to the indicated anchor, Tilt Left/Right must visibly tilt the shelter direction in the expected direction, Wide/Narrow must visibly change the shelter radius/shape, tapping puddles must open the intended reflection, and Thunder Drum feedback must align with rain/guest behavior.</li>
+<li>For the background, verify the center play area remains readable after portrait mobile crop and does not hide guests, parasol shelters, puddles, gutters, procession card, rain curtains, or controls.</li>
+<li>For the icon sheet, verify red/blue/gold parasols, guest, droplet, joy charm, rain curtain, gutter, reflection stones, thunder drum, lantern stamp, and storm bowl are distinct at final HUD/button size and cannot be confused.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/013/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 013 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<p>- Build the static hybrid game under <code>apps/day-013-ame-parasol-puddle-conductor/</code>.</p>
+<p>- Integrate it into immutable release output under <code>release/games/013/</code>.</p>
+<p>- Create the public playable route under <code>release/ame/</code>.</p>
+<p>- Use static HTML/CSS/JS with no backend.</p>
+<p>- The public alias must be self-contained or asset paths must be alias-safe.</p>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<p>- Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, and tune mobile readability/game feel.</p>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<p>- Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, route rendering, parasol selection, tap/drag placement, tilt left/right, wide/narrow shelter, puddle reflection taps, Thunder Drum control presence, guest dryness/storm feedback, generated screenshot, generated assets, and 390x844 portrait layout.</p>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<p>- Write <code>ai/postmortems/day-013.md</code> after validation with what worked, what failed, generated-image inspection notes, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 013 is allowed as <code>hybrid</code> after Day 012 <code>3d</code>; it must have meaningful layered/isometric spatial play where lane/depth/overlap affects shelter, guests, puddles, and rain curtains.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/procession card, usable tap/drag/select/tilt/wide/puddle/thunder controls, no forced landscape canvas, and 44px+ controls.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-013.md</code> is copied exactly to <code>release/games/013/prompt.md</code> and <code>release/ame/prompt.md</code>.</li>
+<li><code>release/games/013/prompt.html</code> and <code>release/ame/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/ame/index.html</code>, <code>release/ame/prompt.html</code>, <code>release/ame/screenshot.png</code>, and <code>release/ame/assets/</code> exist and work.</li>
+<li>Gallery card for Day 013 shows prompt availability, generation duration, public <code>/ame/</code> links, mode <code>hybrid</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/013/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/013/assets/source/</code> and optimized assets exist under <code>release/games/013/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive parasol/guest/rain visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>If the game uses audio cues, initialize WebAudio only after user gesture and verify no autoplay errors. Optional gentle rain/thunder cues are welcome but not required unless implemented.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicon links to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/<strong></code> through <code>release/games/012/</strong></code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/013/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/ame/index.html, release/ame/prompt.html, release/ame/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-013.md release/games/013/prompt.md and cmp prompts/day-013.md release/ame/prompt.md.
+# Prompt HTML check: verify release/games/013/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+# Browser smoke: open the local/static /ame/ route and verify menu, tutorial, gameplay start, route rendering, parasol selection, drag/tap placement, tilt left/right, wide/narrow, puddle reflection tap, Thunder Drum control presence, pause, restart, prompt page, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable tap/drag controls and readable HUD/procession/scene.
+# Static screenshot check: inspect release/games/013/screenshot.png and release/ame/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-013.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /ame/ and /ame/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 013.</code></pre>
+    </article>
+  </main>
+</body>
+</html>
