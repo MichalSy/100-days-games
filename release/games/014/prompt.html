@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f3b31'/%3E%3Cpath d='M10 34 32 10l22 24-22 20z' fill='%23f6f0df'/%3E%3Cpath d='M10 34h44L32 54z' fill='%238bd7bd'/%3E%3C/svg%3E" />
+<title>Day 014 Game Generation Prompt</title>
+<style>
+:root { color-scheme: dark; --bg:#07130f; --paper:#f8f1df; --muted:#b7c8bf; --line:rgba(248,241,223,.18); --accent:#78d4ae; --coral:#c95d4d; }
+* { box-sizing:border-box; } body { margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; color:var(--paper); background: radial-gradient(circle at 20% 0%, rgba(120,212,174,.18), transparent 36rem), linear-gradient(180deg,#07130f,#10251f); line-height:1.65; }
+main { width:min(940px, calc(100% - 32px)); margin:0 auto; padding:38px 0 70px; }
+.back { display:inline-flex; min-height:44px; align-items:center; padding:0 16px; border:1px solid var(--line); border-radius:999px; color:var(--paper); text-decoration:none; background:rgba(255,255,255,.06); font-weight:800; }
+article { margin-top:22px; padding:clamp(20px,4vw,44px); border:1px solid var(--line); border-radius:28px; background:rgba(248,241,223,.06); box-shadow:0 24px 80px rgba(0,0,0,.28); }
+h1 { font-size:clamp(34px,7vw,64px); line-height:.96; letter-spacing:-.06em; margin:0 0 22px; }
+h2 { margin:38px 0 12px; font-size:clamp(24px,4vw,34px); letter-spacing:-.04em; } h3 { margin:28px 0 8px; color:var(--accent); }
+p,li { color:var(--muted); } strong { color:var(--paper); } code { color:#ffe0a3; background:rgba(0,0,0,.22); padding:.08em .32em; border-radius:.35em; }
+pre { overflow:auto; padding:16px; border:1px solid var(--line); border-radius:16px; background:rgba(0,0,0,.28); } pre code { background:transparent; padding:0; color:#f8f1df; }
+ul,ol { padding-left:1.35rem; } li+li { margin-top:.35rem; }
+</style>
+</head>
+<body><main><a class="back" href="./">← Back to game</a><article><h1>Day 014 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 014</li>
+<li>Title: Kiri Origami Foldwright</li>
+<li>Slug: kiri-origami-foldwright</li>
+<li>Public route word: kiri</li>
+<li>Mode: hybrid</li>
+<li>Genre: mobile-first origami-folding spatial puzzle arcade / paper-layer route planning score chase</li>
+<li>Mood/style: misty dawn origami studio overlooking cedar hills, translucent washi paper sheets, inked crease diagrams, coral-red practice seals, jade-green cutting mats, soft pearl fog, warm desk-lamp glow; contemplative but tactile folding tension rather than rain sheltering, snow stacking, kimono stamping, cooking, windbell tuning, or vehicle flying</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 011 <code>2d</code>: kimono textile pattern stamping, sleeve symmetry, dye/smudge pressure, moth hazards.</li>
+<li>Day 012 <code>3d</code>: snow-lantern stacking with real 3D blocks, center-of-mass, warmth, and gust shielding.</li>
+<li>Day 013 <code>hybrid</code>: rainy shrine-market procession, layered paths, parasol shelter zones, puddle reflections, gutters, and Thunder Drum timing.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>hybrid</code>; the latest 2D streak is zero. Day 014 chooses another <code>hybrid</code>, but it must feel mechanically and visually different from Day 013: paper layers and fold geometry replace rain lanes and shelter circles. It should use real layer/depth rules — mountain folds, valley folds, paper thickness, tear stress, crane launch paths, and overlap order — not just decorative isometric art.</p>
+<p>Recent screenshot and visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 011 used pale rose/ivory textile surfaces, a kimono-shaped grid, stamp trays, and right-side motif buttons.</li>
+<li>Day 012 used dark winter blues, a central 3D snow pedestal/stack, block cards, and heavy bottom action buttons.</li>
+<li>Day 013 used rainy teal/amber shrine-market paths, umbrella shelter rings, puddles, gutters, and a wide top stat ribbon.</li>
+</ul>
+<p>Day 014 should shift to a cleaner dawn-paper visual identity: layered translucent washi sheets on a green cutting mat, crease lines that glow when foldable, an origami crane avatar sliding along created ridges, torn-edge risk marks, ink seal collectibles, foggy cedar silhouettes outside the studio window, and a compact asymmetrical HUD that feels like a folding diagram notebook. Avoid umbrellas, rain streaks, puddle reflections, snow/candle/torii stacking, kimono cloth panels, stamp trays, cooking counters, wind ribbons, rail runners, or generic square boards.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 011 <code>2d</code>, Day 012 <code>3d</code>, and Day 013 <code>hybrid</code>. The latest generated mode streak is one <code>hybrid</code>; latest 2D streak is zero.</p>
+<p>Mode decision: Day 014 is <code>hybrid</code>. It must be meaningful spatial hybrid gameplay, not decorative perspective:</p>
+<ul>
+<li>Use a responsive static-browser 2D canvas/DOM hybrid with pseudo-3D paper-layer rendering.</li>
+<li>Maintain at least three paper depth layers: base sheet, folded flap layer, and raised ridge/bridge layer.</li>
+<li>Gameplay must depend on fold direction and layer order: a valley fold creates a trough path, a mountain fold creates a ridge bridge, overlap can hide or reveal seal nodes, and too many folds on one region raises tear stress.</li>
+<li>The crane path must follow fold geometry and change when the player folds/unfolds paper.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Fold mist-soft washi paper into safe ridges, troughs, and bridges so a small origami crane can travel from the start mark to ceremony gates, collect ink seals, and avoid tearing the sheet before the dawn bell rings.</li>
+<li>Win condition: Complete three authored folding chapters — First Crease, Cedar Bridge, and Dawn Crane Flight — while reaching 2800 points to trigger “Kiri Thousand-Fold Blessing”. After Thousand-Fold Blessing, continue into endless folding commissions.</li>
+<li>Lose condition: Tear stress reaches 100%, three crane feathers break from bad paths, the dawn timer expires during a commission, or the crane falls into an unfolded gap too many times.</li>
+<li>Core loop:</li>
+</ul>
+<ol>
+<li>Start on a title/menu screen with Day 014 badge, mode badge “hybrid”, public route <code>/kiri/</code>, best score, best Thousand-Fold time, tutorial, prompt link, and a large Start button.</li>
+<li>Show a portrait-friendly cutting-mat playfield with a translucent washi sheet, visible crease candidates, start mark, ceremony gate, ink seals, tear-stress marks, and a tiny origami crane resting at the start.</li>
+<li>A commission card requests fold goals, for example: “Make 2 valley paths, 1 mountain bridge, collect 3 coral seals, keep tear stress under 55%.”</li>
+<li>Player taps or drags along crease candidates to select a fold line, then chooses Mountain Fold, Valley Fold, Unfold, or Reinforce.</li>
+<li>Folded flaps animate over/under the base sheet, revealing or covering seal nodes; ridge/trough arrows show how the crane will travel.</li>
+<li>Press Launch Crane to let the crane glide along the current fold geometry. The crane collects ink seals, crosses bridges, slides down troughs, and reaches the gate if the path is coherent.</li>
+<li>Tear wisps appear when the same paper region is folded too often. Reinforce with rice-paper tabs to reduce stress, but tabs are limited and lower combo reward.</li>
+<li>Completing a commission stamps the sheet with a vermilion seal, awards points, restores one feather if needed, and unlocks the next fold pattern.</li>
+<li>Pause/restart remain available throughout.</li>
+</ol>
+<ul>
+<li>15+ minute play-value strategy:</li>
+<li>Save best score, fastest Kiri Thousand-Fold Blessing time, longest perfect-fold streak, most seals in one launch, highest endless commission, and collected origami mastery badges in localStorage.</li>
+<li>Include three authored chapters:</li>
+<li>First Crease: broad sheet, two obvious crease candidates, one valley path, no instant tear, teaches select fold / mountain vs valley / launch.</li>
+<li>Cedar Bridge: three layers, one overlap reveal, two ink seals behind flaps, first tear-stress tradeoff, first reinforce tab.</li>
+<li>Dawn Crane Flight: multi-step route with mountain bridge plus valley trough, moving fog gap, hidden seal revealed by unfolding, stricter stress and timer.</li>
+<li>Deterministic Day 014 seed varies crease candidates, seal placement, fog gaps, gate position, commission chip order, paper grain weakness, and endless constraints while keeping the opening fair.</li>
+<li>Mastery badges: finish First Crease with zero stress, collect 12 ink seals, trigger Thousand-Fold Blessing under 190 seconds, complete a commission without Reinforce, launch a crane through 4 fold features, finish an endless commission with all feathers.</li>
+<li>Strategic scoring rewards planning: preview the route before Launch, choose mountain vs valley based on crane direction, unfold at the right time to reveal seals, save Reinforce for weak grain zones, and chain seals in one clean flight.</li>
+<li>Endless mode after Thousand-Fold Blessing adds denser crease options, stricter stress caps, fog gaps that drift between launches, hidden seals, and faster dawn timers without shrinking touch controls.</li>
+<li>Difficulty scaling:</li>
+<li>0-45 seconds: two to three crease candidates, large fold buttons, broad gate, no tear penalty during first guided fold.</li>
+<li>45-115 seconds: overlap/reveal rules, first weak-grain zones, first hidden seal, three fold choices.</li>
+<li>115-190 seconds: multi-layer bridge/trough route, moving fog gap, stricter stress cap, shorter launch preview window.</li>
+<li>190+ seconds/endless: denser fold networks, weaker paper regions, higher seal requirements, same readable controls.</li>
+<li>Keep mobile fair: crease lines and fold handles must be thick, crane/gate/seals readable at 390x844, commission text short, 56px+ main controls, no tiny hazard required for survival.</li>
+<li>Scoring/rewards:</li>
+<li>Correct fold matching commission: +65 points times combo tier.</li>
+<li>Crane crosses a ridge/trough feature safely: +70 points.</li>
+<li>Ink seal collected during launch: +120 points.</li>
+<li>Gate reached with stress below target: +360 points and +10% Reinforce charge.</li>
+<li>Perfect commission with no broken feathers: +480 points.</li>
+<li>Kiri Thousand-Fold Blessing: +940 points and endless folding commissions unlock.</li>
+<li>Wrong fold direction: combo reset, stress +8%, path preview turns amber.</li>
+<li>Crane fall or torn region: feather -1, stress +12%, launch ends.</li>
+<li>Over-reinforcing: safe but reduces current combo multiplier.</li>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<li>Mouse click/tap: select crease line, seal/gate tooltip, action button, start/pause overlay button, or prompt link.</li>
+<li>Mouse drag: draw along a crease candidate to select it; drag-to-fold should preview mountain/valley direction if practical.</li>
+<li>Arrow keys or WASD: move fold focus among crease candidates.</li>
+<li>M: apply Mountain Fold.</li>
+<li>V: apply Valley Fold.</li>
+<li>U or Backspace: Unfold selected crease if allowed.</li>
+<li>F: Reinforce selected weak region if charged.</li>
+<li>Space or Enter: Launch Crane / start from menu.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+<li>Mobile/touch:</li>
+<li>Tap a thick crease line to select it.</li>
+<li>Use large Mountain, Valley, Unfold, Reinforce, Launch, Pause, and Restart buttons.</li>
+<li>Optional drag along a crease line may select/preview, but tap-select plus large buttons is mandatory for reliability.</li>
+<li>Tap seal/gate chips for short explanations.</li>
+<li>No virtual joystick. Interaction is fold selection, fold action, route preview, launch, reinforce, pause/restart.</li>
+<li>Mobile layout/orientation:</li>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact notebook-ribbon HUD with score, best, feathers, stress, chapter, combo, and time. Avoid repeating Day 013’s wide rain stat chips; use folded-corner paper tabs and one stress brush mark.</li>
+<li>Below top: commission card with fold chips, seal target, stress cap, and progress ticks.</li>
+<li>Center: cutting-mat/paper playfield with washi sheet, selected crease, fold layers, crane route preview, seals, gate, fog gap, and stress wisps.</li>
+<li>Bottom: selected-crease helper plus large fold action controls. Controls must not cover the crane route or fold lines.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, mountain/valley difference, route preview, Launch Crane, stress/reinforce, pause/restart must be visible.</li>
+<li>Requests must combine text, icons, line styles, and labels so hue alone is not required.</li>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<ul>
+<li>Shows title “Kiri Origami Foldwright”.</li>
+<li>Shows Day 014 badge, mode badge “hybrid”, public route <code>/kiri/</code>, best score, best Thousand-Fold time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+</ul>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<ul>
+<li>Objective: “Fold washi paper into ridges and troughs, then launch the crane safely to the ceremony gate.”</li>
+<li>Creases: tap a glowing crease to select the fold line.</li>
+<li>Mountain vs Valley: mountain folds make raised bridges; valley folds make trough paths.</li>
+<li>Preview: dotted arrows show where the crane will travel before launch.</li>
+<li>Stress: repeated folds tear paper; reinforce weak grain zones when needed.</li>
+<li>Launch: send the crane after planning, collect seals, and reach the gate.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<ul>
+<li>Score, best score, feathers, tear stress, chapter name, combo, elapsed time, current commission, selected crease, Reinforce charge, Launch readiness.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<ol>
+<li>Selected-crease helper</li>
+</ol>
+<ul>
+<li>Non-blocking helper showing selected crease number/angle, current fold state, mountain/valley preview, expected stress change, and likely crane route effect.</li>
+<li>Must not cover active fold lines or bottom controls on mobile.</li>
+</ul>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, prompt link.</li>
+</ul>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<ul>
+<li>Final score, best score, chapter reached, Thousand-Fold status, seals collected, perfect-fold streak, mastery badges, restart button.</li>
+</ul>
+<ol>
+<li>Kiri Thousand-Fold Blessing banner</li>
+</ol>
+<ul>
+<li>Trigger once per run after all three chapters and 2800 score.</li>
+<li>Non-blocking thousand-paper-crane spiral, vermilion seal bloom, fog clears over cedar hills, desk bell silhouette; endless folding commissions continue after the banner fades.</li>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: origami foldwright mascot, misty origami studio/cutting-mat background, fold/crane/icon sheet, and key decorative washi pieces. Canvas/SVG/DOM code may draw interactive crease lines, fold polygons, route previews, hit zones, stress wisps, fog gap, particles, labels, and UI chrome. It should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/014/assets/source/</code> and use optimized playable copies under <code>release/games/014/assets/</code>. Also copy optimized playable assets into <code>apps/day-014-kiri-origami-foldwright/assets/</code> and the public alias <code>release/kiri/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, keep the center play area open, and keep crane/fold/seal silhouettes distinct against green mat, pearl paper, and fog backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Origami foldwright mascot/source charm</li>
+</ol>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/014/assets/source/kiri-foldwright-source.png</code></li>
+<li>Optimized path: <code>release/games/014/assets/kiri-foldwright.png</code></li>
+<li>Imagegen2 prompt: “A charming Japanese origami foldwright mascot for a mobile hybrid browser puzzle arcade game, small friendly craftsperson in moss-green haori and coral sash, holding a white origami crane and bamboo folding bone, soft mist accents, centered readable silhouette, transparent or plain pale washi background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Misty origami studio/cutting-mat background source</li>
+</ol>
+<ul>
+<li>Target: portrait-friendly background suitable behind a paper-folding puzzle playfield with open readable center.</li>
+<li>Archive path: <code>release/games/014/assets/source/kiri-studio-source.png</code></li>
+<li>Optimized path: <code>release/games/014/assets/kiri-studio.png</code></li>
+<li>Imagegen2 prompt: “A misty Japanese dawn origami studio for a portrait mobile puzzle game, jade green cutting mat on a wooden desk, translucent washi sheets, inked crease diagrams, bamboo folding tools, foggy cedar hills visible through a window, warm desk-lamp glow, open readable center area for interactive fold lines and paper sheet, crop-safe for phone portrait, no characters, no text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<ol>
+<li>Origami fold and UI icon sheet source</li>
+</ol>
+<ul>
+<li>Target: square icon sheet for fold actions, crane, seals, stress, rewards, and UI decals.</li>
+<li>Archive path: <code>release/games/014/assets/source/kiri-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/014/assets/kiri-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for an origami paper-folding puzzle game: mountain fold ridge icon, valley fold trough icon, white origami crane, vermilion ink seal, rice-paper reinforce tab, tear stress mark, fog gap, ceremony gate, bamboo folding bone, perfect fold badge, Thousand-Fold Blessing seal, transparent or plain pale green background, high contrast, no text, no watermark.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas origami silhouettes, document the failure in <code>ai/postmortems/day-014.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the foldwright mascot, verify transparent/cutout quality or clean background handling, readable silhouette, centered pivot, crop margins, no unwanted text/watermarks, stable upright orientation, and that the crane/tool pose does not imply a wrong gameplay direction.</li>
+<li>Verify control-to-motion alignment in-game: selected crease highlighting must match the tapped line, Mountain/Valley must visibly change the fold shape in opposite/readable ways, Unfold must remove the intended fold, Reinforce must mark the intended weak region, and Launch Crane feedback must follow the route preview.</li>
+<li>For the background, verify the center play area remains readable after portrait mobile crop and does not hide fold lines, crane, seals, gate, commission card, stress wisps, or controls.</li>
+<li>For the icon sheet, verify mountain fold, valley fold, crane, seal, reinforce tab, tear stress, fog gap, ceremony gate, folding bone, perfect fold badge, and blessing seal are distinct at final HUD/button size and cannot be confused.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/014/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 014 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<ul>
+<li>Build the static hybrid game under <code>apps/day-014-kiri-origami-foldwright/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/014/</code>.</li>
+<li>Create the public playable route under <code>release/kiri/</code>.</li>
+<li>Use static HTML/CSS/JS with no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+</ul>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, and tune mobile readability/game feel.</li>
+</ul>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, crease selection, Mountain/Valley/Unfold/Reinforce actions, Launch Crane, route preview, commission feedback, generated screenshot, generated assets, and 390x844 portrait layout.</li>
+</ul>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<ul>
+<li>Write <code>ai/postmortems/day-014.md</code> after validation with what worked, what failed, generated-image inspection notes, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 014 is allowed as <code>hybrid</code> after Day 013 <code>hybrid</code>, but it must have meaningful paper-layer/depth gameplay where fold direction, overlap, stress, and crane route geometry matter.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/commission card, usable tap-select/Mountain/Valley/Unfold/Reinforce/Launch controls, no forced landscape canvas, and 44px+ controls.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-014.md</code> is copied exactly to <code>release/games/014/prompt.md</code> and <code>release/kiri/prompt.md</code>.</li>
+<li><code>release/games/014/prompt.html</code> and <code>release/kiri/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/kiri/index.html</code>, <code>release/kiri/prompt.html</code>, <code>release/kiri/screenshot.png</code>, and <code>release/kiri/assets/</code> exist and work.</li>
+<li>Gallery card for Day 014 shows prompt availability, generation duration, public <code>/kiri/</code> links, mode <code>hybrid</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/014/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/014/assets/source/</code> and optimized assets exist under <code>release/games/014/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive fold/crane visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>If the game uses audio cues, initialize WebAudio only after user gesture and verify no autoplay errors. Audio is optional because this is not a rhythm/sound-themed day.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicon links to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/<strong></code> through <code>release/games/013/</strong></code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>
+pnpm typecheck
+
+pnpm test
+
+pnpm build
+
+pnpm release:validate
+
+pnpm test:smoke
+
+pnpm test:immutable -- --base origin/main
+
+</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code>
+# Screenshot/static checks: verify release/games/014/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/kiri/index.html, release/kiri/prompt.html, release/kiri/screenshot.png, optimized assets, and source assets exist and are non-empty.
+
+# Prompt copy check: cmp prompts/day-014.md release/games/014/prompt.md and cmp prompts/day-014.md release/kiri/prompt.md.
+
+# Prompt HTML check: verify release/games/014/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+
+# Browser smoke: open the local/static /kiri/ route and verify menu, tutorial, gameplay start, crease selection, Mountain Fold, Valley Fold, Unfold, Reinforce control presence, Launch Crane, route preview, pause, restart, prompt page, no console errors.
+
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable tap controls and readable HUD/commission/fold playfield.
+
+# Static screenshot check: inspect release/games/014/screenshot.png and release/kiri/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-014.md.
+
+# Docker/static smoke: build the Docker image locally, run it, curl /kiri/ and /kiri/prompt.html, then stop the container.
+
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 014.
+
+</code></pre></article></main></body></html>

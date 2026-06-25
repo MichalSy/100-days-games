@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+:root {
+  color-scheme: dark;
+  --ink: #10251f;
+  --paper: #f8f1df;
+  --paper-2: #eadfc5;
+  --mat: #17443b;
+  --mat-2: #0d2f2a;
+  --mist: #b7d7ce;
+  --coral: #c95d4d;
+  --gold: #f2c46d;
+  --jade: #78d4ae;
+  --danger: #ff8a73;
+  --shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: #07130f; color: var(--paper); overflow-x: hidden; }
+body {
+  min-width: 320px;
+  background:
+    linear-gradient(180deg, rgba(7, 19, 15, 0.55), rgba(7, 19, 15, 0.88)),
+    url('./assets/kiri-studio.png') center / cover fixed;
+}
+button, a { font: inherit; }
+a { color: var(--paper); text-decoration: none; }
+.shell { width: min(1260px, 100%); min-height: 100svh; margin: 0 auto; padding: max(10px, env(safe-area-inset-top)) 12px max(10px, env(safe-area-inset-bottom)); display: grid; place-items: center; }
+.game-card { width: 100%; display: grid; gap: 10px; }
+.topbar { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+.stat { min-height: 56px; border: 1px solid rgba(248,241,223,.24); border-radius: 18px; padding: 9px 12px; background: rgba(11, 36, 31, .82); box-shadow: var(--shadow); backdrop-filter: blur(10px); }
+.stat span { display: block; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .13em; color: #c8e5dc; font-size: 11px; }
+.stat strong { display: block; margin-top: 1px; font-size: clamp(19px, 3.2vw, 27px); line-height: 1; }
+.stat.stress strong { color: var(--gold); }
+.commission { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 18px; border: 1px solid rgba(248,241,223,.24); border-radius: 22px; background: linear-gradient(135deg, rgba(248,241,223,.92), rgba(232,224,199,.82)); color: var(--ink); box-shadow: var(--shadow); }
+.kicker { margin: 0 0 4px; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .12em; font-size: 12px; font-weight: 800; color: #3b6b59; }
+h1, h2 { margin: 0; letter-spacing: -.055em; line-height: .95; }
+h1 { font-size: clamp(27px, 4vw, 46px); }
+.commission p:not(.kicker) { margin: 5px 0 0; font-size: clamp(14px, 1.8vw, 18px); }
+.chips { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; min-width: 250px; }
+.chips span, .badges span { display: inline-flex; align-items: center; min-height: 34px; padding: 7px 11px; border-radius: 999px; border: 1px solid rgba(16, 37, 31, .18); background: rgba(255,255,255,.52); color: var(--ink); font-weight: 800; font-size: 13px; }
+.stage-wrap { position: relative; overflow: hidden; border: 1px solid rgba(248,241,223,.28); border-radius: 24px; min-height: 360px; background: radial-gradient(circle at 50% 20%, rgba(248,241,223,.22), transparent 45%), rgba(8, 28, 24, .78); box-shadow: var(--shadow); }
+canvas { display: block; width: 100%; height: min(61svh, 620px); min-height: 390px; touch-action: none; }
+.helper { position: absolute; left: 14px; bottom: 14px; max-width: min(520px, calc(100% - 28px)); padding: 10px 13px; border: 1px solid rgba(248,241,223,.24); border-radius: 15px; background: rgba(8, 28, 24, .84); color: #f8f1df; font-size: 14px; box-shadow: var(--shadow); pointer-events: none; }
+.controls { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+button, .modal-actions a { min-height: 54px; border: 1px solid rgba(248,241,223,.28); border-radius: 16px; color: #f9f5e9; background: linear-gradient(180deg, rgba(34, 77, 66, .94), rgba(17, 55, 48, .94)); box-shadow: inset 0 1px rgba(255,255,255,.22), 0 10px 26px rgba(0,0,0,.2); cursor: pointer; font-weight: 800; }
+button:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+button.primary { background: linear-gradient(135deg, #c85d4e, #e6a052); color: #1c1811; }
+button.launch { background: linear-gradient(135deg, #78d4ae, #f2c46d); color: #10251f; }
+button:disabled { opacity: .48; cursor: not-allowed; }
+.overlay { position: fixed; inset: 0; z-index: 20; display: none; place-items: center; padding: 16px; background: rgba(4, 12, 10, .72); backdrop-filter: blur(12px); }
+.overlay.active { display: grid; }
+.modal { width: min(820px, 100%); display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: center; padding: clamp(18px, 4vw, 30px); border: 1px solid rgba(248,241,223,.3); border-radius: 28px; background: linear-gradient(135deg, rgba(248,241,223,.96), rgba(226,215,188,.92)); color: var(--ink); box-shadow: var(--shadow); }
+.modal.small { grid-template-columns: 1fr; width: min(560px, 100%); }
+.modal img { width: 100%; max-height: 260px; object-fit: contain; border-radius: 22px; background: rgba(255,255,255,.46); }
+.modal h2 { font-size: clamp(34px, 7vw, 62px); }
+.modal p, .modal li { line-height: 1.5; color: #33483f; }
+.modal-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 18px; }
+.modal-actions button, .modal-actions a { display: inline-flex; align-items: center; justify-content: center; padding: 0 18px; color: var(--ink); }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+@media (max-width: 720px) {
+  .shell { padding-inline: 8px; align-items: start; }
+  .topbar { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .stat { min-height: 48px; padding: 7px 9px; border-radius: 14px; }
+  .stat span { font-size: 9px; }
+  .stat strong { font-size: 19px; }
+  .commission { align-items: stretch; flex-direction: column; padding: 11px 12px; gap: 8px; border-radius: 18px; }
+  .chips { justify-content: flex-start; min-width: 0; }
+  .chips span { min-height: 29px; padding: 5px 8px; font-size: 12px; }
+  canvas { height: 45svh; min-height: 335px; }
+  .helper { font-size: 12px; max-width: calc(100% - 18px); left: 9px; bottom: 9px; }
+  .controls { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; }
+  button { min-height: 50px; border-radius: 14px; font-size: 14px; }
+  .modal { grid-template-columns: 1fr; gap: 12px; max-height: calc(100svh - 28px); overflow: auto; }
+  .modal img { width: min(170px, 60vw); justify-self: center; }
+}
+@media (max-width: 390px) {
+  .controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  button { min-height: 48px; }
+}

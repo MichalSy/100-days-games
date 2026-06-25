@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-24T01:38:28.000Z",
+  "generatedAt": "2026-06-25T01:31:37.000Z",
   "totalDays": 100,
-  "completedDays": 13,
+  "completedDays": 14,
   "games": [
     {
       "day": 1,
@@ -119,6 +119,15 @@
       "promptUrl": "/ame/prompt.html",
       "screenshotUrl": "/ame/screenshot.png",
       "generationDuration": "manual controller run with Imagegen2 assets and implementation subagent ~130 minutes"
+    },
+    {
+      "day": 14,
+      "title": "Kiri Origami Foldwright",
+      "slug": "kiri-origami-foldwright",
+      "playUrl": "/kiri/",
+      "promptUrl": "/kiri/prompt.html",
+      "screenshotUrl": "/kiri/screenshot.png",
+      "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]
 }

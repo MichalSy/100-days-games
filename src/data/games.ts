@@ -211,6 +211,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/ame/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation subagent ~130 minutes',
     generatedAt: '2026-06-24T01:38:28Z'
+  },
+  14: {
+    status: 'generated',
+    title: 'Kiri Origami Foldwright',
+    slug: 'kiri-origami-foldwright',
+    genre: ['hybrid origami puzzle', 'paper-layer route planning', 'mobile-first score chase'],
+    mode: 'hybrid',
+    description: 'Fold translucent washi paper into mountain ridges and valley troughs, preview the crane route, collect vermilion ink seals, reinforce weak grain, and reach ceremony gates before the sheet tears.',
+    objective: 'Complete First Crease, Cedar Bridge, and Dawn Crane Flight while reaching 2800 points to trigger Kiri Thousand-Fold Blessing, then continue into endless folding commissions.',
+    playUrl: '/kiri/',
+    promptUrl: '/kiri/prompt.html',
+    promptExcerpt: 'Tap crease lines, choose Mountain or Valley folds, preview the origami crane path, collect ink seals, and manage tear stress before launching toward the ceremony gate.',
+    screenshotUrl: '/kiri/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-06-25T01:31:37Z'
   }
 };
 

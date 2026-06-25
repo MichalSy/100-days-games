@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Day 014: Kiri Origami Foldwright — fold washi paper into ridges and troughs, then launch the crane to the ceremony gate." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f3b31'/%3E%3Cpath d='M10 34 32 10l22 24-22 20z' fill='%23f6f0df'/%3E%3Cpath d='M10 34h44L32 54z' fill='%238bd7bd'/%3E%3Cpath d='M32 10v44M10 34h44' stroke='%23b94e3f' stroke-width='3'/%3E%3C/svg%3E" />
+    <title>Kiri Origami Foldwright · Day 014</title>
+    <link rel="preload" href="./assets/kiri-studio.png" as="image" />
+    <link rel="preload" href="./assets/kiri-foldwright.png" as="image" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="game-card" aria-label="Kiri Origami Foldwright game">
+        <header class="topbar">
+          <div class="stat"><span>Score</span><strong id="score">0</strong></div>
+          <div class="stat"><span>Best</span><strong id="best">0</strong></div>
+          <div class="stat"><span>Feathers</span><strong id="feathers">3/3</strong></div>
+          <div class="stat stress"><span>Stress</span><strong id="stress">0%</strong></div>
+          <div class="stat"><span>Combo</span><strong id="combo">x1</strong></div>
+          <div class="stat"><span>Time</span><strong id="time">0:00</strong></div>
+        </header>
+
+        <section class="commission" aria-live="polite">
+          <div>
+            <p class="kicker">/kiri/ · Day 014 · hybrid</p>
+            <h1 id="chapterTitle">First Crease</h1>
+            <p id="objectiveText">Make one valley path, collect one seal, and reach the gate with stress under 35%.</p>
+          </div>
+          <div class="chips" id="goalChips"></div>
+        </section>
+
+        <section class="stage-wrap">
+          <canvas id="game" width="960" height="620" aria-label="Origami folding playfield"></canvas>
+          <div class="helper" id="helper">Tap a glowing crease, choose Mountain or Valley, preview the crane route, then Launch.</div>
+        </section>
+
+        <section class="controls" aria-label="Fold controls">
+          <button id="mountainBtn" class="primary" type="button">Mountain</button>
+          <button id="valleyBtn" type="button">Valley</button>
+          <button id="unfoldBtn" type="button">Unfold</button>
+          <button id="reinforceBtn" type="button">Reinforce</button>
+          <button id="launchBtn" class="launch" type="button">Launch</button>
+          <button id="pauseBtn" type="button">Pause</button>
+          <button id="restartBtn" type="button">Restart</button>
+        </section>
+      </section>
+    </main>
+
+    <section class="overlay active" id="menu">
+      <div class="modal menu-modal">
+        <img src="./assets/kiri-foldwright.png" alt="Origami foldwright mascot" />
+        <div>
+          <p class="kicker">Day 014 · hybrid · /kiri/</p>
+          <h2>Kiri Origami Foldwright</h2>
+          <p>Fold washi paper into ridges and troughs, then launch the crane safely through seals to the ceremony gate.</p>
+          <ul>
+            <li><strong>Tap creases</strong> to select fold lines.</li>
+            <li><strong>Mountain</strong> raises a bridge; <strong>Valley</strong> makes a trough path.</li>
+            <li><strong>Preview arrows</strong> show the crane route before launch.</li>
+            <li><strong>Stress</strong> tears paper. Reinforce weak regions before they split.</li>
+          </ul>
+          <div class="modal-actions">
+            <button id="startBtn" class="primary" type="button">Start folding</button>
+            <a href="./prompt.html">View prompt</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="overlay" id="pauseOverlay">
+      <div class="modal small">
+        <p class="kicker">Paused</p>
+        <h2>Keep the folds deliberate.</h2>
+        <p>Keyboard: M mountain, V valley, U unfold, F reinforce, Space launch, P pause, R restart.</p>
+        <div class="modal-actions">
+          <button id="resumeBtn" class="primary" type="button">Resume</button>
+          <button id="restartPauseBtn" type="button">Restart</button>
+          <a href="./prompt.html">Prompt</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="overlay" id="resultsOverlay">
+      <div class="modal small">
+        <p class="kicker" id="resultKicker">Run complete</p>
+        <h2 id="resultTitle">The paper rests.</h2>
+        <p id="resultText"></p>
+        <div class="badges" id="badges"></div>
+        <div class="modal-actions">
+          <button id="restartResultsBtn" class="primary" type="button">Fold again</button>
+          <a href="./prompt.html">Prompt</a>
+        </div>
+      </div>
+    </section>
+
+    <script src="./game.js"></script>
+  </body>
+</html>
