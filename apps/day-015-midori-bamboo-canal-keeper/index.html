@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Day 015: Midori Bamboo Canal Keeper, a mobile-first 2D bamboo water-routing puzzle arcade game." />
+    <title>Midori Bamboo Canal Keeper</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f5132'/%3E%3Cpath d='M12 35c16-18 29-18 40 0' fill='none' stroke='%237be0c3' stroke-width='7' stroke-linecap='round'/%3E%3Ccircle cx='45' cy='24' r='7' fill='%23f59e0b'/%3E%3Cpath d='M18 48c8-12 20-12 28 0' fill='none' stroke='%23a7f3d0' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="app" class="shell" aria-label="Midori Bamboo Canal Keeper">
+      <section id="menu" class="overlay menu-overlay active" aria-labelledby="game-title">
+        <div class="menu-card">
+          <div class="menu-art">
+            <img src="assets/midori-keeper.png" alt="Friendly tanuki bamboo canal keeper mascot" />
+          </div>
+          <div class="menu-copy">
+            <div class="badge-row" aria-label="Game metadata">
+              <span class="badge">Day 015</span>
+              <span class="badge">2D</span>
+              <span class="badge">/midori/</span>
+            </div>
+            <h1 id="game-title">Midori Bamboo Canal Keeper</h1>
+            <p class="tagline">Rotate bamboo canals, pulse spring water, and fill every requested basin before drought wins.</p>
+            <div class="best-grid">
+              <span><strong id="menu-best">0</strong><small>best score</small></span>
+              <span><strong id="menu-bloom">—</strong><small>best Full-Grove</small></span>
+              <span><strong id="menu-streak">0</strong><small>clean streak</small></span>
+            </div>
+            <button id="start-button" class="primary-action" type="button">Start Garden Run</button>
+            <a class="prompt-link" href="prompt.html">Read generation prompt</a>
+          </div>
+          <aside class="tutorial" aria-label="Tutorial">
+            <h2>Tutorial</h2>
+            <ul>
+              <li><strong>Objective:</strong> fill requested basins before drought, overflow, or time runs out.</li>
+              <li><strong>Canals:</strong> tap a bamboo tile to rotate its openings clockwise.</li>
+              <li><strong>Preview/lock:</strong> pale-blue arrows show likely flow; lock key pieces before pulsing.</li>
+              <li><strong>Basins:</strong> match blue clear, green moss, or gold koi labels and icons.</li>
+              <li><strong>Drought/overflow:</strong> dead ends raise overflow; sun cracks evaporate water and raise drought.</li>
+              <li><strong>Moss Patch:</strong> spend tanuki charge to repair a cracked tile or slow evaporation.</li>
+              <li><strong>Pause/restart:</strong> use P/R on desktop or the visible mobile buttons.</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="hud-card notebook" aria-label="Gardener notebook HUD">
+        <div><span>Score</span><strong id="score">0</strong></div>
+        <div><span>Best</span><strong id="best-score">0</strong></div>
+        <div><span>Hearts</span><strong id="hearts">♡♡♡</strong></div>
+        <div><span>Drought</span><strong id="drought">0%</strong></div>
+        <div><span>Overflow</span><strong id="overflow">0%</strong></div>
+        <div><span>Chapter</span><strong id="chapter">Dew Gate</strong></div>
+        <div><span>Combo</span><strong id="combo">×1</strong></div>
+        <div><span>Time</span><strong id="elapsed">0:00</strong></div>
+      </section>
+
+      <section class="commission-card" aria-label="Current garden commission">
+        <div>
+          <p class="eyebrow">Current commission</p>
+          <h2 id="commission-title">Dew Gate</h2>
+          <p id="commission-text">Start from the menu to wake the spring.</p>
+        </div>
+        <div id="request-chips" class="request-chips"></div>
+      </section>
+
+      <section class="board-wrap" aria-label="Bamboo canal board">
+        <canvas id="game-canvas" width="780" height="780" aria-label="Interactive bamboo canal puzzle board"></canvas>
+        <div id="bloom-banner" class="bloom-banner" hidden>Midori Full-Grove Bloom!</div>
+      </section>
+
+      <section class="helper-card" aria-live="polite">
+        <div>
+          <p class="eyebrow">Selected tile</p>
+          <strong id="selected-name">None</strong>
+          <p id="selected-detail">Tap a canal tile to rotate it. Use Lock to protect the next pulse route.</p>
+        </div>
+        <div class="charge-meter" aria-label="Moss Patch charge"><span id="charge-fill"></span><b id="charge-text">Moss 0%</b></div>
+      </section>
+
+      <nav class="control-bar" aria-label="Game controls">
+        <button id="lock-button" type="button">Lock</button>
+        <button id="pulse-button" class="pulse" type="button">Pulse Water</button>
+        <button id="moss-button" type="button">Moss Patch</button>
+        <button id="pause-button" type="button">Pause</button>
+        <button id="restart-button" type="button">Restart</button>
+      </nav>
+
+      <section id="pause-overlay" class="overlay" aria-labelledby="pause-title">
+        <div class="dialog-card">
+          <h2 id="pause-title">Garden paused</h2>
+          <p>Rotate canals, lock fragile elbows, then pulse spring water. Moss Patch repairs cracks; dead ends raise overflow.</p>
+          <div class="dialog-actions">
+            <button id="resume-button" class="primary-action" type="button">Resume</button>
+            <button id="pause-restart-button" type="button">Restart run</button>
+            <a href="prompt.html">Prompt</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="results-overlay" class="overlay" aria-labelledby="results-title">
+        <div class="dialog-card results-card">
+          <h2 id="results-title">Garden results</h2>
+          <div id="results-body"></div>
+          <button id="results-restart-button" class="primary-action" type="button">Restart</button>
+          <a href="prompt.html">Read the prompt</a>
+        </div>
+      </section>
+    </main>
+    <script src="game.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 015 Game Generation Prompt</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f4d2e'/%3E%3Cpath d='M15 40c15-2 22-9 34-24' stroke='%2398e66e' stroke-width='7' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='45' cy='18' r='7' fill='%23ffb13d'/%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: dark; --bg:#07160d; --panel:#f3f7df; --ink:#092017; --muted:#41624a; --accent:#1d7d49; --code:#102a1c; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:radial-gradient(circle at top left, rgba(152,230,110,.25), transparent 35%), var(--bg); color:var(--ink); }
+    main { width:min(980px, calc(100% - 28px)); margin:24px auto; background:var(--panel); border-radius:28px; padding:clamp(20px,4vw,42px); box-shadow:0 24px 80px rgba(0,0,0,.35); }
+    a.back { display:inline-flex; margin-bottom:22px; color:#0d5734; font-weight:900; text-decoration:none; }
+    h1 { margin:0 0 12px; font-size:clamp(38px,6vw,72px); line-height:.92; letter-spacing:-.06em; }
+    h2 { margin-top:34px; padding-top:18px; border-top:1px solid rgba(13,87,52,.18); font-size:clamp(25px,3vw,36px); }
+    h3 { margin-top:24px; font-size:22px; }
+    p, li { line-height:1.62; font-size:16px; }
+    code { background:rgba(13,87,52,.12); padding:.12em .35em; border-radius:7px; color:#07351f; }
+    pre { overflow:auto; padding:16px; border-radius:18px; background:var(--code); color:#dffbd3; }
+    pre code { background:transparent; padding:0; color:inherit; }
+    ul { padding-left:24px; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="./index.html">← Back to Midori Bamboo Canal Keeper</a>
+    <h1>Day 015 Game Generation Prompt</h1>
+    <h2>Day 015 Game Generation Prompt</h2>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 015</li>
+<li>Title: Midori Bamboo Canal Keeper</li>
+<li>Slug: midori-bamboo-canal-keeper</li>
+<li>Public route word: midori</li>
+<li>Mode: 2D</li>
+<li>Genre: mobile-first water-routing puzzle arcade / bamboo irrigation score chase</li>
+<li>Mood/style: lush morning bamboo grove, emerald water channels, carved bamboo gates, mossy stone basins, bright koi-orange reward beads, tiny tanuki canal keeper, sunlit dew, hand-painted garden-map clarity; fresh green watercraft puzzle rather than origami paper folds, rainy procession sheltering, snow stacking, textile stamping, windbell tuning, cooking, or vehicle flight</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 012 <code>3d</code>: snow-lantern stacking with real 3D blocks, balance, warmth, and gust shielding.</li>
+<li>Day 013 <code>hybrid</code>: rainy shrine-market procession with parasol shelter zones, layered lanes, puddles, gutters, and Thunder Drum timing.</li>
+<li>Day 014 <code>hybrid</code>: origami fold-layer route planning with mountain/valley folds, crane launch paths, ink seals, tear stress, and reinforcement.</li>
+</ul>
+<p>The latest generated-mode streak is two <code>hybrid</code> games, and the latest generated 2D streak is zero. Day 015 deliberately returns to a crisp mobile-first <code>2D</code> game, not because the generator defaults to flat games, but because a high-quality tactile 2D water-routing puzzle is a strong contrast after two dense spatial hybrids. It should feel like a readable living garden mechanism: bamboo canals, flowing droplets, rotating splitters, basin requests, sun/evaporation pressure, and combo irrigation planning.</p>
+<p>Recent screenshot and visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 012 used dark winter blues, a central 3D snow pedestal/stack, block queue cards, and dense 3D action controls.</li>
+<li>Day 013 used teal/amber rainy shrine-market paths, parasol shelter rings, lane labels, puddles, and gutter edges.</li>
+<li>Day 014 used dark green origami studio lighting, a large pale paper sheet, dashed crease lines, seal marks, and fold action buttons.</li>
+</ul>
+<p>Day 015 should shift to bright, verdant, flowing garden clarity: top-down bamboo canal tiles on moss, animated water beads, rotating bamboo elbows and splitters, target seedling basins, sun-dry cracks, a tiny tanuki keeper mascot, koi-orange combo beads, and a compact gardener notebook HUD. Avoid paper fold sheets, umbrellas/rain curtains, snow/candle blocks, kimono grids, wind ribbons, puppet rails, rail runners, and generic square match-3 boards.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 012 <code>3d</code>, Day 013 <code>hybrid</code>, and Day 014 <code>hybrid</code>. The latest generated-mode streak is two <code>hybrid</code>; latest 2D streak is zero.</p>
+<p>Mode decision: Day 015 is <code>2D</code>, and this is allowed by the cadence because there is no current 2D streak. It must still be a polished, mechanics-rich 2D game rather than a placeholder:</p>
+<ul>
+<li>Use responsive static-browser HTML/CSS/JS with a canvas or DOM/canvas hybrid.</li>
+<li>Gameplay must depend on readable water-routing state: channel direction, splitter orientation, basin request color/amount, evaporation, overflow, and timed drought pressure.</li>
+<li>The board must animate water flow clearly enough that players can predict and adjust routes before committing.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+<li>The next day is not forced by this prompt, because Day 015 begins a new 2D streak of one; future cadence should still avoid more than three consecutive 2D games.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Rotate and lock bamboo canal pieces to guide morning water beads from a spring source into thirsty moss basins and seedling bowls before the sun dries them out.</li>
+<li>Win condition: Complete three garden chapters — Dew Gate, Frog Basin, and Sunlit Grove — while reaching 2900 points to trigger “Midori Full-Grove Bloom”. After Full-Grove Bloom, continue into endless irrigation commissions.</li>
+<li>Lose condition: Drought reaches 100%, three seedling hearts wilt, the spring overflows from too many blocked routes, or the timer expires during a commission.</li>
+<li>Core loop:</li>
+<ul>
+<li>Start on a title/menu screen with Day 015 badge, mode badge “2D”, public route <code>/midori/</code>, best score, best Full-Grove time, tutorial, prompt link, and a large Start button.</li>
+<li>Show a portrait-friendly bamboo grove playfield with a spring source, rotating bamboo canal pieces, splitters, one-way reeds, moss basins, seedling bowls, sun cracks, and a small tanuki keeper near the active request.</li>
+<li>A garden commission card requests flow goals, for example: “Water 3 blue basins, feed 1 lotus bowl, keep overflow below 30%, collect 4 koi beads.”</li>
+<li>Player taps canal pieces to rotate them clockwise; long-press or a button locks a piece for the next water pulse; optional drag may paint a preferred route, but tap-rotate must be reliable.</li>
+<li>Water beads pulse from the spring along connected bamboo. Beads brighten valid routes, slow at splitters, evaporate on sun-cracked tiles, and fill matching basins.</li>
+<li>Some basins request blue clear water, green moss water, or gold koi water. Color is communicated by label/icon as well as hue.</li>
+<li>The tanuki’s “Moss Patch” action can repair one sun-cracked tile or slow evaporation, but it charges only through clean basin deliveries.</li>
+<li>Completing a commission blooms moss flowers, awards points, restores a seedling heart if needed, and unlocks the next chapter.</li>
+<li>Pause/restart remain available throughout.</li>
+</ul>
+<li>15+ minute play-value strategy:</li>
+<ul>
+<li>Save best score, fastest Midori Full-Grove Bloom time, longest clean-flow streak, highest endless commission, most koi beads in one pulse, and collected gardener badges in localStorage.</li>
+<li>Include three authored chapters:</li>
+<ul>
+<li>Dew Gate: small board, two straight canals, two elbows, one basin, teaches rotate/preview/pulse and no instant drought.</li>
+<li>Frog Basin: adds splitter pieces, lotus bowl, first sun-cracked tile, first overflow risk, and Moss Patch.</li>
+<li>Sunlit Grove: denser channel network, two colors of basin request, moving sunbeam evaporation lane, koi bead bonus route, stricter overflow and drought timer.</li>
+</ul>
+<li>Deterministic Day 015 seed varies canal piece order, basin positions, request sequence, koi bead locations, sunbeam timing, cracked tiles, and endless constraints while keeping the opening fair.</li>
+<li>Mastery badges: finish Dew Gate with zero overflow, trigger Full-Grove Bloom under 185 seconds, fill 20 basins, collect 15 koi beads, complete a commission without Moss Patch, survive an endless commission with all seedling hearts.</li>
+<li>Strategic scoring rewards planning: preview the next pulse, rotate splitters before water arrives, lock critical elbows, deliberately send a small overflow to reach koi beads when safe, save Moss Patch for sun cracks, and build clean-flow combo chains.</li>
+<li>Endless mode after Full-Grove Bloom adds more splitters, alternating water colors, shorter sunbeam warnings, stricter drought caps, and higher combo multipliers without shrinking touch controls.</li>
+</ul>
+<li>Difficulty scaling:</li>
+<ul>
+<li>0-45 seconds: broad board, slow pulse, large canal pieces, single basin color, no drought spike during first guided pulse.</li>
+<li>45-115 seconds: splitters, koi bead route, first sun crack, overflow meter, Moss Patch timing.</li>
+<li>115-185 seconds: multiple basin types, moving sunbeam, color/change request, stricter drought and overflow.</li>
+<li>185+ seconds/endless: denser channel network, faster pulses, more cracked tiles, multi-basin orders, same readable controls.</li>
+<li>Keep mobile fair: canal pieces must be large enough to tap, route preview thick and high contrast, commission text short, 56px+ primary controls, no tiny hazard required for survival.</li>
+</ul>
+<li>Scoring/rewards:</li>
+<ul>
+<li>Correct basin filled: +110 points times combo tier.</li>
+<li>Water bead passes through a planned locked route: +25 points.</li>
+<li>Koi bead collected during a pulse: +90 points.</li>
+<li>Splitter sends water to two useful targets: +180 points.</li>
+<li>Commission complete under drought target: +420 points and restore one seedling heart.</li>
+<li>Perfect clean-flow commission with no overflow: +520 points.</li>
+<li>Midori Full-Grove Bloom: +960 points and endless commissions unlock.</li>
+<li>Water hits a dead end: overflow +6%, combo reset.</li>
+<li>Water crosses sun-crack without patch: evaporation loss and drought +4%.</li>
+<li>Wrong basin color/label filled: small overflow, combo reset, and request progress does not advance.</li>
+</ul>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<ul>
+<li>Mouse click/tap: select and rotate a canal tile, action button, start/pause overlay button, or prompt link.</li>
+<li>Shift-click or L: lock/unlock selected tile for next pulse.</li>
+<li>Arrow keys or WASD: move tile focus.</li>
+<li>Space or Enter: release/advance water pulse; also start from menu.</li>
+<li>M: use Moss Patch when charged.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+</ul>
+<li>Mobile/touch:</li>
+<ul>
+<li>Tap a large canal tile to rotate it clockwise.</li>
+<li>Use large Lock, Pulse Water, Moss Patch, Pause, and Restart buttons.</li>
+<li>Optional long-press locks a tile, but visible Lock button is mandatory.</li>
+<li>Tap basin/request chips for short explanations.</li>
+<li>No virtual joystick. Interaction is tap-rotate, lock, pulse, patch, pause/restart.</li>
+</ul>
+<li>Mobile layout/orientation:</li>
+<ul>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact gardener notebook HUD with score, best, seedling hearts, drought, overflow, chapter, combo, and time.</li>
+<li>Below top: commission card with requested basins, color/icon labels, koi bead count, drought/overflow targets, and progress ticks.</li>
+<li>Center: bamboo canal board with source, pieces, route preview, animated water beads, basins, sun cracks, koi beads, and tanuki keeper. It must remain playable without zooming.</li>
+<li>Bottom: selected-tile helper plus large Lock, Pulse Water, Moss Patch, Pause, and Restart controls. Controls must not cover the active board.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, rotate canals, lock route, pulse water, overflow/drought, Moss Patch, pause/restart must be visible.</li>
+<li>Requests must combine text, icons, flow patterns, and labels so hue alone is not required.</li>
+</ul>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ul>
+<li>Title screen</li>
+<ul>
+<li>Shows title “Midori Bamboo Canal Keeper”.</li>
+<li>Shows Day 015 badge, mode badge “2D”, public route <code>/midori/</code>, best score, best Full-Grove time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+</ul>
+<li>Tutorial text</li>
+<ul>
+<li>Objective: “Rotate bamboo canals, pulse spring water, and fill every requested basin before drought wins.”</li>
+<li>Canal pieces: tap a bamboo tile to rotate its openings.</li>
+<li>Preview/lock: pale-blue arrows show likely flow; lock key pieces before pulsing water.</li>
+<li>Basins: match the requested basin icon/label and avoid wrong-color fills.</li>
+<li>Drought/overflow: dead ends raise overflow; sun cracks evaporate water and raise drought.</li>
+<li>Moss Patch: spend tanuki charge to repair one cracked tile or slow evaporation.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<li>In-game HUD</li>
+<ul>
+<li>Score, best score, seedling hearts, drought, overflow, chapter name, combo, elapsed time, current commission, selected canal tile, Moss Patch charge, Pulse readiness.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<li>Selected-tile helper</li>
+<ul>
+<li>Non-blocking helper showing selected tile row/column, current piece type, openings, lock state, expected flow effect, and stress/overflow risk.</li>
+<li>Must not cover active canal pieces or bottom controls on mobile.</li>
+</ul>
+<li>Pause overlay</li>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, prompt link.</li>
+</ul>
+<li>Game-over/results overlay</li>
+<ul>
+<li>Final score, best score, chapter reached, Full-Grove Bloom status, clean-flow streak, koi beads collected, mastery badges, restart button.</li>
+</ul>
+<li>Midori Full-Grove Bloom banner</li>
+<ul>
+<li>Trigger once per run after all three chapters and 2900 score.</li>
+<li>Non-blocking grove-bloom animation: moss flowers open around basins, tanuki bows, koi-orange beads spiral from the spring, morning sun softens; endless irrigation commissions continue after the banner fades.</li>
+</ul>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: tanuki canal keeper mascot, bamboo grove/canal background, canal/basin/icon sheet, and decorative garden pieces. Canvas/SVG/DOM code may draw interactive canal hitboxes, water route previews, animated beads, basin fill levels, sunbeam overlays, crack warnings, labels, particles, and UI chrome. It should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/015/assets/source/</code> and use optimized playable copies under <code>release/games/015/assets/</code>. Also copy optimized playable assets into <code>apps/day-015-midori-bamboo-canal-keeper/assets/</code> and the public alias <code>release/midori/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny canal details that disappear at final in-game size, and keep tanuki/canal/basin silhouettes distinct against green moss and bamboo backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ul>
+<li>Tanuki bamboo canal keeper mascot/source charm</li>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/015/assets/source/midori-keeper-source.png</code></li>
+<li>Optimized path: <code>release/games/015/assets/midori-keeper.png</code></li>
+<li>Imagegen2 prompt: “A charming Japanese tanuki bamboo canal keeper mascot for a mobile 2D browser puzzle arcade game, small friendly tanuki gardener wearing moss-green happi coat and straw hat, holding a carved bamboo water scoop and a tiny seedling, koi-orange bead charm, centered readable silhouette, transparent or plain pale green background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<li>Bamboo grove canal board background source</li>
+<ul>
+<li>Target: portrait-friendly background suitable behind a top-down bamboo water-routing playfield with open readable center.</li>
+<li>Archive path: <code>release/games/015/assets/source/midori-grove-source.png</code></li>
+<li>Optimized path: <code>release/games/015/assets/midori-grove.png</code></li>
+<li>Imagegen2 prompt: “A lush Japanese morning bamboo grove for a portrait mobile water-routing puzzle game, moss floor, carved bamboo canals, stone water basins, dew, soft sunlight through bamboo leaves, tiny garden tools on the sides, open readable center area for an interactive canal board, crop-safe for phone portrait, no characters, no text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<li>Bamboo canal, basin, water, and UI icon sheet source</li>
+<ul>
+<li>Target: square icon sheet for canal pieces, basins, hazards, rewards, and UI decals.</li>
+<li>Archive path: <code>release/games/015/assets/source/midori-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/015/assets/midori-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a Japanese bamboo water canal puzzle game: straight bamboo canal, elbow canal, T splitter, cross splitter, spring source, moss basin, lotus bowl, blue water bead, green moss water bead, koi-orange reward bead, sun-crack hazard, tanuki moss patch, seedling heart, Full-Grove Bloom seal, transparent or plain pale moss background, high contrast, no text, no watermark, generous margins so no icons are cut off.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas bamboo canal silhouettes, document the failure in <code>ai/postmortems/day-015.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the tanuki keeper mascot, verify transparent/cutout quality or clean background handling, readable silhouette, centered pivot, crop margins, no unwanted text/watermarks, stable upright orientation, and that the water scoop pose does not imply wrong gameplay direction.</li>
+<li>Verify control-to-motion alignment in-game: tapping a canal tile rotates the intended tile, Lock marks the intended tile, Pulse Water follows the preview route, Moss Patch affects the intended cracked tile, overflow/drought feedback aligns with actual route failures, and basin fill feedback matches requests.</li>
+<li>For the background, verify the center play area remains readable after portrait mobile crop and does not hide canal pieces, water beads, basins, sun cracks, commission card, or controls.</li>
+<li>For the icon sheet, verify straight/elbow/T/cross canals, spring source, moss basin, lotus bowl, water beads, koi bead, sun crack, Moss Patch, seedling heart, and Full-Grove Bloom seal are distinct at final HUD/button size and cannot be confused.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/015/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 015 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ul>
+<li>Implementation subagent</li>
+<ul>
+<li>Build the static 2D game under <code>apps/day-015-midori-bamboo-canal-keeper/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/015/</code>.</li>
+<li>Create the public playable route under <code>release/midori/</code>.</li>
+<li>Use static HTML/CSS/JS with no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+</ul>
+<li>Asset/polish subagent</li>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, and tune mobile readability/game feel.</li>
+</ul>
+<li>QA/browser/mobile subagent</li>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, canal board rendering, tile rotation, lock/unlock, Pulse Water, route preview, Moss Patch control presence, basin fill/drought/overflow feedback, generated screenshot, generated assets, and 390x844 portrait layout.</li>
+</ul>
+<li>Reflection/self-improvement subagent</li>
+<ul>
+<li>Write <code>ai/postmortems/day-015.md</code> after validation with what worked, what failed, generated-image inspection notes, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 015 is allowed as <code>2d</code> after Day 013/014 <code>hybrid</code>; it must be a polished water-routing puzzle with actual flow state, not a placeholder grid.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/commission card, usable tap-rotate/lock/pulse/patch controls, no forced landscape canvas, and 44px+ controls.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-015.md</code> is copied exactly to <code>release/games/015/prompt.md</code> and <code>release/midori/prompt.md</code>.</li>
+<li><code>release/games/015/prompt.html</code> and <code>release/midori/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/midori/index.html</code>, <code>release/midori/prompt.html</code>, <code>release/midori/screenshot.png</code>, and <code>release/midori/assets/</code> exist and work.</li>
+<li>Gallery card for Day 015 shows prompt availability, generation duration, public <code>/midori/</code> links, mode <code>2d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/015/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/015/assets/source/</code> and optimized assets exist under <code>release/games/015/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive canal/water visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>If the game uses audio cues, initialize WebAudio only after user gesture and verify no autoplay errors. Audio is optional because this is not a rhythm/sound-themed day.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicons to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/**</code> through <code>release/games/014/**</code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>
+pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main
+</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code>
+# Screenshot/static checks: verify release/games/015/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/midori/index.html, release/midori/prompt.html, release/midori/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-015.md release/games/015/prompt.md and cmp prompts/day-015.md release/midori/prompt.md.
+# Prompt HTML check: verify release/games/015/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+# Browser smoke: open the local/static /midori/ route and verify menu, tutorial, gameplay start, canal board rendering, tile rotation, lock/unlock, Pulse Water, route preview, Moss Patch control presence, pause, restart, prompt page, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable tap controls and readable HUD/commission/board.
+# Static screenshot check: inspect release/games/015/screenshot.png and release/midori/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-015.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /midori/ and /midori/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 015.
+</code></pre>
+  </main>
+</body>
+</html>

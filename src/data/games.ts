@@ -226,6 +226,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/kiri/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-06-25T01:31:37Z'
+  },
+  15: {
+    status: 'generated',
+    title: 'Midori Bamboo Canal Keeper',
+    slug: 'midori-bamboo-canal-keeper',
+    genre: ['water-routing puzzle arcade', 'bamboo irrigation', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Rotate and lock carved bamboo canals in a lush morning grove, pulse spring water into requested basins, collect koi beads, patch sun cracks, and beat drought pressure.',
+    objective: 'Complete Dew Gate, Frog Basin, and Sunlit Grove while reaching 2900 points to trigger Midori Full-Grove Bloom, then continue into endless irrigation commissions.',
+    playUrl: '/midori/',
+    promptUrl: '/midori/prompt.html',
+    promptExcerpt: 'Rotate bamboo canal pieces, lock clean routes, pulse spring water, fill moss basins and lotus bowls, patch sun cracks, and keep overflow/drought under control.',
+    screenshotUrl: '/midori/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-06-26T01:31:29Z'
   }
 };
 

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-25T01:31:37.000Z",
+  "generatedAt": "2026-06-26T01:31:29.000Z",
   "totalDays": 100,
-  "completedDays": 14,
+  "completedDays": 15,
   "games": [
     {
       "day": 1,
@@ -127,6 +127,15 @@
       "playUrl": "/kiri/",
       "promptUrl": "/kiri/prompt.html",
       "screenshotUrl": "/kiri/screenshot.png",
+      "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 15,
+      "title": "Midori Bamboo Canal Keeper",
+      "slug": "midori-bamboo-canal-keeper",
+      "playUrl": "/midori/",
+      "promptUrl": "/midori/prompt.html",
+      "screenshotUrl": "/midori/screenshot.png",
       "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]
