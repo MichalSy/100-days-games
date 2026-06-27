@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 016 Game Generation Prompt</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23301816'/%3E%3Cpath d='M18 42c0-13 6-25 14-25s14 12 14 25c0 7-28 7-28 0z' fill='%23d7843c'/%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: dark; --bg:#160d0a; --panel:#fff7ea; --ink:#26150d; --muted:#6f503c; --accent:#b95f2e; --line:#e9c69a; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: radial-gradient(circle at 10% 0%, #65331e, transparent 35%), var(--bg); color: var(--ink); }
+    main { width:min(980px, calc(100vw - 28px)); margin:0 auto; padding:32px 0 56px; }
+    .top { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:18px; color:#ffe5bc; }
+    .top a { color:#ffe5bc; text-decoration:none; font-weight:900; border:1px solid rgba(255,229,188,.36); padding:10px 14px; border-radius:999px; background:rgba(255,255,255,.08); }
+    article { background:var(--panel); border:1px solid var(--line); border-radius:28px; padding:clamp(20px,4vw,44px); box-shadow:0 24px 80px rgba(0,0,0,.35); }
+    h1 { font-size:clamp(36px,6vw,64px); line-height:.95; margin:0 0 18px; }
+    h2 { font-size:clamp(25px,4vw,36px); margin:34px 0 12px; padding-top:12px; border-top:1px solid var(--line); }
+    h3 { font-size:22px; margin:24px 0 8px; }
+    p, li { font-size:16px; line-height:1.62; }
+    ul, ol { padding-left:1.35rem; }
+    li { margin:6px 0; }
+    code { background:#f1dcc0; border:1px solid #e2bc8c; border-radius:7px; padding:.08rem .32rem; }
+    pre { overflow:auto; background:#24140f; color:#ffe6bf; border-radius:18px; padding:16px; }
+    pre code { background:transparent; border:0; padding:0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="top"><a href="./index.html">← Back to game</a><span>Ryu Ember Kiln Potter · /ryu/</span></div>
+    <article><h1>Day 016 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 016</li>
+<li>Title: Ryu Ember Kiln Potter</li>
+<li>Slug: ryu-ember-kiln-potter</li>
+<li>Public route word: ryu</li>
+<li>Mode: 3D</li>
+<li>Genre: mobile-first 3D pottery wheel sculpting / kiln heat-management arcade score chase</li>
+<li>Mood/style: warm Japanese mountain pottery studio at late afternoon, glowing dragon kiln embers, wet clay shine, ash-glaze blues, cedar shelves, raku bowls, carved dragon scale stamps, smoke ribbons, tactile craft tension; sculptural 3D shaping rather than bamboo water routing, origami folds, rain sheltering, snow stacking, kimono stamping, or vehicle flight.</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 013 <code>hybrid</code>: rainy shrine-market parasol procession with lane-aware sheltering, puddles, and gutters.</li>
+<li>Day 014 <code>hybrid</code>: origami fold-layer route planning with mountain/valley folds, crane route preview, seals, and paper stress.</li>
+<li>Day 015 <code>2d</code>: bamboo canal water-routing with tile rotations, basin requests, drought, overflow, and moss patching.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>2d</code>, so the cadence allows any mode, but Day 016 deliberately chooses real <code>3D</code> to keep the series spatial and ambitious immediately after the readable 2D canal puzzle. The new verb set is different from recent days: rotate a clay vessel on a 3D wheel, push/pull profile rings, carve grooves and dragon-scale stamps, apply glaze bands, manage kiln heat and cracks, and match vessel silhouettes for ceramic commissions.</p>
+<p>Recent visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 013 used teal rainy market paths, umbrellas, shelter rings, stone reflections, and bottom lane/tilt controls.</li>
+<li>Day 014 used a dark origami studio, pale paper sheet, dashed crease lines, crane route, and fold action buttons.</li>
+<li>Day 015 used bright bamboo grove greens, square canal tiles, water beads, basins, drought/overflow HUD, and tap-rotate controls.</li>
+</ul>
+<p>Day 016 should shift to warm amber clay and real 3D form-making: a centered spinning vessel, visible profile rings, thumb/paddle sculpt controls, kiln bellows, glaze brush bands, dragon-scale carving stamps, crack warnings, and smoke/ember particles. Avoid gridded boards, route previews, water canals, paper fold lines, umbrellas, snow block stacks, textile stamp panels, wind ribbons, and generic spaceship/runner movement.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 013 <code>hybrid</code>, Day 014 <code>hybrid</code>, and Day 015 <code>2d</code>. The latest generated-mode streak is one <code>2d</code>; latest 2D streak is one.</p>
+<p>Mode decision: Day 016 is <code>3D</code>. It must implement real spatial gameplay, not decorative perspective:</p>
+<ul>
+<li>Use Three.js/WebGL or equivalent static-browser 3D rendering.</li>
+<li>Render an actual 3D pottery wheel work area with a rotating vessel, depth-visible profile rings, camera/light depth cues, and sculpting deformations that change the vessel silhouette.</li>
+<li>Gameplay must depend on 3D vessel shape: ring radius, vertical profile, symmetry/wobble, wall thickness, carved groove depth, glaze band position, heat zones, and crack risk.</li>
+<li>Player actions must manipulate the 3D object: select a height ring, widen/narrow it, smooth wobble, carve a groove/stamp mark, brush glaze bands, control kiln bellows, and fire the piece.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Shape wet clay on a spinning wheel into requested tea bowls, incense cups, and dragon-kiln vases, then glaze and fire them without cracking so the mountain kiln can complete the Ryu Ember Offering.</li>
+<li>Win condition: Complete three ceramic commissions — Tea Bowl Foot, Incense Cup Lip, and Dragon Kiln Vase — while reaching 3000 points to trigger “Ryu Ember Offering”. After the offering, continue into endless kiln commissions.</li>
+<li>Lose condition: Crack risk reaches 100%, three apprentice patience tiles break, the vessel collapses from too much wobble/thin wall, or the kiln overheats during firing.</li>
+<li>Core loop:</li>
+</ul>
+<p>1. Start on a title/menu screen with Day 016 badge, mode badge “3D”, public route <code>/ryu/</code>, best score, best Ember Offering time, tutorial, prompt link, and a large Start button.</p>
+<p>2. Show a portrait-friendly 3D pottery wheel with a centered spinning clay vessel, profile target ghost, selectable height rings, kiln ember meter, glaze tray, and assistant mascot.</p>
+<p>3. A commission card requests vessel traits, for example: “Wide foot, narrow waist, flared lip, 2 ash-blue glaze bands, carve 3 dragon scales, fire at steady heat &lt;72%.”</p>
+<p>4. Player selects a height ring by tapping the vessel, ring chips, or up/down controls. The selected ring gets a bright contour halo.</p>
+<p>5. Widen / Narrow changes ring radius. Smooth reduces wobble but costs time. Carve adds a groove or dragon-scale stamp to selected ring. Glaze applies a colored band to selected ring.</p>
+<p>6. Shape feedback updates live: silhouette ghost shows target vs actual, wall-thickness warning marks risky thin zones, wobble meter rises if adjacent rings differ too much, and score/combo rewards clean sculpting.</p>
+<p>7. When the shape is close enough, player taps Fire Kiln. During firing, use Bellows and Vent controls to keep heat inside the requested ember band while cracks threaten thin/wobbly rings.</p>
+<p>8. Completing a commission stamps the vessel with a vermilion kiln seal, awards points, restores one patience tile if needed, and unlocks the next vessel.</p>
+<p>9. Pause/restart remain available throughout.</p>
+<ul>
+<li>15+ minute play-value strategy:</li>
+<li>Save best score, fastest Ryu Ember Offering time, smoothest vessel percentage, highest endless commission, most perfect firings, and collected kiln badges in localStorage.</li>
+<li>Include three authored commissions:</li>
+<li>Tea Bowl Foot: three profile rings, broad foot, gentle bowl curve, one glaze band, no instant collapse during first tutorial sculpt.</li>
+<li>Incense Cup Lip: five rings, narrow waist, flared lip, first dragon-scale carve requirement, wobble tradeoff, first firing heat band.</li>
+<li>Dragon Kiln Vase: seven rings, tall profile, alternating glaze bands, strict wall-thickness, carve/groove placement, active bellows/vent heat control.</li>
+<li>Deterministic Day 016 seed varies target profiles, clay stiffness, glaze colors, carve requirements, heat wind timing, crack-prone rings, and endless constraints while keeping the opening fair.</li>
+<li>Mastery badges: finish Tea Bowl Foot with 90%+ silhouette match, trigger Ember Offering under 195 seconds, fire three pieces without cracks, carve 12 dragon scales, complete a commission with zero smoothing, survive an endless commission with all patience tiles.</li>
+<li>Strategic scoring rewards planning: widen broad forms before thinning lips, smooth only after large profile changes, keep adjacent rings gradual, place glaze bands before final firing, save Vent for heat spikes, and stop sculpting when close enough instead of overworking clay.</li>
+<li>Endless mode after Ember Offering adds taller vessels, stricter silhouette targets, shorter firing heat windows, multiple glaze/carve constraints, and wobble-sensitive clay without shrinking touch controls.</li>
+<li>Difficulty scaling:</li>
+<li>0-45 seconds: three rings, forgiving radius targets, slow wheel, one glaze band, generous heat range.</li>
+<li>45-115 seconds: five rings, wobble and wall-thickness warnings, first carve marks, first bellows/vent firing phase.</li>
+<li>115-195 seconds: seven rings, tall profile, tighter silhouette tolerance, alternating glaze bands, faster heat spikes, crack-prone zones.</li>
+<li>195+ seconds/endless: variable ring counts, stricter target matching, unstable clay, hotter kiln, same readable controls.</li>
+<li>Keep mobile fair: selected ring halos must be thick, target silhouette visible, commission text short, 56px+ primary controls, no tiny moving hazard required for survival.</li>
+<li>Scoring/rewards:</li>
+<li>Ring adjusted toward target: +35 points times combo tier.</li>
+<li>Smooth adjacent profile with wobble under target: +80 points.</li>
+<li>Correct glaze band or carve mark: +110 points.</li>
+<li>Firing heat held in band for a full tick: +45 points and +3% kiln seal charge.</li>
+<li>Commission complete above 82% match: +420 points and restore one patience tile if below max.</li>
+<li>Perfect firing with no cracks: +520 points.</li>
+<li>Ryu Ember Offering: +980 points and endless kiln commissions unlock.</li>
+<li>Over-thin wall or sharp radius jump: wobble/crack risk rises and combo resets.</li>
+<li>Kiln overheat or cold firing: crack risk rises and the commission loses quality.</li>
+<li>Vessel collapse: patience -1, score penalty, current piece resets to last safe profile if patience remains.</li>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<li>Mouse click/tap: select vessel ring, action button, start/pause overlay button, or prompt link.</li>
+<li>Mouse drag horizontally on the vessel: gently rotate/orbit the camera/wheel preview; drag vertically on a selected ring may widen/narrow if implemented, but buttons are mandatory.</li>
+<li>Arrow Up/Down or W/S: select previous/next height ring.</li>
+<li>Arrow Left/Right or A/D: narrow/widen selected ring.</li>
+<li>Q/E: rotate view or nudge wheel view.</li>
+<li>Space or Enter: Fire Kiln when sculpting is ready; also start from menu.</li>
+<li>C: Carve selected ring.</li>
+<li>G: Glaze selected ring.</li>
+<li>M: Smooth selected ring.</li>
+<li>B: Bellows during firing.</li>
+<li>V: Vent during firing.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+<li>Mobile/touch:</li>
+<li>Tap a large vessel ring or ring chip to select it.</li>
+<li>Use large Ring Up, Ring Down, Widen, Narrow, Smooth, Carve, Glaze, Fire Kiln, Bellows, Vent, Pause, and Restart buttons.</li>
+<li>Optional drag on the 3D scene may orbit slightly, but gameplay must work through tap-select plus visible buttons.</li>
+<li>No virtual joystick. Interaction is ring select, sculpt buttons, glaze/carve, fire, heat controls, pause/restart.</li>
+<li>Mobile layout/orientation:</li>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact ceramic studio HUD with score, best, patience tiles, wobble/crack risk, heat, chapter, combo, and time. Use clay tags and ember chips, not the recent six-box water/paper/rain layouts.</li>
+<li>Below top: commission card with target traits, silhouette percentage, glaze/carve chips, heat range, and progress ticks.</li>
+<li>Center: 3D pottery wheel scene with selected ring contour, target silhouette ghost, wall-thickness marks, glaze bands, carve marks, kiln smoke/ember particles, and assistant mascot/charm.</li>
+<li>Bottom: selected-ring helper plus large sculpt/fire controls. Controls must not cover the vessel silhouette.</li>
+<li>During firing, bottom controls simplify to Bellows, Vent, Hold Steady, Pause, Restart with large touch targets.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, ring selection, widen/narrow, smooth, carve, glaze, firing heat, pause/restart must be visible.</li>
+<li>Requests must combine text, icons, target silhouette lines, and labels so hue alone is not required.</li>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<ul>
+<li>Shows title “Ryu Ember Kiln Potter”.</li>
+<li>Shows Day 016 badge, mode badge “3D”, public route <code>/ryu/</code>, best score, best Ember Offering time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+</ul>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<ul>
+<li>Objective: “Shape the spinning clay vessel to match each silhouette, glaze it, then fire it without cracks.”</li>
+<li>Ring selection: tap a vessel ring or ring chip to choose where your hands work.</li>
+<li>Sculpting: Widen/Narrow changes the profile; Smooth lowers wobble; avoid thin walls and harsh jumps.</li>
+<li>Carve/Glaze: add required dragon scales, grooves, and glaze bands before firing.</li>
+<li>Firing: keep heat in the requested ember range with Bellows and Vent; overheating cracks thin clay.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<ul>
+<li>Score, best score, patience tiles, wobble, crack risk, heat, chapter name, combo, elapsed time, current commission, selected ring, silhouette match percentage, Fire readiness.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<ol>
+<li>Selected-ring helper</li>
+</ol>
+<ul>
+<li>Non-blocking helper showing selected ring number/height, current radius vs target, wall thickness, wobble contribution, glaze/carve state, and expected score effect.</li>
+<li>Must not cover the vessel or bottom controls on mobile.</li>
+</ul>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, prompt link.</li>
+</ul>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<ul>
+<li>Final score, best score, commission reached, Ember Offering status, smoothest vessel, perfect firing count, mastery badges, restart button.</li>
+</ul>
+<ol>
+<li>Ryu Ember Offering banner</li>
+</ol>
+<ul>
+<li>Trigger once per run after all three commissions and 3000 score.</li>
+<li>Non-blocking dragon-kiln glow: ember dragon silhouette coils through smoke, glaze bands shimmer, vermilion seal stamps the vessel, apprentice bows; endless kiln commissions continue after the banner fades.</li>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: pottery apprentice mascot, warm kiln-studio background, pottery/glaze/icon sheet, and decorative dragon-kiln pieces. Three.js primitives may render the interactive 3D clay vessel, target silhouette, selected rings, glaze bands, carved grooves, heat/crack overlays, particles, hit volumes, and UI chrome. Procedural code may crop, resize, alpha-clean, atlas-pack, optimize, animate, or place generated assets; it should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/016/assets/source/</code> and use optimized playable copies under <code>release/games/016/assets/</code>. Also copy optimized playable assets into <code>apps/day-016-ryu-ember-kiln-potter/assets/</code> and the public alias <code>release/ryu/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny pottery details that disappear at final in-game size, and keep mascot/vessel/icon silhouettes distinct against warm amber and dark cedar backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Pottery apprentice mascot/source charm</li>
+</ol>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/016/assets/source/ryu-apprentice-source.png</code></li>
+<li>Optimized path: <code>release/games/016/assets/ryu-apprentice.png</code></li>
+<li>Imagegen2 prompt: “A charming Japanese pottery apprentice mascot for a mobile 3D browser pottery wheel arcade game, small friendly craftsperson in indigo clay apron and rolled sleeves, holding a wet clay tea bowl and bamboo rib tool, tiny ember dragon charm, warm kiln glow, centered readable silhouette, transparent or plain pale clay background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Mountain pottery studio / dragon kiln background source</li>
+</ol>
+<ul>
+<li>Target: portrait-friendly background suitable behind a 3D pottery wheel playfield with open readable center.</li>
+<li>Archive path: <code>release/games/016/assets/source/ryu-kiln-studio-source.png</code></li>
+<li>Optimized path: <code>release/games/016/assets/ryu-kiln-studio.png</code></li>
+<li>Imagegen2 prompt: “A warm Japanese mountain pottery studio for a portrait mobile 3D pottery wheel game, glowing dragon kiln at the side, cedar shelves with raku bowls, clay tools, ash-glaze jars, late afternoon light, ember smoke ribbons, open readable center area for a spinning clay vessel, crop-safe for phone portrait, no characters, no text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<ol>
+<li>Pottery, glaze, heat, and UI icon sheet source</li>
+</ol>
+<ul>
+<li>Target: square icon sheet for ring controls, clay states, hazards, rewards, and UI decals.</li>
+<li>Archive path: <code>release/games/016/assets/source/ryu-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/016/assets/ryu-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a Japanese pottery wheel kiln game: clay ring profile, widen paddle, narrow rib tool, smoothing sponge, dragon-scale carving stamp, ash-blue glaze brush, ember heat flame, vent fan, bellows, crack warning, patience kiln tile, Ryu Ember Offering seal, transparent or plain pale clay background, high contrast, no text, no watermark, generous margins so no icons are cut off.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas/Three.js materials, document the failure in <code>ai/postmortems/day-016.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the pottery apprentice mascot, verify transparent/cutout quality or clean background handling, readable silhouette, centered pivot, crop margins, no unwanted text/watermarks, stable upright orientation, and that the clay/tool pose does not imply a wrong gameplay direction.</li>
+<li>Verify control-to-motion alignment in-game: Ring Up/Down must select the expected vessel height, Widen/Narrow must visibly change the selected ring radius in the expected direction, Smooth must lower wobble feedback, Carve/Glaze must mark the intended ring, Fire Kiln must enter the firing phase, and Bellows/Vent must move heat in opposite/readable directions.</li>
+<li>For the background, verify the center play area remains readable after portrait mobile crop and does not hide vessel rings, silhouette target, commission card, heat/crack warnings, selected helper, or controls.</li>
+<li>For the icon sheet, verify widen, narrow, smooth, carve, glaze, heat, vent, bellows, crack, patience tile, and offering seal are distinct at final HUD/button size and cannot be confused.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/016/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 016 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<ul>
+<li>Build the static 3D game under <code>apps/day-016-ryu-ember-kiln-potter/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/016/</code>.</li>
+<li>Create the public playable route under <code>release/ryu/</code>.</li>
+<li>Use static HTML/CSS/JS with Three.js/WebGL and no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+<li>If vendoring <code>three.module*.js</code>, also copy the matching <code>three.core*.js</code> beside it in the app, release archive, and <code>/ryu/</code> alias assets.</li>
+</ul>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, and tune mobile readability/game feel.</li>
+</ul>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, 3D scene rendering, ring selection, widen/narrow, smooth, carve, glaze, Fire Kiln, Bellows/Vent control presence, commission completion feedback, generated screenshot, generated assets, and 390x844 portrait layout.</li>
+</ul>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<ul>
+<li>Write <code>ai/postmortems/day-016.md</code> after validation with what worked, what failed, generated-image inspection notes, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 016 is real <code>3d</code> with spatial pottery-wheel shaping, ring selection, 3D silhouette/profile matching, wobble/thickness, glaze/carve placement, and kiln heat management.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/commission card, usable ring/sculpt/carve/glaze/fire/heat controls, no forced landscape canvas, and 44px+ controls.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-016.md</code> is copied exactly to <code>release/games/016/prompt.md</code> and <code>release/ryu/prompt.md</code>.</li>
+<li><code>release/games/016/prompt.html</code> and <code>release/ryu/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/ryu/index.html</code>, <code>release/ryu/prompt.html</code>, <code>release/ryu/screenshot.png</code>, and <code>release/ryu/assets/</code> exist and work.</li>
+<li>Gallery card for Day 016 shows prompt availability, generation duration, public <code>/ryu/</code> links, mode <code>3d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/016/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/016/assets/source/</code> and optimized assets exist under <code>release/games/016/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive vessel/kiln visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>If the game uses audio cues, initialize WebAudio only after user gesture and verify no autoplay errors. Audio is optional because this is not a rhythm/sound-themed day.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicons to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/<strong></code> through <code>release/games/015/</strong></code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/016/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/ryu/index.html, release/ryu/prompt.html, release/ryu/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-016.md release/games/016/prompt.md and cmp prompts/day-016.md release/ryu/prompt.md.
+# Prompt HTML check: verify release/games/016/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+# Browser smoke: open the local/static /ryu/ route and verify menu, tutorial, gameplay start, 3D render, ring selection, Ring Up/Down, Widen, Narrow, Smooth, Carve, Glaze, Fire Kiln, Bellows/Vent control presence, pause, restart, prompt page, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable tap controls and readable HUD/commission/3D vessel.
+# Static screenshot check: inspect release/games/016/screenshot.png and release/ryu/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-016.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /ryu/ and /ryu/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 016.</code></pre></article>
+  </main>
+</body>
+</html>

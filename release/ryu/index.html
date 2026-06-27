@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Day 016 — Ryu Ember Kiln Potter</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23301816'/%3E%3Cpath d='M18 42c0-13 6-25 14-25s14 12 14 25c0 7-28 7-28 0z' fill='%23d7843c'/%3E%3Cpath d='M24 35c5 5 12 5 16 0' stroke='%23ffe0a3' stroke-width='5' fill='none'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="background-wash" aria-hidden="true"></div>
+  <main class="shell" id="game-shell">
+    <header class="hud" aria-label="Game status">
+      <div class="stat"><span>Score</span><strong id="score">0</strong></div>
+      <div class="stat"><span>Best</span><strong id="best-score">0</strong></div>
+      <div class="stat"><span>Tiles</span><strong id="patience">◆◆◆</strong></div>
+      <div class="stat"><span>Risk</span><strong id="risk">0%</strong></div>
+      <div class="stat"><span>Heat</span><strong id="heat">32%</strong></div>
+      <div class="stat"><span>Combo</span><strong id="combo">x1</strong></div>
+      <div class="stat"><span>Time</span><strong id="timer">0:00</strong></div>
+    </header>
+
+    <section class="commission" aria-live="polite">
+      <div>
+        <p class="kicker">/RYU/ · Day 016 · 3D</p>
+        <h1 id="chapter-title">Tea Bowl Foot</h1>
+        <p id="commission-text">Shape a broad tea bowl foot, add one ash-blue glaze band, and fire below 72% heat.</p>
+      </div>
+      <div class="chips" id="commission-chips"></div>
+    </section>
+
+    <section class="stage-card">
+      <div class="scene-wrap" id="scene-wrap">
+        <canvas id="scene" aria-label="3D pottery wheel with sculptable clay vessel"></canvas>
+        <div class="match-badge"><span>Silhouette</span><strong id="match">0%</strong></div>
+        <div class="selected-badge" id="selected-helper">Ring 3 · radius 46 · target 54</div>
+      </div>
+    </section>
+
+    <section class="ring-panel" aria-label="Ring selector">
+      <button class="small" id="ring-down" type="button">Ring ↓</button>
+      <div class="ring-track" id="ring-track"></div>
+      <button class="small" id="ring-up" type="button">Ring ↑</button>
+    </section>
+
+    <section class="controls sculpt-controls" id="sculpt-controls" aria-label="Sculpt controls">
+      <button id="widen" type="button">Widen</button>
+      <button id="narrow" type="button">Narrow</button>
+      <button id="smooth" type="button">Smooth</button>
+      <button id="carve" type="button">Carve</button>
+      <button id="glaze" type="button">Glaze</button>
+      <button class="primary" id="fire" type="button">Fire Kiln</button>
+      <button id="pause" type="button">Pause</button>
+      <button id="restart" type="button">Restart</button>
+    </section>
+
+    <section class="controls fire-controls hidden" id="fire-controls" aria-label="Kiln firing controls">
+      <button id="bellows" type="button">Bellows</button>
+      <button id="hold" type="button">Hold Steady</button>
+      <button id="vent" type="button">Vent</button>
+      <button id="pause-fire" type="button">Pause</button>
+      <button id="restart-fire" type="button">Restart</button>
+    </section>
+  </main>
+
+  <div class="overlay" id="menu" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+    <div class="overlay-card menu-card">
+      <div class="title-row">
+        <img src="./assets/ryu-apprentice.png" alt="Pottery apprentice mascot" />
+        <div>
+          <p class="kicker">Day 016 · 3D · /ryu/</p>
+          <h2 id="menu-title">Ryu Ember Kiln Potter</h2>
+          <p>Shape wet clay rings, glaze dragon-kiln vessels, then fire them without cracks.</p>
+        </div>
+      </div>
+      <div class="tutorial-grid">
+        <p><strong>Select rings:</strong> tap the vessel or Ring ↑/↓ to choose where your hands work.</p>
+        <p><strong>Sculpt:</strong> Widen/Narrow changes profile; Smooth lowers wobble and crack risk.</p>
+        <p><strong>Finish:</strong> Carve dragon scales, apply glaze bands, then Fire Kiln.</p>
+        <p><strong>Firing:</strong> Bellows raises heat, Vent lowers it. Keep heat in the commission band.</p>
+      </div>
+      <div class="overlay-actions">
+        <button class="primary" id="start" type="button">Start shaping</button>
+        <a href="./prompt.html">View prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="pause-menu" role="dialog" aria-modal="true" aria-labelledby="pause-title">
+    <div class="overlay-card">
+      <h2 id="pause-title">Kiln paused</h2>
+      <p>Match the ghost silhouette, keep adjacent rings smooth, then hold the kiln in the safe ember band.</p>
+      <div class="overlay-actions">
+        <button class="primary" id="resume" type="button">Resume</button>
+        <button id="pause-restart" type="button">Restart</button>
+        <a href="./prompt.html">Prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="results" role="dialog" aria-modal="true" aria-labelledby="result-title">
+    <div class="overlay-card">
+      <h2 id="result-title">Kiln results</h2>
+      <p id="result-copy">Your vessel cooled on the cedar shelf.</p>
+      <div class="badge-row" id="badge-row"></div>
+      <div class="overlay-actions">
+        <button class="primary" id="result-restart" type="button">Shape again</button>
+        <a href="./prompt.html">Prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

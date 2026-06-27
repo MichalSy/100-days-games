@@ -241,6 +241,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/midori/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-06-26T01:31:29Z'
+  },
+  16: {
+    status: 'generated',
+    title: 'Ryu Ember Kiln Potter',
+    slug: 'ryu-ember-kiln-potter',
+    genre: ['3D pottery wheel sculpting', 'kiln heat management', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Shape a spinning clay vessel in a warm mountain pottery studio, tune profile rings against ghost silhouettes, carve dragon scales, brush ash-blue glaze, and fire the piece in a glowing dragon kiln without cracks.',
+    objective: 'Complete Tea Bowl Foot, Incense Cup Lip, and Dragon Kiln Vase while reaching 3000 points to trigger Ryu Ember Offering, then continue into endless kiln commissions.',
+    playUrl: '/ryu/',
+    promptUrl: '/ryu/prompt.html',
+    promptExcerpt: 'Select 3D clay rings, widen or narrow the vessel profile, smooth wobble, carve and glaze the requested bands, then manage Bellows and Vent heat during firing.',
+    screenshotUrl: '/ryu/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-06-27T01:38:42Z'
   }
 };
 

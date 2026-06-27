@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-26T01:31:29.000Z",
+  "generatedAt": "2026-06-27T01:38:42.000Z",
   "totalDays": 100,
-  "completedDays": 15,
+  "completedDays": 16,
   "games": [
     {
       "day": 1,
@@ -136,6 +136,15 @@
       "playUrl": "/midori/",
       "promptUrl": "/midori/prompt.html",
       "screenshotUrl": "/midori/screenshot.png",
+      "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 16,
+      "title": "Ryu Ember Kiln Potter",
+      "slug": "ryu-ember-kiln-potter",
+      "playUrl": "/ryu/",
+      "promptUrl": "/ryu/prompt.html",
+      "screenshotUrl": "/ryu/screenshot.png",
       "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]
