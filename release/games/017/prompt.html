@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 017 Game Generation Prompt</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101b3c'/%3E%3Cpath d='M10 36c14-20 30-20 44 0M16 18c9 12 23 24 32 28M48 18C39 30 25 42 16 46' stroke='%23d8ecff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%23ffd776'/%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:#07122a; color:#f7f2dc; }
+    body { margin:0; background: radial-gradient(circle at 20% 0%, rgba(117,151,255,.28), transparent 34rem), linear-gradient(180deg,#101b3c,#07122a 42%,#030713); }
+    main { width:min(980px, calc(100vw - 32px)); margin:0 auto; padding:32px 0 72px; }
+    nav a { display:inline-flex; min-height:44px; align-items:center; border:1px solid rgba(229,241,255,.25); border-radius:999px; padding:0 18px; color:#10162a; background:linear-gradient(135deg,#f8e6a7,#9fe6ff); font-weight:900; text-decoration:none; }
+    article { margin-top:18px; border:1px solid rgba(229,241,255,.18); border-radius:28px; padding:clamp(18px,4vw,42px); background:rgba(8,18,44,.78); box-shadow:0 24px 80px rgba(0,0,0,.35); }
+    h1 { font-size:clamp(2.2rem,7vw,4.8rem); line-height:.95; margin:.1rem 0 1rem; }
+    h2 { margin-top:2rem; padding-top:1rem; border-top:1px solid rgba(229,241,255,.15); font-size:1.55rem; }
+    h3 { color:#b9d9ff; }
+    p, li { color:#dbe7ff; line-height:1.68; }
+    code { color:#ffe39c; background:rgba(255,255,255,.08); border-radius:6px; padding:.08rem .32rem; }
+    pre { overflow:auto; padding:1rem; border-radius:16px; background:#030713; border:1px solid rgba(229,241,255,.16); }
+    ul, ol { padding-left:1.35rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="./index.html">← Back to game</a></nav>
+    <article>
+      <h1>Day 017 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 017</li>
+<li>Title: Kumo Silverweb Starcatcher</li>
+<li>Slug: kumo-silverweb-starcatcher</li>
+<li>Public route word: kumo</li>
+<li>Mode: hybrid</li>
+<li>Genre: mobile-first spatial silk-web tension puzzle arcade / star-catching score chase</li>
+<li>Mood/style: moonlit cedar canopy above a quiet shrine, silver spider-silk arcs, violet-blue night mist, pearl dew stars, tiny friendly kumo webkeeper, lacquer-red anchor posts, soft lantern glow, delicate plucked-string feedback; spatial web-tension play rather than pottery sculpting, bamboo water routing, origami folding, rainy sheltering, snow stacking, textile stamping, cooking, windbell tuning, rail running, or vehicle flight.</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 014 <code>hybrid</code>: origami paper-layer route planning with mountain/valley folds, crane route preview, seals, stress, and reinforcement.</li>
+<li>Day 015 <code>2d</code>: bamboo canal water-routing with tile rotations, basin requests, drought, overflow, and moss patching.</li>
+<li>Day 016 <code>3d</code>: pottery wheel sculpting with ring selection, vessel profile matching, glaze/carve placement, wobble/crack risk, and kiln heat controls.</li>
+</ul>
+<p>The latest generated mode is one <code>3d</code>; the latest 2D streak is zero. Day 017 chooses a meaningful <code>hybrid</code>: a readable portrait-first canvas/DOM game with real depth-layer gameplay where silk strands can be anchored on near/mid/far layers, tension changes bounce arcs, and falling dew-stars interact with the web differently depending on strand depth and tightness. This is not a flat route grid or decorative perspective; decisions must depend on strand endpoints, z-layer, sag/tension, catch timing, rebound direction, and moth hazards crossing layers.</p>
+<p>Recent visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 014 used a pale washi sheet, dashed fold lines, origami crane, green cutting mat, and paper stress.</li>
+<li>Day 015 used bright bamboo-grove greens, square canal tiles, water beads, moss basins, drought/overflow HUD, and tanuki helper.</li>
+<li>Day 016 used warm amber pottery studio lighting, a centered spinning clay vessel, ring chips, ash-blue glaze, and kiln heat controls.</li>
+</ul>
+<p>Day 017 should shift to cool moonlit vertical space: suspended silver silk strands between lacquer-red cedar posts, depth shadows, dew-star droplets falling through layers, moon-moth hazards, lantern cups, and a friendly kumo webkeeper. Avoid gridded boards, water channels, paper folds, clay vessels, ring sculpt controls, umbrellas/rain streaks, snow blocks, kimono cloth panels, cooking counters, wind ribbons, rail vehicles, and generic match-3 or runner layouts.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 014 <code>hybrid</code>, Day 015 <code>2d</code>, and Day 016 <code>3d</code>. The latest generated-mode streak is one <code>3d</code>; latest 2D streak is zero.</p>
+<p>Mode decision: Day 017 is <code>hybrid</code>. It must be meaningful spatial hybrid gameplay, not a flat 2D reskin:</p>
+<ul>
+<li>Use responsive static-browser HTML/CSS/JS with a canvas or DOM/canvas hybrid. Three.js is optional but not required if depth layers and spatial interactions are clear.</li>
+<li>Maintain at least three web depth layers: near, mid, and far. Strands and falling dew-stars have layer values and must only collide strongly with matching or adjacent layers.</li>
+<li>Web tension must affect gameplay: tight strands rebound dew-stars sharply, loose strands catch/hold them briefly, overloaded strands fray, and diagonal strands redirect droplets differently from horizontal strands.</li>
+<li>Player actions must manipulate spatial web state: choose two anchor knots, weave a strand, switch layer, tighten/slacken, pluck to release held dew, and mend frayed silk.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Weave and tune silver silk strands between shrine-canopy anchor posts so falling dew-stars bounce, settle, or glide into matching lantern cups before moon-moths fray the web.</li>
+<li>Win condition: Complete three webkeeper chapters — First Dew Net, Cedar Moon Bridge, and Starfall Festival — while reaching 3100 points to trigger “Kumo Moonweb Constellation”. After the constellation, continue into endless night commissions.</li>
+<li>Lose condition: Web integrity reaches 0%, three lantern patience tokens go dark, too many dew-stars fall below the canopy, or the night timer expires during a commission.</li>
+<li>Core loop:</li>
+</ul>
+<p>1. Start on a title/menu screen with Day 017 badge, mode badge “hybrid”, public route <code>/kumo/</code>, best score, best Moonweb time, tutorial, prompt link, and a large Start button.</p>
+<p>2. Show a portrait-friendly moonlit canopy stage with near/mid/far anchor posts, a few existing silk guide strands, falling dew-stars, lantern cups, moon-moth paths, and a tiny kumo webkeeper charm.</p>
+<p>3. A commission card requests web goals, for example: “Catch 4 pearl stars, fill 1 blue lantern, weave 2 mid-layer strands, keep integrity above 62%.”</p>
+<p>4. Player taps an anchor knot, then a second anchor knot, then chooses Weave to create a strand on the selected layer. The preview arc shows sag and expected bounce direction.</p>
+<p>5. Tighten raises rebound strength and reduces catch time; Slacken increases sag/catch time but risks overload. Layer Up/Layer Down changes selected strand depth. Pluck releases held dew-stars with a tiny WebAudio chime after user gesture.</p>
+<p>6. Dew-stars fall from moon gates. They sparkle by type: pearl, blue, gold. They collide with matching/adjacent layer strands, bounce toward lantern cups, or get held on slack silk until plucked.</p>
+<p>7. Moon-moths drift across near/mid/far lanes and fray strands they touch. Mend repairs selected silk but costs moon-thread charge gained from clean lantern fills.</p>
+<p>8. Completing a commission lights a shrine lantern, awards points, restores one patience token if needed, and unlocks the next web pattern.</p>
+<p>9. Pause/restart remain available throughout.</p>
+<ul>
+<li>15+ minute play-value strategy:</li>
+</ul>
+<p>- Save best score, fastest Kumo Moonweb Constellation time, longest clean-catch streak, highest endless commission, most dew-stars in one pluck, strongest integrity finish, and collected webkeeper badges in localStorage.</p>
+<p>- Include three authored chapters:</p>
+<p>- First Dew Net: two layers, three anchor pairs, slow pearl dew, one lantern cup, teaches anchor selection / Weave / Tighten / Slacken / Pluck.</p>
+<p>- Cedar Moon Bridge: adds far layer, blue lantern cup, first moon-moth lane, first Mend requirement, and diagonal strand redirection.</p>
+<p>- Starfall Festival: all three layers active, pearl/blue/gold dew-stars, two lantern cups, moth crossing warnings, overloaded slack strands, and tighter integrity target.</p>
+<p>- Deterministic Day 017 seed varies anchor post positions, dew-star spawn rhythm, lantern cup requests, moth lane timing, strand weak points, and endless constraints while keeping the opening fair.</p>
+<p>- Mastery badges: finish First Dew Net with no missed stars, trigger Moonweb Constellation under 200 seconds, pluck 6 held stars in one clean release, fill 20 lantern cups, complete a commission without Mend, finish an endless commission above 85% integrity.</p>
+<p>- Strategic scoring rewards planning: weave diagonal ramps before starfall, use slack strands to collect slow clusters, tighten launch strands for gold stars, switch layers to dodge moths, pluck held dew only when cups align, and mend only after high-value catches.</p>
+<p>- Endless mode after Moonweb Constellation adds denser dew rhythms, alternating lantern colors, extra moth lanes, fragile anchor knots, stricter integrity targets, and more layer-switch decisions without shrinking touch controls.</p>
+<ul>
+<li>Difficulty scaling:</li>
+</ul>
+<p>- 0-45 seconds: slow pearl dew, broad anchor knots, forgiving collision, one lantern, no integrity penalty during first guided weave.</p>
+<p>- 45-120 seconds: blue/gold dew types, first moth warning, layer selection, tight/slack tradeoffs.</p>
+<p>- 120-200 seconds: all layers active, overloaded strands, multi-cup requests, faster moths, stricter integrity.</p>
+<p>- 200+ seconds/endless: more simultaneous dew-stars, weaker silk zones, fewer free mends, same readable controls.</p>
+<p>- Keep mobile fair: anchor knots and strands must be thick, dew-stars and moths readable at 390x844, commission text short, 56px+ primary controls, no tiny hazard required for survival.</p>
+<ul>
+<li>Scoring/rewards:</li>
+</ul>
+<p>- Dew-star caught on correct layer strand: +55 points times combo tier.</p>
+<p>- Dew-star delivered to requested lantern cup: +145 points.</p>
+<p>- Clean pluck releases 3+ held stars into useful paths: +220 points.</p>
+<p>- Moth avoided by layer switch or timely mend: +90 points.</p>
+<p>- Commission complete above integrity target: +460 points and restore one lantern patience token.</p>
+<p>- Perfect no-fray commission: +540 points.</p>
+<p>- Kumo Moonweb Constellation: +1000 points and endless commissions unlock.</p>
+<p>- Dew-star missed below canopy: integrity -6%, combo reset.</p>
+<p>- Moth frays a strand: integrity -8%, strand tension drops.</p>
+<p>- Overloaded slack strand snaps: integrity -14%, selected strand removed, combo reset.</p>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+</ul>
+<p>- Mouse click/tap: select anchor knot, select strand, action button, start/pause overlay button, or prompt link.</p>
+<p>- Drag from one anchor to another: preview a new strand if practical, but click-select plus Weave button is mandatory.</p>
+<p>- Arrow keys or WASD: move focus among anchors/strands.</p>
+<p>- 1/2/3 or Z/X/C: select far/mid/near layer.</p>
+<p>- W: Weave selected anchor pair.</p>
+<p>- T / Y: Tighten / Slacken selected strand.</p>
+<p>- Space or Enter: Pluck selected strand / start from menu.</p>
+<p>- M: Mend selected strand when charged.</p>
+<p>- P: pause/resume.</p>
+<p>- R: restart current run.</p>
+<ul>
+<li>Mobile/touch:</li>
+</ul>
+<p>- Tap large anchor knots to choose start/end. Tap existing strand to select it.</p>
+<p>- Use large Layer -, Layer +, Weave, Tighten, Slacken, Pluck, Mend, Pause, and Restart buttons.</p>
+<p>- Optional drag can preview strand arcs, but tap-select plus visible buttons is mandatory for reliability.</p>
+<p>- Tap commission/dew/moth chips for short explanations.</p>
+<p>- No virtual joystick. Interaction is anchor/strand selection, layer switching, weave, tune, pluck, mend, pause/restart.</p>
+<ul>
+<li>Mobile layout/orientation:</li>
+</ul>
+<p>- Default target is portrait phone play around 390x844; do not require landscape.</p>
+<p>- Top: compact moon-thread HUD with score, best, lantern patience tokens, web integrity, current layer, combo, and time. Use crescent tabs and silk knots, not the recent pottery/water/paper chip layouts.</p>
+<p>- Below top: commission card with dew-star requests, lantern cup labels, layer requirement, integrity target, and progress ticks.</p>
+<p>- Center: moonlit canopy playfield with anchor posts, depth-layer shading, silk strands, dew-star paths, lantern cups, moth warnings, pluck pulses, and webkeeper mascot/charm.</p>
+<p>- Bottom: selected anchor/strand helper plus large web action controls. Controls must not cover anchor knots or dew-star paths.</p>
+<p>- Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, select two anchors, layer choice, weave/tighten/slacken, pluck, moth/mend, pause/restart must be visible.</p>
+<p>- Requests must combine text, icons, line style, layer labels, and cup labels so hue alone is not required.</p>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<p>- Shows title “Kumo Silverweb Starcatcher”.</p>
+<p>- Shows Day 017 badge, mode badge “hybrid”, public route <code>/kumo/</code>, best score, best Moonweb time if available, and a prompt link.</p>
+<p>- Shows a large Start button and visible tutorial panel by default.</p>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<p>- Objective: “Weave silver strands, tune their tension, and guide falling dew-stars into shrine lantern cups.”</p>
+<p>- Anchors: tap two glowing anchor knots to preview a silk strand.</p>
+<p>- Layers: near, mid, and far strands catch different star paths; switch layer before weaving or tuning.</p>
+<p>- Tension: tight strands bounce; slack strands catch and hold; overloaded slack strands may snap.</p>
+<p>- Pluck/Mend: pluck held dew-stars toward cups; mend moth-frayed silk when charged.</p>
+<p>- Pause/restart: P/R on desktop or visible buttons on mobile.</p>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<p>- Score, best score, lantern patience, web integrity, current layer, chapter name, combo, elapsed time, current commission, selected anchor/strand, moon-thread mend charge, Pluck readiness.</p>
+<p>- Pause/restart controls visible or immediately accessible.</p>
+<ol>
+<li>Selected helper</li>
+</ol>
+<p>- Non-blocking helper showing selected anchor pair or strand, layer, tension level, sag, overload risk, moth threat, and expected bounce/catch effect.</p>
+<p>- Must not cover active anchors or bottom controls on mobile.</p>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<p>- Resume, restart, tutorial reminder, controls summary, prompt link.</p>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<p>- Final score, best score, chapter reached, Moonweb Constellation status, clean-catch streak, dew-stars delivered, integrity finish, mastery badges, restart button.</p>
+<ol>
+<li>Kumo Moonweb Constellation banner</li>
+</ol>
+<p>- Trigger once per run after all three chapters and 3100 score.</p>
+<p>- Non-blocking constellation animation: silk strands shimmer into a star map, shrine lanterns glow violet-blue, friendly kumo bows, moths drift away, pearl dew arcs upward; endless night commissions continue after the banner fades.</p>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: kumo webkeeper mascot, moonlit shrine canopy background, silverweb/dew/moth/icon sheet, and decorative lantern/anchor pieces. Canvas/SVG/DOM code may draw interactive anchor hitboxes, silk strands, collision paths, particles, tension overlays, depth labels, moth warnings, UI chrome, and simple WebAudio cues. It should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/017/assets/source/</code> and use optimized playable copies under <code>release/games/017/assets/</code>. Also copy optimized playable assets into <code>apps/day-017-kumo-silverweb-starcatcher/assets/</code> and the public alias <code>release/kumo/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny strand details that disappear at final in-game size, and keep webkeeper/dew/moth/lantern silhouettes distinct against cool moonlit backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Kumo webkeeper mascot/source charm</li>
+</ol>
+<p>- Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</p>
+<p>- Archive path: <code>release/games/017/assets/source/kumo-webkeeper-source.png</code></p>
+<p>- Optimized path: <code>release/games/017/assets/kumo-webkeeper.png</code></p>
+<p>- Imagegen2 prompt: “A charming friendly Japanese kumo spider-silk webkeeper mascot for a mobile hybrid browser puzzle arcade game, tiny cute shrine spider spirit with indigo haori, pearl dew charm, holding a silver silk spool and lacquer-red anchor hook, warm lantern smile, centered readable silhouette, transparent or plain pale moon background, no text, no watermark, sprite-friendly, high contrast at small size, not scary.”</p>
+<p>- Aspect ratio: square.</p>
+<ol>
+<li>Moonlit shrine canopy / silverweb background source</li>
+</ol>
+<p>- Target: portrait-friendly background suitable behind a depth-layer silk web playfield with open readable center.</p>
+<p>- Archive path: <code>release/games/017/assets/source/kumo-canopy-source.png</code></p>
+<p>- Optimized path: <code>release/games/017/assets/kumo-canopy.png</code></p>
+<p>- Imagegen2 prompt: “A moonlit Japanese shrine cedar canopy for a portrait mobile silk-web starcatching puzzle game, lacquer-red anchor posts, soft violet-blue night mist, shrine lantern cups on branches, silver spider silk glints at the edges, pearl dew stars, open readable center area for interactive silk strands and falling droplets, crop-safe for phone portrait, no characters, no text, no watermark.”</p>
+<p>- Aspect ratio: portrait.</p>
+<ol>
+<li>Silverweb, dew-star, moth, and UI icon sheet source</li>
+</ol>
+<p>- Target: square icon sheet for web actions, hazards, rewards, and UI decals.</p>
+<p>- Archive path: <code>release/games/017/assets/source/kumo-icons-source.png</code></p>
+<p>- Optimized path: <code>release/games/017/assets/kumo-icons.png</code></p>
+<p>- Imagegen2 prompt: “Small readable icon sheet for a Japanese moonlit silk-web puzzle game: anchor knot, silver silk strand, tight tension icon, slack tension icon, pluck pulse, mend needle, pearl dew-star, blue dew-star, gold dew-star, moon-moth hazard, lantern cup, web integrity heart, Kumo Moonweb Constellation seal, transparent or plain pale moon background, high contrast, no text, no watermark, generous margins so no icons are cut off.”</p>
+<p>- Aspect ratio: square.</p>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas silk silhouettes, document the failure in <code>ai/postmortems/day-017.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the kumo webkeeper mascot, verify transparent/cutout quality or clean background handling, readable friendly silhouette, centered pivot, crop margins, no unwanted text/watermarks, stable upright orientation, and that the silk-spool pose does not imply wrong gameplay direction.</li>
+<li>Verify control-to-motion alignment in-game: selecting anchor A/B must preview the intended strand; Layer +/- must visibly change depth styling; Tighten/Slacken must visibly change sag and bounce/catch behavior in opposite/readable ways; Pluck must release held dew toward the previewed arc; Mend must affect the intended frayed strand.</li>
+<li>For the background, verify the center play area remains readable after portrait mobile crop and does not hide anchor knots, silk strands, dew-stars, moths, lantern cups, commission card, helper, or controls.</li>
+<li>For the icon sheet, verify anchor, strand, tight/slack, pluck, mend, dew-star types, moon-moth, lantern cup, web integrity, and constellation seal are distinct at final HUD/button size and cannot be confused.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Audio and game feel</h2>
+<p>Because the mechanic includes plucked silk and tension feedback, include lightweight WebAudio cues initialized only after a user gesture:</p>
+<ul>
+<li>A soft pluck tone when Pluck is used, with pitch based on strand tension.</li>
+<li>A glassy dew chime when a star lands in the correct lantern cup.</li>
+<li>A dull fray tick when a moth damages silk.</li>
+<li>A short constellation arpeggio when Kumo Moonweb Constellation triggers.</li>
+</ul>
+<p>Audio must not block play if WebAudio is unavailable. Verify no autoplay errors: audio context should be created/resumed only after Start or another user interaction.</p>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/017/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 017 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<p>- Build the static hybrid game under <code>apps/day-017-kumo-silverweb-starcatcher/</code>.</p>
+<p>- Integrate it into immutable release output under <code>release/games/017/</code>.</p>
+<p>- Create the public playable route under <code>release/kumo/</code>.</p>
+<p>- Use static HTML/CSS/JS with no backend.</p>
+<p>- The public alias must be self-contained or asset paths must be alias-safe.</p>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<p>- Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, and tune mobile readability/game feel.</p>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<p>- Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, anchor selection, layer switching, Weave, Tighten, Slacken, Pluck, Mend control presence, dew-star collisions, moth/fray feedback, WebAudio initialization after user gesture, generated screenshot, generated assets, and 390x844 portrait layout.</p>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<p>- Write <code>ai/postmortems/day-017.md</code> after validation with what worked, what failed, generated-image inspection notes, audio verification, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 017 is meaningful <code>hybrid</code> after Day 016 <code>3d</code>, with real depth-layer/tension gameplay where strand layer, tension, sag, dew-star type, moth layer, and collision/bounce/catch behavior matter.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/commission card, usable anchor/layer/weave/tension/pluck/mend controls, no forced landscape canvas, and 44px+ controls.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-017.md</code> is copied exactly to <code>release/games/017/prompt.md</code> and <code>release/kumo/prompt.md</code>.</li>
+<li><code>release/games/017/prompt.html</code> and <code>release/kumo/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/kumo/index.html</code>, <code>release/kumo/prompt.html</code>, <code>release/kumo/screenshot.png</code>, and <code>release/kumo/assets/</code> exist and work.</li>
+<li>Gallery card for Day 017 shows prompt availability, generation duration, public <code>/kumo/</code> links, mode <code>hybrid</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/017/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/017/assets/source/</code> and optimized assets exist under <code>release/games/017/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive web/dew/moth visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>WebAudio initializes after user gesture and creates no autoplay console errors; audio is optional/failsafe if unsupported.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicon links to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/<strong></code> through <code>release/games/016/</strong></code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/017/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/kumo/index.html, release/kumo/prompt.html, release/kumo/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-017.md release/games/017/prompt.md and cmp prompts/day-017.md release/kumo/prompt.md.
+# Prompt HTML check: verify release/games/017/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+# Browser smoke: open the local/static /kumo/ route and verify menu, tutorial, gameplay start, canopy/web rendering, anchor selection, layer switching, Weave, Tighten, Slacken, Pluck, Mend control presence, dew-star collision/lantern feedback, pause, restart, prompt page, WebAudio after user gesture, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable tap controls and readable HUD/commission/canopy playfield.
+# Static screenshot check: inspect release/games/017/screenshot.png and release/kumo/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-017.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /kumo/ and /kumo/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 017.</code></pre>
+    </article>
+  </main>
+</body>
+</html>

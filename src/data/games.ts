@@ -256,6 +256,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/ryu/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-06-27T01:38:42Z'
+  },
+  17: {
+    status: 'generated',
+    title: 'Kumo Silverweb Starcatcher',
+    slug: 'kumo-silverweb-starcatcher',
+    genre: ['spatial silk-web tension puzzle', 'star-catching arcade', 'mobile-first hybrid'],
+    mode: 'hybrid',
+    description: 'Weave silver silk strands between moonlit shrine-canopy anchors, tune tension and depth layers, pluck held dew-stars into lantern cups, and mend moth-frayed web before the night thins.',
+    objective: 'Complete First Dew Net, Cedar Moon Bridge, and Starfall Festival while reaching 3100 points to trigger Kumo Moonweb Constellation, then continue into endless night commissions.',
+    playUrl: '/kumo/',
+    promptUrl: '/kumo/prompt.html',
+    promptExcerpt: 'Select anchor knots, weave near/mid/far silver strands, tune tight/slack tension, pluck held dew-stars, fill lantern cups, and keep moon-moths from fraying the web.',
+    screenshotUrl: '/kumo/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-06-28T01:31:12Z'
   }
 };
 

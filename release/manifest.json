@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-27T01:38:42.000Z",
+  "generatedAt": "2026-06-28T01:31:12.000Z",
   "totalDays": 100,
-  "completedDays": 16,
+  "completedDays": 17,
   "games": [
     {
       "day": 1,
@@ -145,6 +145,15 @@
       "playUrl": "/ryu/",
       "promptUrl": "/ryu/prompt.html",
       "screenshotUrl": "/ryu/screenshot.png",
+      "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 17,
+      "title": "Kumo Silverweb Starcatcher",
+      "slug": "kumo-silverweb-starcatcher",
+      "playUrl": "/kumo/",
+      "promptUrl": "/kumo/prompt.html",
+      "screenshotUrl": "/kumo/screenshot.png",
       "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]

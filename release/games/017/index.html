@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Kumo Silverweb Starcatcher — Day 017</title>
+  <meta name="description" content="Weave silver strands, tune their tension, and guide falling dew-stars into shrine lantern cups." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101b3c'/%3E%3Cpath d='M10 36c14-20 30-20 44 0M16 18c9 12 23 24 32 28M48 18C39 30 25 42 16 46' stroke='%23d8ecff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%23ffd776'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./game.js" defer></script>
+</head>
+<body>
+  <main class="game-shell" aria-label="Kumo Silverweb Starcatcher game">
+    <section class="hud" aria-label="Game status">
+      <div class="hud-card"><span>Score</span><strong id="score">0</strong></div>
+      <div class="hud-card"><span>Best</span><strong id="best">0</strong></div>
+      <div class="hud-card"><span>Lanterns</span><strong id="patience">◆◆◆</strong></div>
+      <div class="hud-card"><span>Integrity</span><strong id="integrity">100%</strong></div>
+      <div class="hud-card"><span>Layer</span><strong id="layer">Mid</strong></div>
+      <div class="hud-card"><span>Combo</span><strong id="combo">x1</strong></div>
+      <div class="hud-card"><span>Time</span><strong id="time">0:00</strong></div>
+    </section>
+
+    <section class="commission" aria-live="polite">
+      <div>
+        <p class="eyebrow">/kumo/ · day 017 · hybrid</p>
+        <h1 id="chapterTitle">Kumo Silverweb Starcatcher</h1>
+        <p id="chapterText">Weave silver strands, tune tension, and guide dew-stars into shrine lantern cups.</p>
+      </div>
+      <div class="chips" id="chips">
+        <span>pearl 0/4</span><span>blue 0/1</span><span>integrity &gt; 62%</span>
+      </div>
+    </section>
+
+    <section class="stage-wrap">
+      <canvas id="gameCanvas" width="960" height="720" aria-label="Moonlit canopy web playfield"></canvas>
+      <div class="toast" id="toast">Tap two anchor knots, choose a layer, then Weave.</div>
+    </section>
+
+    <section class="helper" id="helper" aria-live="polite">
+      Anchor A: none · Anchor B: none · Mid layer · tension 55% · select two knots to preview silk.
+    </section>
+
+    <section class="controls" aria-label="Game controls">
+      <button id="layerDown" type="button">Layer -</button>
+      <button id="layerUp" type="button">Layer +</button>
+      <button id="weave" type="button">Weave</button>
+      <button id="tighten" type="button">Tighten</button>
+      <button id="slacken" type="button">Slacken</button>
+      <button id="pluck" type="button">Pluck</button>
+      <button id="mend" type="button">Mend</button>
+      <button id="pause" type="button">Pause</button>
+      <button id="restart" type="button">Restart</button>
+    </section>
+  </main>
+
+  <div class="overlay" id="menu" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
+    <div class="panel title-panel">
+      <img src="./assets/kumo-webkeeper.png" alt="Friendly kumo webkeeper mascot" class="mascot" />
+      <div>
+        <p class="eyebrow">Day 017 · Hybrid · /kumo/</p>
+        <h2 id="menuTitle">Kumo Silverweb Starcatcher</h2>
+        <p class="lede">Weave silver strands between shrine canopy anchors, tune tension, pluck held dew-stars, and keep moon-moths from fraying the web.</p>
+        <div class="tutorial">
+          <strong>How to play</strong>
+          <ul>
+            <li>Tap two glowing anchor knots, pick near/mid/far layer, then Weave.</li>
+            <li>Tight strands bounce dew-stars. Slack strands catch and hold them for Pluck.</li>
+            <li>Fill lantern cups, avoid moth fray, and Mend damaged silk when charged.</li>
+            <li>Pause/restart stay visible; desktop also supports W/T/Y/Space/M/P/R.</li>
+          </ul>
+        </div>
+        <div class="menu-actions">
+          <button id="start" type="button" class="primary">Start moonweb</button>
+          <a href="./prompt.html" class="link-button">View prompt</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="pauseOverlay" role="dialog" aria-modal="true" aria-labelledby="pauseTitle" hidden>
+    <div class="panel">
+      <h2 id="pauseTitle">Web paused</h2>
+      <p>Resume weaving, restart the commission, or review the generation prompt.</p>
+      <div class="menu-actions">
+        <button id="resume" type="button" class="primary">Resume</button>
+        <button id="restartPause" type="button">Restart</button>
+        <a href="./prompt.html" class="link-button">Prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="results" role="dialog" aria-modal="true" aria-labelledby="resultsTitle" hidden>
+    <div class="panel">
+      <h2 id="resultsTitle">Moonweb report</h2>
+      <p id="resultsText">The shrine lanterns are waiting.</p>
+      <div class="menu-actions">
+        <button id="restartResults" type="button" class="primary">Try again</button>
+        <a href="./prompt.html" class="link-button">Prompt</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
