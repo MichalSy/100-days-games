@@ -271,6 +271,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/kumo/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-06-28T01:31:12Z'
+  },
+  18: {
+    status: 'generated',
+    title: 'Asa Daruma Wishwheel Labyrinth',
+    slug: 'asa-daruma-wishwheel-labyrinth',
+    genre: ['3D tilt labyrinth', 'momentum routing', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Tilt a dawn shrine maze board so a friendly daruma wishwheel collects ema plaques, opens torii gates, rings bells, avoids sumi ink, and reaches the offering bowl.',
+    objective: 'Complete First Wish Roll, Torii Bridge Turn, and Sunrise Bell Offering while reaching 3200 points to trigger Asa Dawn Wish Fulfilled, then continue into endless shrine boards.',
+    playUrl: '/asa/',
+    promptUrl: '/asa/prompt.html',
+    promptExcerpt: 'Tilt the shrine board, collect matching ema plaques, open torii gates, ring dawn bells, brake before ink pools, and roll the daruma into the offering bowl.',
+    screenshotUrl: '/asa/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-06-29T01:38:54Z'
   }
 };
 

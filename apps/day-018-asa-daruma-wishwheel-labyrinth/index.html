@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Day 018 — Asa Daruma Wishwheel Labyrinth</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f7c46b'/%3E%3Ccircle cx='32' cy='34' r='20' fill='%23c62828'/%3E%3Ccircle cx='25' cy='29' r='5' fill='%23fff7e8'/%3E%3Ccircle cx='39' cy='29' r='5' fill='%23210d08'/%3E%3Cpath d='M23 41q9 7 18 0' stroke='%23210d08' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="shell" id="gameShell">
+    <header class="topbar" aria-label="Game status">
+      <div class="stat"><span>Score</span><strong id="score">0</strong></div>
+      <div class="stat"><span>Best</span><strong id="bestScore">0</strong></div>
+      <div class="stat"><span>Wish hearts</span><strong id="hearts">♥♥♥</strong></div>
+      <div class="stat"><span>Combo</span><strong id="combo">x1</strong></div>
+      <div class="stat"><span>Time</span><strong id="timer">0:00</strong></div>
+      <div class="stat"><span>Tilt</span><strong id="tiltReadout">0%</strong></div>
+      <div class="stat"><span>Seal</span><strong id="sealCharge">0%</strong></div>
+    </header>
+
+    <section class="chapter-card" aria-live="polite">
+      <div>
+        <p class="kicker">/ASA/ · DAY 018 · 3D</p>
+        <h1 id="chapterTitle">Asa Daruma Wishwheel Labyrinth</h1>
+        <p id="objectiveText">Tilt the dawn shrine board, collect ema plaques, ring bells, and roll the daruma into the offering bowl.</p>
+      </div>
+      <div class="goal-pills" id="goalChips"></div>
+    </section>
+
+    <section class="stage-wrap" aria-label="3D tilt labyrinth playfield">
+      <canvas id="gameCanvas" class="stage" aria-label="3D dawn shrine tilt maze"></canvas>
+      <div class="toast" id="statusHelper">Tap Start, then guide the daruma with gentle tilts.</div>
+    </section>
+
+    <section class="controls" aria-label="Game controls">
+      <button class="tilt" data-tilt="up" aria-label="Tilt Up">Tilt ↑</button>
+      <button class="tilt" data-tilt="left" aria-label="Tilt Left">← Left</button>
+      <button class="tilt" data-tilt="right" aria-label="Tilt Right">Right →</button>
+      <button class="tilt" data-tilt="down" aria-label="Tilt Down">Tilt ↓</button>
+      <button id="brakeBtn">Brake / Center</button>
+      <button id="sealBtn">Stillness Seal</button>
+      <button id="pauseBtn">Pause</button>
+      <button id="restartBtn">Restart</button>
+    </section>
+
+    <section class="menu overlay visible" id="menuOverlay">
+      <div class="menu-card">
+        <p class="kicker">Day 018 · 3D · public route /asa/</p>
+        <h2>Asa Daruma Wishwheel Labyrinth</h2>
+        <p class="lede">Tilt a raised dawn shrine maze, collect ema plaques, open torii gates, ring bells, dodge sumi ink, and roll a friendly daruma wishwheel into the offering bowl.</p>
+        <div class="meta-row">
+          <span><strong id="menuBest">0</strong> best score</span>
+          <span><strong id="menuTime">—</strong> best dawn time</span>
+          <span><strong id="menuClean">0</strong> clean streak</span>
+        </div>
+        <div class="menu-actions">
+          <button id="startBtn" class="primary">Start wish roll</button>
+          <a href="./prompt.html">View prompt</a>
+        </div>
+        <div class="tutorial-grid">
+          <span><strong>Tilt</strong> arrows/WASD or big touch buttons. Small tilts are safer than panic holds.</span>
+          <span><strong>Ema</strong> collect sun, moon, and star plaques to open matching torii gates.</span>
+          <span><strong>Bells</strong> ring the requested dawn bells before heading to the offering bowl.</span>
+          <span><strong>Ink</strong> avoid sumi pools and moving shadows; Brake before corners.</span>
+          <span><strong>Seal</strong> charge Stillness Seal with bell rings, then freeze motion and clear nearby ink.</span>
+          <span><strong>Pause</strong> P/R on desktop or visible buttons on mobile.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="overlay" id="pauseOverlay">
+      <div class="menu-card compact">
+        <h2>Paused at dawn</h2>
+        <p>Resume the wish roll, restart the board, or review the archived prompt.</p>
+        <div class="menu-actions">
+          <button id="resumeBtn" class="primary">Resume</button>
+          <button id="pauseRestartBtn">Restart</button>
+          <a href="./prompt.html">Prompt</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="overlay" id="resultsOverlay">
+      <div class="menu-card compact">
+        <p class="kicker">Run result</p>
+        <h2 id="resultTitle">Wish roll complete</h2>
+        <div class="result-summary" id="resultSummary"></div>
+        <div class="badges" id="masteryBadges"></div>
+        <div class="menu-actions">
+          <button id="resultsRestartBtn" class="primary">Roll again</button>
+          <a href="./prompt.html">Prompt</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="fulfill-banner" id="fulfillBanner" aria-live="polite">Asa Dawn Wish Fulfilled ✦</section>
+  </main>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

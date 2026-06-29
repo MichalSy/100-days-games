@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 018 Game Generation Prompt</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f7c46b'/%3E%3Ccircle cx='32' cy='34' r='20' fill='%23c62828'/%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background:#1a0e0b; color:#fff3dc; }
+    body { margin:0; background: radial-gradient(circle at top, rgba(248,200,108,.24), transparent 36%), #1a0e0b; }
+    main { width:min(920px, calc(100% - 28px)); margin:0 auto; padding:32px 0 64px; }
+    a.back { display:inline-flex; align-items:center; gap:8px; margin-bottom:18px; color:#ffe1a4; font-weight:900; text-decoration:none; }
+    article { border:1px solid rgba(255,229,179,.26); border-radius:28px; padding:clamp(20px,4vw,44px); background:rgba(45,18,10,.72); box-shadow:0 24px 90px rgba(0,0,0,.35); }
+    h1 { font-size:clamp(36px,7vw,68px); line-height:.9; letter-spacing:-.055em; margin:0 0 22px; }
+    h2 { margin-top:34px; padding-top:18px; border-top:1px solid rgba(255,229,179,.2); color:#ffd587; }
+    h3 { color:#ffe7b8; }
+    p, li { line-height:1.62; }
+    code { background:rgba(255,242,210,.13); color:#ffe2a8; padding:.1em .35em; border-radius:6px; }
+    pre { overflow:auto; padding:16px; border-radius:16px; background:#0f0705; border:1px solid rgba(255,229,179,.16); }
+    ul, ol { padding-left:1.35rem; }
+  </style>
+</head>
+<body><main><a class="back" href="./index.html">← Back to game</a><article><h1>Day 018 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 018</li>
+<li>Title: Asa Daruma Wishwheel Labyrinth</li>
+<li>Slug: asa-daruma-wishwheel-labyrinth</li>
+<li>Public route word: asa</li>
+<li>Mode: 3D</li>
+<li>Genre: mobile-first 3D tilt-labyrinth arcade / wish-token routing score chase</li>
+<li>Mood/style: crisp dawn shrine terrace above misty hills, vermilion torii rails, lacquered tatami maze ramps, round friendly daruma wishwheel, golden ema plaques, black sumi ink hazard pools, pale sunrise beams, bell-and-wood tactile feedback; real spatial board-tilt play rather than silk-web tension, pottery sculpting, bamboo water routing, origami folding, rainy sheltering, snow stacking, textile stamping, cooking, windbell tuning, rail running, or vehicle flight.</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 015 <code>2d</code>: bamboo canal water-routing with tile rotations, basins, drought, overflow, and moss patching.</li>
+<li>Day 016 <code>3d</code>: pottery wheel sculpting with ring selection, vessel profile matching, glaze/carve placement, wobble/crack risk, and kiln heat controls.</li>
+<li>Day 017 <code>hybrid</code>: moonlit silverweb tension puzzle with near/mid/far strand layers, dew-star catching, moth fray, pluck/mend, and cool blue canopy visuals.</li>
+</ul>
+<p>The latest generated mode is one <code>hybrid</code>, and the latest 2D streak is zero. Day 018 deliberately chooses real <code>3D</code> to keep the series spatial and physically tactile after a hybrid. The new verb set is distinct: tilt a raised 3D shrine-maze board, roll a daruma wishwheel along ramps, open gates with matched ema plaques, brake before ink pools, ring dawn bells, and route momentum through elevation changes. It should feel like a small premium wooden tabletop toy with arcade stakes, not another grid, route preview, clay object, web layer, water flow, or rail vehicle.</p>
+<p>Recent visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 015 used bright bamboo greens, square canal tiles, water beads, basins, and gardener notebook HUD.</li>
+<li>Day 016 used warm amber pottery studio lighting, a centered clay vessel, ring chips, glaze bands, and kiln heat UI.</li>
+<li>Day 017 used cool midnight blues, cedar canopy, circular web depth rings, silver strands, anchor labels, and bottom web-action controls.</li>
+</ul>
+<p>Day 018 should shift to dawn oranges, ivory mist, red torii rails, polished wood/tatami, and a single chunky rolling daruma. Avoid moonlit web lines, pottery wheel silhouettes, bamboo canal boards, water droplets, paper fold sheets, umbrellas/rain, snow blocks, kimono cloth grids, wind ribbons, puppet rails, rail vehicles, and generic marble-maze clones without objectives.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 015 <code>2d</code>, Day 016 <code>3d</code>, and Day 017 <code>hybrid</code>. The latest generated-mode streak is one <code>hybrid</code>; latest 2D streak is zero.</p>
+<p>Mode decision: Day 018 is <code>3D</code>. It must implement real spatial gameplay, not decorative perspective:</p>
+<ul>
+<li>Use Three.js/WebGL or equivalent static-browser 3D rendering.</li>
+<li>Render an actual raised maze/tilt board with visible perspective, height, ramps, rails, gates, ink pools, bells, and a rolling daruma wishwheel whose position/velocity depend on board tilt and collisions.</li>
+<li>Gameplay must depend on 3D board state: x/z position, height/elevation, slope direction, momentum, rail collisions, gate openings, bridge alignment, bell arcs, brake cooldown, and hazard surfaces.</li>
+<li>Player actions must manipulate the 3D system: tilt north/south/east/west, feather tilt strength, brake/center the board, choose gate priorities, and use one “Stillness Seal” to calm momentum.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Tilt a dawn shrine wish-maze so a round daruma wishwheel collects ema plaques, opens matching torii gates, rings three dawn bells, and reaches the offering bowl before ink pools or lost momentum break the wish chain.</li>
+<li>Win condition: Complete three shrine-maze chapters — First Wish Roll, Torii Bridge Turn, and Sunrise Bell Offering — while reaching 3200 points to trigger “Asa Dawn Wish Fulfilled”. After the fulfillment, continue into endless shrine boards.</li>
+<li>Lose condition: Three wish hearts crack, the daruma falls into an ink pool too many times, the dawn timer expires during a chapter, or the wishwheel is stuck at zero momentum for too long while a gate is closed.</li>
+<li>Core loop:</li>
+</ul>
+<p>1. Start on a title/menu screen with Day 018 badge, mode badge “3D”, public route <code>/asa/</code>, best score, best Dawn Wish time, tutorial, prompt link, and a large Start button.</p>
+<p>2. Show a portrait-friendly 3D shrine-maze board: raised lacquer/tatami platform, low torii rails, sloped ramps, two or three color/shape-coded gates, ema plaque tokens, black sumi ink hazard pools, dawn bells, offering bowl, and a friendly daruma wishwheel.</p>
+<p>3. A chapter card requests goals, for example: “Collect 2 sun ema, ring Bell A, open red torii, finish with hearts ≥2.”</p>
+<p>4. Player tilts the board with large directional controls or keyboard. The daruma rolls with inertia; rail bumps redirect it; ramps and bridges make elevation matter.</p>
+<p>5. Ema plaques attach to the daruma as visible little tags. Matching plaques open gates or charge bell rings. Wrong-order plaques are not fatal but reduce combo.</p>
+<p>6. Brake/Center slows the board and recenters tilt; Stillness Seal freezes the daruma briefly and clears a nearby ink smear, but charges only through clean bell rings.</p>
+<p>7. Ringing a bell emits WebAudio chime after user gesture, awards points, and marks a chapter step. The offering bowl completes the chapter only when required plaques/bells are satisfied.</p>
+<p>8. Completing a chapter paints one daruma eye, awards points, restores one cracked wish heart if needed, and unlocks a more complex board.</p>
+<p>9. Pause/restart remain available throughout.</p>
+<ul>
+<li>15+ minute play-value strategy:</li>
+</ul>
+<p>- Save best score, fastest Asa Dawn Wish Fulfilled time, longest clean-roll streak, highest endless board, most bells rung in one run, fewest ink touches, and collected wish seals in localStorage.</p>
+<p>- Include three authored chapters:</p>
+<p>- First Wish Roll: small bowl-shaped board, one red gate, two sun ema, one bell, no instant ink loss during first guided tilt.</p>
+<p>- Torii Bridge Turn: adds a hinged bridge/ramp lane, blue moon ema, two gates, first ink pool, and Brake/Center timing.</p>
+<p>- Sunrise Bell Offering: all goals active, three bell arcs, moving dawn shadow over ink pools, gold ema bonus route, stricter timer, and Stillness Seal mastery.</p>
+<p>- Deterministic Day 018 seed varies board peg positions, token order, gate pairings, bell placement, ink shimmer timing, bridge alignment, and endless constraints while keeping the opening fair.</p>
+<p>- Mastery badges: finish First Wish Roll without rail panic, trigger Dawn Wish Fulfilled under 210 seconds, collect 12 ema without wrong-order break, ring all three bells in one continuous combo, clear a board without Stillness Seal, finish an endless board with all wish hearts.</p>
+<p>- Strategic scoring rewards planning: carry only the plaques needed for the next gate, slow before steep ramps, tap Brake before a corner rather than after hitting rails, use rail rebounds to line up bells, save Stillness Seal for ink/shadow overlaps, and choose longer gold routes only when combo is safe.</p>
+<p>- Endless mode after Dawn Wish Fulfilled adds split-level boards, stricter gate order, shorter bell windows, more ink pools, one-way torii flaps, and stronger inertia without shrinking touch controls.</p>
+<ul>
+<li>Difficulty scaling:</li>
+</ul>
+<p>- 0-45 seconds: gentle slopes, large rails, slow daruma acceleration, one gate, one bell, no ink penalty during the first guided roll.</p>
+<p>- 45-120 seconds: bridge ramp, second gate, first ink pool, Brake timing, two ema symbols.</p>
+<p>- 120-210 seconds: three bell arcs, moving shadow/ink shimmer, gold bonus route, tighter gate order, stricter timer.</p>
+<p>- 210+ seconds/endless: stronger tilt, denser rails, multiple ramps, stricter goals, same readable controls.</p>
+<p>- Keep mobile fair: daruma, rails, gates, plaques, bells, and ink pools must be large and readable at 390x844; controls must be 56px+ primary buttons; no tiny hazard required for survival.</p>
+<ul>
+<li>Scoring/rewards:</li>
+</ul>
+<p>- Correct ema plaque collected: +95 points times combo tier.</p>
+<p>- Gate opened with matching plaques: +180 points.</p>
+<p>- Dawn bell rung from clean momentum: +220 points and Stillness Seal charge.</p>
+<p>- Brake-assisted corner without rail collision: +75 points.</p>
+<p>- Chapter complete with hearts ≥2: +520 points and restore one wish heart if below max.</p>
+<p>- Perfect no-ink chapter: +640 points.</p>
+<p>- Asa Dawn Wish Fulfilled: +1100 points and endless shrine boards unlock.</p>
+<p>- Ink touch: wish heart damage, combo reset, and a short slippery penalty.</p>
+<p>- Wrong gate bump: timer penalty and combo reset.</p>
+<p>- Falling off a ramp/edge: heart damage and respawn at last bell perch if hearts remain.</p>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+</ul>
+<p>- Mouse/touch click: press direction/action buttons, start/pause overlay button, or prompt link.</p>
+<p>- Arrow keys or WASD: tilt the board north/west/south/east; holding increases tilt up to a safe cap.</p>
+<p>- Space or Enter: Brake/Center; also start from menu.</p>
+<p>- Shift: Stillness Seal when charged.</p>
+<p>- Q/E: subtle camera yaw nudge if implemented, but gameplay must not depend on camera rotation.</p>
+<p>- P: pause/resume.</p>
+<p>- R: restart current run.</p>
+<ul>
+<li>Mobile/touch:</li>
+</ul>
+<p>- Use large Tilt Up, Tilt Left, Tilt Right, Tilt Down buttons around or below the board; controls must be thumb-friendly and not cover the daruma.</p>
+<p>- Use large Brake/Center, Stillness Seal, Pause, and Restart buttons.</p>
+<p>- Optional swipe tilt can be supported, but visible buttons are mandatory.</p>
+<p>- Tap plaque/gate/bell chips for short explanations.</p>
+<p>- No virtual joystick. Interaction is directional board tilt, brake/center, Stillness Seal, pause/restart.</p>
+<ul>
+<li>Mobile layout/orientation:</li>
+</ul>
+<p>- Default target is portrait phone play around 390x844; do not require landscape.</p>
+<p>- Top: compact dawn shrine HUD with score, best, wish hearts, chapter, combo, time, tilt strength, and current objective. Use ema tags and sunrise chips, not the recent web/pottery/bamboo chip layouts.</p>
+<p>- Below top: chapter card with required plaques, gate status, bell status, offering bowl readiness, and progress ticks.</p>
+<p>- Center: 3D shrine-maze board with visible rails, ramps, gates, plaques, bells, ink, offering bowl, and daruma wishwheel. It must remain playable without zooming.</p>
+<p>- Bottom: selected/status helper plus large tilt/action controls. Controls must not cover the board or important objectives.</p>
+<p>- Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, tilt, plaques, gates, bells, ink, Brake/Center, Stillness Seal, pause/restart must be visible.</p>
+<p>- Requests must combine text, symbols, shapes, labels, and color so hue alone is not required.</p>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<p>- Shows title “Asa Daruma Wishwheel Labyrinth”.</p>
+<p>- Shows Day 018 badge, mode badge “3D”, public route <code>/asa/</code>, best score, best Dawn Wish time if available, and a prompt link.</p>
+<p>- Shows a large Start button and visible tutorial panel by default.</p>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<p>- Objective: “Tilt the dawn shrine board, collect matching ema plaques, ring bells, and roll the daruma into the offering bowl.”</p>
+<p>- Tilt: use arrows/WASD or big touch buttons; small tilts are safer than holding full tilt.</p>
+<p>- Ema/Gates: plaques open matching torii gates; goal chips show symbol + label.</p>
+<p>- Bells/Offering: ring required bells, then finish at the offering bowl.</p>
+<p>- Ink/Brake: avoid sumi ink; Brake/Center calms momentum before corners.</p>
+<p>- Stillness Seal: spend charged seal to pause motion and clear nearby ink.</p>
+<p>- Pause/restart: P/R on desktop or visible buttons on mobile.</p>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<p>- Score, best score, wish hearts, chapter name, combo, elapsed time, tilt strength, current objective, carried plaques, gate/bell status, Stillness Seal charge, Brake readiness.</p>
+<p>- Pause/restart controls visible or immediately accessible.</p>
+<ol>
+<li>Status helper</li>
+</ol>
+<p>- Non-blocking helper showing current tilt direction/strength, daruma speed, carried plaques, next recommended gate/bell, ink risk, and expected score effect.</p>
+<p>- Must not cover the board or bottom controls on mobile.</p>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<p>- Resume, restart, tutorial reminder, controls summary, prompt link.</p>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<p>- Final score, best score, chapter reached, Dawn Wish Fulfilled status, clean-roll streak, bells rung, ink touches, mastery badges, restart button.</p>
+<ol>
+<li>Asa Dawn Wish Fulfilled banner</li>
+</ol>
+<p>- Trigger once per run after all three chapters and 3200 score.</p>
+<p>- Non-blocking dawn animation: the second daruma eye fills in, sunrise beams sweep through torii rails, bells ring, ema plaques flutter into the sky, and endless shrine boards continue after the banner fades.</p>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: daruma wishwheel mascot/texture, dawn shrine terrace background, shrine-maze/gate/icon sheet, and decorative ema/bell pieces. Three.js primitives may render the interactive board, rails, gates, ramps, daruma sphere/cylinder, plaques, collision guides, ink hazards, particles, hit volumes, and UI chrome. Procedural code may crop, resize, alpha-clean, atlas-pack, optimize, animate, or place generated assets; it should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/018/assets/source/</code> and use optimized playable copies under <code>release/games/018/assets/</code>. Also copy optimized playable assets into <code>apps/day-018-asa-daruma-wishwheel-labyrinth/assets/</code> and the public alias <code>release/asa/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny maze details that disappear at final in-game size, and keep daruma/ema/gate/bell/ink silhouettes distinct against dawn wood and mist backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Daruma wishwheel mascot/source texture</li>
+</ol>
+<p>- Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</p>
+<p>- Archive path: <code>release/games/018/assets/source/asa-daruma-source.png</code></p>
+<p>- Optimized path: <code>release/games/018/assets/asa-daruma.png</code></p>
+<p>- Imagegen2 prompt: “A charming friendly Japanese daruma wishwheel mascot for a mobile 3D browser tilt-labyrinth arcade game, round red daruma doll with one painted eye and golden wish trim, tiny ema plaque tassels, sunrise glow, centered readable silhouette, transparent or plain pale dawn background, no text, no watermark, sprite-friendly, high contrast at small size, suitable as a rolling game piece.”</p>
+<p>- Aspect ratio: square.</p>
+<ol>
+<li>Dawn shrine terrace / torii maze background source</li>
+</ol>
+<p>- Target: portrait-friendly background suitable behind a 3D shrine maze board with open readable center.</p>
+<p>- Archive path: <code>release/games/018/assets/source/asa-shrine-terrace-source.png</code></p>
+<p>- Optimized path: <code>release/games/018/assets/asa-shrine-terrace.png</code></p>
+<p>- Imagegen2 prompt: “A dawn Japanese shrine terrace above misty hills for a portrait mobile 3D tilt-maze game, vermilion torii rails, polished wood and tatami textures, soft orange sunrise beams, hanging ema plaques and small bells on the sides, open readable center area for a raised maze board, crop-safe for phone portrait, no characters, no text, no watermark.”</p>
+<p>- Aspect ratio: portrait.</p>
+<ol>
+<li>Ema plaque, torii gate, bell, ink, and UI icon sheet source</li>
+</ol>
+<p>- Target: square icon sheet for objectives, hazards, rewards, and UI decals.</p>
+<p>- Archive path: <code>release/games/018/assets/source/asa-icons-source.png</code></p>
+<p>- Optimized path: <code>release/games/018/assets/asa-icons.png</code></p>
+<p>- Imagegen2 prompt: “Small readable icon sheet for a Japanese dawn shrine tilt-maze game: red torii gate, blue gate, gold gate, sun ema plaque, moon ema plaque, star ema plaque, dawn bell, offering bowl, black sumi ink hazard, brake/center seal, Stillness Seal, wish heart, Asa Dawn Wish Fulfilled seal, transparent or plain pale dawn background, high contrast, no text, no watermark, generous margins so no icons are cut off.”</p>
+<p>- Aspect ratio: square.</p>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas/Three.js materials, document the failure in <code>ai/postmortems/day-018.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the daruma mascot/texture, verify transparent/cutout quality or clean background handling, readable silhouette, centered pivot/crop margins, no unwanted text/watermarks, stable upright art, and that rolling/rotation in code does not make the face orientation absurd or unreadable.</li>
+<li>Verify control-to-motion alignment in-game: Tilt Up/Down/Left/Right must push the daruma in the expected screen/board direction, Brake/Center must visibly slow/recenter, Stillness Seal must pause/clear as described, gates must open when matching plaques are carried, bells must ring when reached, and ink hazards must affect the intended area.</li>
+<li>For the background, verify the center play area remains readable after portrait mobile crop and does not hide the board, rails, daruma, plaques, gates, bells, ink, chapter card, helper, or controls.</li>
+<li>For the icon sheet, verify torii gates, ema symbols, dawn bell, offering bowl, ink hazard, Brake/Center, Stillness Seal, wish heart, and fulfillment seal are distinct at final HUD/button size and cannot be confused.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Audio and game feel</h2>
+<p>Because bells, wood impacts, and daruma rolling are central to the theme, include lightweight WebAudio cues initialized only after a user gesture:</p>
+<ul>
+<li>A soft wooden roll/click or short thunk when the daruma bumps a rail.</li>
+<li>A small chime when collecting an ema plaque.</li>
+<li>A brighter bell tone when ringing a dawn bell, with pitch varying by bell.</li>
+<li>A low ink splash/muffle when touching sumi ink.</li>
+<li>A short sunrise arpeggio when Asa Dawn Wish Fulfilled triggers.</li>
+</ul>
+<p>Audio must not block play if WebAudio is unavailable. Verify no autoplay errors: audio context should be created/resumed only after Start or another user interaction.</p>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/018/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 018 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<p>- Build the static 3D game under <code>apps/day-018-asa-daruma-wishwheel-labyrinth/</code>.</p>
+<p>- Integrate it into immutable release output under <code>release/games/018/</code>.</p>
+<p>- Create the public playable route under <code>release/asa/</code>.</p>
+<p>- Use static HTML/CSS/JS with Three.js/WebGL and no backend.</p>
+<p>- The public alias must be self-contained or asset paths must be alias-safe.</p>
+<p>- If vendoring <code>three.module*.js</code>, also copy the matching <code>three.core*.js</code> beside it in the app, release archive, and <code>/asa/</code> alias assets.</p>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<p>- Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, and tune mobile readability/game feel.</p>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<p>- Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, 3D board rendering, tilt controls, Brake/Center, Stillness Seal, plaque collection, gate opening, bell feedback, ink hazards, offering bowl completion, generated screenshot, generated assets, audio initialization, and 390x844 portrait layout.</p>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<p>- Write <code>ai/postmortems/day-018.md</code> after validation with what worked, what failed, generated-image inspection notes, audio verification, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 018 is real <code>3d</code> with spatial tilt-board gameplay, momentum, ramps, collisions, gates, bells, ink hazards, and offering bowl routing.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/chapter card, usable tilt/brake/seal/pause/restart controls, no forced landscape canvas, and 44px+ controls.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-018.md</code> is copied exactly to <code>release/games/018/prompt.md</code> and <code>release/asa/prompt.md</code>.</li>
+<li><code>release/games/018/prompt.html</code> and <code>release/asa/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/asa/index.html</code>, <code>release/asa/prompt.html</code>, <code>release/asa/screenshot.png</code>, and <code>release/asa/assets/</code> exist and work.</li>
+<li>Gallery card for Day 018 shows prompt availability, generation duration, public <code>/asa/</code> links, mode <code>3d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/018/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/018/assets/source/</code> and optimized assets exist under <code>release/games/018/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive daruma/maze visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>WebAudio initializes after user gesture and creates no autoplay console errors; audio is optional/failsafe if unsupported.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicon links to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/<strong></code> through <code>release/games/017/</strong></code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/018/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/asa/index.html, release/asa/prompt.html, release/asa/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-018.md release/games/018/prompt.md and cmp prompts/day-018.md release/asa/prompt.md.
+# Prompt HTML check: verify release/games/018/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+# Browser smoke: open the local/static /asa/ route and verify menu, tutorial, gameplay start, 3D render, Tilt Up/Left/Right/Down, Brake/Center, Stillness Seal control presence, plaque collection, gate opening, bell feedback, ink hazard feedback, pause, restart, prompt page, WebAudio after user gesture, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable tap controls and readable HUD/chapter card/3D board.
+# Static screenshot check: inspect release/games/018/screenshot.png and release/asa/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-018.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /asa/ and /asa/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 018.</code></pre></article></main></body></html>
