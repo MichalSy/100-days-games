@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-29T01:38:54.000Z",
+  "generatedAt": "2026-06-30T01:42:13.000Z",
   "totalDays": 100,
-  "completedDays": 18,
+  "completedDays": 19,
   "games": [
     {
       "day": 1,
@@ -163,6 +163,15 @@
       "playUrl": "/asa/",
       "promptUrl": "/asa/prompt.html",
       "screenshotUrl": "/asa/screenshot.png",
+      "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 19,
+      "title": "Matsuri Taiko Lanternline Maestro",
+      "slug": "matsuri-taiko-lanternline-maestro",
+      "playUrl": "/matsuri/",
+      "promptUrl": "/matsuri/prompt.html",
+      "screenshotUrl": "/matsuri/screenshot.png",
       "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]

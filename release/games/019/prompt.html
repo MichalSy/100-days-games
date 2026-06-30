@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 019 Game Generation Prompt</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23120b2e'/%3E%3Ccircle cx='32' cy='32' r='21' fill='%23ffb12e'/%3E%3Ccircle cx='32' cy='32' r='13' fill='%23e9447d'/%3E%3Cpath d='M18 33h28M32 18v28' stroke='%23fff1bf' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root { color-scheme: dark; --bg:#09051d; --panel:#170b34; --ink:#fff8de; --muted:#d7c7ff; --gold:#ffbf47; --pink:#ff4e96; --line:rgba(255,255,255,.18); }
+body { margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:radial-gradient(circle at top,#2b146c,var(--bg) 56%,#03020a); color:var(--ink); line-height:1.62; }
+main { width:min(920px, calc(100% - 28px)); margin:0 auto; padding:28px 0 60px; }
+a { color:var(--gold); font-weight:800; }
+.back { display:inline-flex; margin-bottom:18px; padding:10px 14px; border:1px solid var(--line); border-radius:999px; text-decoration:none; background:rgba(255,255,255,.08); }
+.article { background:linear-gradient(135deg,rgba(255,255,255,.1),rgba(255,255,255,.035)), var(--panel); border:1px solid var(--line); border-radius:28px; padding:clamp(18px,4vw,38px); box-shadow:0 30px 90px rgba(0,0,0,.42); }
+h1 { margin-top:0; font-size:clamp(2rem,6vw,4.1rem); line-height:.98; text-wrap:balance; }
+h2 { margin-top:2rem; padding-top:1rem; border-top:1px solid var(--line); color:var(--gold); }
+h3 { color:#ffd98f; }
+code { background:rgba(255,255,255,.12); padding:.15em .35em; border-radius:.35em; color:#fff3b5; }
+pre { overflow:auto; padding:16px; border-radius:16px; background:#080318; border:1px solid var(--line); }
+li { margin:.35rem 0; }
+</style>
+</head>
+<body><main><a class="back" href="./index.html">← Back to game</a><article class="article"><h1>Day 019 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 019</li>
+<li>Title: Matsuri Taiko Lanternline Maestro</li>
+<li>Slug: matsuri-taiko-lanternline-maestro</li>
+<li>Public route word: matsuri</li>
+<li>Mode: 2D</li>
+<li>Genre: mobile-first rhythm-routing arcade / festival parade timing score chase</li>
+<li>Mood/style: electric summer matsuri at blue-hour dusk, vermilion-and-gold paper lantern rows, indigo festival street, bold taiko drum circles, fox-mask conductor charm, confetti streamers, yatai stall silhouettes, warm crowd glow, crisp rhythm timing feedback; real timing/audio play rather than shrine tilt labyrinths, silver webs, pottery sculpting, bamboo water routing, origami folding, rainy sheltering, snow stacking, kimono stamping, windbell tuning, rail running, or vehicle flight.</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 016 <code>3d</code>: pottery wheel sculpting with ring selection, vessel profile matching, glaze/carve placement, wobble/crack risk, and kiln heat controls.</li>
+<li>Day 017 <code>hybrid</code>: moonlit silverweb tension puzzle with near/mid/far strand layers, dew-star catching, moth fray, pluck/mend, and cool blue canopy visuals.</li>
+<li>Day 018 <code>3d</code>: dawn daruma tilt labyrinth with a raised board, inertia, torii gates, ema plaques, bells, ink pools, and offering bowl routing.</li>
+</ul>
+<p>The latest generated mode is one <code>3d</code>, and the latest 2D streak is zero. Day 019 deliberately returns to a highly tactile <code>2D</code> rhythm/timing game after two spatial days in the last three. This is allowed by the cadence and gives the gallery a different posture: sound-first festival timing, big circular drum pads, lantern-lane cue routing, and pattern memory rather than another 3D board/object or layered path puzzle.</p>
+<p>Recent screenshot/visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 013 used rainy teal market lanes, umbrellas, shelter rings, and wet stone reflections.</li>
+<li>Day 014 used a pale origami sheet on dark green studio lighting with dashed fold paths.</li>
+<li>Day 015 used bright bamboo greens, square canal tiles, water beads, and a gardener notebook HUD.</li>
+<li>Day 016 used warm amber pottery studio lighting, a centered clay vessel, ring chips, and kiln heat controls.</li>
+<li>Day 017 used cool midnight blues, circular web depth rings, silver strands, and anchor labels.</li>
+<li>Day 018 used dawn oranges, a tan maze board, torii rails, small daruma, and bottom tilt controls.</li>
+</ul>
+<p>Day 019 should shift to blue-hour festival neon: saturated indigo sky, magenta/pink and gold lantern strings, bold taiko drum pads, mask icons, vertical parade lanes, and celebratory confetti. Avoid grid boards, water canals, paper fold sheets, clay vessel silhouettes, web circles, wooden maze ramps, generic Guitar Hero clones with thin note highways, tiny tap targets, or autoplay audio errors.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 016 <code>3d</code>, Day 017 <code>hybrid</code>, and Day 018 <code>3d</code>. The latest generated-mode streak is one <code>3d</code>; latest 2D streak is zero.</p>
+<p>Mode decision: Day 019 is <code>2D</code>. This is allowed because there is no active 2D streak and the previous two days were spatial/hybrid-heavy. It must still be mechanics-rich and audiovisual, not placeholder flat art:</p>
+<ul>
+<li>Use responsive static-browser HTML/CSS/JS with canvas or DOM/canvas hybrid.</li>
+<li>Gameplay must depend on timing windows, beat lanes, lantern cue routing, combo memory, crowd energy, and risk/reward call-and-response patterns.</li>
+<li>WebAudio cues are mandatory because the theme is taiko/rhythm/listening. Audio must initialize only after a user gesture and must not autoplay.</li>
+<li>Visual beat feedback must be readable even if audio is muted: expanding rings, lane pulses, labels, timing text, and haptic-like screen shake.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+<li>The next day is not forced to 3D because Day 019 begins a new 2D streak of one. Future cadence should still avoid more than three consecutive 2D games.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Conduct a moving matsuri parade by striking large taiko pads in time with lantern cues, routing color-coded lantern carriers into matching festival lanes, and keeping crowd energy high through three call-and-response performances.</li>
+<li>Win condition: Complete three festival acts — Opening Don, Fox-Mask Call, and Firework Finale — while reaching 3300 points to trigger “Matsuri Grand Encore”. After the encore, continue into endless festival patterns.</li>
+<li>Lose condition: Crowd energy reaches 0%, three lantern carriers drop out, too many off-beat hits break the rhythm rope, or the act timer expires before required cue chains are completed.</li>
+<li>Core loop:</li>
+</ul>
+<p>1. Start on a title/menu screen with Day 019 badge, mode badge “2D”, public route <code>/matsuri/</code>, best score, best Grand Encore time, tutorial, prompt link, and a large Start button.</p>
+<p>2. Show a portrait-friendly festival street with four broad lantern lanes feeding toward a central taiko circle. Cues slide/pulse downward from lantern strings toward oversized drum pads.</p>
+<p>3. A performance card requests goals, for example: “Hit 6 Don beats, route 3 gold lanterns, finish one Call Echo, keep crowd energy above 70%.”</p>
+<p>4. Player taps Don / Ka / Hi / Ya drum pads as cue rings reach the hit band. Each pad has a distinct color, icon, label, and WebAudio tone.</p>
+<p>5. Lantern carriers drift in lanes. Correct beat hits open the matching lane gate; wrong/off-beat hits wobble the gate and reduce combo. Swipe or tap lane arrows can route the active carrier after the matching beat.</p>
+<p>6. Call-and-response moments flash a short pattern such as Don-Ka-Don. Player repeats it from memory within a generous timing window; success boosts crowd energy and unlocks a firework cue.</p>
+<p>7. A “Festival Focus” action slows incoming cues briefly, but charges only through accurate Good/Great hits and clean carrier routing.</p>
+<p>8. Completing an act lights another row of lanterns, awards points, restores one lantern carrier if needed, and unlocks denser cue phrases.</p>
+<p>9. Pause/restart remain available throughout.</p>
+<ul>
+<li>15+ minute play-value strategy:</li>
+</ul>
+<p>- Save best score, fastest Matsuri Grand Encore time, longest Great streak, highest endless act, most perfect call-and-response phrases, fewest off-beat hits, and collected festival badges in localStorage.</p>
+<p>- Include three authored acts:</p>
+<p>- Opening Don: two pads active, slow Don/Ka cues, one gold lantern lane, visible timing band, no energy penalty during first guided beat.</p>
+<p>- Fox-Mask Call: all four pads active, first call-and-response phrase, two lantern colors, first lane routing decision, Festival Focus tutorial.</p>
+<p>- Firework Finale: denser syncopated cue pairs, carriers in multiple lanes, fireworks timing bonus, stricter combo windows, and crowd energy pressure.</p>
+<p>- Deterministic Day 019 seed varies cue patterns, lane-carrier colors, call phrases, firework bonus windows, crowd chants, endless constraints, and safe opening rhythm while keeping the first minute fair.</p>
+<p>- Mastery badges: finish Opening Don with 90%+ accuracy, trigger Grand Encore under 205 seconds, land a 24-hit Great streak, perfect three call phrases, route 18 lantern carriers, complete an endless act with all carriers.</p>
+<p>- Strategic scoring rewards planning: prioritize Great timing over frantic hits, save Festival Focus for double-cue sections, route carriers only after a matching gate opens, memorize call phrases by sound and icon order, and keep combo alive through easier lanes instead of chasing every firework bonus.</p>
+<p>- Endless mode after Grand Encore adds off-beat rests, alternating two-pad phrases, faster carrier lanes, rarer Focus charge, and more call phrases without shrinking touch controls.</p>
+<ul>
+<li>Difficulty scaling:</li>
+</ul>
+<p>- 0-45 seconds: two pads, broad hit window, slow cues, clear visual beat pulse, one lane color, no instant energy loss during first guided call.</p>
+<p>- 45-120 seconds: four pads, basic call-response, two lane colors, first Focus use, first firework bonus.</p>
+<p>- 120-205 seconds: syncopated cue pairs, carrier-route pressure, stricter timing, crowd chant interruptions, all festival goals active.</p>
+<p>- 205+ seconds/endless: denser phrases, shorter Focus windows, more lane carriers, same readable controls.</p>
+<p>- Keep mobile fair: drum pads must be 64px+ and thumb-friendly; cue rings and hit band must be thick and high-contrast; performance text must be short; no survival-critical cue should be tiny.</p>
+<ul>
+<li>Scoring/rewards:</li>
+</ul>
+<p>- Good hit: +45 points.</p>
+<p>- Great hit: +85 points times combo tier.</p>
+<p>- Perfect call-and-response phrase: +360 points and crowd energy boost.</p>
+<p>- Lantern carrier routed after matching beat: +160 points.</p>
+<p>- Firework bonus hit on Great timing: +240 points.</p>
+<p>- Act complete above 70% crowd energy: +520 points and restore one carrier.</p>
+<p>- Perfect no-miss act: +720 points.</p>
+<p>- Matsuri Grand Encore: +1200 points and endless festival patterns unlock.</p>
+<p>- Off-beat hit: combo reset and crowd energy -5%.</p>
+<p>- Missed cue: crowd energy -7%.</p>
+<p>- Wrong lane route: carrier -1 and combo reset.</p>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+</ul>
+<p>- Mouse click/tap: hit drum pads, route lane arrows, action button, start/pause overlay button, or prompt link.</p>
+<p>- Keyboard: D = Don, F = Ka, J = Hi, K = Ya.</p>
+<p>- Arrow Left/Right or A/L: route selected lantern carrier left/right if a gate is open.</p>
+<p>- Space or Enter: repeat highlighted call phrase / start from menu / confirm action when relevant.</p>
+<p>- Shift: Festival Focus when charged.</p>
+<p>- P: pause/resume.</p>
+<p>- R: restart current run.</p>
+<ul>
+<li>Mobile/touch:</li>
+</ul>
+<p>- Four large drum pads across the lower play area or in a comfortable 2x2 thumb grid: Don, Ka, Hi, Ya. Each pad must have text, icon, and color.</p>
+<p>- Large Lane Left, Lane Right, Festival Focus, Pause, and Restart buttons.</p>
+<p>- Tapping a lane/carrier chip can select it or show a short explanation.</p>
+<p>- No virtual joystick. Interaction is drum timing, lane route buttons, Focus, pause/restart.</p>
+<ul>
+<li>Mobile layout/orientation:</li>
+</ul>
+<p>- Default target is portrait phone play around 390x844; do not require landscape.</p>
+<p>- Top: compact festival HUD with score, best, carrier tokens, crowd energy, act, combo, accuracy, and time. Use lantern knots and mask chips, not recent pottery/water/web/maze chip layouts.</p>
+<p>- Below top: performance card with required pad hits, lane routes, call phrase status, Focus charge, and progress ticks.</p>
+<p>- Center: festival street / lantern-lane playfield with incoming cue rings, hit band, carrier icons, lane gates, call phrase display, firework previews, and visible no-audio timing pulses.</p>
+<p>- Bottom: 2x2 taiko pad grid plus lane/focus controls. Controls must not cover the hit band or active carriers.</p>
+<p>- Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, drum timing, Good/Great hit band, lane routing, call-and-response, Festival Focus, pause/restart, and audio-on-start note must be visible.</p>
+<p>- Requests must combine text, icons, lane labels, pad labels, and shapes so hue alone is not required.</p>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<p>- Shows title “Matsuri Taiko Lanternline Maestro”.</p>
+<p>- Shows Day 019 badge, mode badge “2D”, public route <code>/matsuri/</code>, best score, best Grand Encore time if available, and a prompt link.</p>
+<p>- Shows a large Start button and visible tutorial panel by default.</p>
+<p>- Notes: “Audio starts after you press Start; visual beat pulses work if muted.”</p>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<p>- Objective: “Hit taiko beats in time, route lantern carriers, and raise crowd energy for the Grand Encore.”</p>
+<p>- Timing: tap pads when cue rings overlap the bright hit band. Great hits keep combo alive.</p>
+<p>- Pads: Don, Ka, Hi, Ya each use a label, icon, color, and tone.</p>
+<p>- Lantern routes: correct beats open matching gates; route carriers left/right after a gate opens.</p>
+<p>- Call-and-response: watch/listen to the short phrase, then repeat it before the echo fades.</p>
+<p>- Festival Focus: spend charged Focus to slow cues during dense sections.</p>
+<p>- Pause/restart: P/R on desktop or visible buttons on mobile.</p>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<p>- Score, best score, carrier tokens, crowd energy, act name, combo, accuracy, elapsed time, current performance goals, selected carrier/lane, Focus charge, and latest timing judgment.</p>
+<p>- Pause/restart controls visible or immediately accessible.</p>
+<ol>
+<li>Timing helper</li>
+</ol>
+<p>- Non-blocking helper showing next cue label, beat window, latest Good/Great/Miss, active call phrase, and next recommended lane route.</p>
+<p>- Must not cover active cues or bottom controls on mobile.</p>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<p>- Resume, restart, tutorial reminder, controls summary, audio/mute toggle, prompt link.</p>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<p>- Final score, best score, act reached, Grand Encore status, Great streak, accuracy, lantern carriers routed, call phrases perfected, mastery badges, restart button.</p>
+<ol>
+<li>Matsuri Grand Encore banner</li>
+</ol>
+<p>- Trigger once per run after all three acts and 3300 score.</p>
+<p>- Non-blocking celebration: lantern strings blaze gold, fox mask winks, fireworks burst above the lanes, crowd chant pulses the HUD, taiko pads glow in sequence, and endless festival patterns continue after the banner fades.</p>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: fox-mask taiko conductor mascot, blue-hour matsuri street background, drum/lantern/icon sheet, and decorative firework/streamer pieces. Canvas/SVG/DOM code may draw interactive cue rings, hit bands, carrier hitboxes, lane gates, timing overlays, confetti particles, labels, and UI chrome. It should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/019/assets/source/</code> and use optimized playable copies under <code>release/games/019/assets/</code>. Also copy optimized playable assets into <code>apps/day-019-matsuri-taiko-lanternline-maestro/assets/</code> and the public alias <code>release/matsuri/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny lantern/crowd details that disappear at final in-game size, and keep mascot/drum/lantern/mask silhouettes distinct against indigo dusk backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Fox-mask taiko conductor mascot/source charm</li>
+</ol>
+<p>- Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</p>
+<p>- Archive path: <code>release/games/019/assets/source/matsuri-conductor-source.png</code></p>
+<p>- Optimized path: <code>release/games/019/assets/matsuri-conductor.png</code></p>
+<p>- Imagegen2 prompt: “A charming friendly Japanese matsuri fox-mask taiko conductor mascot for a mobile 2D browser rhythm arcade game, small festival drummer spirit wearing a white kitsune half-mask, indigo happi coat, red headband, holding two taiko bachi sticks, golden lantern tassel, energetic but cute, centered readable silhouette, transparent or plain pale dusk background, no text, no watermark, sprite-friendly, high contrast at small size.”</p>
+<p>- Aspect ratio: square.</p>
+<ol>
+<li>Blue-hour matsuri lantern street background source</li>
+</ol>
+<p>- Target: portrait-friendly background suitable behind a vertical rhythm-lane playfield with open readable center.</p>
+<p>- Archive path: <code>release/games/019/assets/source/matsuri-street-source.png</code></p>
+<p>- Optimized path: <code>release/games/019/assets/matsuri-street.png</code></p>
+<p>- Imagegen2 prompt: “A vibrant Japanese summer matsuri festival street at blue-hour dusk for a portrait mobile rhythm arcade game, rows of glowing paper lanterns in magenta, vermilion, and gold, yatai stall silhouettes on the sides, indigo sky, confetti streamers and distant fireworks, open readable center lane area for falling rhythm cues, crop-safe for phone portrait, no characters, no text, no watermark.”</p>
+<p>- Aspect ratio: portrait.</p>
+<ol>
+<li>Taiko drum, lantern, mask, and rhythm UI icon sheet source</li>
+</ol>
+<p>- Target: square icon sheet for pads, cues, lanes, hazards, rewards, and UI decals.</p>
+<p>- Archive path: <code>release/games/019/assets/source/matsuri-icons-source.png</code></p>
+<p>- Optimized path: <code>release/games/019/assets/matsuri-icons.png</code></p>
+<p>- Imagegen2 prompt: “Small readable icon sheet for a Japanese matsuri taiko rhythm game: big taiko drum pad, Don beat, Ka rim beat, Hi handclap beat, Ya chant beat, gold lantern carrier, pink lantern carrier, lane gate, fox mask, festival fan, firework burst, crowd energy heart, Festival Focus seal, Grand Encore emblem, transparent or plain pale dusk background, high contrast, no text, no watermark, generous margins so no icons are cut off.”</p>
+<p>- Aspect ratio: square.</p>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas festival silhouettes, document the failure in <code>ai/postmortems/day-019.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the fox-mask mascot, verify transparent/cutout quality or clean background handling, readable friendly silhouette, centered pivot, crop margins, no unwanted text/watermarks, stable upright orientation, and that drumstick pose does not imply wrong pad direction.</li>
+<li>Verify control-to-motion/audio alignment in-game: Don/Ka/Hi/Ya pads must trigger the expected cue labels, tones, and visual pulses; lane route controls must affect the selected carrier; Festival Focus must visibly slow cues; call-and-response replay must match the displayed phrase; mute/audio toggle must not break visual timing.</li>
+<li>For the background, verify the center lane area remains readable after portrait mobile crop and does not hide cue rings, hit band, lantern carriers, performance card, helper, or controls.</li>
+<li>For the icon sheet, verify drum pad, Don, Ka, Hi, Ya, lantern carriers, gate, fox mask, fan, firework, crowd heart, Focus seal, and Grand Encore emblem are distinct at final HUD/button size and cannot be confused.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Audio and game feel</h2>
+<p>Because this is a taiko/rhythm/listening game, lightweight WebAudio cues are mandatory and must initialize only after a user gesture:</p>
+<ul>
+<li>Don: low warm taiko thump.</li>
+<li>Ka: sharper wooden rim click.</li>
+<li>Hi: bright handclap/tick.</li>
+<li>Ya: short vocal-like synth chirp, not actual speech.</li>
+<li>Good/Great timing: subtle pitch/volume variations, with Great slightly brighter.</li>
+<li>Miss/off-beat: soft muted thud.</li>
+<li>Call-and-response preview: same pad tones played in sequence while visual icons flash.</li>
+<li>Firework bonus: short sparkle sweep.</li>
+<li>Grand Encore: brief taiko-roll arpeggio.</li>
+</ul>
+<p>Audio must not block play if WebAudio is unavailable. Verify no autoplay errors: audio context should be created/resumed only after Start or another user interaction. Include a visible mute toggle in pause/results or HUD.</p>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/019/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 019 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<p>- Build the static 2D rhythm game under <code>apps/day-019-matsuri-taiko-lanternline-maestro/</code>.</p>
+<p>- Integrate it into immutable release output under <code>release/games/019/</code>.</p>
+<p>- Create the public playable route under <code>release/matsuri/</code>.</p>
+<p>- Use static HTML/CSS/JS with no backend.</p>
+<p>- The public alias must be self-contained or asset paths must be alias-safe.</p>
+<p>- Implement rhythm timing using deterministic game-time deltas and WebAudio after user gesture; do not rely on audio playback as the only source of truth.</p>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<p>- Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, and tune mobile readability/game feel.</p>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<p>- Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, cue rendering, Don/Ka/Hi/Ya hit controls, Good/Great/Miss judgments, lane route controls, Festival Focus control presence, call-and-response, WebAudio initialization after user gesture, mute/failsafe behavior, generated screenshot, generated assets, and 390x844 portrait layout.</p>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<p>- Write <code>ai/postmortems/day-019.md</code> after validation with what worked, what failed, generated-image inspection notes, audio verification, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 019 is allowed as <code>2d</code> after recent 3D/hybrid days, and it must be a polished rhythm-routing game with timing, audio, call-and-response, lane routing, and progression rather than a placeholder lane demo.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/performance card, usable 64px+ drum pads, lane/focus/pause/restart controls, no forced landscape canvas, and no tiny survival-critical notes.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-019.md</code> is copied exactly to <code>release/games/019/prompt.md</code> and <code>release/matsuri/prompt.md</code>.</li>
+<li><code>release/games/019/prompt.html</code> and <code>release/matsuri/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/matsuri/index.html</code>, <code>release/matsuri/prompt.html</code>, <code>release/matsuri/screenshot.png</code>, and <code>release/matsuri/assets/</code> exist and work.</li>
+<li>Gallery card for Day 019 shows prompt availability, generation duration, public <code>/matsuri/</code> links, mode <code>2d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/019/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/019/assets/source/</code> and optimized assets exist under <code>release/games/019/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive rhythm/lane visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion/audio alignment.</li>
+<li>WebAudio initializes after user gesture and creates no autoplay console errors; audio is failsafe if unsupported and visual timing remains playable muted.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicons to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/<strong></code> through <code>release/games/018/</strong></code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/019/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/matsuri/index.html, release/matsuri/prompt.html, release/matsuri/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-019.md release/games/019/prompt.md and cmp prompts/day-019.md release/matsuri/prompt.md.
+# Prompt HTML check: verify release/games/019/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+# Browser smoke: open the local/static /matsuri/ route and verify menu, tutorial, gameplay start, cue lanes, Don/Ka/Hi/Ya controls, Good/Great/Miss feedback, lane routing, Festival Focus, call-and-response display/replay, pause, restart, prompt page, WebAudio after user gesture, mute/failsafe, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable tap controls and readable HUD/performance card/lane playfield.
+# Static screenshot check: inspect release/games/019/screenshot.png and release/matsuri/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-019.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /matsuri/ and /matsuri/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 019.</code></pre></article></main></body>
+</html>

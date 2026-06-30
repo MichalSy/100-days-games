@@ -286,6 +286,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/asa/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-06-29T01:38:54Z'
+  },
+  19: {
+    status: 'generated',
+    title: 'Matsuri Taiko Lanternline Maestro',
+    slug: 'matsuri-taiko-lanternline-maestro',
+    genre: ['rhythm-routing arcade', 'festival timing', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Conduct a blue-hour matsuri parade by striking big taiko pads in time, opening lantern gates, routing carriers, and repeating call-and-response phrases toward a Grand Encore.',
+    objective: 'Complete Opening Don, Fox-Mask Call, and Firework Finale while reaching 3300 points to trigger Matsuri Grand Encore, then continue into endless festival patterns.',
+    playUrl: '/matsuri/',
+    promptUrl: '/matsuri/prompt.html',
+    promptExcerpt: 'Hit Don, Ka, Hi, and Ya cues on the beat, route lantern carriers through matching gates, use Festival Focus, and repeat call echoes for the Grand Encore.',
+    screenshotUrl: '/matsuri/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-06-30T01:42:13Z'
   }
 };
 

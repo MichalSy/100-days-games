@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Matsuri Taiko Lanternline Maestro — Day 019</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23120b2e'/%3E%3Ccircle cx='32' cy='32' r='21' fill='%23ffb12e'/%3E%3Ccircle cx='32' cy='32' r='13' fill='%23e9447d'/%3E%3Cpath d='M18 33h28M32 18v28' stroke='%23fff1bf' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="game-shell" aria-label="Matsuri Taiko Lanternline Maestro game">
+    <section class="topbar" aria-live="polite">
+      <div class="badge">Day 019 · 2D · /matsuri/</div>
+      <div class="meter"><span>Score</span><strong id="score">0</strong></div>
+      <div class="meter"><span>Best</span><strong id="best">0</strong></div>
+      <div class="meter"><span>Carriers</span><strong id="carriers">3/3</strong></div>
+      <div class="meter"><span>Crowd</span><strong id="energy">100%</strong></div>
+      <div class="meter"><span>Combo</span><strong id="combo">×1</strong></div>
+      <div class="meter"><span>Acc</span><strong id="accuracy">100%</strong></div>
+      <div class="meter"><span>Time</span><strong id="time">0:00</strong></div>
+    </section>
+
+    <section class="performance-card">
+      <div>
+        <p class="eyebrow" id="actLabel">Opening Don</p>
+        <h1>Matsuri Taiko Lanternline Maestro</h1>
+        <p id="objective">Hit taiko beats in time, route lantern carriers, and raise crowd energy for the Grand Encore.</p>
+      </div>
+      <div class="progress" aria-label="act progress"><span id="progressFill"></span></div>
+    </section>
+
+    <section class="stage-card">
+      <canvas id="gameCanvas" width="900" height="980" aria-label="Festival rhythm lanes with incoming cue rings"></canvas>
+      <div class="timing-helper" id="helper">Press Start. Audio begins only after your gesture; visual beat pulses work muted.</div>
+      <img class="mascot" src="./assets/matsuri-conductor.png" alt="Friendly kitsune taiko conductor mascot">
+    </section>
+
+    <section class="controls" aria-label="Game controls">
+      <div class="route-controls">
+        <button id="laneLeft" class="action secondary" type="button">← Lane Left</button>
+        <button id="focusBtn" class="action focus" type="button">Festival Focus <span id="focusPct">0%</span></button>
+        <button id="laneRight" class="action secondary" type="button">Lane Right →</button>
+      </div>
+      <div class="pad-grid" aria-label="Taiko drum pads">
+        <button class="pad don" data-pad="Don" type="button"><span>Don</span><small>D</small></button>
+        <button class="pad ka" data-pad="Ka" type="button"><span>Ka</span><small>F</small></button>
+        <button class="pad hi" data-pad="Hi" type="button"><span>Hi</span><small>J</small></button>
+        <button class="pad ya" data-pad="Ya" type="button"><span>Ya</span><small>K</small></button>
+      </div>
+      <div class="system-controls">
+        <button id="pauseBtn" class="action" type="button">Pause</button>
+        <button id="restartBtn" class="action" type="button">Restart</button>
+        <a class="action link" href="./prompt.html">Prompt</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="overlay" id="menuOverlay">
+    <div class="panel">
+      <div class="badge large">Day 019 · 2D · public route /matsuri/</div>
+      <h2>Matsuri Taiko Lanternline Maestro</h2>
+      <p class="lead">Conduct a blue-hour festival parade: hit Don, Ka, Hi, and Ya cues in time, open lantern gates, route carriers, and raise crowd energy for the Grand Encore.</p>
+      <ul>
+        <li><strong>Timing:</strong> tap pads when cue rings overlap the bright hit band. Great hits keep combo alive.</li>
+        <li><strong>Lantern routes:</strong> correct beats open gates; route carriers left/right after the matching rhythm.</li>
+        <li><strong>Call echo:</strong> watch/listen to short phrases, then repeat them before the echo fades.</li>
+        <li><strong>Audio:</strong> starts only after Start; muted/unsupported audio still keeps visual timing playable.</li>
+      </ul>
+      <div class="overlay-actions">
+        <button id="startBtn" class="primary" type="button">Start Festival</button>
+        <a href="./prompt.html" class="primary ghost">View Prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="pauseOverlay">
+    <div class="panel compact">
+      <h2>Paused</h2>
+      <p>Resume the parade, restart this run, or mute WebAudio. Keyboard: D/F/J/K pads, arrows route carriers, Shift Focus, P pause, R restart.</p>
+      <div class="overlay-actions">
+        <button id="resumeBtn" class="primary" type="button">Resume</button>
+        <button id="muteBtn" class="primary ghost" type="button">Mute: Off</button>
+        <a href="./prompt.html" class="primary ghost">Prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="resultOverlay">
+    <div class="panel compact">
+      <h2 id="resultTitle">Festival Results</h2>
+      <p id="resultSummary"></p>
+      <div class="overlay-actions">
+        <button id="againBtn" class="primary" type="button">Play Again</button>
+        <a href="./prompt.html" class="primary ghost">Prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./game.js"></script>
+</body>
+</html>
