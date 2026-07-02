@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-30T01:42:13.000Z",
+  "generatedAt": "2026-07-02T01:40:22.000Z",
   "totalDays": 100,
-  "completedDays": 19,
+  "completedDays": 20,
   "games": [
     {
       "day": 1,
@@ -172,6 +172,15 @@
       "playUrl": "/matsuri/",
       "promptUrl": "/matsuri/prompt.html",
       "screenshotUrl": "/matsuri/screenshot.png",
+      "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 20,
+      "title": "Umi Pearl Kelp Cartographer",
+      "slug": "umi-pearl-kelp-cartographer",
+      "playUrl": "/umi/",
+      "promptUrl": "/umi/prompt.html",
+      "screenshotUrl": "/umi/screenshot.png",
       "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]

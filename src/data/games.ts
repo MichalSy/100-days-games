@@ -301,6 +301,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/matsuri/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-06-30T01:42:13Z'
+  },
+  20: {
+    status: 'generated',
+    title: 'Umi Pearl Kelp Cartographer',
+    slug: 'umi-pearl-kelp-cartographer',
+    genre: ['3D underwater navigation', 'oxygen-routing arcade', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Dive through a luminous kelp canyon, collect requested pearl beacons, drop guide-shell markers in calm eddies, refill oxygen at air bells, dodge moon jellyfish, and complete the Umi Pearl Atlas.',
+    objective: 'Complete Shallow Shell Path, Kelp Torii Channel, and Moon-Jelly Trench while reaching 3400 points to trigger Umi Pearl Atlas, then continue into endless dive commissions.',
+    playUrl: '/umi/',
+    promptUrl: '/umi/prompt.html',
+    promptExcerpt: 'Steer a tiny ama-diver through 3D depth, collect pearls in order, manage oxygen at air bells, place guide shells, and use Sonar Bloom to reveal hidden beacons.',
+    screenshotUrl: '/umi/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-02T01:40:22Z'
   }
 };
 

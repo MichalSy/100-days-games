@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Day 020 · Umi Pearl Kelp Cartographer</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23075f72'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23d9fbff'/%3E%3Cpath d='M5 20c6-5 13-5 22 0' fill='none' stroke='%237df9ff' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell" aria-label="Umi Pearl Kelp Cartographer game">
+    <section class="hud" aria-label="Dive status">
+      <div class="badge"><span>Day 020 · 3D</span><strong>/umi/</strong></div>
+      <div><span>Score</span><strong id="score">0</strong></div>
+      <div><span>Best</span><strong id="bestScore">0</strong></div>
+      <div><span>Shells</span><strong id="hearts">◆◆◆</strong></div>
+      <div><span>Oxygen</span><strong id="oxygen">100%</strong></div>
+      <div><span>Combo</span><strong id="combo">×1.0</strong></div>
+      <div><span>Depth</span><strong id="depth">0m</strong></div>
+      <div><span>Time</span><strong id="time">0:00</strong></div>
+    </section>
+
+    <section class="mission-card" aria-label="Current dive map">
+      <p class="eyebrow" id="actEyebrow">Shallow Shell Path</p>
+      <div>
+        <h1 id="missionTitle">Umi Pearl Kelp Cartographer</h1>
+        <p id="missionText">Chart pearl routes through the kelp canyon, refill oxygen at air bells, and complete the Umi Pearl Atlas.</p>
+      </div>
+      <div class="mission-tags" id="missionTags" aria-label="Dive goals"></div>
+    </section>
+
+    <section class="play-wrap" aria-label="3D underwater playfield">
+      <div id="gameMount" class="game-mount"></div>
+      <div class="oxygen-ring" aria-hidden="true"><span id="oxygenNeedle"></span></div>
+      <div class="helper" id="helper">Press Start Dive. Audio starts after the user gesture; visual oxygen and sonar cues always work.</div>
+      <img class="mascot" src="./assets/umi-diver.png" alt="Ama-diver pearl cartographer mascot">
+      <div class="atlas" aria-label="Pearl atlas progress">
+        <span id="atlas0"></span><span id="atlas1"></span><span id="atlas2"></span><span id="atlas3"></span>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="Dive controls">
+      <button type="button" id="steerUp" data-hold="up">Steer ↑<small>W / ↑</small></button>
+      <button type="button" id="steerLeft" data-hold="left">← Left<small>A / ←</small></button>
+      <button type="button" id="pulseBtn">Pulse<small>Space</small></button>
+      <button type="button" id="steerRight" data-hold="right">Right →<small>D / →</small></button>
+      <button type="button" id="steerDown" data-hold="down">Steer ↓<small>S / ↓</small></button>
+      <button type="button" id="brakeBtn">Brake / Drift<small>Shift</small></button>
+      <button type="button" id="guideBtn">Guide Shell<small>G</small></button>
+      <button type="button" id="sonarBtn">Sonar 0%<small>B</small></button>
+      <button type="button" id="pauseBtn">Pause<small>P</small></button>
+      <button type="button" id="restartBtn">Restart<small>R</small></button>
+      <a class="prompt-link" href="./prompt.html">Prompt</a>
+    </section>
+  </main>
+
+  <div class="overlay" id="titleOverlay" role="dialog" aria-modal="true" aria-labelledby="titleHeading">
+    <div class="overlay-card title-card">
+      <p class="eyebrow">Day 020 · 3D · /umi/</p>
+      <h2 id="titleHeading">Umi Pearl Kelp Cartographer</h2>
+      <p class="lede">Dive through a luminous kelp canyon, collect requested pearls, drop guide shells in calm eddies, refill at air bells, and dodge moon jellyfish until the Pearl Atlas glows.</p>
+      <div class="tutorial-grid">
+        <p><strong>Steer:</strong> arrows/WASD or the large touch buttons move through 3D depth.</p>
+        <p><strong>Pulse:</strong> move deeper toward pearl beacons; Brake/Drift slows current slide.</p>
+        <p><strong>Pearls:</strong> collect the requested order to draw atlas routes and build combo.</p>
+        <p><strong>Air bells:</strong> refill oxygen before the ring empties.</p>
+        <p><strong>Guide Shell:</strong> place markers in still eddies near shrine buoys.</p>
+        <p><strong>Sonar Bloom:</strong> reveal hidden beacons, current arrows, and jellyfish depth lanes.</p>
+      </div>
+      <p class="audio-note">Audio starts after you press Start Dive; visual sonar/oxygen cues work if muted.</p>
+      <div class="overlay-actions">
+        <button type="button" id="startBtn">Start Dive</button>
+        <a href="./prompt.html">Read prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="pauseOverlay" role="dialog" aria-modal="true" aria-labelledby="pauseHeading">
+    <div class="overlay-card">
+      <p class="eyebrow">Dive paused</p>
+      <h2 id="pauseHeading">Breathe with the current</h2>
+      <p>Collect requested pearls in order, refill at air bells, and use Sonar Bloom before hidden jellyfish lanes close in.</p>
+      <div class="overlay-actions">
+        <button type="button" id="resumeBtn">Resume</button>
+        <button type="button" id="muteBtn">Mute audio</button>
+        <button type="button" id="pauseRestartBtn">Restart</button>
+        <a href="./prompt.html">Prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="resultOverlay" role="dialog" aria-modal="true" aria-labelledby="resultHeading">
+    <div class="overlay-card">
+      <p class="eyebrow" id="resultEyebrow">Dive complete</p>
+      <h2 id="resultHeading">Pearl route logged</h2>
+      <p id="resultText"></p>
+      <div class="result-grid" id="resultStats"></div>
+      <div class="overlay-actions">
+        <button type="button" id="resultRestartBtn">Restart Dive</button>
+        <a href="./prompt.html">Prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

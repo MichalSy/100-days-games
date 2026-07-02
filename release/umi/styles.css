@@ -1,0 +1,301 @@
+:root {
+  color-scheme: dark;
+  --abyss: #02131c;
+  --deep: #042636;
+  --reef: #063d50;
+  --aqua: #77f7ff;
+  --teal: #22c6d7;
+  --pearl: #f5fdff;
+  --foam: #c7fbff;
+  --gold: #ffd66f;
+  --pink: #ff8bd0;
+  --glass: rgba(3, 34, 48, 0.74);
+  --glass-strong: rgba(2, 23, 34, 0.92);
+  --line: rgba(177, 252, 255, 0.32);
+  --shadow: 0 18px 42px rgba(0, 8, 16, 0.44);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: var(--abyss); color: var(--pearl); overscroll-behavior: none; }
+body {
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(120, 249, 255, 0.28), transparent 30rem),
+    linear-gradient(180deg, #07566c 0%, #073345 44%, #02131c 100%);
+  overflow-x: hidden;
+  touch-action: manipulation;
+}
+button, a { font: inherit; }
+button { border: 0; color: var(--pearl); cursor: pointer; }
+button:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+button:disabled { opacity: .48; cursor: not-allowed; }
+
+.shell {
+  width: min(100vw, 1180px);
+  min-height: 100svh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto auto minmax(360px, 1fr) auto;
+  gap: 10px;
+  padding: max(10px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom));
+}
+
+.hud, .mission-card, .play-wrap, .controls, .helper {
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, rgba(6, 63, 82, 0.82), rgba(2, 24, 36, 0.76));
+  box-shadow: var(--shadow), inset 0 0 34px rgba(74, 232, 244, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.hud {
+  display: grid;
+  grid-template-columns: 1.3fr repeat(7, minmax(86px, 1fr));
+  gap: 8px;
+  border-radius: 20px;
+  padding: 8px;
+}
+.hud > div {
+  min-height: 50px;
+  border-radius: 15px;
+  padding: 7px 10px;
+  background: rgba(2, 22, 34, .58);
+  border: 1px solid rgba(164, 249, 255, .2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hud span, .eyebrow { color: var(--foam); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 800; }
+.hud strong { font-size: 1.35rem; line-height: 1; }
+.hud .badge strong { color: var(--gold); font-size: 1rem; margin-top: 3px; }
+
+.mission-card {
+  border-radius: 20px;
+  padding: 12px 14px;
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) auto;
+  gap: 10px 18px;
+  align-items: center;
+}
+.mission-card .eyebrow { grid-column: 1 / -1; color: var(--gold); margin: 0 0 -8px; }
+.mission-card h1 { margin: 0; font-size: clamp(1.65rem, 4vw, 3.1rem); line-height: .94; letter-spacing: -.04em; }
+.mission-card p { margin: 7px 0 0; color: #dcfbff; line-height: 1.28; }
+.mission-tags { display: flex; flex-wrap: wrap; gap: 7px; justify-content: flex-end; }
+.mission-tags span {
+  border-radius: 999px;
+  padding: 7px 10px;
+  background: rgba(230, 255, 255, .12);
+  border: 1px solid rgba(211, 255, 255, .22);
+  color: #f2ffff;
+  font-size: .78rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.play-wrap {
+  position: relative;
+  min-height: 360px;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #063348 url("./assets/umi-kelp-cove.png") center center / cover no-repeat;
+}
+.play-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(1, 31, 43, .05), rgba(1, 15, 24, .46)),
+    radial-gradient(circle at 50% 42%, transparent 0 38%, rgba(0, 12, 20, .35) 100%);
+}
+.game-mount, .game-mount canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.game-mount { z-index: 0; }
+.helper {
+  position: absolute;
+  z-index: 4;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  min-height: 44px;
+  border-radius: 15px;
+  padding: 10px 12px;
+  color: #edffff;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.mascot {
+  position: absolute;
+  z-index: 3;
+  right: 18px;
+  bottom: 70px;
+  width: clamp(74px, 13vw, 132px);
+  border-radius: 18px;
+  box-shadow: 0 10px 22px rgba(0, 12, 18, .34);
+}
+.oxygen-ring {
+  position: absolute;
+  z-index: 4;
+  top: 14px;
+  right: 14px;
+  width: 66px;
+  height: 66px;
+  border-radius: 999px;
+  border: 6px solid rgba(255,255,255,.18);
+  background: conic-gradient(var(--aqua) var(--oxygen-angle, 360deg), rgba(4, 32, 45, .68) 0);
+  box-shadow: inset 0 0 16px rgba(255,255,255,.18), 0 0 22px rgba(119,247,255,.2);
+}
+.oxygen-ring::after {
+  content: "O₂";
+  position: absolute;
+  inset: 9px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(2, 19, 28, .82);
+  color: var(--pearl);
+  font-weight: 1000;
+}
+.atlas {
+  position: absolute;
+  z-index: 4;
+  left: 16px;
+  top: 15px;
+  display: flex;
+  gap: 8px;
+}
+.atlas span {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 2px solid rgba(255,255,255,.35);
+  background: rgba(9, 58, 75, .64);
+  box-shadow: inset 0 0 12px rgba(255,255,255,.1);
+}
+.atlas span.done { background: radial-gradient(circle at 35% 30%, #fff, #8af6ff 38%, #15768c); box-shadow: 0 0 18px rgba(137, 247, 255, .6); }
+
+.controls {
+  border-radius: 22px;
+  padding: 9px;
+  display: grid;
+  grid-template-columns: repeat(11, minmax(72px, 1fr));
+  gap: 8px;
+  align-items: stretch;
+}
+.controls button, .prompt-link {
+  min-height: 58px;
+  border-radius: 16px;
+  border: 1px solid rgba(194, 255, 255, .3);
+  background: linear-gradient(180deg, rgba(44, 181, 204, .94), rgba(8, 83, 111, .96));
+  box-shadow: inset 0 1px rgba(255,255,255,.24), 0 8px 18px rgba(0, 16, 26, .28);
+  font-weight: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: var(--pearl);
+  line-height: 1.05;
+}
+.controls small { color: #d8fdff; font-weight: 800; font-size: .68rem; }
+#pulseBtn, #sonarBtn { background: linear-gradient(180deg, #fff0a5, #efae39); color: #12313a; }
+#pulseBtn small, #sonarBtn small { color: #24434a; }
+#brakeBtn { background: linear-gradient(180deg, #74b7ff, #176198); }
+#guideBtn { background: linear-gradient(180deg, #ffb8d6, #a53a78); }
+.prompt-link { background: rgba(138, 245, 255, .12); }
+.controls button.active, .controls button:active { transform: translateY(1px); filter: brightness(1.18); }
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: radial-gradient(circle at 50% 18%, rgba(67, 217, 236, .24), rgba(2, 13, 20, .84)), rgba(0, 9, 16, .78);
+  backdrop-filter: blur(8px);
+}
+.overlay.hidden { display: none; }
+.overlay-card {
+  width: min(720px, 100%);
+  max-height: min(92svh, 880px);
+  overflow: auto;
+  border-radius: 28px;
+  padding: 22px;
+  background: linear-gradient(150deg, rgba(5, 61, 78, .96), rgba(2, 23, 34, .97));
+  border: 1px solid rgba(171, 250, 255, .34);
+  box-shadow: 0 24px 70px rgba(0,0,0,.58), inset 0 0 70px rgba(23, 218, 231, .09);
+}
+.overlay h2 { margin: 0; font-size: clamp(2rem, 7vw, 4.6rem); line-height: .92; letter-spacing: -.055em; }
+.overlay-card > p, .lede { color: #ddfbff; line-height: 1.4; }
+.tutorial-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; margin: 14px 0; }
+.tutorial-grid p, .audio-note {
+  margin: 0;
+  padding: 11px;
+  border-radius: 16px;
+  background: rgba(0, 18, 28, .42);
+  border: 1px solid rgba(166, 249, 255, .2);
+  color: #ecffff;
+}
+.audio-note { color: var(--gold); font-weight: 900; }
+.overlay-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 14px; }
+.overlay-actions button, .overlay-actions a {
+  min-height: 56px;
+  border-radius: 17px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 1000;
+  border: 1px solid rgba(255,255,255,.22);
+}
+.overlay-actions button { background: linear-gradient(180deg, #fff0a5, #ffc052); color: #102b33; }
+.overlay-actions a { background: rgba(134,245,255,.12); color: #e9feff; }
+.result-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 12px 0; }
+.result-grid div { border: 1px solid var(--line); background: rgba(0,19,29,.42); border-radius: 16px; padding: 10px; }
+.result-grid strong { display:block; color: var(--gold); font-size: 1.25rem; }
+
+@media (max-width: 900px) {
+  .hud { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .hud .badge { grid-column: span 2; }
+  .mission-card { grid-template-columns: 1fr; }
+  .mission-tags { justify-content: flex-start; }
+  .controls { grid-template-columns: repeat(5, minmax(62px, 1fr)); }
+}
+
+@media (max-width: 430px) {
+  .shell { gap: 7px; padding-left: 7px; padding-right: 7px; grid-template-rows: auto auto minmax(300px, 1fr) auto; }
+  .hud { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; padding: 6px; }
+  .hud > div { min-height: 41px; padding: 5px 6px; border-radius: 12px; }
+  .hud span { font-size: .55rem; }
+  .hud strong { font-size: .9rem; }
+  .hud .badge { grid-column: span 2; }
+  .hud .badge strong { font-size: .75rem; }
+  .mission-card { padding: 9px 10px; border-radius: 17px; }
+  .mission-card h1 { font-size: 1.35rem; }
+  .mission-card p { font-size: .8rem; }
+  .mission-tags span { padding: 5px 7px; font-size: .67rem; }
+  .play-wrap { min-height: 302px; border-radius: 21px; }
+  .helper { font-size: .77rem; left: 8px; right: 8px; bottom: 8px; padding: 8px; }
+  .mascot { right: 10px; bottom: 62px; width: 72px; border-radius: 12px; }
+  .oxygen-ring { width: 54px; height: 54px; border-width: 5px; }
+  .oxygen-ring::after { inset: 7px; font-size: .8rem; }
+  .atlas { left: 9px; top: 10px; gap: 5px; }
+  .atlas span { width: 20px; height: 20px; }
+  .controls { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; padding: 6px; border-radius: 18px; }
+  .controls button, .prompt-link { min-height: 52px; border-radius: 13px; font-size: .78rem; }
+  .controls small { font-size: .57rem; }
+  .overlay { padding: 10px; }
+  .overlay-card { padding: 16px; border-radius: 22px; }
+  .tutorial-grid, .result-grid { grid-template-columns: 1fr; }
+  .tutorial-grid p { padding: 9px; font-size: .83rem; }
+}
+
+@media (max-height: 760px) and (max-width: 430px) {
+  .play-wrap { min-height: 250px; }
+  .mission-card p { display: none; }
+  .helper { min-height: 34px; }
+}
