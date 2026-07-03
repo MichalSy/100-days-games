@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-02T01:40:22.000Z",
+  "generatedAt": "2026-07-03T02:20:00.000Z",
   "totalDays": 100,
-  "completedDays": 20,
+  "completedDays": 21,
   "games": [
     {
       "day": 1,
@@ -181,6 +181,15 @@
       "playUrl": "/umi/",
       "promptUrl": "/umi/prompt.html",
       "screenshotUrl": "/umi/screenshot.png",
+      "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 21,
+      "title": "Aki Karesansui Ripplekeeper",
+      "slug": "aki-karesansui-ripplekeeper",
+      "playUrl": "/aki/",
+      "promptUrl": "/aki/prompt.html",
+      "screenshotUrl": "/aki/screenshot.png",
       "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]

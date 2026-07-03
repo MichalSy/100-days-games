@@ -1,0 +1,92 @@
+:root {
+  color-scheme: dark;
+  --ink: #21140c;
+  --paper: #f8e8bc;
+  --paper-2: #efd193;
+  --maple: #d75b20;
+  --gold: #e9ad35;
+  --moss: #546a24;
+  --stone: #3f3c37;
+  --bronze: #9c6b35;
+  --night: #160d08;
+  --panel: rgba(46, 27, 15, 0.78);
+  --panel-2: rgba(255, 239, 202, 0.90);
+  --line: rgba(255, 232, 180, 0.28);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: radial-gradient(circle at 50% -10%, #a95920 0, #40200e 42%, #120906 100%); color: #fff8e8; }
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  background: linear-gradient(180deg, rgba(57, 24, 7, .45), rgba(12, 6, 3, .78)), url('./assets/aki-garden.png') center / cover no-repeat;
+  filter: saturate(1.05);
+  z-index: -2;
+}
+body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+  background-image: radial-gradient(circle at 20% 15%, rgba(255, 198, 83, .24), transparent 25%), radial-gradient(circle at 82% 20%, rgba(208, 80, 32, .18), transparent 22%);
+}
+.shell { width: min(1180px, calc(100vw - 24px)); margin: 12px auto; display: grid; gap: 10px; }
+.hud { display: grid; grid-template-columns: 1.25fr repeat(7, minmax(84px, 1fr)); gap: 8px; }
+.hud > div, .commission, .stageWrap, .controls, .panel {
+  border: 1px solid var(--line); border-radius: 20px; box-shadow: 0 18px 45px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.12);
+  backdrop-filter: blur(14px);
+}
+.hud > div { min-height: 58px; padding: 10px 14px; background: rgba(31, 18, 11, .78); }
+.hud span { display: block; color: #ecd59d; font-size: 11px; text-transform: uppercase; letter-spacing: .13em; font-weight: 800; }
+.hud strong { display: block; margin-top: 2px; color: #fff8e8; font-size: clamp(19px, 2.3vw, 27px); line-height: 1; }
+.hud .badge strong { color: var(--gold); font-size: 17px; }
+.commission { display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 18px 20px; background: linear-gradient(120deg, rgba(255,242,205,.94), rgba(232,174,82,.82)); color: var(--ink); }
+.eyebrow { margin: 0 0 5px; color: #9b5517; font-weight: 900; text-transform: uppercase; letter-spacing: .15em; font-size: 12px; }
+h1, h2 { margin: 0; letter-spacing: -.045em; line-height: .93; }
+h1 { font-size: clamp(32px, 5vw, 58px); }
+h2 { font-size: clamp(30px, 6vw, 68px); }
+.commission p:not(.eyebrow) { margin: 8px 0 0; font-size: clamp(15px, 2vw, 19px); }
+.goalChips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; max-width: 46%; }
+.goalChips span { border-radius: 999px; background: rgba(255,255,255,.66); border: 1px solid rgba(65,37,17,.14); padding: 8px 12px; color: #41250f; font-weight: 850; white-space: nowrap; }
+.stageWrap { position: relative; overflow: hidden; min-height: 470px; background: rgba(43, 24, 12, .72); }
+#gameCanvas { display: block; width: 100%; height: min(58vh, 620px); min-height: 430px; touch-action: none; cursor: crosshair; }
+.tanuki { position: absolute; right: 18px; bottom: 70px; width: clamp(82px, 12vw, 132px); border-radius: 18px; background: #f8e8bc; border: 1px solid rgba(255,255,255,.56); box-shadow: 0 12px 28px rgba(0,0,0,.26); }
+.helper { position: absolute; left: 14px; right: 14px; bottom: 14px; padding: 12px 14px; border-radius: 14px; background: rgba(35, 18, 8, .78); border: 1px solid rgba(255,255,255,.18); color: #fff8e8; font-weight: 850; }
+.controls { display: grid; grid-template-columns: repeat(6, minmax(120px, 1fr)); gap: 8px; padding: 10px; background: rgba(31, 18, 11, .82); }
+button, .buttonLink { min-height: 54px; border: 1px solid rgba(255,255,255,.18); border-radius: 15px; background: linear-gradient(180deg, rgba(119,62,25,.96), rgba(84,35,18,.96)); color: #fff7df; font: inherit; font-weight: 900; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; text-align: center; padding: 8px 10px; box-shadow: inset 0 1px rgba(255,255,255,.2), 0 8px 22px rgba(0,0,0,.18); }
+button small { display: block; opacity: .82; font-size: 11px; margin-left: 4px; }
+button:hover, .buttonLink:hover { transform: translateY(-1px); filter: brightness(1.08); }
+button:focus-visible, .buttonLink:focus-visible { outline: 3px solid #ffe08b; outline-offset: 2px; }
+button.primary, .primary { background: linear-gradient(180deg, #f2c45a, #ce741e); color: #21140c; }
+.toolButton.active { background: linear-gradient(180deg, #7e8a30, #435320); }
+.overlay { position: fixed; inset: 0; display: grid; place-items: center; z-index: 10; background: rgba(18, 8, 3, .72); padding: 18px; }
+.overlay.hidden { display: none; }
+.panel { width: min(860px, 100%); background: linear-gradient(160deg, rgba(255,242,207,.96), rgba(224, 160, 65, .93)); color: var(--ink); padding: clamp(20px, 4vw, 34px); }
+.titleGrid { display: grid; grid-template-columns: 170px 1fr; gap: 20px; align-items: center; }
+.titleGrid img { width: 100%; border-radius: 24px; background: #f8e8bc; box-shadow: 0 12px 32px rgba(68,35,13,.22); }
+.lede { font-size: clamp(18px, 2.3vw, 23px); line-height: 1.35; color: #4b2a12; }
+.tutorial { margin: 18px 0; padding: 16px; border-radius: 18px; background: rgba(255,255,255,.42); border: 1px solid rgba(84,54,26,.18); }
+.tutorial ul { margin: 8px 0 0; padding-left: 20px; line-height: 1.45; }
+.overlayActions { display: flex; gap: 10px; flex-wrap: wrap; }
+.big { min-height: 62px; min-width: 180px; font-size: 18px; }
+@media (max-width: 760px) {
+  .shell { width: min(100vw - 12px, 430px); margin: 6px auto; gap: 7px; }
+  .hud { grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .hud > div { min-height: 48px; padding: 8px 9px; border-radius: 14px; }
+  .hud span { font-size: 9px; letter-spacing: .08em; }
+  .hud strong { font-size: 18px; }
+  .commission { padding: 12px; display: block; border-radius: 16px; }
+  .commission p:not(.eyebrow) { font-size: 14px; }
+  .goalChips { max-width: none; justify-content: flex-start; margin-top: 9px; gap: 6px; }
+  .goalChips span { padding: 6px 8px; font-size: 12px; }
+  #gameCanvas { height: 430px; min-height: 430px; }
+  .stageWrap { min-height: 430px; }
+  .tanuki { width: 76px; right: 10px; bottom: 66px; }
+  .helper { font-size: 13px; padding: 9px 10px; }
+  .controls { grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 7px; border-radius: 16px; }
+  button, .buttonLink { min-height: 52px; border-radius: 13px; padding: 7px 6px; font-size: 13px; }
+  button small { display: none; }
+  .titleGrid { grid-template-columns: 1fr; text-align: center; }
+  .titleGrid img { width: 132px; margin: 0 auto; }
+  .panel { max-height: calc(100vh - 24px); overflow: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

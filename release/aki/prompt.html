@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 021 Game Generation Prompt</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e6a438'/%3E%3Cpath d='M31 7l6 18 18-6-12 15 16 10-20 1 2 20-11-16-13 14 4-20-20-2 18-9L9 14l17 9z' fill='%238c2f16'/%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #21140c; color: #25160c; }
+    body { margin: 0; background: radial-gradient(circle at 20% 0, #f2be55 0, #7d3d17 38%, #1a0d07 100%); }
+    main { width: min(980px, calc(100% - 28px)); margin: 24px auto; background: rgba(255, 247, 224, .96); border: 1px solid rgba(255,255,255,.45); border-radius: 24px; box-shadow: 0 24px 70px rgba(0,0,0,.32); padding: clamp(20px, 4vw, 46px); }
+    a.back { display: inline-flex; margin-bottom: 20px; color: #6e3515; font-weight: 900; text-decoration: none; }
+    h1 { font-size: clamp(36px, 7vw, 72px); line-height: .92; letter-spacing: -.06em; margin: 0 0 18px; }
+    h2 { margin-top: 34px; padding-top: 18px; border-top: 1px solid #e2c894; font-size: 30px; }
+    h3 { margin-top: 24px; color: #7b3a16; }
+    p, li { line-height: 1.58; font-size: 16px; }
+    li { margin: 5px 0; }
+    code { background: #f3dfab; padding: 2px 5px; border-radius: 6px; }
+    pre { overflow: auto; background: #1f140d; color: #fff0c9; border-radius: 16px; padding: 16px; }
+    pre code { background: transparent; padding: 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="./index.html">← Back to Aki Karesansui Ripplekeeper</a>
+    <h1>Day 021 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 021</li>
+<li>Title: Aki Karesansui Ripplekeeper</li>
+<li>Slug: aki-karesansui-ripplekeeper</li>
+<li>Public route word: aki</li>
+<li>Mode: hybrid</li>
+<li>Genre: mobile-first zen-garden routing puzzle / tactile sand-ripple arcade score chase</li>
+<li>Mood/style: late-autumn Japanese dry garden at golden hour, pale raked sand, dark moss islands, warm maple leaves, smooth standing stones, bronze water basin, tiny tanuki gardener charm, ink-brush UI labels, quiet rake-and-stone feedback; layered 2.5D/3D-feeling sand topology and path planning rather than underwater diving, rhythm lanes, shrine tilt mazes, silver webs, pottery sculpting, bamboo water routing, origami folding, rainy sheltering, snow stacking, textile stamping, cooking, windbell tuning, rail running, or vehicle flight.</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 018 `3d`: dawn daruma tilt labyrinth with a raised shrine board, inertia, torii gates, ema plaques, bells, ink pools, and offering bowl routing.</li>
+<li>Day 019 `2d`: blue-hour matsuri rhythm-routing with Don/Ka/Hi/Ya taiko pads, lantern gates, carrier routing, call-and-response, and WebAudio timing.</li>
+<li>Day 020 `3d`: underwater pearl cartography with a diver, oxygen, guide shells, currents, air bells, jellyfish, and teal 3D depth navigation.</li>
+</ul>
+<p>The latest generated mode is one `3d`, and the latest 2D streak is zero. Day 021 deliberately chooses `hybrid`: the game is not another fully free-flight 3D scene, and not a flat lane/timing or grid game. It should feel like a tactile tabletop dry garden where the player edits layered sand flow fields, places/rotates stones, and watches maple leaves glide through raked ripples. The hybrid label is meaningful: the sand board is viewed in a shallow isometric/orthographic 3D-like space with height/elevation cues, overlapping ripple depth lanes, stone shadows, and path prediction, while remaining mobile-first and touch-friendly.</p>
+<p>Recent screenshot/visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 018 used dawn oranges, a tan raised maze board, torii rails, a small daruma, shrine columns, and bottom tilt controls.</li>
+<li>Day 019 used saturated indigo matsuri festival street, vertical rhythm lanes, fireworks, lantern strings, taiko pad buttons, and fox-mask mascot art.</li>
+<li>Day 020 used teal underwater fog, kelp silhouettes, pearl beacons, oxygen ring, diver mascot, guide-shell controls, and a central depth corridor.</li>
+</ul>
+<p>Day 021 should shift to a quiet autumn dry garden: ivory sand, moss-green islands, amber maple leaves, charcoal stone silhouettes, bronze/copper accents, and minimal ink-brush UI. Avoid water/oxygen/underwater assets, drum pads, vertical cue highways, wooden tilt-maze ramps, web circles/anchors, clay vessel profiles, bamboo canal tiles, origami crease sheets, umbrellas/rain, snow blocks, kimono cloth panels, windbell ribbons, rail vehicles, generic match-3 boards, or placeholder beige rectangles.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old `apps/day-*` folders, old `release/games/NNN/` HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: `src/data/games.ts` currently ends with Day 018 `3d`, Day 019 `2d`, and Day 020 `3d`. The latest generated-mode streak is one `3d`; latest 2D streak is zero.</p>
+<p>Mode decision: Day 021 is `hybrid`. It must implement meaningful layered spatial gameplay, not decorative perspective:</p>
+<ul>
+<li>Use static-browser HTML/CSS/JS with canvas, SVG, or Three.js/WebGL where useful. A Three.js orthographic board is preferred if practical, but a performant canvas is acceptable if it clearly renders layered sand elevation and depth cues.</li>
+<li>Render a dry-garden board with raked sand lanes, raised moss islands, smooth standing stones, maple leaves, moon-view targets, bronze water basin, and a small tanuki gardener guide.</li>
+<li>Gameplay must depend on board state: ripple direction fields, stone placement/rotation, leaf drift, sand ridge height, moss no-rake zones, wind-gust timing, basin target readiness, and path prediction.</li>
+<li>Player actions must manipulate the layered system: rake directional ripple strokes, rotate/place limited stones, tamp sand ridges, release maple leaves, ring the basin bell, and spend a Still Garden focus to freeze gusts and preview the route.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Rake calm sand-ripple paths, place standing stones, and guide glowing autumn maple leaves into moon-view basins while preserving moss islands and completing three karesansui compositions.</li>
+<li>Win condition: Complete three garden commissions — First Rake Circle, Crane Stone Crossing, and Moon Basin Reflection — while reaching 3500 points to trigger “Aki Golden Stillness”. After the stillness ceremony, continue into endless garden commissions.</li>
+<li>Lose condition: Three harmony seals crack, the garden timer expires, too many leaves drift into moss/no-rake zones, sand turbulence reaches 100%, or a required moon-view basin is missed after leaf release.</li>
+<li>Core loop:</li>
+</ul>
+<ol>
+<li>Start on a title/menu screen with Day 021 badge, mode badge “hybrid”, public route `/aki/`, best score, best Golden Stillness time, tutorial, prompt link, and a large Start button.</li>
+<li>Show a portrait-friendly dry-garden board: raked sand field in shallow isometric depth, moss islands, smooth standing stones, small maple leaves waiting at the gate, bronze basins, goal chips, turbulence meter, and predicted leaf path.</li>
+<li>A commission card requests goals, for example: “Guide 3 red leaves to Moon Basin A, place 2 crane stones, keep moss untouched, finish with turbulence under 35%.”</li>
+<li>Player selects a rake direction and drags/taps short strokes across sand cells/segments. Each stroke creates visible ripple arrows/ridges that gently steer released leaves.</li>
+<li>Player can rotate/place a limited number of stones. Stones bend nearby ripples, block strong gusts, and create calm eddies, but careless placement may trap leaves or raise turbulence.</li>
+<li>Leaves are released in small waves. They drift along ripple gradients, bounce softly around stones, avoid moss islands, and score when they pass through matching basins in requested order.</li>
+<li>Tamp Sand smooths a noisy patch; Basin Bell briefly attracts the nearest correct leaf; Still Garden focus freezes gusts and shows a clearer path preview, charging only through clean basin deliveries.</li>
+<li>Completing a commission lights a moon-view reflection, awards points, restores one harmony seal if needed, and unlocks stronger gusts/deeper ripple interactions.</li>
+<li>Pause/restart remain available throughout.</li>
+</ol>
+<ul>
+<li>15+ minute play-value strategy:</li>
+<li>Save best score, fastest Aki Golden Stillness time, longest clean leaf chain, highest endless commission, fewest moss touches, most perfect basin deliveries, and collected garden seals in localStorage.</li>
+<li>Include three authored commissions:</li>
+<li>First Rake Circle: small board, one red leaf type, one basin, two stones already placed as teaching anchors, broad path preview, no harmony penalty during first guided release.</li>
+<li>Crane Stone Crossing: adds white/yellow leaves, two basins, player stone rotation, moss no-rake island, first cross-gust, and Tamp Sand tutorial.</li>
+<li>Moon Basin Reflection: all leaf colors, three basins, standing-stone shadow lanes, stronger gust pulses, stricter moss preservation, and Still Garden route preview mastery.</li>
+<li>Deterministic Day 021 seed varies moss island shapes, stone starting positions, basin order, gust pulse timing, leaf color order, sand ridge decay, and endless constraints while keeping the opening fair.</li>
+<li>Mastery badges: finish First Rake Circle without a moss touch, trigger Golden Stillness under 220 seconds, deliver 18 requested leaves in clean order, complete a commission with zero turbulence damage, solve a board using only two new strokes, finish an endless commission with all harmony seals.</li>
+<li>Strategic scoring rewards planning: rake fewer high-quality strokes, use stones to bend rather than block leaves, preserve smooth central corridors, tamp only noisy choke points, save Basin Bell for late wrong turns, and use Still Garden before release rather than after chaos begins.</li>
+<li>Endless mode after Golden Stillness adds irregular moss islands, alternating basin orders, stronger gusts, faster ridge decay, fewer stone placements, and more leaf waves without shrinking touch controls.</li>
+<li>Difficulty scaling:</li>
+<li>0-45 seconds: broad sand lanes, one basin, visible path preview, gentle leaf speed, pre-placed stones, no penalty during first guided release.</li>
+<li>45-125 seconds: two basins, player stone rotation, first moss island, first gust pulse, Tamp Sand introduced.</li>
+<li>125-220 seconds: three basin goals, mixed leaf colors, stricter order, stronger gusts, deeper ripple decay, Still Garden preview windows.</li>
+<li>220+ seconds/endless: denser moss, shorter previews, fewer spare stones, more gust overlap, same readable controls.</li>
+<li>Keep mobile fair: leaves, stones, moss islands, basins, ripple arrows, and warning rings must be large and readable at 390x844; primary touch buttons must be 52px+; no tiny survival-critical target.</li>
+<li>Scoring/rewards:</li>
+<li>Correct leaf delivered to requested basin: +100 points times combo tier.</li>
+<li>Clean path segment with no moss touch: +45 points.</li>
+<li>Stone bend that redirects a leaf into a basin: +170 points.</li>
+<li>Tamp Sand prevents turbulence before release: +80 points.</li>
+<li>Basin Bell rescue delivery: +210 points and Still Garden charge.</li>
+<li>Commission complete under turbulence target: +560 points and repair one harmony seal if below max.</li>
+<li>Perfect no-moss commission: +720 points.</li>
+<li>Aki Golden Stillness: +1300 points and endless commissions unlock.</li>
+<li>Moss/no-rake touch: harmony damage, combo reset, turbulence +10%.</li>
+<li>Wrong basin delivery: turbulence +8%, combo soft-reset.</li>
+<li>Over-raking one patch: turbulence +5% and local ridge decay.</li>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<li>Mouse click/tap/drag: select rake direction, draw short rake strokes, rotate/place stones, press action buttons, start/pause overlay button, prompt link, or explainable HUD chips.</li>
+<li>Arrow keys or WASD: move the rake cursor / nudge selected stone.</li>
+<li>1/2/3/4: choose rake direction (north/east/south/west or curved left/right if implemented).</li>
+<li>Space or Enter: Release Leaves / confirm selected action / start from menu.</li>
+<li>Q/E: rotate selected stone or rake direction.</li>
+<li>T: Tamp Sand.</li>
+<li>B: Basin Bell when charged.</li>
+<li>Shift: Still Garden focus when charged.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+<li>Mobile/touch:</li>
+<li>Use large Rake ↗, Rake ↘, Rake ↙, Rake ↖ or directional stroke buttons plus a clear selected-mode chip.</li>
+<li>Use large Release Leaves, Rotate Stone, Tamp Sand, Basin Bell, Still Garden, Pause, and Restart buttons.</li>
+<li>Tapping a stone selects it; tapping rotate turns it through readable orientations. Dragging on sand draws a short ripple stroke only in the selected rake mode.</li>
+<li>Optional swipe strokes can be supported, but visible buttons are mandatory.</li>
+<li>No tiny virtual joystick. Interaction is rake strokes, stone rotation/placement, release, tamp, basin bell, focus, pause/restart.</li>
+<li>Mobile layout/orientation:</li>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact autumn HUD with score, best, harmony seals, turbulence, commission, combo, elapsed time, and active tool. Use leaf/stone/ink chips, not recent underwater oxygen, matsuri drum, shrine maze, web, pottery, or bamboo chip layouts.</li>
+<li>Below top: commission card with requested leaf colors, basin order, moss limit, stone/rake budget, and progress ticks.</li>
+<li>Center: dry-garden board with sand ripples, moss islands, stones, leaves, basins, path preview, gust shadows, and depth/elevation cues. It must remain playable without zooming.</li>
+<li>Bottom: status helper plus large rake/action controls. Controls must not cover the active leaf path, basins, or moss warnings.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, rake strokes, stones, moss/no-rake zones, leaf release, basins, Tamp Sand, Basin Bell, Still Garden, pause/restart must be visible.</li>
+<li>Requests must combine text, symbols, shapes, labels, leaf silhouettes, and line styles so hue alone is not required.</li>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<ul>
+<li>Shows title “Aki Karesansui Ripplekeeper”.</li>
+<li>Shows Day 021 badge, mode badge “hybrid”, public route `/aki/`, best score, best Golden Stillness time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+<li>Notes: “Audio starts after you press Start; visual path previews work if muted.”</li>
+</ul>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<ul>
+<li>Objective: “Rake sand ripples, bend paths with stones, and guide autumn leaves into moon basins.”</li>
+<li>Raking: choose a direction and draw short strokes; fewer clean strokes keep harmony high.</li>
+<li>Stones: rotate stones to bend leaves and block gusts; do not trap the route.</li>
+<li>Moss: do not rake moss islands or let leaves scrape them.</li>
+<li>Release/Basins: release leaves after previewing the path; deliver colors in requested basin order.</li>
+<li>Tools: Tamp Sand calms noisy ridges, Basin Bell attracts one leaf, Still Garden freezes gusts and previews the route.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<ul>
+<li>Score, best score, harmony seals, turbulence, commission name, combo, elapsed time, active tool, requested leaf order, basin progress, stone/rake budget, Still Garden charge, latest warning.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<ol>
+<li>Status helper</li>
+</ol>
+<ul>
+<li>Non-blocking helper showing active tool, selected stone/rake, next requested basin, path confidence, moss risk, gust countdown, and expected score effect.</li>
+<li>Must not cover the garden board or bottom controls on mobile.</li>
+</ul>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, audio/mute toggle, prompt link.</li>
+</ul>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<ul>
+<li>Final score, best score, commission reached, Golden Stillness status, clean leaf chain, moss touches, turbulence finish, perfect basin deliveries, mastery badges, restart button.</li>
+</ul>
+<ol>
+<li>Aki Golden Stillness banner</li>
+</ol>
+<ul>
+<li>Trigger once per run after all three commissions and 3500 score.</li>
+<li>Non-blocking ceremony: maple leaves settle into a golden spiral, stones cast long calm shadows, basin water reflects a crescent moon, sand ripples glow softly, tanuki bows; endless garden commissions continue after the banner fades.</li>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (`openai/gpt-image-2`) for final visual art: tanuki garden keeper mascot, autumn karesansui garden background, leaf/stone/basin/tool icon sheet, and decorative maple/basin pieces. Canvas/SVG/Three.js code may draw interactive sand ripples, path previews, collision zones, strokes, particles, UI chrome, hit volumes, and fallback debug shapes. It should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under `release/games/021/assets/source/` and use optimized playable copies under `release/games/021/assets/`. Also copy optimized playable assets into `apps/day-021-aki-karesansui-ripplekeeper/assets/` and the public alias `release/aki/assets/`.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny sand/rake details that disappear at final in-game size, and keep tanuki/leaves/stones/basins/moss/tool silhouettes distinct against pale sand and warm autumn backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Tanuki garden keeper mascot/source charm</li>
+</ol>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: `release/games/021/assets/source/aki-tanuki-source.png`</li>
+<li>Optimized path: `release/games/021/assets/aki-tanuki.png`</li>
+<li>Imagegen2 prompt: “A charming friendly Japanese tanuki karesansui garden keeper mascot for a mobile hybrid browser puzzle game, small tanuki wearing a simple indigo work apron, holding a bamboo sand rake and one amber maple leaf, gentle smile, subtle gold-hour rim light, centered readable silhouette, transparent or solid pale sand background, no checkerboard background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Autumn karesansui dry-garden background source</li>
+</ol>
+<ul>
+<li>Target: portrait-friendly background suitable behind a layered sand-ripple board with an open readable center.</li>
+<li>Archive path: `release/games/021/assets/source/aki-garden-source.png`</li>
+<li>Optimized path: `release/games/021/assets/aki-garden.png`</li>
+<li>Imagegen2 prompt: “A tranquil Japanese karesansui dry garden at late-autumn golden hour for a portrait mobile puzzle game, pale raked sand, moss islands at the sides, smooth dark standing stones, bronze water basin, low bamboo fence, falling amber maple leaves, warm sunlight and long soft shadows, open readable center area for an interactive sand board, crop-safe for phone portrait, no characters, no text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<ol>
+<li>Maple leaf, stone, basin, rake, moss, and garden-tool icon sheet source</li>
+</ol>
+<ul>
+<li>Target: square icon sheet for objectives, hazards, tools, rewards, and UI decals.</li>
+<li>Archive path: `release/games/021/assets/source/aki-icons-source.png`</li>
+<li>Optimized path: `release/games/021/assets/aki-icons.png`</li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a Japanese autumn karesansui ripple puzzle game: red maple leaf, gold maple leaf, white ginkgo leaf, smooth standing stone, crane stone, moss island, bronze moon basin, bamboo rake, tamp sand stamp, Basin Bell, Still Garden seal, harmony seal heart, turbulence swirl, Aki Golden Stillness emblem, transparent or solid pale sand background, no checkerboard background, high contrast, no text, no watermark, generous margins so no icons are cut off.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas garden silhouettes, document the failure in `ai/postmortems/day-021.md`, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the tanuki mascot, verify transparent/cutout quality or clean background handling, readable friendly silhouette, centered pivot, crop margins, no unwanted text/watermarks, stable upright orientation, and that the rake pose does not imply an incompatible movement/rotation direction.</li>
+<li>Verify control-to-motion alignment in-game: rake direction buttons must create strokes in the expected screen direction, Rotate Stone must visibly change the selected stone’s bend, Release Leaves must follow the preview, Tamp Sand must reduce local turbulence, Basin Bell must attract the correct nearby leaf, Still Garden must freeze gusts/preview route, moss contacts and wrong basins must affect intended areas.</li>
+<li>For the background, verify the center play area remains readable after portrait mobile crop and does not hide leaves, stones, basins, moss islands, path previews, commission card, helper, or controls.</li>
+<li>For the icon sheet, verify maple leaf colors/types, stone types, moss, basin, rake, tamp, Basin Bell, Still Garden seal, harmony seal, turbulence, and Golden Stillness emblem are distinct at final HUD/button size and cannot be confused. Watch specifically for fake checkerboard transparency; alpha-clean or composite onto pale sand if needed and inspect again.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Audio and game feel</h2>
+<p>Because raking, stone placement, basin bells, and quiet garden stillness are central to the theme, include lightweight WebAudio cues initialized only after a user gesture:</p>
+<ul>
+<li>Soft sand-rake brush when drawing a ripple stroke, with pitch/length based on stroke distance.</li>
+<li>Low stone click when rotating/placing a stone.</li>
+<li>Dry leaf flutter when releasing leaves.</li>
+<li>Bronze basin chime when a leaf enters the correct basin.</li>
+<li>Muted moss scrape / turbulence rustle when a leaf or rake touches a no-rake zone.</li>
+<li>Gentle breath/ping when Still Garden focus activates.</li>
+<li>Short warm koto-like arpeggio when Aki Golden Stillness triggers.</li>
+</ul>
+<p>Audio must not block play if WebAudio is unavailable. Verify no autoplay errors: audio context should be created/resumed only after Start or another user interaction. Include a visible mute toggle in pause/results or HUD.</p>
+<h2>Prompt page output</h2>
+<p>The archived `release/games/021/prompt.html` must be a consistent rendered HTML page, not raw Markdown pasted into a `&lt;pre&gt;` block. It should include:</p>
+<ul>
+<li>A clear `&lt;title&gt;` and `&lt;h1&gt;` using `Day 021 Game Generation Prompt`.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (`h2`, `h3`, `ul/ol/li`, `p`, `pre/code` only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<ul>
+<li>Build the static hybrid game under `apps/day-021-aki-karesansui-ripplekeeper/`.</li>
+<li>Integrate it into immutable release output under `release/games/021/`.</li>
+<li>Create the public playable route under `release/aki/`.</li>
+<li>Use static HTML/CSS/JS with no backend. Canvas/SVG/Three.js are acceptable; the public alias must be self-contained or asset paths must be alias-safe.</li>
+<li>If vendoring `three.module*.js`, also copy the matching `three.core*.js` beside it in the app, release archive, and `/aki/` alias assets.</li>
+</ul>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, remove fake checkerboards if present, and tune mobile readability/game feel.</li>
+</ul>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, garden board rendering, rake strokes, stone selection/rotation, Release Leaves, Tamp Sand, Basin Bell, Still Garden control presence, leaf delivery, moss/no-rake penalty, generated screenshot, generated assets, WebAudio initialization after user gesture, and 390x844 portrait layout.</li>
+</ul>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<ul>
+<li>Write `ai/postmortems/day-021.md` after validation with what worked, what failed, generated-image inspection notes, audio verification, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 021 is meaningful `hybrid` after Day 020 `3d`, with layered sand-ripple routing where rake directions, stone bends, moss zones, gusts, leaf paths, basins, and tool timing matter.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/commission card, usable 52px+ rake/action/pause/restart controls, no forced landscape canvas, and no tiny survival-critical leaves/basins/moss zones.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li>`prompts/day-021.md` is copied exactly to `release/games/021/prompt.md` and `release/aki/prompt.md`.</li>
+<li>`release/games/021/prompt.html` and `release/aki/prompt.html` render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown `&lt;pre&gt;` dump.</li>
+<li>Public alias `release/aki/index.html`, `release/aki/prompt.html`, `release/aki/screenshot.png`, and `release/aki/assets/` exist and work.</li>
+<li>Gallery card for Day 021 shows prompt availability, generation duration, public `/aki/` links, mode `hybrid`, and actual generated date.</li>
+<li>Screenshot exists at `release/games/021/screenshot.png` and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under `release/games/021/assets/source/` and optimized assets exist under `release/games/021/assets/`, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive tanuki/garden/ripple visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>WebAudio initializes after user gesture and creates no autoplay console errors; audio is failsafe if unsupported and visual path previews remain playable muted.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicons to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing `release/games/001/**` through `release/games/020/**` from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in `release/regeneration-allowlist.json`.</li>
+<li>Do not delete `scripts/launch-nightly-hermes.sh`.</li>
+<li>Do not edit or delete files under `/home/aiko/.hermes/profiles/ryu/cron/100-days-games`.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>
+pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main
+</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code>
+# Screenshot/static checks: verify release/games/021/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/aki/index.html, release/aki/prompt.html, release/aki/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-021.md release/games/021/prompt.md and cmp prompts/day-021.md release/aki/prompt.md.
+# Prompt HTML check: verify release/games/021/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+# Browser smoke: open the local/static /aki/ route and verify menu, tutorial, gameplay start, garden board render, rake directions, stone select/rotate, Release Leaves, Tamp Sand, Basin Bell, Still Garden control presence, leaf delivery, moss/no-rake feedback, pause, restart, prompt page, WebAudio after user gesture, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable tap controls and readable HUD/commission card/garden board.
+# Static screenshot check: inspect release/games/021/screenshot.png and release/aki/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-021.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /aki/ and /aki/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 021.
+</code></pre>
+  </main>
+</body>
+</html>

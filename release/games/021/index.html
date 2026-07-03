@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Aki Karesansui Ripplekeeper — Day 021</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e6a438'/%3E%3Cpath d='M31 7l6 18 18-6-12 15 16 10-20 1 2 20-11-16-13 14 4-20-20-2 18-9L9 14l17 9z' fill='%238c2f16'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="shell" aria-label="Aki Karesansui Ripplekeeper game">
+    <section class="hud" aria-label="Game status">
+      <div class="badge"><span>Day 021 · hybrid</span><strong>/aki/</strong></div>
+      <div><span>Score</span><strong id="score">0</strong></div>
+      <div><span>Best</span><strong id="best">0</strong></div>
+      <div><span>Harmony</span><strong id="harmony">◆◆◆</strong></div>
+      <div><span>Turbulence</span><strong id="turbulence">0%</strong></div>
+      <div><span>Combo</span><strong id="combo">×1.0</strong></div>
+      <div><span>Tool</span><strong id="tool">Rake ↗</strong></div>
+      <div><span>Time</span><strong id="time">0:00</strong></div>
+    </section>
+
+    <section class="commission" aria-label="Current objective">
+      <div>
+        <p class="eyebrow" id="commissionStage">First Rake Circle</p>
+        <h1>Aki Karesansui Ripplekeeper</h1>
+        <p id="objective">Rake calm sand paths, guide 3 red leaves into Moon Basin A, and keep moss untouched.</p>
+      </div>
+      <div class="goalChips" id="goalChips">
+        <span>🍁 0/3 red leaves</span><span>◯ Moon Basin A</span><span>moss untouched</span>
+      </div>
+    </section>
+
+    <section class="stageWrap">
+      <canvas id="gameCanvas" width="1120" height="760" aria-label="Dry garden board with raked sand, stones, moss islands, leaves, and basins"></canvas>
+      <img class="tanuki" src="./assets/aki-tanuki.png" alt="Tanuki garden keeper mascot" />
+      <div class="helper" id="helper">Choose a rake direction, draw short strokes across sand, then release leaves when the preview looks calm.</div>
+    </section>
+
+    <section class="controls" aria-label="Game controls">
+      <button data-tool="ne" class="toolButton active">Rake ↗<small>1</small></button>
+      <button data-tool="se" class="toolButton">Rake ↘<small>2</small></button>
+      <button data-tool="sw" class="toolButton">Rake ↙<small>3</small></button>
+      <button data-tool="nw" class="toolButton">Rake ↖<small>4</small></button>
+      <button data-action="rotate">Rotate Stone<small>Q/E</small></button>
+      <button data-action="release" class="primary">Release Leaves<small>Space</small></button>
+      <button data-action="tamp">Tamp Sand<small>T</small></button>
+      <button data-action="bell">Basin Bell <span id="bellCharge">0%</span><small>B</small></button>
+      <button data-action="still">Still Garden <span id="stillCharge">0%</span><small>Shift</small></button>
+      <button data-action="pause">Pause<small>P</small></button>
+      <button data-action="restart">Restart<small>R</small></button>
+      <a href="./prompt.html" class="buttonLink">Prompt</a>
+    </section>
+  </main>
+
+  <div class="overlay" id="titleOverlay" role="dialog" aria-modal="true">
+    <div class="panel titlePanel">
+      <div class="titleGrid">
+        <img src="./assets/aki-tanuki.png" alt="Tanuki garden keeper" />
+        <div>
+          <p class="eyebrow">Day 021 · hybrid · /aki/</p>
+          <h2>Aki Karesansui Ripplekeeper</h2>
+          <p class="lede">Rake sand ripples, bend paths with stones, and guide autumn leaves into moon basins without disturbing the moss.</p>
+        </div>
+      </div>
+      <div class="tutorial">
+        <strong>Tutorial</strong>
+        <ul>
+          <li>Pick a rake direction, then drag or tap the sand to draw short ripple strokes.</li>
+          <li>Rotate standing stones to bend leaves around moss islands and toward basins.</li>
+          <li>Release leaves after previewing the route. Correct basin deliveries build combo.</li>
+          <li>Tamp Sand calms turbulence. Basin Bell rescues one nearby leaf. Still Garden freezes gusts and reveals the route.</li>
+          <li>Audio starts after pressing Start; visual previews work if muted.</li>
+        </ul>
+      </div>
+      <div class="overlayActions">
+        <button id="startButton" class="primary big">Start Garden</button>
+        <a href="./prompt.html" class="buttonLink">View prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="pauseOverlay" role="dialog" aria-modal="true">
+    <div class="panel">
+      <p class="eyebrow">Garden paused</p>
+      <h2>Keep the ripples calm</h2>
+      <p>Resume, restart, or reread the controls. Fewer deliberate strokes score better than frantic raking.</p>
+      <div class="overlayActions">
+        <button data-action="resume" class="primary">Resume</button>
+        <button data-action="restart">Restart</button>
+        <button data-action="mute" id="muteButton">Mute audio</button>
+        <a href="./prompt.html" class="buttonLink">Prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="resultOverlay" role="dialog" aria-modal="true">
+    <div class="panel">
+      <p class="eyebrow" id="resultKicker">Garden complete</p>
+      <h2 id="resultTitle">Aki Golden Stillness</h2>
+      <p id="resultText">Maple leaves settle into a calm golden spiral.</p>
+      <div class="overlayActions">
+        <button data-action="restart" class="primary">Play again</button>
+        <a href="./prompt.html" class="buttonLink">Prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="./game.js"></script>
+</body>
+</html>

@@ -316,6 +316,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/umi/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-02T01:40:22Z'
+  },
+  21: {
+    status: 'generated',
+    title: 'Aki Karesansui Ripplekeeper',
+    slug: 'aki-karesansui-ripplekeeper',
+    genre: ['hybrid zen-garden routing puzzle', 'sand-ripple arcade', 'mobile-first score chase'],
+    mode: 'hybrid',
+    description: 'Rake calm karesansui sand ripples, rotate standing stones, and guide autumn maple leaves into moon-view basins while preserving moss islands and garden harmony.',
+    objective: 'Complete First Rake Circle, Crane Stone Crossing, and Moon Basin Reflection while reaching 3500 points to trigger Aki Golden Stillness, then continue into endless garden commissions.',
+    playUrl: '/aki/',
+    promptUrl: '/aki/prompt.html',
+    promptExcerpt: 'Rake directional sand ripples, bend leaf routes with standing stones, preserve moss islands, and use Tamp Sand, Basin Bell, and Still Garden to complete autumn dry-garden commissions.',
+    screenshotUrl: '/aki/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-03T02:20:00Z'
   }
 };
 
