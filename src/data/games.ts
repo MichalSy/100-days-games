@@ -331,6 +331,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/aki/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-03T02:20:00Z'
+  },
+  22: {
+    status: 'generated',
+    title: 'Hoshi Nebuta Kite Cartographer',
+    slug: 'hoshi-nebuta-kite-cartographer',
+    genre: ['3D kite-thread navigation', 'constellation tracing arcade', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Steer a glowing nebuta-paper kite through layered night winds, collect ordered star-ink nodes, manage braided-thread tension, place star-thread markers, and light shrine beacons to complete the Hoshi Sky Map.',
+    objective: 'Complete First Star Thread, Cloud Shelf Crossing, and Nebuta Dawn Map while reaching 3600 points to trigger Hoshi Sky Map Complete, then continue into endless kite commissions.',
+    playUrl: '/hoshi/',
+    promptUrl: '/hoshi/prompt.html',
+    promptExcerpt: 'Steer a luminous kite through 3D sky depth, reel thread tension in/out, collect stars in order, place star-thread markers, and use Kitsune Gust to reveal hidden routes.',
+    screenshotUrl: '/hoshi/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-04T01:55:00Z'
   }
 };
 

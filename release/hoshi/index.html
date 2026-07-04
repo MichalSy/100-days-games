@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Day 022 · Hoshi Nebuta Kite Cartographer</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305123a'/%3E%3Cpath d='M32 6l7 18 19 1-15 12 5 19-16-11-16 11 5-19L6 25l19-1z' fill='%23ffd66b'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="shell" aria-live="polite">
+    <section class="hud" aria-label="Game status">
+      <div class="tile"><span>Day 022 · 3D</span><strong>/hoshi/</strong></div>
+      <div class="tile"><span>Score</span><strong id="score">0</strong></div>
+      <div class="tile"><span>Best</span><strong id="bestScore">0</strong></div>
+      <div class="tile"><span>Kite hearts</span><strong id="hearts">◆◆◆</strong></div>
+      <div class="tile"><span>Tension</span><strong id="tension">18%</strong></div>
+      <div class="tile"><span>Combo</span><strong id="combo">×1.0</strong></div>
+      <div class="tile"><span>Altitude</span><strong id="altitude">mid</strong></div>
+      <div class="tile"><span>Time</span><strong id="elapsed">0:00</strong></div>
+    </section>
+
+    <section class="mission" aria-label="Current sky-map chapter">
+      <div>
+        <p class="eyebrow" id="chapterName">First Star Thread</p>
+        <h1>Hoshi Nebuta Kite Cartographer</h1>
+        <p id="chapterGoal">Trace 4 gold stars, bank at Beacon A, finish below 65% tension.</p>
+      </div>
+      <div class="goals">
+        <span id="starOrder">Gold → Gold → Gold → Gold</span>
+        <span id="markerCount">thread 0/1</span>
+        <span id="beaconStatus">Beacon A waiting</span>
+        <span>Kitsune Gust <b id="gust">0%</b></span>
+      </div>
+    </section>
+
+    <section class="stage-card">
+      <div id="stage" class="stage" role="img" aria-label="3D night-sky kite course"><canvas id="gameCanvas"></canvas></div>
+      <div class="mascot"><img src="./assets/hoshi-kite.png" alt="Hoshi nebuta kite mascot" /></div>
+      <div class="helper" id="helper">Press Start: glide toward the first gold star, then bank at Shrine Beacon A.</div>
+      <div class="helper warning" id="warning">Visual wind/tension cues remain playable when muted.</div>
+      <div id="completeBanner" class="banner" hidden>Hoshi Sky Map Complete!</div>
+    </section>
+
+    <section class="controls" aria-label="Game controls">
+      <button data-hold="up" type="button">Steer Up ↑<small>W / ↑</small></button>
+      <button data-hold="left" type="button">← Left<small>A / ←</small></button>
+      <button data-action="pulse" class="primary" type="button">Tail Pulse<small>Space</small></button>
+      <button data-hold="right" type="button">Right →<small>D / →</small></button>
+      <button data-hold="down" type="button">Steer Down ↓<small>S / ↓</small></button>
+      <button data-hold="reelOut" type="button">Reel Out<small>Q</small></button>
+      <button data-hold="reelIn" type="button">Reel In<small>E</small></button>
+      <button data-action="marker" class="accent" type="button">Star Thread<small>G</small></button>
+      <button data-action="gust" type="button">Kitsune Gust<small>Shift/B</small></button>
+      <button data-action="pause" type="button">Pause<small>P</small></button>
+      <button data-action="restart" type="button">Restart<small>R</small></button>
+      <a class="button-link" href="./prompt.html">Prompt</a>
+    </section>
+  </main>
+
+  <div class="overlay" id="titleOverlay">
+    <div class="panel">
+      <p class="eyebrow">Day 022 · 3D · /hoshi/</p>
+      <h2>Hoshi Nebuta Kite Cartographer</h2>
+      <p>Trace a constellation route with a glowing nebuta kite. Audio starts only after Start; visual wind and tension cues work if muted.</p>
+      <p><strong>Best:</strong> <span id="menuBest">0</span> · <strong>Best Sky Map:</strong> <span id="menuTime">—</span></p>
+      <ul>
+        <li><strong>Steer</strong> through altitude/depth toward ordered stars.</li>
+        <li><strong>Reel In/Out</strong> trades speed and altitude for thread tension.</li>
+        <li><strong>Tail Pulse</strong> stabilizes drift; <strong>Star Thread</strong> marks calm eddies.</li>
+        <li><strong>Kitsune Gust</strong> reveals hidden gates, winds, and cloud tangles.</li>
+      </ul>
+      <button id="startButton" class="big" type="button">Start sky map</button>
+      <a href="./prompt.html">Read the Day 022 prompt</a>
+    </div>
+  </div>
+
+  <div class="overlay" id="pauseOverlay" hidden>
+    <div class="panel compact">
+      <h2>Paused</h2>
+      <p>Keep tension low, collect stars in order, and bank completed strokes at beacons.</p>
+      <button id="resumeButton" class="big" type="button">Resume</button>
+      <button id="muteButton" type="button">Mute audio</button>
+      <button id="pauseRestartButton" type="button">Restart run</button>
+      <a href="./prompt.html">Prompt</a>
+    </div>
+  </div>
+
+  <div class="overlay" id="resultOverlay" hidden>
+    <div class="panel compact">
+      <h2 id="resultTitle">Results</h2>
+      <div id="resultStats" class="results-grid"></div>
+      <button id="resultRestartButton" class="big" type="button">Restart sky map</button>
+      <a href="./prompt.html">Prompt</a>
+    </div>
+  </div>
+
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-03T02:20:00.000Z",
+  "generatedAt": "2026-07-04T01:55:00.000Z",
   "totalDays": 100,
-  "completedDays": 21,
+  "completedDays": 22,
   "games": [
     {
       "day": 1,
@@ -190,6 +190,15 @@
       "playUrl": "/aki/",
       "promptUrl": "/aki/prompt.html",
       "screenshotUrl": "/aki/screenshot.png",
+      "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 22,
+      "title": "Hoshi Nebuta Kite Cartographer",
+      "slug": "hoshi-nebuta-kite-cartographer",
+      "playUrl": "/hoshi/",
+      "promptUrl": "/hoshi/prompt.html",
+      "screenshotUrl": "/hoshi/screenshot.png",
       "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]

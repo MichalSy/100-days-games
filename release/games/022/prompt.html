@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 022 Game Generation Prompt</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305123a'/%3E%3Cpath d='M32 6l7 18 19 1-15 12 5 19-16-11-16 11 5-19L6 25l19-1z' fill='%23ffd66b'/%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: dark; --bg:#04091f; --panel:#0a1743; --ink:#f7fbff; --muted:#b7c8e7; --gold:#ffd66b; --line:rgba(157,208,255,.25); }
+    * { box-sizing: border-box; } body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; background: radial-gradient(circle at 50% 0%, #18368b, var(--bg) 55%); color:var(--ink); line-height:1.6; }
+    main { width:min(920px, calc(100vw - 28px)); margin:28px auto 64px; }
+    .top { position: sticky; top:0; z-index:2; padding:14px 0 18px; background:linear-gradient(180deg, rgba(4,9,31,.98), rgba(4,9,31,.72)); backdrop-filter: blur(10px); }
+    a { color: var(--gold); font-weight: 850; } .back { display:inline-flex; padding:10px 14px; border:1px solid var(--line); border-radius:999px; text-decoration:none; background:rgba(255,255,255,.06); }
+    article { padding:28px; border:1px solid var(--line); border-radius:28px; background:rgba(6,18,58,.82); box-shadow:0 30px 90px rgba(0,0,0,.35); }
+    h1 { font-size:clamp(38px, 7vw, 76px); line-height:.92; letter-spacing:-.055em; margin:18px 0 22px; }
+    h2 { margin-top:34px; padding-top:20px; border-top:1px solid var(--line); color:#fff; font-size:30px; letter-spacing:-.03em; } h3 { color:var(--gold); }
+    p, li { color:var(--muted); } li { margin:5px 0; } code { color:#fff; background:rgba(255,255,255,.08); padding:.1em .32em; border-radius:6px; }
+    pre { overflow:auto; padding:16px; border:1px solid var(--line); border-radius:18px; background:#020716; } pre code { background:transparent; padding:0; }
+  </style>
+</head>
+<body><main><div class="top"><a class="back" href="./index.html">← Back to game</a></div><article><h1>Day 022 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 022</li>
+<li>Title: Hoshi Nebuta Kite Cartographer</li>
+<li>Slug: hoshi-nebuta-kite-cartographer</li>
+<li>Public route word: hoshi</li>
+<li>Mode: 3D</li>
+<li>Genre: mobile-first 3D kite-thread navigation / constellation tracing arcade score chase</li>
+<li>Mood/style: high summer night above a shrine hill, glowing nebuta-paper kite lanterns, deep cobalt sky, gold star ink, red-and-white braided kite thread, cloud shelves, tiny kitsune kite pilot charm, observatory torii silhouettes, tactile thread tension and wind-current feedback; real spatial sky navigation rather than dry-garden raking, underwater diving, rhythm lanes, shrine tilt boards, silver-web tension, pottery sculpting, bamboo water-routing, origami folding, rainy sheltering, snow stacking, textile stamping, cooking, windbell tuning, or rail running.</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 019 <code>2d</code>: blue-hour matsuri rhythm-routing with Don/Ka/Hi/Ya taiko pads, lantern gates, carrier routing, call-and-response, and WebAudio timing.</li>
+<li>Day 020 <code>3d</code>: underwater pearl cartography with a diver, oxygen, guide shells, currents, air bells, jellyfish, and teal 3D depth navigation.</li>
+<li>Day 021 <code>hybrid</code>: autumn karesansui sand-ripple routing with rake strokes, standing stones, maple leaves, moss/no-rake zones, basins, and Still Garden focus.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>hybrid</code>, and the latest 2D streak is zero. Day 022 deliberately chooses real <code>3D</code> so the next entry has clear spatial camera/depth after the tactile 2.5D dry-garden board. The new verb set is sky-thread navigation: steer a luminous nebuta-paper kite through star gates, control thread tension, ride wind shelves, trace constellation strokes in depth, avoid cloud tangles, and return star ink to shrine beacons.</p>
+<p>Recent screenshot/visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 019 used saturated indigo festival streets, vertical rhythm lanes, fireworks, lantern strings, taiko pad buttons, and fox-mask mascot art.</li>
+<li>Day 020 used teal underwater fog, kelp silhouettes, pearl beacons, oxygen ring, diver mascot, guide-shell controls, and a central depth corridor.</li>
+<li>Day 021 used warm dry-garden sand, moss islands, standing stones, maple leaves, tanuki mascot, and large rake/action controls.</li>
+</ul>
+<p>Day 022 should shift to an open night-sky aerial scene: cobalt-to-violet sky gradient, luminous paper kite body, braided thread arcs, star-ink nodes, cloud shelf platforms, red shrine beacons far below, and sweeping parallax depth. Avoid beige sand boards, underwater teal corridors, drum-pad lanes, raised wooden maze ramps, web circles/anchors, clay rings, bamboo canal tiles, origami crease sheets, umbrellas/rain, snow blocks, kimono cloth panels, windbell ribbons, rail vehicles, and generic spaceship/runner movement.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/Three.js game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 019 <code>2d</code>, Day 020 <code>3d</code>, and Day 021 <code>hybrid</code>. The latest generated-mode streak is one <code>hybrid</code>; latest 2D streak is zero.</p>
+<p>Mode decision: Day 022 is <code>3D</code>. It must implement real spatial gameplay, not decorative perspective:</p>
+<ul>
+<li>Use Three.js/WebGL or equivalent static-browser 3D rendering.</li>
+<li>Render an actual depth-visible night-sky course with a kite, braided tether, wind-current ribbons, star-ink nodes, cloud shelves, shrine beacons, cloud-tangle hazards, and constellation gates.</li>
+<li>Gameplay must depend on 3D state: x/y/z kite position, forward depth, altitude, velocity, thread tension, wind direction, gate ordering, beacon distance, cloud shelf lift, and hazard proximity.</li>
+<li>Player actions must manipulate the 3D system: steer left/right/up/down, reel in/out to change tension and altitude, pulse the kite tail to stabilize, place star-thread markers, trigger Kitsune Gust to reveal a route, and bank completed constellation strokes at shrine beacons.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Guide a glowing nebuta-paper kite through layered night winds, collect star-ink nodes in order, trace constellation strokes through 3D gates, manage braided-thread tension, avoid cloud tangles, and light shrine beacons to complete the Hoshi Sky Map.</li>
+<li>Win condition: Complete three sky-map chapters — First Star Thread, Cloud Shelf Crossing, and Nebuta Dawn Map — while reaching 3600 points to trigger “Hoshi Sky Map Complete”. After the map, continue into endless kite commissions.</li>
+<li>Lose condition: Thread tension snaps at 100%, three kite-lantern hearts go dark, the kite stalls below the cloud shelf too often, too many star-ink nodes are collected out of order, or the chapter timer expires before required constellation strokes are banked.</li>
+<li>Core loop:</li>
+</ul>
+<ol>
+<li>Start on a title/menu screen with Day 022 badge, mode badge “3D”, public route <code>/hoshi/</code>, best score, best Sky Map time, tutorial, prompt link, and a large Start button.</li>
+<li>Show a portrait-friendly 3D night-sky course. The kite floats near the lower center, flying into depth. Star-ink nodes hang at different x/y/z positions, translucent wind ribbons curve through the scene, cloud shelves lift or block, shrine beacons glow far below, and cloud-tangle knots drift across near/mid/far lanes.</li>
+<li>A sky-map card requests goals, for example: “Trace 4 gold stars, cross 2 cloud shelves, bank at Beacon A, finish with tension under 65%.”</li>
+<li>Player steers through the sky with large direction buttons or keyboard. Short Tail Pulse stabilizes drift; Reel In increases speed/altitude but raises tension; Reel Out lowers tension and widens turns but risks missing high gates.</li>
+<li>Star-ink nodes attach as glowing dots on the kite tail. Collecting requested nodes in order draws a constellation stroke. Wrong-order stars award tiny points but raise thread noise and lure cloud tangles.</li>
+<li>Star-thread markers can be placed at safe wind eddies. A correct marker near a shrine beacon extends the visible route and gives a tension refund; careless markers in turbulent wind drift away.</li>
+<li>Kitsune Gust, charged by clean star chains, briefly reveals hidden wind arrows, cloud-tangle depth silhouettes, and the next constellation gate.</li>
+<li>Banking a complete stroke at a shrine beacon lights a lantern row, awards points, repairs one kite-lantern heart if needed, and unlocks stronger winds/deeper gates.</li>
+<li>Pause/restart remain available throughout.</li>
+</ol>
+<ul>
+<li>15+ minute play-value strategy:</li>
+<li>Save best score, fastest Hoshi Sky Map Complete time, longest clean star chain, highest endless sky commission, most correct star-thread markers, best low-tension finish, fewest cloud tangles, and collected kite seals in localStorage.</li>
+<li>Include three authored chapters:</li>
+<li>First Star Thread: broad wind corridor, three bright star nodes, one large shrine beacon, two obvious eddies, no instant tension loss during first guided steering.</li>
+<li>Cloud Shelf Crossing: adds vertical altitude changes, two star colors, cloud shelf lift timing, first cloud-tangle lane, and Reel In/Reel Out tension tutorial.</li>
+<li>Nebuta Dawn Map: deeper violet sky, hidden gates revealed by Kitsune Gust, crossing wind ribbons, two shrine beacons, stricter tension route, and cloud-tangle depth silhouettes.</li>
+<li>Deterministic Day 022 seed varies star-node positions, wind ribbon bends, beacon timing, hidden gate order, cloud shelf lift, cloud-tangle patrol paths, and endless constraints while keeping the opening fair.</li>
+<li>Mastery badges: finish First Star Thread without a tension warning, trigger Sky Map Complete under 225 seconds, collect 20 requested stars in clean order, place 10 correct star-thread markers, finish a chapter below 40% tension, complete an endless commission with all kite hearts.</li>
+<li>Strategic scoring rewards planning: reel out before tight turns, ride wind ribbons only when they point toward ordered stars, save Kitsune Gust for hidden-gate sections, place thread markers in calm eddies, bank at beacons before chasing far bonus stars, and avoid wrong-order stars when cloud tangles are close.</li>
+<li>Endless mode after Sky Map Complete adds stronger crosswinds, denser clouds, rarer beacons, alternating star orders, moving cloud shelves, and faster tangles without shrinking touch controls.</li>
+<li>Difficulty scaling:</li>
+<li>0-45 seconds: broad lanes, slow drift, visible star order, generous tension, one tangle-free route, one large beacon.</li>
+<li>45-125 seconds: vertical altitude changes, first crosswind ribbon, two star colors, cloud shelf timing, one cloud-tangle lane.</li>
+<li>125-225 seconds: hidden gates, stronger winds, two beacons, cloud shelf alignment, stricter tension, multiple cloud-tangle depth lanes.</li>
+<li>225+ seconds/endless: denser sky, shorter beacon windows, more hidden gates, same readable controls.</li>
+<li>Keep mobile fair: kite, star nodes, beacons, cloud tangles, wind arrows, and marker previews must be large and readable at 390x844; controls must be 56px+ primary buttons; no tiny hazard required for survival.</li>
+<li>Scoring/rewards:</li>
+<li>Requested star collected in order: +105 points times combo tier.</li>
+<li>Wrong-order star collected safely: +35 points, combo soft-reset, small tension increase.</li>
+<li>Star-thread marker placed in a safe wind eddy: +180 points and small tension refund.</li>
+<li>Clean shrine beacon bank: +240 points and Kitsune Gust charge.</li>
+<li>Cloud tangle avoided at close range: +95 points.</li>
+<li>Sky-map chapter complete below tension target: +580 points and repair one kite heart if below max.</li>
+<li>Perfect no-tangle chapter: +740 points.</li>
+<li>Hoshi Sky Map Complete: +1350 points and endless kite commissions unlock.</li>
+<li>Cloud tangle hit: kite-heart damage, tension +16%, combo reset.</li>
+<li>Wind slam/cloud shelf collision: tension +7% and drift penalty.</li>
+<li>Tension snap: kite-heart damage and respawn at last shrine beacon if hearts remain.</li>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<li>Mouse click/tap: press direction/action buttons, start/pause overlay button, prompt link, or explainable HUD chips.</li>
+<li>Arrow keys or WASD: steer left/right/up/down through the 3D sky.</li>
+<li>Space or Enter: Tail Pulse / start from menu.</li>
+<li>Q/E: Reel Out / Reel In.</li>
+<li>G: drop Star Thread marker.</li>
+<li>B or Shift: trigger Kitsune Gust when charged.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+<li>Mobile/touch:</li>
+<li>Use large Steer Up, Steer Left, Steer Right, Steer Down buttons around or below the playfield.</li>
+<li>Use large Tail Pulse, Reel Out, Reel In, Star Thread, Kitsune Gust, Pause, and Restart buttons.</li>
+<li>Optional swipe steering can be supported, but visible buttons are mandatory.</li>
+<li>Tap star/beacon/cloud/wind chips for short explanations.</li>
+<li>No tiny virtual joystick. Interaction is directional steering, tail pulse, reeling, star-thread marker, gust reveal, pause/restart.</li>
+<li>Mobile layout/orientation:</li>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact night-sky HUD with score, best, kite hearts, tension ring, sky map, combo, elapsed time, and current altitude. Use star/thread/kite chips, not recent garden, underwater oxygen, matsuri drum, shrine maze, web, pottery, or bamboo chip layouts.</li>
+<li>Below top: sky-map card with requested star order, star-thread target, shrine beacon requirement, tension target, and progress ticks.</li>
+<li>Center: 3D night-sky course with kite/charm, star nodes, wind ribbons, cloud shelves, shrine beacons, star-thread previews, cloud-tangle silhouettes, route trail, and sky depth fog. It must remain playable without zooming.</li>
+<li>Bottom: status helper plus large steering/action controls. Controls must not cover the kite, beacon, active star route, or hazard warnings.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, tension, steering, Tail Pulse, Reel In/Out, star order, thread markers, shrine beacons, Kitsune Gust, cloud tangles, pause/restart must be visible.</li>
+<li>Requests must combine text, symbols, shapes, labels, altitude bands, and line styles so hue alone is not required.</li>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<ul>
+<li>Shows title “Hoshi Nebuta Kite Cartographer”.</li>
+<li>Shows Day 022 badge, mode badge “3D”, public route <code>/hoshi/</code>, best score, best Sky Map time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+<li>Notes: “Audio starts after you press Start; visual wind/tension cues work if muted.”</li>
+</ul>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<ul>
+<li>Objective: “Steer a glowing kite, trace star routes, manage thread tension, and complete the Hoshi Sky Map.”</li>
+<li>Steering: use arrows/WASD or big touch buttons to steer through 3D altitude and depth; Tail Pulse stabilizes drift.</li>
+<li>Tension: Reel In climbs faster but raises tension; Reel Out calms tension and widens turns.</li>
+<li>Stars: collect requested stars in order to draw constellation strokes.</li>
+<li>Star Thread: drop markers in calm eddies near shrine beacons for tension refunds.</li>
+<li>Kitsune Gust: reveal hidden gates, winds, and cloud-tangle depth lanes when charged.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<ul>
+<li>Score, best score, kite hearts, tension, sky map name, combo, elapsed time, altitude, requested star order, collected stars, marker count, beacon status, Kitsune Gust charge, latest warning.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<ol>
+<li>Status helper</li>
+</ol>
+<ul>
+<li>Non-blocking helper showing current altitude, tension advice, next requested star, current direction/drift, nearest beacon, wind ribbon warning, and marker readiness.</li>
+<li>Must not cover the sky course or bottom controls on mobile.</li>
+</ul>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, audio/mute toggle, prompt link.</li>
+</ul>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<ul>
+<li>Final score, best score, chapter reached, Sky Map Complete status, clean star chain, tension finish, markers placed, cloud tangles hit, mastery badges, restart button.</li>
+</ul>
+<ol>
+<li>Hoshi Sky Map Complete banner</li>
+</ol>
+<ul>
+<li>Trigger once per run after all three chapters and 3600 score.</li>
+<li>Non-blocking celebration: star routes connect into a glowing paper-lantern constellation, the kite tail writes gold ink, shrine beacons shine below, cloud tangles drift away, and the kite bows; endless sky commissions continue after the banner fades.</li>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: nebuta kite/kitsune pilot mascot, night shrine-sky background, star/thread/cloud/beacon icon sheet, and decorative kite-tail or shrine-beacon pieces. Three.js primitives may render the interactive 3D sky course, kite body planes, star nodes, wind ribbons, hit volumes, cloud shelves, route trails, fog, particles, and UI chrome. Procedural code may crop, resize, alpha-clean, atlas-pack, optimize, animate, or place generated assets; it should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/022/assets/source/</code> and use optimized playable copies under <code>release/games/022/assets/</code>. Also copy optimized playable assets into <code>apps/day-022-hoshi-nebuta-kite-cartographer/assets/</code> and the public alias <code>release/hoshi/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny stars/cloud details that disappear at final in-game size, and keep kite/star/beacon/cloud/wind silhouettes distinct against cobalt night backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Nebuta kite kitsune mascot/source charm</li>
+</ol>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/022/assets/source/hoshi-kite-source.png</code></li>
+<li>Optimized path: <code>release/games/022/assets/hoshi-kite.png</code></li>
+<li>Imagegen2 prompt: “A charming friendly Japanese nebuta paper-kite mascot for a mobile 3D browser kite-navigation arcade game, luminous fox-shaped kite with a tiny kitsune pilot charm, red and white braided tail thread, gold star-ink tassels, gentle smile, cobalt night rim light, centered readable silhouette, transparent or solid pale night-blue background, no checkerboard background, no text, no watermark, sprite-friendly, high contrast at small size, suitable as a flying game piece.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Night shrine sky / constellation course background source</li>
+</ol>
+<ul>
+<li>Target: portrait-friendly background suitable behind a 3D sky course with open readable center.</li>
+<li>Archive path: <code>release/games/022/assets/source/hoshi-sky-source.png</code></li>
+<li>Optimized path: <code>release/games/022/assets/hoshi-sky.png</code></li>
+<li>Imagegen2 prompt: “A magical Japanese shrine hill night sky for a portrait mobile 3D kite cartography game, deep cobalt and violet sky, distant red torii and shrine lanterns far below, soft cloud shelves at the sides, gold star constellations, faint wind ribbons, open readable center area for a flying paper kite route, crop-safe for phone portrait, no characters, no text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<ol>
+<li>Star, thread, wind, cloud, beacon, and kite UI icon sheet source</li>
+</ol>
+<ul>
+<li>Target: square icon sheet for objectives, hazards, rewards, and UI decals.</li>
+<li>Archive path: <code>release/games/022/assets/source/hoshi-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/022/assets/hoshi-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a Japanese night-sky kite cartography game: gold star ink node, blue star node, red shrine beacon, braided kite thread marker, tension ring, Reel In icon, Reel Out icon, Tail Pulse, Kitsune Gust seal, cloud tangle hazard, wind ribbon arrow, kite-heart lantern, Hoshi Sky Map emblem, transparent or solid pale night-blue background, no checkerboard background, high contrast, no text, no watermark, generous margins so no icons are cut off.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas/Three.js sky silhouettes, document the failure in <code>ai/postmortems/day-022.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the kite mascot, verify transparent/cutout quality or clean background handling, readable friendly silhouette, centered pivot/crop margins, no unwanted text/watermarks, stable forward orientation, and that the tail/thread pose does not imply an incompatible movement/rotation direction.</li>
+<li>Verify control-to-motion alignment in-game: Steer Up/Down/Left/Right must move in the expected screen/altitude directions, Tail Pulse must visibly stabilize drift, Reel In/Out must change altitude/speed/tension in opposite/readable ways, Star Thread must drop at the current route position, Kitsune Gust must reveal hidden items, shrine beacons must bank completed strokes, and cloud tangles/wind hazards must affect intended areas.</li>
+<li>For the background, verify the center play area remains readable after portrait mobile crop and does not hide the kite, stars, beacons, cloud tangles, wind arrows, sky-map card, helper, or controls.</li>
+<li>For the icon sheet, verify star types, thread marker, tension, reeling, Tail Pulse, Kitsune Gust, cloud tangle, wind arrow, kite-heart, beacon, and Sky Map emblem are distinct at final HUD/button size and cannot be confused. Watch specifically for fake checkerboard transparency; alpha-clean or composite onto pale night-blue if needed and inspect again.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Audio and game feel</h2>
+<p>Because wind, thread tension, star ink, and shrine beacons are central to the theme, include lightweight WebAudio cues initialized only after a user gesture:</p>
+<ul>
+<li>Soft paper flutter when steering or using Tail Pulse, with pitch/length based on drift speed.</li>
+<li>Thread twang when tension crosses warning thresholds.</li>
+<li>Sparkle pluck when collecting a requested star, with pitch varying by star type.</li>
+<li>Warm shrine lantern chime when banking at a beacon.</li>
+<li>Low cloud rustle when touching a cloud tangle.</li>
+<li>Brief airy whoosh when Kitsune Gust reveals hidden gates.</li>
+<li>Rising koto/chime arpeggio when Hoshi Sky Map Complete triggers.</li>
+</ul>
+<p>Audio must not block play if WebAudio is unavailable. Verify no autoplay errors: audio context should be created/resumed only after Start or another user interaction. Include a visible mute toggle in pause/results or HUD.</p>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/022/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 022 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<ul>
+<li>Build the static 3D game under <code>apps/day-022-hoshi-nebuta-kite-cartographer/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/022/</code>.</li>
+<li>Create the public playable route under <code>release/hoshi/</code>.</li>
+<li>Use static HTML/CSS/JS with Three.js/WebGL and no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+<li>If vendoring <code>three.module*.js</code>, also copy the matching <code>three.core*.js</code> beside it in the app, release archive, and <code>/hoshi/</code> alias assets.</li>
+</ul>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, remove fake checkerboards if present, and tune mobile readability/game feel.</li>
+</ul>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, 3D sky render, steer controls, Tail Pulse, Reel In/Out, Star Thread, Kitsune Gust control presence, star collection, tension/beacon feedback, wind/cloud hazard feedback, generated screenshot, generated assets, WebAudio initialization after user gesture, and 390x844 portrait layout.</li>
+</ul>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<ul>
+<li>Write <code>ai/postmortems/day-022.md</code> after validation with what worked, what failed, generated-image inspection notes, audio verification, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 022 is real <code>3d</code> after Day 021 <code>hybrid</code>, with spatial kite-thread gameplay where altitude, depth, wind direction, thread tension, markers, beacons, ordered stars, and hazards matter.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/sky-map card, usable 56px+ steering/action/pause/restart controls, no forced landscape canvas, and no tiny survival-critical stars/hazards.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-022.md</code> is copied exactly to <code>release/games/022/prompt.md</code> and <code>release/hoshi/prompt.md</code>.</li>
+<li><code>release/games/022/prompt.html</code> and <code>release/hoshi/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/hoshi/index.html</code>, <code>release/hoshi/prompt.html</code>, <code>release/hoshi/screenshot.png</code>, and <code>release/hoshi/assets/</code> exist and work.</li>
+<li>Gallery card for Day 022 shows prompt availability, generation duration, public <code>/hoshi/</code> links, mode <code>3d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/022/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/022/assets/source/</code> and optimized assets exist under <code>release/games/022/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive kite/sky/thread visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>WebAudio initializes after user gesture and creates no autoplay console errors; audio is failsafe if unsupported and visual wind/tension cues remain playable muted.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicons to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/<strong></code> through <code>release/games/021/</strong></code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/022/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/hoshi/index.html, release/hoshi/prompt.html, release/hoshi/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-022.md release/games/022/prompt.md and cmp prompts/day-022.md release/hoshi/prompt.md.
+# Prompt HTML check: verify release/games/022/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+# Browser smoke: open the local/static /hoshi/ route and verify menu, tutorial, gameplay start, 3D render, Steer Up/Left/Right/Down, Tail Pulse, Reel In/Out, Star Thread, Kitsune Gust control presence, star collection, tension/beacon feedback, wind/cloud hazard feedback, pause, restart, prompt page, WebAudio after user gesture, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable tap controls and readable HUD/sky-map/3D sky playfield.
+# Static screenshot check: inspect release/games/022/screenshot.png and release/hoshi/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-022.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /hoshi/ and /hoshi/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 022.</code></pre></article></main></body></html>
