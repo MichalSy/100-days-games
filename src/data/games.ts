@@ -346,6 +346,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/hoshi/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-04T01:55:00Z'
+  },
+  23: {
+    status: 'generated',
+    title: 'Sumi Ink Seal Scribe',
+    slug: 'sumi-ink-seal-scribe',
+    genre: ['brush-stroke precision arcade', 'calligraphy pressure puzzle', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Trace smoky sumi brush strokes across moonlit washi cards, manage ink wetness, prevent spreading blots, and finish each commission with a clean vermilion seal.',
+    objective: 'Complete First Moon Stroke, Crane Poem Margin, and Vermilion Festival Scroll while reaching 3700 points to trigger Sumi Master Seal, then continue into endless scroll commissions.',
+    playUrl: '/sumi/',
+    promptUrl: '/sumi/prompt.html',
+    promptExcerpt: 'Draw calligraphy strokes in order, balance Fine and Loaded Brush wetness, rescue blots with Rice Paper Dab, stamp the Hanko Seal, and use Calm Breath for clean scrolls.',
+    screenshotUrl: '/sumi/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-05T01:35:48Z'
   }
 };
 

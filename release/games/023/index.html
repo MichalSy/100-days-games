@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Sumi Ink Seal Scribe — Day 023</title>
+  <meta name="description" content="Day 023: Draw sumi strokes, manage ink wetness, prevent blots, and stamp vermilion seals." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2323130c'/%3E%3Cpath d='M15 45c13-2 25-14 34-30-2 20-11 32-28 39-4 2-8-5-6-9z' fill='%23f3e0b8'/%3E%3Ccircle cx='43' cy='18' r='5' fill='%23b93524'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="shell" aria-label="Sumi Ink Seal Scribe game">
+    <section class="hud" aria-label="Game status">
+      <div class="chip identity"><span>Day 023 · 2D</span><strong>/sumi/</strong></div>
+      <div class="chip"><span>Score</span><strong id="score">0</strong></div>
+      <div class="chip"><span>Best</span><strong id="best">0</strong></div>
+      <div class="chip"><span>Paper Hearts</span><strong id="hearts">◇◇◇</strong></div>
+      <div class="chip"><span>Blot</span><strong id="blot">0%</strong></div>
+      <div class="chip"><span>Combo</span><strong id="combo">×1.0</strong></div>
+      <div class="chip"><span>Brush</span><strong id="brushMode">Fine</strong></div>
+      <div class="chip"><span>Time</span><strong id="time">0:00</strong></div>
+    </section>
+
+    <section class="commission" aria-label="Current calligraphy commission">
+      <div>
+        <p id="chapter" class="eyebrow">First Moon Stroke</p>
+        <h1>Sumi Ink Seal Scribe</h1>
+        <p id="objective">Trace 3 moon strokes in order, keep blot below 18%, and place one vermilion seal.</p>
+      </div>
+      <div class="goals" aria-label="Commission goals">
+        <span id="strokeGoal">0/3 strokes</span>
+        <span id="sealGoal">seal waiting</span>
+        <span id="blotGoal">blot ≤ 18%</span>
+        <span id="breathGoal">Calm Breath 0%</span>
+      </div>
+    </section>
+
+    <section class="stage-wrap" aria-label="Washi drawing board">
+      <canvas id="gameCanvas" width="920" height="580" aria-label="Interactive washi paper stroke canvas"></canvas>
+      <img class="studio-bg" src="./assets/sumi-studio.png" alt="Moonlit calligraphy studio background" />
+      <img class="scribe" src="./assets/sumi-scribe.png" alt="Fox calligraphy apprentice mascot" />
+      <div id="helper" class="helper" aria-live="polite">Ready ink. Start with stroke 1 using Fine Brush.</div>
+    </section>
+
+    <section class="controls" aria-label="Touch controls">
+      <button id="fineBtn" class="primary selected" type="button">Fine Brush <kbd>1</kbd></button>
+      <button id="loadedBtn" class="primary" type="button">Loaded Brush <kbd>2</kbd></button>
+      <button id="dryBtn" type="button">Lift / Dry <kbd>Space</kbd></button>
+      <button id="dabBtn" type="button">Rice Paper Dab <kbd>D</kbd></button>
+      <button id="sealBtn" type="button">Hanko Seal <kbd>S</kbd></button>
+      <button id="breathBtn" type="button">Calm Breath <kbd>Shift</kbd></button>
+      <button id="pauseBtn" type="button">Pause <kbd>P</kbd></button>
+      <button id="restartBtn" type="button">Restart <kbd>R</kbd></button>
+      <a class="button prompt-link" href="./prompt.html">Prompt</a>
+    </section>
+  </main>
+
+  <div id="menuOverlay" class="overlay show" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
+    <div class="panel">
+      <p class="eyebrow">Day 023 · 2D · /sumi/</p>
+      <h2 id="menuTitle">Sumi Ink Seal Scribe</h2>
+      <p class="lede">Trace sumi strokes in order, control wetness, prevent blots, and finish each scroll with a vermilion seal.</p>
+      <ul class="tutorial">
+        <li>Drag through numbered ghost strokes; clean direction and coverage build combo.</li>
+        <li>Fine Brush is precise. Loaded Brush covers faster but raises blot risk.</li>
+        <li>Lift/Dry before wet pools spread. Rice Paper Dab rescues one blot.</li>
+        <li>Stamp the Hanko Seal inside the red target after required strokes.</li>
+        <li>Audio starts after Start; visual ink/blot cues work muted.</li>
+      </ul>
+      <div class="panel-actions">
+        <button id="startBtn" class="start" type="button">Start</button>
+        <a class="button" href="./prompt.html">View Prompt</a>
+      </div>
+      <p class="best-line" id="bestLine">Best score: 0</p>
+    </div>
+  </div>
+
+  <div id="pauseOverlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="pauseTitle">
+    <div class="panel small">
+      <h2 id="pauseTitle">Paused</h2>
+      <p>Draw strokes in order, dry the brush between wet patches, and seal only when the target corner glows.</p>
+      <div class="panel-actions">
+        <button id="resumeBtn" class="start" type="button">Resume</button>
+        <button id="muteBtn" type="button">Mute Audio</button>
+        <a class="button" href="./prompt.html">Prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="resultOverlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+    <div class="panel">
+      <p class="eyebrow" id="resultKicker">Scroll complete</p>
+      <h2 id="resultTitle">Results</h2>
+      <p id="resultText"></p>
+      <div id="badges" class="badges"></div>
+      <div class="panel-actions">
+        <button id="againBtn" class="start" type="button">Restart</button>
+        <a class="button" href="./prompt.html">Prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="./game.js" defer></script>
+</body>
+</html>

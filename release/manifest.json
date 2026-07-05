@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-04T01:55:00.000Z",
+  "generatedAt": "2026-07-05T01:35:48.000Z",
   "totalDays": 100,
-  "completedDays": 22,
+  "completedDays": 23,
   "games": [
     {
       "day": 1,
@@ -199,6 +199,15 @@
       "playUrl": "/hoshi/",
       "promptUrl": "/hoshi/prompt.html",
       "screenshotUrl": "/hoshi/screenshot.png",
+      "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 23,
+      "title": "Sumi Ink Seal Scribe",
+      "slug": "sumi-ink-seal-scribe",
+      "playUrl": "/sumi/",
+      "promptUrl": "/sumi/prompt.html",
+      "screenshotUrl": "/sumi/screenshot.png",
       "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]
