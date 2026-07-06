@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#201239" />
+  <title>Usagi Mochi Moon Hopper — Day 024</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23201239'/%3E%3Ccircle cx='42' cy='18' r='12' fill='%23fff5d6'/%3E%3Cellipse cx='24' cy='37' rx='14' ry='10' fill='%23c9f2a6'/%3E%3Ctext x='32' y='48' text-anchor='middle' font-size='22'%3E🐇%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="shell" aria-label="Day 024 Usagi Mochi Moon Hopper">
+    <section class="hud" aria-label="Game status">
+      <div class="chip day"><span>Day 024 · 3D</span><strong>/usagi/</strong></div>
+      <div class="chip"><span>Score</span><strong id="score">0</strong></div>
+      <div class="chip"><span>Best</span><strong id="bestScore">0</strong></div>
+      <div class="chip"><span>Moon Hearts</span><strong id="hearts">◆◆◆</strong></div>
+      <div class="chip"><span>Stability</span><strong id="stability">100%</strong></div>
+      <div class="chip"><span>Combo</span><strong id="combo">×1.0</strong></div>
+      <div class="chip"><span>Hop</span><strong id="hopMode">Charge</strong></div>
+      <div class="chip"><span>Time</span><strong id="time">0:00</strong></div>
+    </section>
+
+    <section class="mission" aria-label="Current delivery">
+      <div>
+        <p class="eyebrow" id="chapterName">First Mooncake Hop</p>
+        <h1>Usagi Mochi Moon Hopper</h1>
+        <p id="objectiveText">Collect 3 gold rice sparks, land on 3 mochi pads, and deliver to Moon Tray A.</p>
+      </div>
+      <div class="mission-badges">
+        <span id="sparkOrder">● Gold · ● Gold · ● Gold</span>
+        <span id="deliveryProgress">0/3 sparks</span>
+        <span id="trayStatus">tray waiting</span>
+        <span id="focusCharge">Moon Whisker 0%</span>
+      </div>
+    </section>
+
+    <section class="stage-card" aria-label="3D mochi rooftop course">
+      <div id="stage" class="stage" role="application" aria-label="3D hopping playfield. Use aim and hop controls.">
+        <div id="readyBadge" class="ready-badge">Ready to hop.</div>
+        <canvas id="gameCanvas"></canvas>
+      </div>
+      <div class="helper" id="helper">Aim at the next mochi pad. Charge Hop shows the landing circle.</div>
+    </section>
+
+    <section class="controls" aria-label="Game controls">
+      <button data-action="aimForward" class="btn aim">Aim ↑<small>W/↑</small></button>
+      <button data-action="aimLeft" class="btn aim">← Left<small>A/←</small></button>
+      <button data-action="hop" class="btn primary">Charge Hop<small>Space</small></button>
+      <button data-action="aimRight" class="btn aim">Right →<small>D/→</small></button>
+      <button data-action="aimBack" class="btn aim">Aim ↓<small>S/↓</small></button>
+      <button data-action="shortHop" class="btn">Short Hop<small>Q</small></button>
+      <button data-action="dash" class="btn moon">Moon Dash<small>E</small></button>
+      <button data-action="brace" class="btn">Knead/Brace<small>K</small></button>
+      <button data-action="marker" class="btn">Rice Marker<small>M</small></button>
+      <button data-action="focus" class="btn focus">Whisker Focus<small>Shift</small></button>
+      <button data-action="pause" class="btn">Pause<small>P</small></button>
+      <button data-action="restart" class="btn danger">Restart<small>R</small></button>
+      <a class="btn link" href="./prompt.html">Prompt</a>
+    </section>
+  </main>
+
+  <section id="menu" class="overlay visible" aria-modal="true" role="dialog">
+    <div class="panel">
+      <p class="eyebrow">Day 024 · 3D · /usagi/</p>
+      <h2>Usagi Mochi Moon Hopper</h2>
+      <p class="lede">Hop across springy moonlit mochi pads, collect rice sparks in order, and deliver glowing trays before soot-bat shadows crack the route.</p>
+      <div class="tutorial-grid">
+        <p><strong>Aim:</strong> arrows/WASD or big touch buttons move the landing preview through depth.</p>
+        <p><strong>Hop:</strong> Charge Hop reaches far pads; Short Hop is safer nearby.</p>
+        <p><strong>Stability:</strong> center landings build combo; edge landings crack pads. Knead/Brace before risky jumps.</p>
+        <p><strong>Moon Whisker:</strong> charged by clean landings, it slows shadows and reveals safer arcs.</p>
+      </div>
+      <p class="audio-note">Audio starts after Start; all jump and hazard cues remain visible if muted.</p>
+      <div class="panel-actions">
+        <button id="startButton" class="btn primary big">Start Moon Hop</button>
+        <a class="btn link big" href="./prompt.html">Read prompt</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="pauseOverlay" class="overlay" aria-modal="true" role="dialog">
+    <div class="panel compact">
+      <h2>Paused</h2>
+      <p>Resume the rooftop delivery, restart the run, or review the controls.</p>
+      <p class="mini">Aim with direction buttons, Charge Hop with Space, Short Hop with Q, Moon Dash with E, Knead/Brace with K, Rice Marker with M, Moon Whisker Focus with Shift.</p>
+      <div class="panel-actions">
+        <button data-action="pause" class="btn primary big">Resume</button>
+        <button data-action="restart" class="btn danger big">Restart</button>
+        <button id="muteButton" class="btn big">Mute audio</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="resultOverlay" class="overlay" aria-modal="true" role="dialog">
+    <div class="panel compact">
+      <p class="eyebrow" id="resultKicker">Moon route complete</p>
+      <h2 id="resultTitle">Usagi Moon Feast!</h2>
+      <p id="resultText">The rabbit constellation glows above the trays.</p>
+      <div id="badges" class="badges"></div>
+      <div class="panel-actions">
+        <button data-action="restart" class="btn primary big">Hop again</button>
+        <a class="btn link big" href="./prompt.html">Prompt</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

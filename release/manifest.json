@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-05T01:35:48.000Z",
+  "generatedAt": "2026-07-06T01:40:05.000Z",
   "totalDays": 100,
-  "completedDays": 23,
+  "completedDays": 24,
   "games": [
     {
       "day": 1,
@@ -208,6 +208,15 @@
       "playUrl": "/sumi/",
       "promptUrl": "/sumi/prompt.html",
       "screenshotUrl": "/sumi/screenshot.png",
+      "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 24,
+      "title": "Usagi Mochi Moon Hopper",
+      "slug": "usagi-mochi-moon-hopper",
+      "playUrl": "/usagi/",
+      "promptUrl": "/usagi/prompt.html",
+      "screenshotUrl": "/usagi/screenshot.png",
       "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]

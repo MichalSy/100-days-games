@@ -361,6 +361,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/sumi/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-05T01:35:48Z'
+  },
+  24: {
+    status: 'generated',
+    title: 'Usagi Mochi Moon Hopper',
+    slug: 'usagi-mochi-moon-hopper',
+    genre: ['3D hop-platform arcade', 'moon-mochi timing', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Hop a tiny moon rabbit across springy 3D mochi pads above a lantern-lit rooftop festival, collect ordered rice sparks, brace wobbling pads, dash through tray gates, and deliver glowing offerings to moon trays.',
+    objective: 'Complete First Mooncake Hop, Lantern Tray Crossing, and Jade Rabbit Offering while reaching 3800 points to trigger Usagi Moon Feast, then continue into endless rooftop commissions.',
+    playUrl: '/usagi/',
+    promptUrl: '/usagi/prompt.html',
+    promptExcerpt: 'Aim and charge moon-rabbit hops across springy 3D mochi pads, collect rice sparks in order, stabilize cracked pads, and deliver glowing trays before soot-bat shadows cross the route.',
+    screenshotUrl: '/usagi/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-06T01:40:05Z'
   }
 };
 

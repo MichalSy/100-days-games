@@ -1,0 +1,105 @@
+:root {
+  color-scheme: dark;
+  --bg: #160d27;
+  --bg2: #261447;
+  --panel: rgba(34, 18, 58, 0.82);
+  --panel-strong: rgba(20, 11, 34, 0.94);
+  --ink: #fff7e8;
+  --muted: #d7c8ef;
+  --line: rgba(255, 233, 178, 0.24);
+  --gold: #ffd778;
+  --amber: #f3a33d;
+  --jade: #a8e18d;
+  --cream: #fff0c2;
+  --rose: #f49bb7;
+  --danger: #e65754;
+  --violet: #8062ff;
+  --shadow: 0 22px 70px rgba(0, 0, 0, 0.42);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: radial-gradient(circle at 50% 0%, #533b90 0, var(--bg) 58%, #090613 100%); color: var(--ink); overflow-x: hidden; }
+body { min-height: 100vh; }
+button, a { font: inherit; }
+
+.shell { width: min(1180px, calc(100vw - 28px)); margin: 0 auto; padding: max(10px, env(safe-area-inset-top)) 0 16px; display: grid; gap: 10px; }
+.hud { display: grid; grid-template-columns: 1.35fr repeat(7, minmax(92px, 1fr)); gap: 8px; }
+.chip { min-height: 62px; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(180deg, rgba(19, 12, 38, 0.88), rgba(12, 7, 23, 0.86)); padding: 10px 14px; box-shadow: inset 0 1px rgba(255,255,255,.08); display: flex; flex-direction: column; justify-content: center; }
+.chip span, .eyebrow { color: #ffe8a8; text-transform: uppercase; letter-spacing: .16em; font-size: 11px; font-weight: 900; }
+.chip strong { font-size: clamp(24px, 3vw, 32px); line-height: .95; color: #fffdf4; }
+.chip.day strong { color: var(--gold); font-size: 22px; }
+
+.mission { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; padding: 18px 24px; min-height: 146px; border: 1px solid rgba(255, 222, 152, .28); border-radius: 22px; overflow: hidden; background: linear-gradient(110deg, rgba(255, 226, 154, .94), rgba(172, 108, 224, .45)), url('./assets/usagi-rooftops.png') center 42% / cover; color: #211135; box-shadow: var(--shadow); position: relative; }
+.mission::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255, 244, 213, .86), rgba(255, 244, 213, .18) 70%); pointer-events: none; }
+.mission > * { position: relative; z-index: 1; }
+h1 { margin: 4px 0 8px; font-size: clamp(38px, 5vw, 60px); line-height: .88; letter-spacing: -.07em; max-width: 780px; }
+.mission p { margin: 0; font-weight: 800; font-size: clamp(17px, 2vw, 22px); max-width: 760px; }
+.mission-badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; max-width: 330px; }
+.mission-badges span { display: inline-flex; min-height: 42px; align-items: center; border-radius: 999px; padding: 8px 14px; background: rgba(255,255,255,.75); color: #2b173a; font-weight: 900; box-shadow: inset 0 -1px rgba(0,0,0,.1); }
+
+.stage-card { border: 1px solid rgba(255, 222, 152, .22); border-radius: 22px; background: rgba(16, 9, 28, .72); padding: 14px; box-shadow: var(--shadow); }
+.stage { position: relative; height: min(42vh, 390px); min-height: 300px; border-radius: 18px; overflow: hidden; background: linear-gradient(180deg, rgba(29, 19, 64, .5), rgba(17, 11, 34, .62)), url('./assets/usagi-rooftops.png') center center / cover; border: 1px solid rgba(255,255,255,.16); }
+#gameCanvas { width: 100%; height: 100%; display: block; touch-action: none; }
+.ready-badge { position: absolute; left: 14px; top: 14px; z-index: 2; padding: 10px 14px; border-radius: 14px; background: rgba(14, 8, 27, .76); color: #fff6d4; border: 1px solid rgba(255,255,255,.16); font-weight: 900; pointer-events: none; }
+.helper { margin-top: 10px; min-height: 46px; display: flex; align-items: center; border-radius: 14px; border: 1px solid rgba(255,255,255,.14); background: rgba(21, 10, 33, .76); padding: 10px 16px; color: #fff7df; font-weight: 900; }
+
+.controls { display: grid; grid-template-columns: repeat(13, minmax(72px, 1fr)); gap: 8px; padding: 10px; border-radius: 22px; border: 1px solid rgba(255, 222, 152, .23); background: rgba(16, 9, 28, .78); box-shadow: var(--shadow); }
+.btn { min-height: 56px; border: 1px solid rgba(255,255,255,.17); border-radius: 14px; background: linear-gradient(180deg, #733d24, #512915); color: #fff5db; font-weight: 950; display: inline-flex; align-items: center; justify-content: center; text-align: center; text-decoration: none; cursor: pointer; padding: 8px 10px; line-height: 1.04; box-shadow: inset 0 1px rgba(255,255,255,.13), 0 8px 20px rgba(0,0,0,.22); }
+.btn small { display: block; font-size: 10px; color: rgba(255,255,255,.82); margin-left: 4px; }
+.btn.primary { background: linear-gradient(180deg, #ffe286, #e49431); color: #27132e; }
+.btn.aim { background: linear-gradient(180deg, #436f9f, #184574); }
+.btn.moon { background: linear-gradient(180deg, #9858d8, #583195); }
+.btn.focus { background: linear-gradient(180deg, #546a9f, #293969); }
+.btn.danger { background: linear-gradient(180deg, #9c4632, #642314); }
+.btn.link { background: linear-gradient(180deg, #211a30, #12101e); }
+.btn.big { min-width: 160px; min-height: 58px; font-size: 18px; }
+.btn:hover, .btn:focus-visible { transform: translateY(-1px); outline: 3px solid rgba(255, 215, 120, .35); outline-offset: 2px; }
+.btn:active { transform: translateY(1px) scale(.99); }
+
+.overlay { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; padding: 18px; z-index: 30; background: radial-gradient(circle at center, rgba(96, 66, 155, .42), rgba(7, 4, 14, .82)); backdrop-filter: blur(10px); }
+.overlay.visible { display: flex; }
+.panel { width: min(760px, 100%); border-radius: 28px; border: 1px solid rgba(255, 230, 164, .35); background: linear-gradient(180deg, rgba(40, 23, 67, .96), rgba(18, 10, 30, .96)); padding: clamp(22px, 4vw, 36px); box-shadow: 0 28px 100px rgba(0,0,0,.5); }
+.panel.compact { width: min(560px, 100%); }
+.panel h2 { margin: 4px 0 12px; font-size: clamp(34px, 7vw, 64px); line-height: .92; letter-spacing: -.06em; }
+.lede { font-size: 19px; color: var(--muted); line-height: 1.45; }
+.tutorial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 18px 0; }
+.tutorial-grid p, .mini { margin: 0; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 13px; color: #f4e9ff; line-height: 1.32; }
+.audio-note { color: #ffe5a2; font-weight: 850; }
+.panel-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.badges span { border-radius: 999px; padding: 8px 12px; background: rgba(255, 216, 120, .16); border: 1px solid rgba(255, 216, 120, .28); color: #ffe6a6; font-weight: 850; }
+
+@media (max-width: 880px) {
+  .shell { width: min(100vw - 12px, 430px); gap: 4px; padding-top: 4px; padding-bottom: 4px; }
+  .hud { grid-template-columns: repeat(4, 1fr); gap: 5px; }
+  .chip { min-height: 46px; border-radius: 13px; padding: 7px 8px; }
+  .chip span, .eyebrow { font-size: 8px; letter-spacing: .13em; }
+  .chip strong { font-size: 17px; }
+  .chip.day strong { font-size: 15px; }
+  .mission { grid-template-columns: 1fr; min-height: 106px; padding: 10px 12px; gap: 6px; border-radius: 18px; }
+  h1 { font-size: 31px; letter-spacing: -.06em; margin: 2px 0 4px; }
+  .mission p { font-size: 13.5px; line-height: 1.22; }
+  .mission-badges { justify-content: flex-start; max-width: none; gap: 5px; }
+  .mission-badges span { min-height: 28px; padding: 5px 9px; font-size: 11px; }
+  .stage-card { padding: 7px; border-radius: 18px; }
+  .stage { height: 240px; min-height: 220px; max-height: 250px; border-radius: 15px; }
+  .ready-badge { top: 8px; left: 8px; padding: 7px 10px; font-size: 12px; }
+  .helper { min-height: 38px; padding: 8px 10px; font-size: 12px; border-radius: 12px; }
+  .controls { grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 5px; border-radius: 18px; }
+  .btn { min-height: 46px; border-radius: 12px; font-size: 12px; padding: 5px 4px; }
+  .btn small { display: block; font-size: 8px; width: 100%; margin: 2px 0 0; opacity: .8; }
+  .tutorial-grid { grid-template-columns: 1fr; }
+  .panel { max-height: calc(100vh - 24px); overflow: auto; border-radius: 22px; }
+  .panel h2 { font-size: 42px; }
+}
+
+@media (max-width: 390px) {
+  .stage { height: 222px; min-height: 214px; }
+  .controls { grid-template-columns: repeat(4, 1fr); }
+  .btn { min-height: 45px; font-size: 11.5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
