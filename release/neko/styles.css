@@ -1,0 +1,94 @@
+* { box-sizing: border-box; }
+:root {
+  --bg: #230906;
+  --panel: rgba(55, 15, 9, 0.88);
+  --panel-2: rgba(104, 31, 16, 0.86);
+  --ink: #fff4d6;
+  --muted: #f3c987;
+  --gold: #f8c64b;
+  --red: #b73522;
+  --teal: #13736f;
+  --cream: #ffe6ad;
+  --shadow: rgba(0, 0, 0, 0.36);
+}
+html, body { margin: 0; min-height: 100%; background: radial-gradient(circle at top, #7a271a 0%, #2a0907 44%, #130302 100%); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+body { min-height: 100svh; overflow-x: hidden; }
+a { color: #ffe39c; text-decoration: none; }
+button, a.prompt-link, .dialog-buttons a { min-height: 44px; border: 1px solid rgba(255, 218, 137, 0.38); border-radius: 14px; color: var(--ink); background: linear-gradient(180deg, #8b301f, #5b1b12); font-weight: 900; letter-spacing: 0.01em; box-shadow: 0 6px 14px var(--shadow), inset 0 1px 0 rgba(255,255,255,0.18); cursor: pointer; touch-action: manipulation; }
+button:focus-visible, a:focus-visible { outline: 3px solid #fff0a8; outline-offset: 2px; }
+button.primary, .big-start { background: linear-gradient(180deg, #ffd96d, #ef9f2f); color: #2b0804; border-color: rgba(255, 242, 170, 0.88); }
+button:disabled { opacity: 0.48; filter: saturate(0.7); cursor: not-allowed; }
+.shell { width: min(1180px, calc(100vw - 24px)); margin: 0 auto; padding: 10px 0 14px; display: grid; gap: 10px; }
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; border: 1px solid rgba(255, 218, 137, 0.24); border-radius: 20px; background: rgba(28, 6, 4, 0.72); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
+h1, h2, h3, p { margin: 0; }
+h1 { font-size: clamp(1.45rem, 4vw, 3.2rem); line-height: 0.95; letter-spacing: -0.055em; }
+.eyebrow { color: var(--gold); text-transform: uppercase; font-size: 0.75rem; font-weight: 950; letter-spacing: 0.16em; }
+.prompt-link { display: grid; place-items: center; padding: 0 14px; }
+.hud { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+.chip { min-height: 62px; padding: 10px 12px; border: 1px solid rgba(255, 218, 137, 0.24); border-radius: 17px; background: rgba(24, 7, 5, 0.78); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08); }
+.chip b { display: block; color: #ffe39c; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; }
+.chip span { display: block; font-size: clamp(1.25rem, 3vw, 2rem); line-height: 1; font-weight: 950; }
+.chip.danger span { color: #ffcf75; }
+.fortune-card { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(220px, 1.2fr) minmax(190px, 0.85fr); gap: 12px; align-items: center; padding: 14px 18px; border-radius: 20px; color: #28100a; background: linear-gradient(105deg, rgba(255, 233, 179, 0.96), rgba(221, 127, 38, 0.9)), url('assets/neko-cabinet.png') center 34% / cover; box-shadow: 0 16px 30px rgba(0,0,0,0.24); }
+.fortune-card h2 { font-size: clamp(1.55rem, 4.5vw, 3.5rem); line-height: 0.92; letter-spacing: -0.05em; }
+.request-line { font-weight: 900; font-size: clamp(1rem, 2.2vw, 1.4rem); }
+.meters { display: grid; gap: 8px; font-weight: 900; }
+.meters label { display: grid; grid-template-columns: 1fr 82px 42px; gap: 8px; align-items: center; padding: 6px 9px; border-radius: 999px; background: rgba(255, 246, 220, 0.7); }
+meter { width: 100%; height: 12px; }
+.board-wrap { position: relative; min-height: 360px; border: 1px solid rgba(255, 218, 137, 0.26); border-radius: 21px; padding: 12px; background: linear-gradient(180deg, rgba(35, 8, 5, 0.9), rgba(28, 5, 3, 0.94)); box-shadow: 0 18px 42px rgba(0,0,0,0.34); overflow: hidden; }
+#gameCanvas { display: block; width: 100%; height: min(52vh, 500px); min-height: 330px; border-radius: 16px; background: #7f2618; border: 1px solid rgba(255, 230, 167, 0.24); touch-action: none; }
+.grand-banner { position: absolute; inset: 32% 9% auto; padding: 18px 22px; border-radius: 24px; background: linear-gradient(135deg, rgba(255,230,130,0.98), rgba(237,98,41,0.94)); color: #2b0703; font-size: clamp(2rem, 8vw, 5rem); font-weight: 1000; text-align: center; box-shadow: 0 25px 60px rgba(0,0,0,0.45); }
+.status-helper { padding: 11px 14px; border: 1px solid rgba(255, 218, 137, 0.26); border-radius: 15px; background: rgba(33, 8, 5, 0.86); font-weight: 850; min-height: 44px; }
+.controls { display: grid; grid-template-columns: repeat(10, minmax(78px, 1fr)); gap: 8px; padding: 10px; border: 1px solid rgba(255, 218, 137, 0.26); border-radius: 20px; background: rgba(24, 6, 4, 0.86); }
+.controls button { padding: 8px 7px; font-size: clamp(0.78rem, 1.65vw, 1rem); line-height: 1.02; }
+.overlay { position: fixed; inset: 0; z-index: 20; display: none; place-items: center; padding: 18px; background: rgba(18, 3, 2, 0.82); backdrop-filter: blur(7px); }
+.overlay.show, .overlay:not([hidden]) { display: grid; }
+.panel { width: min(720px, 96vw); max-height: min(92svh, 760px); overflow: auto; padding: 22px; border: 1px solid rgba(255, 218, 137, 0.34); border-radius: 26px; background: linear-gradient(160deg, rgba(83, 20, 12, 0.98), rgba(24, 5, 3, 0.98)); box-shadow: 0 30px 85px rgba(0,0,0,0.54); }
+.panel h2 { font-size: clamp(2.2rem, 7vw, 4.8rem); letter-spacing: -0.065em; line-height: 0.9; margin-bottom: 12px; }
+.subtitle, .panel p, .tutorial li, .results-body { color: #ffe9ba; font-weight: 700; line-height: 1.38; }
+.badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.badge-row span, .title-stats span { border: 1px solid rgba(255,218,137,0.32); background: rgba(0,0,0,0.22); border-radius: 999px; padding: 7px 10px; font-weight: 900; color: #ffe39c; }
+.title-stats { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.big-start { width: 100%; min-height: 58px; font-size: 1.15rem; margin-bottom: 10px; }
+.audio-note { color: #fbd68d; margin-bottom: 12px; }
+.tutorial { padding: 14px; border-radius: 18px; background: rgba(255,255,255,0.06); }
+.tutorial h3 { margin-bottom: 8px; }
+.tutorial ul { margin: 0; padding-left: 20px; }
+.tutorial li + li { margin-top: 5px; }
+.dialog-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.dialog-buttons button, .dialog-buttons a { padding: 11px 16px; display: grid; place-items: center; }
+.results-body { display: grid; gap: 8px; }
+@media (max-width: 720px) {
+  body { overflow-y: auto; }
+  .shell { width: min(100vw - 10px, 430px); gap: 6px; padding: 6px 0; }
+  .topbar { padding: 7px 9px; border-radius: 16px; }
+  h1 { font-size: 1.38rem; letter-spacing: -0.045em; }
+  .prompt-link { min-height: 40px; padding: 0 10px; }
+  .hud { grid-template-columns: repeat(4, 1fr); gap: 5px; }
+  .chip { min-height: 48px; border-radius: 13px; padding: 7px 8px; }
+  .chip b { font-size: 0.55rem; letter-spacing: 0.12em; }
+  .chip span { font-size: 1.12rem; }
+  .fortune-card { grid-template-columns: 1fr; gap: 5px; padding: 9px 11px; border-radius: 15px; }
+  .fortune-card h2 { font-size: 1.72rem; }
+  .request-line { font-size: 0.9rem; }
+  .meters { grid-template-columns: 1fr 1fr; gap: 5px; }
+  .meters label { grid-template-columns: 1fr; gap: 2px; border-radius: 12px; font-size: 0.72rem; padding: 4px 6px; }
+  .meters label span { display: none; }
+  .board-wrap { min-height: 302px; padding: 6px; border-radius: 16px; }
+  #gameCanvas { height: 310px; min-height: 310px; border-radius: 12px; }
+  .status-helper { min-height: 38px; padding: 8px 10px; font-size: 0.82rem; border-radius: 13px; }
+  .controls { grid-template-columns: repeat(5, 1fr); gap: 5px; padding: 6px; border-radius: 15px; }
+  .controls button { min-height: 52px; padding: 5px 4px; font-size: 0.72rem; border-radius: 11px; }
+  .panel { padding: 14px; max-height: 94svh; }
+  .panel h2 { font-size: 2.35rem; }
+  .subtitle, .panel p, .tutorial li, .results-body { font-size: 0.9rem; line-height: 1.28; }
+  .tutorial { padding: 10px; }
+}
+@media (max-width: 390px) {
+  .shell { width: calc(100vw - 6px); }
+  .controls button { font-size: 0.68rem; }
+  #gameCanvas { height: 300px; min-height: 300px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

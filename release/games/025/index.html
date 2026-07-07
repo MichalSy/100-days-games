@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Day 025 — Neko Koban Bell Cascade</title>
+  <meta name="description" content="A mobile-first 2D lucky-cat koban pachinko arcade game for Day 025." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%238b1d16'/%3E%3Cellipse cx='32' cy='35' rx='18' ry='13' fill='%23f6c84c'/%3E%3Cpath d='M24 29h16M22 35h20M25 41h14' stroke='%237a3b09' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='20' cy='17' r='7' fill='%23fff0c7'/%3E%3Ccircle cx='44' cy='17' r='7' fill='%23fff0c7'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell" id="appShell">
+    <header class="topbar" aria-label="Game header">
+      <div>
+        <p class="eyebrow">Day 025 · <span>2D</span> · <a href="/neko/">/neko/</a></p>
+        <h1>Neko Koban Bell Cascade</h1>
+      </div>
+      <a class="prompt-link" href="prompt.html">Prompt</a>
+    </header>
+
+    <section class="hud" aria-label="Run status">
+      <div class="chip"><b>Score</b><span id="scoreValue">0</span></div>
+      <div class="chip"><b>Best</b><span id="bestValue">0</span></div>
+      <div class="chip"><b>Luck</b><span id="luckValue">🔔🔔🔔</span></div>
+      <div class="chip danger"><b>Misfortune</b><span id="misfortuneValue">0%</span></div>
+      <div class="chip"><b>Combo</b><span id="comboValue">x1</span></div>
+      <div class="chip"><b>Slot</b><span id="slotValue">3</span></div>
+      <div class="chip"><b>Time</b><span id="timeValue">0:00</span></div>
+    </section>
+
+    <section class="fortune-card" aria-label="Current fortune commission">
+      <div>
+        <p class="eyebrow">Commission</p>
+        <h2 id="commissionName">First Paw Chime</h2>
+      </div>
+      <div id="requestLine" class="request-line">Bank gold koban into Tray A.</div>
+      <div class="meters">
+        <label>Fortune Bell <meter id="bellMeter" value="0" min="0" max="100"></meter><span id="bellText">0%</span></label>
+        <label>Lucky Paw <meter id="focusMeter" value="0" min="0" max="100"></meter><span id="focusText">0%</span></label>
+      </div>
+    </section>
+
+    <section class="board-wrap" aria-label="Lucky-cat pachinko board">
+      <canvas id="gameCanvas" width="390" height="620" aria-label="2D koban pachinko board with pegs, paw bumpers, gates, bells, trays, and gutters"></canvas>
+      <div id="grandBanner" class="grand-banner" hidden>Neko Grand Fortune!</div>
+    </section>
+
+    <p class="status-helper" id="statusHelper" aria-live="polite">Choose a drop slot, rotate a paw bumper, then drop a koban coin.</p>
+
+    <section class="controls" aria-label="Game controls">
+      <button id="slotLeftBtn" type="button">Slot Left</button>
+      <button id="slotRightBtn" type="button">Slot Right</button>
+      <button id="dropBtn" class="primary" type="button">Drop Coin</button>
+      <button id="rotateBtn" type="button">Rotate Paw</button>
+      <button id="gateBtn" type="button">Toggle Gate</button>
+      <button id="bellBtn" type="button">Fortune Bell</button>
+      <button id="nudgeBtn" type="button">Nudge</button>
+      <button id="focusBtn" type="button">Lucky Paw</button>
+      <button id="pauseBtn" type="button">Pause</button>
+      <button id="restartBtn" type="button">Restart</button>
+    </section>
+  </main>
+
+  <section id="titleOverlay" class="overlay show" role="dialog" aria-modal="true" aria-labelledby="titleHeading">
+    <div class="panel title-panel">
+      <div class="badge-row"><span>Day 025</span><span>Mode 2D</span><span>Public route /neko/</span></div>
+      <h2 id="titleHeading">Neko Koban Bell Cascade</h2>
+      <p class="subtitle">Drop glossy koban coins through a cozy red-and-gold maneki-neko fortune cabinet. Rotate paw bumpers, toggle charm gates, ring bells, and bank requested coins into matching trays before luck runs out.</p>
+      <div class="title-stats"><span>Best score: <b id="menuBest">0</b></span><span>Best Grand Fortune: <b id="menuGrand">—</b></span></div>
+      <button id="startBtn" class="big-start" type="button">Start Fortune Run</button>
+      <p class="audio-note">Audio starts after you press Start; visual coin paths work if muted.</p>
+      <article class="tutorial">
+        <h3>Tutorial</h3>
+        <ul>
+          <li><b>Objective:</b> Drop koban coins, rotate paw bumpers, ring bells, and bank coins into matching fortune trays.</li>
+          <li><b>Drop slots:</b> Pick a slot before releasing each coin wave; Lucky Paw previews the likely path.</li>
+          <li><b>Paw bumpers:</b> Rotate bumpers before coins arrive to redirect toward requested trays.</li>
+          <li><b>Charm gates:</b> Toggle gates to sort coins, but gates cannot close through an active coin.</li>
+          <li><b>Fortune Bell:</b> Rescue a nearby requested coin when charged.</li>
+          <li><b>Nudge:</b> Small cabinet nudges can save a coin, but overuse raises misfortune.</li>
+          <li><b>Pause/restart:</b> P/R on desktop or visible buttons on mobile.</li>
+        </ul>
+      </article>
+      <a href="prompt.html">Read the archived prompt</a>
+    </div>
+  </section>
+
+  <section id="pauseOverlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="pauseHeading" hidden>
+    <div class="panel">
+      <h2 id="pauseHeading">Fortune Paused</h2>
+      <p>Controls: Arrow/A-D choose slot · Q/E rotate paw · G gate · Space/Enter drop · B bell · N nudge · Shift/L Lucky Paw · P pause · R restart.</p>
+      <p>Tutorial reminder: sort requested coin types into the named trays; gates and bumpers are planning tools, nudges are risky rescues.</p>
+      <div class="dialog-buttons">
+        <button id="resumeBtn" type="button">Resume</button>
+        <button id="muteBtn" type="button">Mute: Off</button>
+        <button id="pauseRestartBtn" type="button">Restart</button>
+        <a href="prompt.html">Prompt</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="resultsOverlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="resultsHeading" hidden>
+    <div class="panel">
+      <h2 id="resultsHeading">Fortune Results</h2>
+      <div id="resultsBody" class="results-body"></div>
+      <div class="dialog-buttons">
+        <button id="resultsRestartBtn" class="primary" type="button">Restart</button>
+        <a href="prompt.html">Prompt</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="game.js" defer></script>
+</body>
+</html>

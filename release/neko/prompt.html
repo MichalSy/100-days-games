@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Day 025 Game Generation Prompt</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%238b1d16'/%3E%3Ccircle cx='32' cy='34' r='18' fill='%23f6c84c'/%3E%3C/svg%3E" />
+<style>
+:root { color-scheme: dark; --bg:#190403; --panel:#fff4dc; --ink:#24100a; --muted:#6b3a20; --gold:#d99326; --red:#8b1d16; }
+* { box-sizing:border-box; } body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: radial-gradient(circle at top, #7c2719, var(--bg) 55%); color:var(--ink); }
+main { width:min(920px, calc(100vw - 28px)); margin:24px auto 56px; padding: clamp(18px, 4vw, 42px); background:var(--panel); border-radius:28px; box-shadow:0 28px 80px rgba(0,0,0,.45); }
+nav a { display:inline-flex; min-height:44px; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; background:var(--red); color:#fff4dc; text-decoration:none; font-weight:900; }
+h1 { font-size:clamp(2.1rem, 6vw, 4.8rem); line-height:.9; letter-spacing:-.06em; margin:20px 0; } h2 { margin:34px 0 10px; font-size:1.65rem; } h3 { margin:24px 0 8px; }
+p, li { line-height:1.58; font-weight:560; } code { background:#f1dfbd; padding:.12em .32em; border-radius:.35em; } pre { overflow:auto; background:#2a0906; color:#ffe8b7; padding:16px; border-radius:16px; }
+ul, ol { padding-left:1.45rem; } li+li { margin-top:.35rem; } .meta { color:var(--muted); font-weight:900; text-transform:uppercase; letter-spacing:.12em; font-size:.78rem; }
+</style>
+</head>
+<body><main><nav><a href="index.html">← Back to game</a></nav><p class="meta">100 Days Games · Day 025</p><h1>Day 025 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 025</li>
+<li>Title: Neko Koban Bell Cascade</li>
+<li>Slug: neko-koban-bell-cascade</li>
+<li>Public route word: neko</li>
+<li>Mode: 2D</li>
+<li>Genre: mobile-first luck-physics pachinko arcade / charm-routing score chase</li>
+<li>Mood/style: cozy red-and-gold maneki-neko fortune shop at night, glossy koban coins, ceramic lucky cats, lacquer shelves, tiny shrine bells, paper omikuji slips, teal patina coin trays, warm lantern reflections, playful coin-bounce audio and tactile bumper routing; direct 2D coin-drop planning rather than 3D mochi hopping, calligraphy brush tracing, kite-thread sky navigation, dry-garden raking, underwater cartography, taiko rhythm lanes, shrine tilt mazes, silver webs, pottery shaping, bamboo canals, origami folding, rain sheltering, snow stacking, kimono stamping, bento cooking, windbell tuning, rail running, or koi collection.</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 022 <code>3d</code>: nebuta kite sky cartography with ordered star nodes, thread tension, wind ribbons, shrine beacons, cloud tangles, and a kitsune kite mascot.</li>
+<li>Day 023 <code>2d</code>: sumi calligraphy with direct brush strokes, wetness/blots, washi paper, fox-scribe helper, and vermilion seal placement.</li>
+<li>Day 024 <code>3d</code>: usagi moon-mochi platform hopping with charged jump arcs, spring pads, rice sparks, tray gates, and rooftop depth.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>3d</code>; latest 2D streak is zero. Day 025 deliberately chooses <code>2D</code> because it follows a 3D day and the series benefits from a crisp portrait-first touch game with readable objects, physics timing, and satisfying coin/bell feedback. The new verb set is luck-machine routing: choose coin drop slots, rotate cat-paw bumpers, open/close charm gates, ring bells, bank matching koban coins into fortune trays, and spend Lucky Paw focus to slow the cascade.</p>
+<p>Recent screenshot/visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 022 used dark cobalt sky, sparse star depth, nebuta kite mascot, altitude/tension HUD, and blue/pink action buttons.</li>
+<li>Day 023 used warm washi paper, charcoal table, black sumi strokes, vermilion seal target, fox-scribe mascot, and direct drawing controls.</li>
+<li>Day 024 used lavender moon rooftops, floating mochi pads, a white rabbit, jump arcs, rice spark order, and 3D platform depth.</li>
+</ul>
+<p>Day 025 should shift to a compact lucky-cat shop/pachinko cabinet: deep vermilion wood, gold coin trails, cream ceramic cats, small bronze bells, emerald/teal tray patina, paper fortune slips, and chunky readable bumpers. Avoid moon-platform visuals, lavender rooftop depth, brush/washi/seal language as core UI, kite/thread/star-map navigation, dry-garden sand/moss/stone boards, underwater teal corridors, taiko rhythm pads, tilt-maze boards, web anchors, clay profiles, bamboo pipes, origami creases, parasols/rain, snow blocks, kimono cloth panels, or generic slot-machine reels.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/canvas/WebAudio game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 022 <code>3d</code>, Day 023 <code>2d</code>, and Day 024 <code>3d</code>. The latest generated-mode streak is one <code>3d</code>; latest 2D streak is zero.</p>
+<p>Mode decision: Day 025 is <code>2D</code>. This is allowed and intentional because it follows 3D and does not extend a 2D streak. The 2D implementation must still be mechanically rich and visually polished:</p>
+<ul>
+<li>Use static-browser HTML/CSS/JS with a canvas-based pachinko/coin-routing board and semantic UI; no backend.</li>
+<li>Render a portrait-first lucky-cat cabinet with real coin positions/velocities, pegs, rotatable paw bumpers, charm gates, bells, trays, misfortune gutters, score sparks, and path previews.</li>
+<li>Gameplay must depend on 2D state: drop slot, coin velocity, bumper angle, gate state, bell charge, tray target order, lucky chain combo, cabinet shake, wrong-tray risk, and focus timing.</li>
+<li>Player actions must manipulate the system: choose a drop slot, release coin waves, rotate paw bumpers, open/close charm gates, ring the Fortune Bell, nudge the cabinet within safe limits, spend Lucky Paw focus to slow/predict, pause/restart, and inspect tutorial hints.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Drop glossy koban coins through a maneki-neko fortune board, rotate paw bumpers and charm gates, ring bells, and guide requested coin types into matching fortune trays before luck runs out.</li>
+<li>Win condition: Complete three fortune commissions — First Paw Chime, Lantern Coin Spiral, and Golden Maneki Offering — while reaching 3900 points to trigger “Neko Grand Fortune”. After the fortune banner, continue into endless shop commissions.</li>
+<li>Lose condition: Three luck bells crack, the commission timer expires, the misfortune meter reaches 100%, too many requested coins fall into wrong trays/gutters, or cabinet shake exceeds the safe line after repeated nudges.</li>
+<li>Core loop:</li>
+</ul>
+<p>1. Start on a title/menu screen with Day 025 badge, mode badge “2D”, public route <code>/neko/</code>, best score, best Grand Fortune time, tutorial, prompt link, and a large Start button.</p>
+<p>2. Show a portrait-friendly lucky-cat pachinko board. A coin slot rail sits at the top, rotatable cat-paw bumpers and charm gates fill the center, bells and paper fortunes sit along paths, matching trays line the bottom, and a maneki-neko helper watches from one side.</p>
+<p>3. A fortune card requests goals, for example: “Bank 3 gold koban in Tray A, ring 2 bronze bells, keep misfortune under 30%, finish with one Lucky Paw unused.”</p>
+<p>4. Player selects a top drop slot and releases one coin or a small coin wave. Coins bounce through pegs, paw bumpers, gates, bells, and tray mouths using readable arcade physics.</p>
+<p>5. Paw bumpers rotate in 45-degree steps and bend coin paths. Charm gates toggle open/closed but can only change while no coin overlaps them, encouraging planning.</p>
+<p>6. Fortune Bell charges through clean tray deliveries. Ringing it magnetizes the nearest requested coin toward the correct tray for a short time.</p>
+<p>7. Nudge Cabinet gives a small horizontal impulse to active coins; repeated nudges raise shake/misfortune and can crack a luck bell if abused.</p>
+<p>8. Lucky Paw focus, charged by clean bell/tray combos, slows coins and overlays a short predicted path before release.</p>
+<p>9. Completing a commission lights a ceramic cat, awards points, repairs one luck bell if needed, and unlocks more complex bumper/gate layouts.</p>
+<p>10. Pause/restart remain available throughout.</p>
+<ul>
+<li>15+ minute play-value strategy:</li>
+</ul>
+<p>- Save best score, fastest Neko Grand Fortune time, longest lucky chain, highest endless commission, most perfect tray deliveries, fewest nudges, best low-misfortune finish, and collected fortune seals in localStorage.</p>
+<p>- Include three authored commissions:</p>
+<p>- First Paw Chime: wide trays, two coin types, slow coin speed, visible path preview, two rotatable paw bumpers, no penalty during first guided drop.</p>
+<p>- Lantern Coin Spiral: adds silver coins, three trays, first toggle gates, bell-ring tutorial, misfortune gutter, and gentle moving peg rows.</p>
+<p>- Golden Maneki Offering: adds mixed coin order, narrower tray mouths, crossing bumpers, misfortune slips, stricter nudge/shake meter, and Lucky Paw focus mastery.</p>
+<p>- Deterministic Day 025 seed varies peg layouts, bumper start angles, gate positions, coin type order, bell locations, tray targets, nudge drift, and endless constraints while keeping the opening fair.</p>
+<p>- Mastery badges: finish First Paw Chime without a gutter drop, trigger Grand Fortune under 235 seconds, bank 24 requested coins in clean order, ring 12 bells in one run, complete a commission with zero nudges, complete an endless fortune with all luck bells.</p>
+<p>- Strategic scoring rewards planning: rotate bumpers before release, use gates to sort rather than block, save Fortune Bell for a wrong-lane rescue, spend Lucky Paw before high-value waves, nudge lightly near tray mouths, and avoid chasing bonus bells when requested trays are already aligned.</p>
+<p>- Endless mode after Grand Fortune adds denser pegs, faster coins, alternating tray orders, fewer gate toggles, stronger gutter pull, stricter shake limits, and more coin waves without shrinking touch controls.</p>
+<ul>
+<li>Difficulty scaling:</li>
+</ul>
+<p>- 0-45 seconds: large trays, slow coins, broad bumpers, one bell, visible path preview, guided first drop.</p>
+<p>- 45-130 seconds: silver coin type, first gate, first gutter, three trays, Fortune Bell introduced, mild moving pegs.</p>
+<p>- 130-235 seconds: mixed coin order, tighter tray mouths, misfortune slips, crossing bumper angles, Lucky Paw timing, stricter shake.</p>
+<p>- 235+ seconds/endless: denser board, quicker coin waves, fewer safe toggles, same readable controls.</p>
+<p>- Keep mobile fair: coins, bumpers, gates, bells, tray mouths, gutter warnings, path previews, and action buttons must be large/readable at 390x844; primary touch buttons must be 52px+; no tiny survival-critical collision target.</p>
+<ul>
+<li>Scoring/rewards:</li>
+</ul>
+<p>- Requested coin banked in correct tray: +120 points times combo tier.</p>
+<p>- Bell ring before correct tray: +85 bonus and focus charge.</p>
+<p>- Clean paw-bumper redirect into requested tray: +170 bonus.</p>
+<p>- Correct gate toggle that prevents a wrong tray: +110 bonus.</p>
+<p>- Fortune Bell rescue delivery: +260 points and luck bell repair charge.</p>
+<p>- Commission complete below misfortune target: +650 points and repair one luck bell if below max.</p>
+<p>- Perfect no-gutter commission: +800 points.</p>
+<p>- Neko Grand Fortune: +1500 points and endless fortune commissions unlock.</p>
+<p>- Wrong tray: combo soft-reset, misfortune +8%.</p>
+<p>- Gutter drop: luck-bell damage if threshold crossed, misfortune +14%, combo reset.</p>
+<p>- Over-nudge/shake warning: cabinet shake +12%; crack a luck bell if abused while coins are active.</p>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+</ul>
+<p>- Mouse click/tap: choose top drop slot, select/rotate a paw bumper, toggle a charm gate, press action buttons, start/pause overlay button, prompt link, or explainable HUD chips.</p>
+<p>- Mouse drag on the board: optional aim preview for the next drop slot; release only through the main Drop Coin button unless the UI is unambiguous.</p>
+<p>- Arrow keys or A/D: move the selected drop slot left/right.</p>
+<p>- Q/E: rotate selected paw bumper counterclockwise/clockwise.</p>
+<p>- G: toggle selected charm gate.</p>
+<p>- Space or Enter: Drop Coin / confirm start.</p>
+<p>- B: Fortune Bell when charged.</p>
+<p>- N: Nudge Cabinet.</p>
+<p>- Shift or L: Lucky Paw focus when charged.</p>
+<p>- P: pause/resume.</p>
+<p>- R: restart current run.</p>
+<ul>
+<li>Mobile/touch:</li>
+</ul>
+<p>- Use large Slot Left, Slot Right, Drop Coin, Rotate Paw, Toggle Gate, Fortune Bell, Nudge, Lucky Paw, Pause, and Restart buttons.</p>
+<p>- Tapping a bumper selects it; tapping Rotate Paw turns it visibly. Tapping a gate selects it; Toggle Gate opens/closes it if safe.</p>
+<p>- Tapping tray/bell/coin chips may show short explanations.</p>
+<p>- Optional drag-to-preview is allowed, but visible buttons are mandatory.</p>
+<p>- No tiny virtual joystick. Interaction is slot selection, coin drop, bumper rotation, gate toggling, bell rescue, nudge, focus, pause/restart.</p>
+<ul>
+<li>Mobile layout/orientation:</li>
+</ul>
+<p>- Default target is portrait phone play around 390x844; do not require landscape.</p>
+<p>- Top: compact fortune-shop HUD with score, best, luck bells, misfortune, combo, active slot, active tool, and elapsed time. Use cat/coin/bell/tray chips, not moon/rabbit/brush/kite/garden/depth chips.</p>
+<p>- Below top: fortune card with requested coin order, tray target, bell count, misfortune limit, nudge limit, and progress ticks.</p>
+<p>- Center: tall lucky-cat board with drop rail, coins, pegs, paw bumpers, gates, bells, trays, gutters, helper art, and path preview. It must remain playable without zooming.</p>
+<p>- Bottom: status helper plus large controls. Controls must not cover the active tray mouths, gutter warnings, or selected bumper/gate.</p>
+<p>- Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, drop slots, bumpers, gates, bells, trays, nudge, Lucky Paw, pause/restart must be visible.</p>
+<p>- Requests must combine text, coin shapes, tray letters, symbols, and line styles so hue alone is not required.</p>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<p>- Shows title “Neko Koban Bell Cascade”.</p>
+<p>- Shows Day 025 badge, mode badge “2D”, public route <code>/neko/</code>, best score, best Grand Fortune time if available, and a prompt link.</p>
+<p>- Shows a large Start button and visible tutorial panel by default.</p>
+<p>- Notes: “Audio starts after you press Start; visual coin paths work if muted.”</p>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<p>- Objective: “Drop koban coins, rotate paw bumpers, ring bells, and bank coins into matching fortune trays.”</p>
+<p>- Drop slots: pick a slot before releasing each coin wave; Lucky Paw previews the likely path.</p>
+<p>- Paw bumpers: rotate bumpers before coins arrive to redirect toward requested trays.</p>
+<p>- Charm gates: toggle gates to sort coins, but gates cannot close through an active coin.</p>
+<p>- Fortune Bell: rescue a nearby requested coin when charged.</p>
+<p>- Nudge: small cabinet nudges can save a coin, but overuse raises misfortune.</p>
+<p>- Pause/restart: P/R on desktop or visible buttons on mobile.</p>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<p>- Score, best score, luck bells, misfortune %, commission name, combo, active slot, elapsed time, requested coin/tray order, bell count, gate toggles, Fortune Bell charge, Lucky Paw charge, latest warning.</p>
+<p>- Pause/restart controls visible or immediately accessible.</p>
+<ol>
+<li>Status helper</li>
+</ol>
+<p>- Non-blocking helper showing next requested coin, selected bumper/gate, likely tray, current shake risk, bell readiness, and expected score effect.</p>
+<p>- Must not cover the pachinko board or bottom controls on mobile.</p>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<p>- Resume, restart, tutorial reminder, controls summary, audio/mute toggle, prompt link.</p>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<p>- Final score, best score, commission reached, Grand Fortune status, lucky chain, gutter drops, wrong trays, nudge count, mastery badges, restart button.</p>
+<ol>
+<li>Neko Grand Fortune banner</li>
+</ol>
+<p>- Trigger once per run after all three commissions and 3900 score.</p>
+<p>- Non-blocking celebration: ceramic cats glow, koban coins spiral through bells, paper fortunes flutter open, trays shine gold, the helper waves a paw, and endless fortune commissions continue after the banner fades.</p>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: maneki-neko helper mascot, portrait lucky-cat fortune shop/cabinet background, coin/bell/tray/gate icon sheet, and decorative koban/fortune pieces. Canvas code may render interactive coins, pegs, bumpers, gate hitboxes, path previews, score sparks, physics, UI chrome, and fallback debug shapes. It should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/025/assets/source/</code> and use optimized playable copies under <code>release/games/025/assets/</code>. Also copy optimized playable assets into <code>apps/day-025-neko-koban-bell-cascade/assets/</code> and the public alias <code>release/neko/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny coin/peg details that disappear at final in-game size, and keep maneki-neko/coin/bell/tray/gate/gutter silhouettes distinct against red-and-gold shop backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Maneki-neko fortune helper mascot</li>
+</ol>
+<p>- Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</p>
+<p>- Archive path: <code>release/games/025/assets/source/neko-helper-source.png</code></p>
+<p>- Optimized path: <code>release/games/025/assets/neko-helper.png</code></p>
+<p>- Imagegen2 prompt: “A charming friendly Japanese maneki-neko fortune helper mascot for a mobile 2D koban coin pachinko browser arcade game, cream ceramic lucky cat with one raised paw, tiny vermilion collar bell, holding a glossy gold koban coin and paper fortune slip, playful smile, warm lantern rim light, centered readable silhouette, transparent or solid warm cream background, no checkerboard background, no text, no watermark, sprite-friendly, high contrast at small size.”</p>
+<p>- Aspect ratio: square.</p>
+<ol>
+<li>Lucky-cat koban pachinko cabinet / shop background source</li>
+</ol>
+<p>- Target: portrait-friendly background suitable behind a tall 2D coin-drop board with open readable center.</p>
+<p>- Archive path: <code>release/games/025/assets/source/neko-cabinet-source.png</code></p>
+<p>- Optimized path: <code>release/games/025/assets/neko-cabinet.png</code></p>
+<p>- Imagegen2 prompt: “A cozy Japanese lucky-cat fortune shop pachinko cabinet for a portrait mobile arcade game, deep vermilion lacquer wood, gold trim, ceramic maneki-neko figurines at the sides, bronze shrine bells, paper omikuji slips, teal patina coin trays, warm lantern reflections, open readable vertical center area for falling koban coins and bumpers, crop-safe for phone portrait, no characters in the center, no readable text, no watermark.”</p>
+<p>- Aspect ratio: portrait.</p>
+<ol>
+<li>Koban coin, paw bumper, bell, tray, gate, and fortune UI icon sheet source</li>
+</ol>
+<p>- Target: square icon sheet for objectives, hazards, tools, rewards, and UI decals.</p>
+<p>- Archive path: <code>release/games/025/assets/source/neko-icons-source.png</code></p>
+<p>- Optimized path: <code>release/games/025/assets/neko-icons.png</code></p>
+<p>- Imagegen2 prompt: “Small readable icon sheet for a Japanese maneki-neko koban coin pachinko arcade game: gold koban coin, silver koban coin, copper coin, cat-paw bumper, bronze fortune bell, teal coin tray A, red coin tray B, charm gate open, charm gate closed, misfortune gutter, paper omikuji slip, Lucky Paw focus emblem, luck bell heart, cabinet nudge arrows, Neko Grand Fortune emblem, transparent or solid warm cream background, no checkerboard background, high contrast, no text, no watermark, generous margins so no icons are cut off.”</p>
+<p>- Aspect ratio: square.</p>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas lucky-cat/coin silhouettes, document the failure in <code>ai/postmortems/day-025.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the maneki-neko mascot, verify transparent/cutout quality or clean background handling, readable friendly silhouette, centered pivot/crop margins, no unwanted text/watermarks, stable upright orientation, and that the raised paw/coin pose does not imply incompatible movement or rotation.</li>
+<li>Verify control-to-motion alignment in-game: Slot Left/Right must move the release slot in the expected direction, Drop Coin must spawn from the selected slot, Rotate Paw must visibly change bumper angle and redirect coins, Toggle Gate must affect coin sorting, Fortune Bell must attract the intended nearby coin, Nudge must push coins horizontally with risk, Lucky Paw must slow/preview as described, and trays/gutters/wrong-route feedback must affect intended areas.</li>
+<li>For the background, verify the center play area remains readable after portrait mobile crop and does not hide coins, pegs, bumpers, gates, bells, trays, gutter warnings, fortune card, helper, or controls.</li>
+<li>For the icon sheet, verify coin types, paw bumper, bell, trays, gate states, gutter, fortune slip, Lucky Paw, luck bell, nudge arrows, and Grand Fortune emblem are distinct at final HUD/button size and cannot be confused. Watch specifically for fake checkerboard transparency; alpha-clean or composite onto warm cream if needed and inspect again.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Audio and game feel</h2>
+<p>Because coins, bumpers, bells, gates, and lucky-cat shop feedback are central to the theme, include lightweight WebAudio cues initialized only after a user gesture:</p>
+<ul>
+<li>Bright koban clink when a coin spawns, pitch varied by coin type.</li>
+<li>Soft ceramic bump when a coin hits a paw bumper, pitch based on impact speed.</li>
+<li>Tiny wooden gate click when toggling a charm gate.</li>
+<li>Bronze bell chime when a coin rings a fortune bell or when Fortune Bell activates.</li>
+<li>Low unlucky rattle when a coin enters a gutter or wrong tray.</li>
+<li>Gentle cabinet thump for Nudge with escalating warning tone if overused.</li>
+<li>Sparkly slowed-time shimmer when Lucky Paw focus activates.</li>
+<li>Rising koto/bell arpeggio when Neko Grand Fortune triggers.</li>
+</ul>
+<p>Audio must not block play if WebAudio is unavailable. Verify no autoplay errors: audio context should be created/resumed only after Start or another user interaction. Include a visible mute toggle in pause/results or HUD.</p>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/025/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 025 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<p>- Build the static 2D game under <code>apps/day-025-neko-koban-bell-cascade/</code>.</p>
+<p>- Integrate it into immutable release output under <code>release/games/025/</code>.</p>
+<p>- Create the public playable route under <code>release/neko/</code>.</p>
+<p>- Use static HTML/CSS/JS with Canvas/WebAudio and no backend.</p>
+<p>- The public alias must be self-contained or asset paths must be alias-safe.</p>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<p>- Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, remove fake checkerboards if present, and tune mobile readability/game feel.</p>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<p>- Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, canvas board render, Slot Left/Right, Drop Coin, Rotate Paw, Toggle Gate, Fortune Bell, Nudge, Lucky Paw control presence, coin/tray/gutter feedback, generated screenshot, generated assets, WebAudio initialization after user gesture, and 390x844 portrait layout.</p>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<p>- Write <code>ai/postmortems/day-025.md</code> after validation with what worked, what failed, generated-image inspection notes, audio verification, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 025 is <code>2d</code> after Day 024 <code>3d</code> with zero latest 2D streak, and the mechanic is rich direct coin-routing gameplay rather than a low-effort flat demo.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/fortune card, tall board, usable 52px+ slot/action/pause/restart controls, no forced landscape canvas, and no tiny survival-critical coins/tray mouths.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-025.md</code> is copied exactly to <code>release/games/025/prompt.md</code> and <code>release/neko/prompt.md</code>.</li>
+<li><code>release/games/025/prompt.html</code> and <code>release/neko/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/neko/index.html</code>, <code>release/neko/prompt.html</code>, <code>release/neko/screenshot.png</code>, and <code>release/neko/assets/</code> exist and work.</li>
+<li>Gallery card for Day 025 shows prompt availability, generation duration, public <code>/neko/</code> links, mode <code>2d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/025/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/025/assets/source/</code> and optimized assets exist under <code>release/games/025/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive coin/bell/tray visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>WebAudio initializes after user gesture and creates no autoplay console errors; audio is failsafe if unsupported and visual coin path cues remain playable muted.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicons to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/<strong></code> through <code>release/games/024/</strong></code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/025/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/neko/index.html, release/neko/prompt.html, release/neko/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-025.md release/games/025/prompt.md and cmp prompts/day-025.md release/neko/prompt.md.
+# Prompt HTML check: verify release/games/025/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+# Browser smoke: open the local/static /neko/ route and verify menu, tutorial, gameplay start, canvas board render, Slot Left/Right, Drop Coin, Rotate Paw, Toggle Gate, Fortune Bell, Nudge, Lucky Paw control presence, coin/tray/gutter feedback, pause, restart, prompt page, WebAudio after user gesture, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable tap controls plus readable HUD/fortune card/board/controls.
+# Static screenshot check: inspect release/games/025/screenshot.png and release/neko/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-025.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /neko/ and /neko/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 025.</code></pre></main></body></html>

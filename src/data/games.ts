@@ -376,6 +376,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/usagi/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-06T01:40:05Z'
+  },
+  25: {
+    status: 'generated',
+    title: 'Neko Koban Bell Cascade',
+    slug: 'neko-koban-bell-cascade',
+    genre: ['luck-physics arcade', 'pachinko routing', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Drop glossy koban coins through a cozy maneki-neko fortune cabinet, rotate cat-paw bumpers, toggle charm gates, ring bells, and bank requested coins into matching trays before luck runs out.',
+    objective: 'Complete First Paw Chime, Lantern Coin Spiral, and Golden Maneki Offering while reaching 3900 points to trigger Neko Grand Fortune, then continue into endless fortune commissions.',
+    playUrl: '/neko/',
+    promptUrl: '/neko/prompt.html',
+    promptExcerpt: 'Choose drop slots, rotate paw bumpers, toggle charm gates, ring Fortune Bell, nudge carefully, and guide koban coins into requested lucky trays.',
+    screenshotUrl: '/neko/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-07T01:51:08Z'
   }
 };
 
