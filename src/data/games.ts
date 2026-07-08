@@ -391,6 +391,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/neko/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-07T01:51:08Z'
+  },
+  26: {
+    status: 'generated',
+    title: 'Natsu Hanabi Sky Painter',
+    slug: 'natsu-hanabi-sky-painter',
+    genre: ['3D firework trajectory painting', 'timing-and-altitude arcade', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Aim lacquer hanabi launch tubes over a summer river festival, charge shell arcs through 3D sky rings, time altitude/depth bursts, clear smoke with Wind Fan, and complete colorful fireworks commissions.',
+    objective: 'Complete First River Spark, Lantern Bridge Bloom, and Grand Summer Crest while reaching 4000 points to trigger Natsu Grand Hanabi, then continue into endless sky-painting commissions.',
+    playUrl: '/natsu/',
+    promptUrl: '/natsu/prompt.html',
+    promptExcerpt: 'Aim in 3D, charge hanabi shells through sky rings, pick fuse timing and shell color, then burst at the requested altitude/depth while managing smoke.',
+    screenshotUrl: '/natsu/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-08T01:43:34Z'
   }
 };
 

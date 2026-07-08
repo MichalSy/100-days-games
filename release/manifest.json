@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-07T01:51:08.000Z",
+  "generatedAt": "2026-07-08T01:43:34.000Z",
   "totalDays": 100,
-  "completedDays": 25,
+  "completedDays": 26,
   "games": [
     {
       "day": 1,
@@ -226,6 +226,15 @@
       "playUrl": "/neko/",
       "promptUrl": "/neko/prompt.html",
       "screenshotUrl": "/neko/screenshot.png",
+      "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 26,
+      "title": "Natsu Hanabi Sky Painter",
+      "slug": "natsu-hanabi-sky-painter",
+      "playUrl": "/natsu/",
+      "promptUrl": "/natsu/prompt.html",
+      "screenshotUrl": "/natsu/screenshot.png",
       "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]
