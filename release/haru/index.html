@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Day 027: Haru Matcha Whisk Atelier, a mobile-first 2D tea ceremony foam precision arcade game." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23dff7b8'/%3E%3Cpath d='M14 34c4 12 32 12 36 0 1 11-7 19-18 19s-19-8-18-19z' fill='%23fffaf0'/%3E%3Cellipse cx='32' cy='33' rx='18' ry='9' fill='%237abf35'/%3E%3Cpath d='M24 12l8 22 8-22M18 16l14 18 14-18' stroke='%23b8872d' stroke-width='4' stroke-linecap='round' fill='none'/%3E%3C/svg%3E" />
+    <title>Day 027 · Haru Matcha Whisk Atelier</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell" aria-label="Haru Matcha Whisk Atelier game">
+      <section class="topbar" aria-label="Game header">
+        <div>
+          <p class="eyebrow">Day 027 · 2D · /haru/</p>
+          <h1>Haru Matcha Whisk Atelier</h1>
+        </div>
+        <div class="header-actions">
+          <a class="chip link-chip" href="prompt.html">Prompt</a>
+          <button id="muteBtn" class="chip" type="button" aria-pressed="false">🔊 Sound</button>
+        </div>
+      </section>
+
+      <section id="hud" class="hud" aria-label="Tea ceremony HUD">
+        <span class="meter">Score <strong id="scoreOut">0</strong></span>
+        <span class="meter">Best <strong id="bestOut">0</strong></span>
+        <span class="meter">Hearts <strong id="heartsOut">♥♥♥</strong></span>
+        <span class="meter temp">Temp <strong id="tempOut">68°C</strong></span>
+        <span class="meter bitter">Bitter <strong id="bitterOut">0%</strong></span>
+        <span class="meter">Combo <strong id="comboOut">×1</strong></span>
+        <span class="meter">Orbit <strong id="orbitOut">54%</strong></span>
+        <span class="meter">Time <strong id="timeOut">0:00</strong></span>
+      </section>
+
+      <section class="commission" aria-label="Active tea commission">
+        <div>
+          <p class="eyebrow">Commission</p>
+          <h2 id="commissionName">First Spring Froth</h2>
+          <p id="commissionText">Build fine foam and trace the crest before serving.</p>
+        </div>
+        <div class="goals" aria-label="Commission goals">
+          <span>Foam <b id="foamOut">0/70%</b></span>
+          <span>Crest <b id="alignOut">0%</b></span>
+          <span>Band <b id="bandOut">62-72°C</b></span>
+          <span>Clumps <b id="clumpOut">0/3</b></span>
+          <span>Focus <b id="focusOut">0%</b></span>
+        </div>
+      </section>
+
+      <section class="stage-wrap">
+        <canvas id="gameCanvas" width="720" height="720" aria-label="Circular matcha bowl playfield with whisk, foam, crest guides, clumps, petals, and steam"></canvas>
+        <aside class="helper-card" aria-label="Tea helper">
+          <img src="assets/haru-helper.png" alt="Friendly tea ceremony helper holding a whisk and bowl" />
+          <p id="helperText">Start the ceremony, then whisk smoothly in circles.</p>
+        </aside>
+      </section>
+
+      <section class="controls" aria-label="Game controls">
+        <button data-hold="cw" class="primary">Whisk CW <kbd>E</kbd></button>
+        <button data-hold="ccw" class="primary">Whisk CCW <kbd>Q</kbd></button>
+        <button data-action="tighten">Tighten Orbit</button>
+        <button data-action="widen">Widen Orbit</button>
+        <button data-action="powder">Matcha Powder <kbd>1</kbd></button>
+        <button data-action="skim">Skim Clump <kbd>2</kbd></button>
+        <button data-action="rest">Rest Whisk <kbd>3</kbd></button>
+        <button data-action="fan">Steam Fan <kbd>4/F</kbd></button>
+        <button data-action="focus" class="tea-focus">Tea Focus <kbd>Shift</kbd></button>
+        <button data-action="serve" class="serve">Serve Bowl <kbd>Space</kbd></button>
+        <button data-action="pause">Pause <kbd>P</kbd></button>
+        <button data-action="restart">Restart <kbd>R</kbd></button>
+      </section>
+
+      <section class="status" aria-live="polite">
+        <strong>Status helper:</strong> <span id="statusOut">Press Start. Audio initializes only after your gesture and can stay muted.</span>
+      </section>
+    </main>
+
+    <div id="titleOverlay" class="overlay show" role="dialog" aria-modal="true" aria-labelledby="titleHeading">
+      <div class="panel title-panel">
+        <div class="badge-row"><span>Day 027</span><span>Mode 2D</span><span>Route /haru/</span></div>
+        <h2 id="titleHeading">Haru Matcha Whisk Atelier</h2>
+        <p class="lead">Whisk matcha foam into requested crests, manage temperature and bitterness, skim clumps, and serve three spring tea commissions.</p>
+        <div class="title-stats">
+          <span>Best score <b id="menuBest">0</b></span>
+          <span>Best Perfect Usucha <b id="menuPerfect">—</b></span>
+        </div>
+        <button id="startBtn" class="start-button" type="button">Start ceremony</button>
+        <a href="prompt.html" class="prompt-link">Read generation prompt</a>
+        <article class="tutorial">
+          <h3>Tutorial</h3>
+          <ul>
+            <li><b>Objective:</b> Whisk matcha foam into the requested crest, manage temperature and bitterness, then serve cleanly.</li>
+            <li><b>Whisking:</b> use big CW/CCW buttons or drag circles in the bowl; smooth speed builds fine foam.</li>
+            <li><b>Orbit:</b> tighten for dense foam, widen to align crest arcs, rest before serving to stabilize bubbles.</li>
+            <li><b>Powder/clumps:</b> sprinkle powder for foam, then skim clumps before they ruin the serve.</li>
+            <li><b>Temperature/bitterness:</b> fan steam to cool, avoid overwhisking, serve inside the safe band.</li>
+            <li><b>Tea Focus:</b> slows foam drift and previews crest alignment when charged.</li>
+            <li><b>Pause/restart:</b> P/R on desktop or visible buttons on mobile.</li>
+          </ul>
+          <p class="note">Audio starts after you press Start; visual foam and crest guides work if muted.</p>
+        </article>
+      </div>
+    </div>
+
+    <div id="pauseOverlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="pauseHeading">
+      <div class="panel">
+        <h2 id="pauseHeading">Ceremony paused</h2>
+        <p>Circle smoothly, skim clumps, rest before the crest locks, and serve inside the temperature band.</p>
+        <div class="overlay-actions">
+          <button data-action="resume">Resume</button>
+          <button data-action="restart">Restart run</button>
+          <button id="pauseMuteBtn" type="button">Toggle mute</button>
+          <a href="prompt.html">Prompt</a>
+        </div>
+        <ul class="compact-list">
+          <li>Q/E or buttons whisk counterclockwise/clockwise.</li>
+          <li>1 powder · 2 skim · 3 rest · 4/F fan · Shift focus · Space serve.</li>
+          <li>Bad serves crack hearts; perfect serves restore ceremony flow.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="resultOverlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="resultHeading">
+      <div class="panel">
+        <h2 id="resultHeading">Tea results</h2>
+        <div id="resultsText" class="results-text"></div>
+        <div class="overlay-actions">
+          <button data-action="restart">Restart ceremony</button>
+          <a href="prompt.html">Prompt</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="perfectBanner" class="perfect-banner" aria-live="polite">
+      <strong>Haru Perfect Usucha!</strong>
+      <span>All three tea seals glow. Endless spring commissions continue.</span>
+    </div>
+
+    <script src="game.js" defer></script>
+  </body>
+</html>

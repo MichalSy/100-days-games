@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-08T01:43:34.000Z",
+  "generatedAt": "2026-07-09T01:42:41.000Z",
   "totalDays": 100,
-  "completedDays": 26,
+  "completedDays": 27,
   "games": [
     {
       "day": 1,
@@ -235,6 +235,15 @@
       "playUrl": "/natsu/",
       "promptUrl": "/natsu/prompt.html",
       "screenshotUrl": "/natsu/screenshot.png",
+      "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 27,
+      "title": "Haru Matcha Whisk Atelier",
+      "slug": "haru-matcha-whisk-atelier",
+      "playUrl": "/haru/",
+      "promptUrl": "/haru/prompt.html",
+      "screenshotUrl": "/haru/screenshot.png",
       "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]

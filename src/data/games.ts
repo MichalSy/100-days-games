@@ -406,6 +406,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/natsu/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-08T01:43:34Z'
+  },
+  27: {
+    status: 'generated',
+    title: 'Haru Matcha Whisk Atelier',
+    slug: 'haru-matcha-whisk-atelier',
+    genre: ['circular motion arcade', 'foam-pattern precision', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Whisk spring matcha in a bright tea-room atelier, build fine foam, steer bubbles into crest patterns, skim powder clumps, manage temperature and bitterness, and serve perfect usucha bowls.',
+    objective: 'Complete First Spring Froth, Sakura Guest Bowl, and Garden Ceremony Crest while reaching 4100 points to trigger Haru Perfect Usucha, then continue into endless tea commissions.',
+    playUrl: '/haru/',
+    promptUrl: '/haru/prompt.html',
+    promptExcerpt: 'Whisk matcha foam into requested spring crests, manage temperature and bitterness, skim clumps, use Tea Focus, and serve the bowl cleanly.',
+    screenshotUrl: '/haru/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-09T01:42:41Z'
   }
 };
 
