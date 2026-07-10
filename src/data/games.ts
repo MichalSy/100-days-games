@@ -421,6 +421,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/haru/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-09T01:42:41Z'
+  },
+  28: {
+    status: 'generated',
+    title: 'Akane Foxfire Shrine Sentinel',
+    slug: 'akane-foxfire-shrine-sentinel',
+    genre: ['3D stealth-routing', 'foxfire escort', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Guide a kitsune sentinel through an akane-dusk Inari shrine, escort blue foxfire wisps through torii lanes, light lanterns in order, and dodge shadow-yokai sight cones.',
+    objective: 'Complete First Torii Spark, Cedar Stair Procession, and Akane Grand Vigil while reaching 4200 points, then continue into endless dusk patrol commissions.',
+    playUrl: '/akane/',
+    promptUrl: '/akane/prompt.html',
+    promptExcerpt: 'Escort foxfire wisps through a 3D shrine, light ordered lanterns, hide in warm pools, distract patrol cones with Suzu Bell, and use Moon Veil to preview safe routes.',
+    screenshotUrl: '/akane/screenshot.png',
+    generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-10T01:58:14Z'
   }
 };
 

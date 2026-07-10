@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Day 028 — Akane Foxfire Shrine Sentinel</title>
+    <meta
+      name="description"
+      content="Escort blue foxfire wisps through a 3D akane dusk Inari shrine, light lanterns in order, and outwit shadow-yokai patrol cones."
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2315082d'/%3E%3Cpath d='M32 7c9 12 14 19 14 29a14 14 0 1 1-28 0c0-10 5-17 14-29Z' fill='%234fe6ff'/%3E%3Cpath d='M32 17c5 7 8 12 8 18a8 8 0 1 1-16 0c0-6 3-11 8-18Z' fill='%23fff4b8'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="app" class="app-shell">
+      <section id="menu" class="overlay menu-card" aria-label="Title screen">
+        <div class="title-layout">
+          <img src="./assets/akane-helper.png" alt="Friendly kitsune sentinel holding a bell and blue foxfire" class="title-helper" />
+          <div>
+            <p class="eyebrow">Day 028 · 3D · public route /akane/</p>
+            <h1>Akane Foxfire Shrine Sentinel</h1>
+            <p class="lede">Escort blue foxfire wisps, light shrine lanterns in order, and avoid shadow-yokai sight cones.</p>
+            <div class="best-line">
+              <span>Best score: <strong id="menuBest">0</strong></span>
+              <span>Best Grand Vigil: <strong id="menuGrand">—</strong></span>
+            </div>
+            <div class="menu-actions">
+              <button id="startButton" class="primary huge">Start Vigil</button>
+              <a class="prompt-button" href="./prompt.html">View prompt</a>
+            </div>
+            <p class="audio-note">Audio starts after Start; visual cone and light-pool cues work if muted.</p>
+          </div>
+        </div>
+        <article class="tutorial-panel" aria-label="Tutorial">
+          <h2>Tutorial</h2>
+          <ul>
+            <li><strong>Move:</strong> step with buttons/keys or tap a path; rotate camera to read depth.</li>
+            <li><strong>Wisps:</strong> Call/Hold keeps wisps close or still inside safe light; Release sends them toward the active lantern.</li>
+            <li><strong>Lanterns:</strong> light them in the requested order to create warm safe pools and score.</li>
+            <li><strong>Shadows:</strong> cones snuff exposed wisps; hide in lantern light or distract patrols with Suzu Bell.</li>
+            <li><strong>Ema/Moon Veil:</strong> place a temporary safe waypoint; Moon Veil slows patrols and previews safe arcs.</li>
+            <li><strong>Pause/restart:</strong> P/R on desktop or visible buttons on mobile.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="hud" aria-label="Shrine status">
+        <div class="chip">Score <strong id="score">0</strong></div>
+        <div class="chip">Best <strong id="best">0</strong></div>
+        <div class="chip seals">Seals <strong id="seals">♡♡♡</strong></div>
+        <div class="chip alert">Alert <strong id="alert">0%</strong></div>
+        <div class="chip">Combo <strong id="combo">x1</strong></div>
+        <div class="chip">Wisps <strong id="wispCount">4/4</strong></div>
+        <div class="chip">Moon <strong id="moonCharge">0%</strong></div>
+        <div class="chip">Cam <strong id="cameraAngle">0°</strong></div>
+        <button id="muteButton" class="chip button-chip" aria-pressed="false">Audio On</button>
+      </section>
+
+      <section class="vigil-card" aria-label="Current vigil">
+        <div>
+          <p class="eyebrow" id="vigilName">First Torii Spark</p>
+          <h2 id="vigilGoal">Light 3 lanterns in order</h2>
+        </div>
+        <div class="progress-line">
+          <span id="lanternOrder">Lanterns: 1 → 2 → 3</span>
+          <span id="requirements">Keep 4 wisps · Alert &lt; 35% · Ring 1 bell</span>
+        </div>
+      </section>
+
+      <section class="stage-wrap" aria-label="3D shrine stage">
+        <canvas id="gameCanvas" aria-label="Interactive 3D shrine courtyard"></canvas>
+        <div class="stage-hint" id="stageHint">Press Start to begin the vigil.</div>
+        <div id="grandBanner" class="grand-banner" hidden>Akane Grand Vigil ignites — endless dusk commissions unlocked!</div>
+      </section>
+
+      <section class="helper-bar" aria-live="polite">
+        <img src="./assets/akane-icons.png" alt="Akane shrine icon sheet" />
+        <p id="helperText">Call wisps close, then step toward the first lantern. Warm pools hide foxfire from cones.</p>
+      </section>
+
+      <section class="controls" aria-label="Game controls">
+        <div class="move-pad" aria-label="Step controls">
+          <button id="stepUp">Step Up</button>
+          <button id="stepLeft">Step Left</button>
+          <button id="stepRight">Step Right</button>
+          <button id="stepDown">Step Down</button>
+        </div>
+        <div class="action-grid">
+          <button id="callHoldButton">Call/Hold Wisps</button>
+          <button id="releaseButton">Release Wisps</button>
+          <button id="lightButton">Light Lantern</button>
+          <button id="bellButton">Suzu Bell</button>
+          <button id="emaButton">Ema Charm</button>
+          <button id="moonButton">Moon Veil</button>
+          <button id="cameraButton">Camera</button>
+          <button id="pauseButton">Pause</button>
+          <button id="restartButton">Restart</button>
+          <a class="control-link" href="./prompt.html">Prompt</a>
+        </div>
+      </section>
+
+      <section id="pauseOverlay" class="overlay pause-card" hidden aria-label="Paused">
+        <h2>Vigil Paused</h2>
+        <p>Resume when the crossing cones open. Save Moon Veil for stairs and use Suzu Bell as cones turn inward.</p>
+        <div class="pause-grid">
+          <button id="resumeButton" class="primary">Resume</button>
+          <button id="restartPauseButton">Restart run</button>
+          <button id="mutePauseButton">Toggle audio</button>
+          <a href="./prompt.html">Prompt</a>
+        </div>
+        <ul>
+          <li>WASD/Arrows move · Q/E Camera · Space Call/Release · 1 Lantern · 2 Bell · 3 Ema · Shift/M Moon Veil · P Pause · R Restart.</li>
+          <li>Safe light pools glow gold. Shadow-yokai cones glow violet. Moon Veil paints cyan preview arcs.</li>
+        </ul>
+      </section>
+
+      <section id="resultsOverlay" class="overlay results-card" hidden aria-label="Results">
+        <h2 id="resultTitle">Vigil Complete</h2>
+        <div id="resultStats" class="result-stats"></div>
+        <div id="badges" class="badges"></div>
+        <button id="restartResultButton" class="primary huge">Restart Akane Vigil</button>
+      </section>
+    </main>
+    <script type="module" src="./game.js"></script>
+  </body>
+</html>

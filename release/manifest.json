@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-09T01:42:41.000Z",
+  "generatedAt": "2026-07-10T01:58:14.000Z",
   "totalDays": 100,
-  "completedDays": 27,
+  "completedDays": 28,
   "games": [
     {
       "day": 1,
@@ -245,6 +245,15 @@
       "promptUrl": "/haru/prompt.html",
       "screenshotUrl": "/haru/screenshot.png",
       "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 28,
+      "title": "Akane Foxfire Shrine Sentinel",
+      "slug": "akane-foxfire-shrine-sentinel",
+      "playUrl": "/akane/",
+      "promptUrl": "/akane/prompt.html",
+      "screenshotUrl": "/akane/screenshot.png",
+      "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]
 }
