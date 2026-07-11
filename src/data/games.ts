@@ -436,6 +436,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/akane/screenshot.png',
     generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-10T01:58:14Z'
+  },
+  29: {
+    status: 'generated',
+    title: 'Hinoki Kumiko Screenwright',
+    slug: 'hinoki-kumiko-screenwright',
+    genre: ['tactile woodworking puzzle', 'kumiko lattice placement', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Craft warm hinoki kumiko shoji panels by dry-fitting lattice strips, trimming notches, clamping clean joints, planing burrs, and keeping grain stress from cracking the screen.',
+    objective: 'Complete First Asa-no-ha Panel, Sakura Hex Screen, and Festival Shoji Masterwork while reaching 4300 points to trigger Hinoki Master Screen, then continue into endless custom lattice commissions.',
+    playUrl: '/hinoki/',
+    promptUrl: '/hinoki/prompt.html',
+    promptExcerpt: 'Fit hinoki strips to kumiko blueprints, rotate and dry-fit pieces, trim notches, clamp clean joints, plane burrs, and use Calm Measure before grain stress cracks the shoji panel.',
+    screenshotUrl: '/hinoki/screenshot.png',
+    generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-11T01:53:45Z'
   }
 };
 

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="Day 029: Hinoki Kumiko Screenwright, a tactile 2D kumiko woodworking puzzle." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23d7a958'/%3E%3Cpath d='M12 14h40v36H12z' fill='%23fff2cf' stroke='%23744a22' stroke-width='3'/%3E%3Cpath d='M16 18l32 28M48 18L16 46M32 16v32M16 32h32' stroke='%23744a22' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <title>Day 029 · Hinoki Kumiko Screenwright</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app" class="game-shell" data-state="title">
+      <header class="topbar" aria-label="Craft HUD">
+        <div class="brand">
+          <span class="badge">Day 029</span>
+          <span class="badge mode">2D</span>
+          <span class="route">/hinoki/</span>
+        </div>
+        <div class="hud-grid" id="hudGrid" aria-live="polite">
+          <div class="chip"><b>Score</b><span id="scoreValue">0</span></div>
+          <div class="chip"><b>Best</b><span id="bestValue">0</span></div>
+          <div class="chip"><b>Hearts</b><span id="heartValue">♥♥♥</span></div>
+          <div class="chip stress"><b>Stress</b><span id="stressValue">0%</span></div>
+          <div class="chip"><b>Combo</b><span id="comboValue">x1</span></div>
+          <div class="chip"><b>Measure</b><span id="focusValue">0%</span></div>
+          <div class="chip"><b>Strip</b><span id="stripValue">L3 · 0°</span></div>
+          <div class="chip"><b>Grain</b><span id="grainValue">along</span></div>
+          <div class="chip"><b>Time</b><span id="timeValue">0:00</span></div>
+        </div>
+      </header>
+
+      <section class="commission-card" aria-label="Current commission objective">
+        <img src="./assets/hinoki-icons.png" alt="Kumiko tool icon sheet" />
+        <div>
+          <h2 id="commissionName">First Asa-no-ha Panel</h2>
+          <p id="commissionText">Complete blueprint cells, trim notches, clamp clean joints, plane burrs, and keep stress below the target.</p>
+          <div class="progress-row" id="progressRow" aria-label="Commission progress ticks"></div>
+        </div>
+      </section>
+
+      <main class="play-area">
+        <canvas id="gameCanvas" width="780" height="980" aria-label="Shoji workbench kumiko lattice puzzle canvas" role="img"></canvas>
+        <div id="masterBanner" class="master-banner" hidden>Hinoki Master Screen</div>
+      </main>
+
+      <section class="helper-row" aria-live="polite">
+        <img src="./assets/hinoki-helper.png" alt="Wooden sparrow carpenter helper" />
+        <p id="statusHelper">Fit hinoki strips to the kumiko blueprint. Dry-fit first; commit when the guide glows warm gold.</p>
+      </section>
+
+      <section class="controls" aria-label="Kumiko placement controls">
+        <div class="move-pad" aria-label="Step controls">
+          <button class="btn step" data-action="step-up">Step Up</button>
+          <button class="btn step" data-action="step-left">Step Left</button>
+          <button class="btn step" data-action="step-right">Step Right</button>
+          <button class="btn step" data-action="step-down">Step Down</button>
+        </div>
+        <div class="action-pad">
+          <button class="btn" data-action="rotate-left">Rotate −</button>
+          <button class="btn" data-action="rotate-right">Rotate +</button>
+          <button class="btn primary" data-action="dry-fit">Dry Fit</button>
+          <button class="btn commit" data-action="commit">Commit Strip</button>
+          <button class="btn" data-action="trim">Trim Notch</button>
+          <button class="btn" data-action="clamp">Clamp Joint</button>
+          <button class="btn" data-action="plane">Plane Burr</button>
+          <button class="btn" data-action="swap">Swap Strip</button>
+          <button class="btn focus" data-action="focus">Calm Measure</button>
+          <button class="btn" data-action="pause">Pause</button>
+          <button class="btn danger" data-action="restart">Restart</button>
+          <a class="btn link" href="./prompt.html">Prompt</a>
+        </div>
+      </section>
+
+      <section id="titleOverlay" class="overlay title" aria-modal="true" role="dialog">
+        <div class="panel">
+          <p class="eyebrow">Day 029 · 2D · public route /hinoki/</p>
+          <h1>Hinoki Kumiko Screenwright</h1>
+          <p class="lede">Build precise kumiko lattice panels from pale hinoki strips. Trim notches, clamp clean joints, plane raised burrs, and keep grain stress from cracking the shoji screen.</p>
+          <div class="menu-stats">
+            <span>Best score: <b id="menuBest">0</b></span>
+            <span>Best Master Screen: <b id="menuBestTime">—</b></span>
+            <a href="./prompt.html">View Day 029 prompt</a>
+          </div>
+          <button id="startButton" class="start-button">Start Screenwright Run</button>
+          <p class="audio-note">Audio starts after you press Start; visual blueprint and stress cues work if muted.</p>
+          <article class="tutorial">
+            <h2>Tutorial</h2>
+            <ul>
+              <li><b>Objective:</b> Fit hinoki strips to the kumiko blueprint, trim notches, clamp clean joints, and keep the panel from cracking.</li>
+              <li><b>Movement:</b> step with buttons/keys or drag the selected strip across the panel.</li>
+              <li><b>Rotation:</b> rotate strips to match vertical, horizontal, and diagonal guides.</li>
+              <li><b>Dry-fit/commit:</b> dry-fit previews stress; commit only when the guide glows warm.</li>
+              <li><b>Notches/clamps:</b> trim a notch before clamping an intersection for clean joinery.</li>
+              <li><b>Grain/stress:</b> align with grain when possible, plane burrs, and avoid invalid overlaps.</li>
+              <li><b>Calm Measure:</b> slows the workshop and previews valid notch points/stress heat when charged.</li>
+              <li><b>Pause/restart:</b> P/R on desktop or visible buttons on mobile.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="pauseOverlay" class="overlay" hidden aria-modal="true" role="dialog">
+        <div class="panel compact">
+          <h2>Paused in the Hinoki Atelier</h2>
+          <p>Controls: WASD/Arrows move, Q/E rotate, Space/Enter dry-fit or commit, 1 notch, 2 clamp, 3 plane, 4 swap, Shift/M Calm Measure, P pause, R restart.</p>
+          <p>Reminder: dry-fit until the strip glows warm, trim the crossing notch, clamp the center, then plane burrs before stress ticks.</p>
+          <button class="start-button" data-action="resume">Resume</button>
+          <button class="btn danger" data-action="restart">Restart run</button>
+          <button class="btn" data-action="mute">Toggle mute</button>
+          <a class="btn link" href="./prompt.html">Prompt link</a>
+        </div>
+      </section>
+
+      <section id="resultsOverlay" class="overlay" hidden aria-modal="true" role="dialog">
+        <div class="panel compact">
+          <h2 id="resultsTitle">Results</h2>
+          <div id="resultsText" class="results-list"></div>
+          <button class="start-button" data-action="restart">Restart</button>
+          <a class="btn link" href="./prompt.html">Prompt link</a>
+        </div>
+      </section>
+    </div>
+    <script src="./game.js" defer></script>
+  </body>
+</html>

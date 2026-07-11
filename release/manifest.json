@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-10T01:58:14.000Z",
+  "generatedAt": "2026-07-11T01:53:45.000Z",
   "totalDays": 100,
-  "completedDays": 28,
+  "completedDays": 29,
   "games": [
     {
       "day": 1,
@@ -253,6 +253,15 @@
       "playUrl": "/akane/",
       "promptUrl": "/akane/prompt.html",
       "screenshotUrl": "/akane/screenshot.png",
+      "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 29,
+      "title": "Hinoki Kumiko Screenwright",
+      "slug": "hinoki-kumiko-screenwright",
+      "playUrl": "/hinoki/",
+      "promptUrl": "/hinoki/prompt.html",
+      "screenshotUrl": "/hinoki/screenshot.png",
       "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]
