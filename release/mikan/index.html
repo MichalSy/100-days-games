@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Day 030 · Mikan Sunwheel Orchard</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='34' r='20' fill='%23f59e0b'/%3E%3Cpath d='M32 15c6-9 15-8 19-3-7 1-13 4-19 10z' fill='%234b8a2f'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="game-shell" class="shell" aria-label="Mikan Sunwheel Orchard game">
+      <section class="topbar" aria-label="Game status">
+        <div class="badge"><span>Day 030</span><b>3D</b><em>/mikan/</em></div>
+        <div class="meter"><span>Score</span><b id="score">0</b></div>
+        <div class="meter"><span>Best</span><b id="best">0</b></div>
+        <div class="meter"><span>Hearts</span><b id="hearts">♥♥♥</b></div>
+        <div class="meter"><span>Bruise</span><b id="bruise">0%</b></div>
+        <div class="meter"><span>Combo</span><b id="combo">x1.0</b></div>
+        <button id="muteBtn" class="mini" type="button">Audio On</button>
+      </section>
+
+      <section class="commission" aria-label="Current orchard commission">
+        <img src="./assets/mikan-icons.png" alt="Mikan harvest icon sheet" />
+        <div>
+          <p id="chapter">First Sunny Basket</p>
+          <h1 id="titleLine">Mikan Sunwheel Orchard</h1>
+          <span id="goalLine">Harvest golden mikan, catch clean drops, and sort crates before bruises spread.</span>
+        </div>
+        <div class="progress" id="progressPips" aria-label="Commission progress"></div>
+      </section>
+
+      <section class="stage-card">
+        <div id="stage" class="stage" role="img" aria-label="3D mikan orchard tree with basket, fruit, crates, hornets, and sunwheel">
+          <canvas id="gameCanvas"></canvas>
+          <div id="stageLabel" class="stage-label">Basket orbit 0° · Low canopy · Golden fruit ready</div>
+          <div id="helperBubble" class="helper-bubble">
+            <img src="./assets/mikan-helper.png" alt="Shiba orchard helper" />
+            <span id="helperText">Press Start: audio unlocks after your gesture.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="statusline" id="statusLine" aria-live="polite">Tutorial: orbit the basket, raise/lower through canopy layers, pluck golden fruit, then sort it into the requested crate.</section>
+
+      <section class="controls" aria-label="Game controls">
+        <button data-action="orbitLeft" type="button">Orbit Left<br><small>A / ←</small></button>
+        <button data-action="raise" type="button">Raise<br><small>W / ↑</small></button>
+        <button data-action="orbitRight" type="button">Orbit Right<br><small>D / →</small></button>
+        <button data-action="lower" type="button">Lower<br><small>S / ↓</small></button>
+        <button data-action="pluck" class="primary" type="button">Pluck / Catch<br><small>Space</small></button>
+        <button data-action="crate" type="button">Crate Lane<br><small>1/2/3</small></button>
+        <button data-action="sunwheel" type="button">Sunwheel<br><small>Q / E</small></button>
+        <button data-action="fan" type="button">Fan Gust<br><small>F</small></button>
+        <button data-action="net" type="button">Leaf Net<br><small>L</small></button>
+        <button data-action="focus" class="focus" type="button">Harvest Focus<br><small>Shift</small></button>
+        <button data-action="pause" type="button">Pause<br><small>P</small></button>
+        <button data-action="restart" class="danger" type="button">Restart<br><small>R</small></button>
+        <a class="prompt-link" href="./prompt.html">Prompt</a>
+      </section>
+    </main>
+
+    <div id="overlay" class="overlay show" role="dialog" aria-modal="true" aria-labelledby="overlayTitle">
+      <div class="panel">
+        <div class="panel-copy">
+          <p class="eyebrow">Day 030 · 3D · /mikan/</p>
+          <h2 id="overlayTitle">Mikan Sunwheel Orchard</h2>
+          <p>Orbit a bamboo basket through a sunny 3D mikan tree. Pluck fruit at golden ripeness, catch clean drops, sort crates, and use the sunwheel before hornets bruise the harvest.</p>
+          <ul>
+            <li>Move: Orbit Left/Right and Raise/Lower through canopy layers.</li>
+            <li>Harvest: Pluck golden mikan, catch falling arcs, then sort the active crate lane.</li>
+            <li>Tools: Sunwheel ripens shadow fruit, Fan Gust shooes hornets, Leaf Net cushions a drop.</li>
+            <li>Focus: Harvest Focus slows drops and shows ripeness paths when charged.</li>
+          </ul>
+        </div>
+        <div class="panel-art">
+          <img src="./assets/mikan-helper.png" alt="Friendly shiba holding mikan" />
+          <button id="startBtn" class="start" type="button">Start Harvest</button>
+          <a href="./prompt.html">Read generation prompt</a>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./game.js"></script>
+  </body>
+</html>

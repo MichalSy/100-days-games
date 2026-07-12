@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-11T01:53:45.000Z",
+  "generatedAt": "2026-07-12T01:45:00.000Z",
   "totalDays": 100,
-  "completedDays": 29,
+  "completedDays": 30,
   "games": [
     {
       "day": 1,
@@ -263,6 +263,15 @@
       "promptUrl": "/hinoki/prompt.html",
       "screenshotUrl": "/hinoki/screenshot.png",
       "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 30,
+      "title": "Mikan Sunwheel Orchard",
+      "slug": "mikan-sunwheel-orchard",
+      "playUrl": "/mikan/",
+      "promptUrl": "/mikan/prompt.html",
+      "screenshotUrl": "/mikan/screenshot.png",
+      "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]
 }

@@ -451,6 +451,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/hinoki/screenshot.png',
     generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-11T01:53:45Z'
+  },
+  30: {
+    status: 'generated',
+    title: 'Mikan Sunwheel Orchard',
+    slug: 'mikan-sunwheel-orchard',
+    genre: ['3D orchard-harvest routing', 'ripeness sorting', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Orbit a bamboo picker basket through a sunny 3D mikan orchard canopy, pluck fruit at golden ripeness, sort clean catches into crates, and manage sunwheel, hornets, wind, leaf nets, and bruising pressure.',
+    objective: 'Complete First Sunny Basket, Terrace Crate Rush, and Golden Sunwheel Harvest while reaching 4400 points to trigger Mikan Grand Harvest, then continue into endless orchard commissions.',
+    playUrl: '/mikan/',
+    promptUrl: '/mikan/prompt.html',
+    promptExcerpt: 'Orbit, raise, and lower a basket through a 3D mikan tree, pluck golden fruit, sort crate lanes, shoo hornets, and use Sunwheel/Leaf Net/Harvest Focus to save the harvest.',
+    screenshotUrl: '/mikan/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-12T01:45:00Z'
   }
 };
 

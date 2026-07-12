@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Day 030 Game Generation Prompt</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='34' r='20' fill='%23f59e0b'/%3E%3Cpath d='M32 15c6-9 15-8 19-3-7 1-13 4-19 10z' fill='%234b8a2f'/%3E%3C/svg%3E" />
+<style>:root{--bg:#fff8dc;--ink:#261506;--muted:#70552d;--leaf:#14532d;--line:rgba(92,56,16,.22);--code:#ffedd5}*{box-sizing:border-box}body{margin:0;font-family:ui-rounded,"Avenir Next",system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at 20% 0%,#dcfce7,transparent 30%),linear-gradient(135deg,#fff8dc,#fed7aa);line-height:1.62}main{width:min(980px,calc(100vw - 28px));margin:24px auto 60px;background:rgba(255,255,245,.88);border:1px solid var(--line);border-radius:28px;box-shadow:0 24px 80px rgba(67,41,10,.18);padding:clamp(18px,4vw,42px)}a.back{display:inline-flex;gap:.4rem;align-items:center;color:var(--leaf);font-weight:900;text-decoration:none;background:#ecfccb;border:1px solid var(--line);border-radius:999px;padding:.55rem .9rem}h1{font-size:clamp(2.2rem,8vw,5rem);line-height:.9;letter-spacing:-.06em;margin:1rem 0 1.3rem}h2{margin-top:2rem;border-top:1px solid var(--line);padding-top:1.2rem;font-size:1.6rem}h3{margin-top:1.4rem;color:var(--leaf)}p,li{font-weight:640}code{background:var(--code);border:1px solid var(--line);border-radius:.35rem;padding:.08rem .28rem}pre{overflow:auto;background:#1f2937;color:#fef3c7;border-radius:16px;padding:1rem}pre code{background:transparent;border:0;padding:0;color:inherit}ul,ol{padding-left:1.35rem}li{margin:.25rem 0}</style></head><body><main><a class="back" href="./index.html">← Back to game</a><h1>Day 030 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 030</li>
+<li>Title: Mikan Sunwheel Orchard</li>
+<li>Slug: mikan-sunwheel-orchard</li>
+<li>Public route word: mikan</li>
+<li>Mode: 3D</li>
+<li>Genre: mobile-first 3D orchard-harvest routing / ripeness sorting / spatial basket score chase</li>
+<li>Mood/style: bright late-summer Japanese hillside citrus orchard, glossy mikan oranges, bamboo picking baskets, sunlit leaves, indigo work cloth, washi crate labels without readable text, honey-gold afternoon light, soft mountain haze, tiny helpful shiba orchard pup, tactile fruit-pluck and crate-sort feedback; real 3D tree canopy depth and basket height/orbit management rather than kumiko woodworking, foxfire shrine stealth, matcha whisking, fireworks arcs, koban pachinko, mochi hopping, sumi tracing, kite cartography, dry-garden raking, underwater navigation, taiko rhythm lanes, daruma rolling, web weaving, pottery shaping, bamboo canals, origami folding, parasols, snow stacking, kimono stamping, bento cooking, windbell tuning, rail running, or koi collection.</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 027 <code>2d</code>: Haru matcha whisking with circular bowl input, foam/clump/temperature/bitterness management, pale spring tea-room greens, and a tea helper.</li>
+<li>Day 028 <code>3d</code>: Akane foxfire shrine sentinel with 3D torii paths, lantern light pools, patrol cones, wisp escorting, and dark crimson/violet shrine visuals.</li>
+<li>Day 029 <code>2d</code>: Hinoki kumiko woodworking with warm cypress workbench, geometric lattice strips, notches, clamps, planing, stress, and a sparrow helper.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>2d</code> (Day 029). Day 030 deliberately chooses real <code>3D</code> to keep the cadence strong and to leave the tabletop craft/workbench rhythm behind. The new verb set is spatial harvest orchestration: orbit a bamboo picker basket around a 3D mikan tree, raise/lower through canopy layers, pluck fruit at peak ripeness, sort them into requested crates, shoo hornets without bruising fruit, turn the sunwheel reflector to ripen shadowed clusters, and spend Harvest Focus to preview falling fruit paths and ripeness windows.</p>
+<p>Recent screenshot/visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 029 used pale hinoki wood, rectangular shoji panel grids, blueprint lines, tan/gold buttons, tool/chisel/clamp craft language, and a warm workshop background.</li>
+<li>Day 028 used dark violet/crimson shrine corridors, torii gates, lantern pools, foxfire wisps, shadow cones, and purple HUD chips.</li>
+<li>Day 027 used pale green tea-room surfaces, a large round matcha bowl, foam pearls, clumps, temperature/bitterness cards, and soft cream UI.</li>
+</ul>
+<p>Day 030 should shift to open, sunny orchard space: leafy 3D canopy, orange fruit clusters at near/mid/far depth, bamboo ladders/baskets, round sunwheel reflector, mountain breeze ribbons, wooden harvest crates, dew glints, and a cheerful shiba helper. Avoid woodworking boards/rectangular lattices/tools, torii/foxfire/stealth cones, matcha bowls/foam/whisks, firework night skies/rings/smoke, pachinko cabinets/coins/cats, moon rabbits/mochi pads, sumi brush strokes, kite-thread star maps, dry sand/stone boards, underwater oxygen/pearls, drum pads, tilt mazes, silk web anchors, spinning pottery profiles, bamboo pipe irrigation, origami crease routes, parasol rain processions, snow blocks, kimono panels, restaurant timers, or generic fruit-match-three grids.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/Three.js/WebGL/WebAudio game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 027 <code>2d</code>, Day 028 <code>3d</code>, and Day 029 <code>2d</code>. The latest generated-mode streak is one <code>2d</code>.</p>
+<p>Mode decision: Day 030 is real <code>3D</code>. It must implement meaningful spatial gameplay, not decorative perspective:</p>
+<ul>
+<li>Use Three.js/WebGL or equivalent static-browser 3D rendering.</li>
+<li>Render an actual depth-visible mikan orchard tree with trunk, branches, canopy rings, fruit clusters at near/mid/far depth, basket position in x/y/z, crates, hornet paths, sun/shadow zones, wind gust ribbons, and a camera that makes height/depth readable.</li>
+<li>Gameplay must depend on 3D state: basket orbit angle, canopy height, branch depth, fruit ripeness timer, fruit drop arc, crate lane, bruise risk, hornet distance, sunwheel angle, wind drift, helper position, and camera framing.</li>
+<li>Player actions must manipulate the 3D system: orbit left/right, raise/lower basket, pluck ripe fruit, catch/sort falling fruit, rotate the sunwheel reflector, fan away hornets, cushion drops with leaf nets, use Harvest Focus to slow/preview ripeness/drop paths, pause/restart, and inspect tutorial hints.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Harvest requested mikan crates by navigating a 3D picker basket through canopy layers, plucking fruit at the right ripeness, catching/sorting them without bruises, and keeping hornets and sun-shadow pressure under control.</li>
+<li>Win condition: Complete three orchard commissions — First Sunny Basket, Terrace Crate Rush, and Golden Sunwheel Harvest — while reaching 4400 points to trigger “Mikan Grand Harvest”. After the banner, continue into endless orchard commissions.</li>
+<li>Lose condition: Three harvest hearts crack, the commission timer expires, bruise meter reaches 100%, too many underripe/overripe fruit enter crates, or hornets scatter the basket three times in one commission.</li>
+<li>Core loop:</li>
+</ul>
+<ol>
+<li>Start on a title/menu screen with Day 030 badge, mode badge “3D”, public route <code>/mikan/</code>, best score, best Grand Harvest time, tutorial, prompt link, and a large Start button.</li>
+<li>Show a portrait-friendly 3D orchard stage. A mikan tree fills the center. The basket orbits around the canopy and can raise/lower through fruit layers. Requested crates sit at the bottom edge. A shiba helper points to the next cluster.</li>
+<li>A commission card requests goals, for example: “Harvest 4 golden mikan, 2 green-safe mikan, keep bruises under 30%, use Sunwheel twice, finish with one Focus unused.”</li>
+<li>Player orbits the basket left/right and adjusts height. Fruit clusters show ripeness rings: green, golden, deep orange, and overripe red. Pluck when the ring is in the requested window.</li>
+<li>Plucked fruit falls in a short 3D arc toward the basket/crate lane. The player may catch it in the basket, sort it into a crate, or cushion with a leaf net if wind pushes it.</li>
+<li>Sunwheel Reflector rotates a warm light beam across shadowed clusters, accelerating ripeness but risking overripe fruit if held too long.</li>
+<li>Hornets patrol around sweet fruit. Fan Gust pushes hornets away and bends fruit drops slightly; bad timing can scatter ripe clusters.</li>
+<li>Leaf Net cushions one falling fruit and prevents bruise damage, but has limited recharge.</li>
+<li>Harvest Focus, charged by clean ripe catches and crate streaks, slows falling fruit and overlays projected drop arcs plus ripeness countdowns for a short window.</li>
+<li>Completing a commission lights a terrace lantern, restores one harvest heart if needed, awards points, and unlocks denser canopy depth, wind lanes, and stricter crate orders.</li>
+<li>Pause/restart remain available throughout.</li>
+</ol>
+<ul>
+<li>15+ minute play-value strategy:</li>
+<li>Save best score, fastest Mikan Grand Harvest time, longest ripe-catch chain, highest endless commission, fewest bruises, lowest overripe waste, best crate accuracy, fewest hornet scares, and collected orchard seal badges in localStorage.</li>
+<li>Include three authored commissions:</li>
+<li>First Sunny Basket: low canopy, large fruit, slow ripeness, two crate types, guided first pluck, broad basket catch radius, no heart penalty during first tutorial mistake.</li>
+<li>Terrace Crate Rush: adds mid/high canopy layers, wind drift, first hornet patrol, Sunwheel Reflector tutorial, and alternating crate order.</li>
+<li>Golden Sunwheel Harvest: adds shadow clusters, overripe pressure, crossing hornets, narrower golden windows, required Harvest Focus preview, and leaf-net rescue mastery.</li>
+<li>Deterministic Day 030 seed varies fruit cluster positions, ripeness windows, crate requests, hornet patrol timing, wind gust lanes, sunwheel beam angle, leaf-net recharge timing, and endless constraints while keeping the opening fair.</li>
+<li>Mastery badges: finish First Sunny Basket with zero bruises, trigger Grand Harvest under 255 seconds, harvest 30 ripe mikan in order, finish a commission below 8% bruise meter, complete Terrace Crate Rush without Fan Gust, complete an endless harvest with all harvest hearts.</li>
+<li>Strategic scoring rewards planning: wait for golden ripeness rather than panic-plucking, pre-position basket below high clusters, use Sunwheel on green fruit before crate demand spikes, save Fan Gust for hornet crossings, use Leaf Net on wind-drifted drops, use Harvest Focus before dense shadow clusters, and choose safe lower-value fruit instead of chasing overripe bonuses.</li>
+<li>Endless mode after Grand Harvest adds denser canopy rings, faster ripeness, wind shear, hornet pairs, smaller crate windows, and mixed fruit orders without shrinking touch controls.</li>
+<li>Difficulty scaling:</li>
+<li>0-45 seconds: low canopy, slow ripeness, broad basket, two crate types, guided first pluck.</li>
+<li>45-140 seconds: mid/high fruit, first hornet, wind drift, Sunwheel Reflector introduced, crate ordering.</li>
+<li>140-255 seconds: shadow clusters, overripe pressure, crossing hornets, required Harvest Focus timing, leaf-net rescue windows.</li>
+<li>255+ seconds/endless: faster ripeness, denser clusters, stricter crate order, stronger wind, same readable controls.</li>
+<li>Keep mobile fair: fruit clusters, ripeness rings, basket, drop arcs, hornets, crates, sunwheel beam, wind/leaf-net cues, commission card, and action buttons must be large/readable at 390x844; primary touch buttons must be 52px+; no tiny survival-critical fruit.</li>
+<li>Scoring/rewards:</li>
+<li>Ripe fruit plucked in requested window: +120 points times combo tier.</li>
+<li>Clean basket catch without bruise: +95 points and Harvest Focus charge.</li>
+<li>Correct crate delivery: +150 points.</li>
+<li>Sunwheel ripens a shadow fruit into the target window: +160 bonus.</li>
+<li>Fan Gust repels hornet without scattering fruit: +140 points.</li>
+<li>Leaf Net prevents a bruise: +130 points and bruise relief.</li>
+<li>Commission complete below bruise target: +780 points and restore one harvest heart if below max.</li>
+<li>Perfect no-bruise commission: +1000 points.</li>
+<li>Mikan Grand Harvest: +2000 points and endless commissions unlock.</li>
+<li>Underripe/overripe crate: combo soft-reset, bruise/waste +8%.</li>
+<li>Dropped fruit bruises on ground: harvest-heart damage if threshold crossed, bruise +14%, combo reset.</li>
+<li>Hornet scatter: basket stuns briefly, bruise +10%, next fruit ripens faster.</li>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<li>Mouse click/tap: press movement/action buttons, select fruit/crate chips, start/pause overlay button, prompt link, or explainable HUD chips.</li>
+<li>Mouse drag on the 3D stage: optional basket orbit/height preview; click-to-pluck must remain clear and non-ambiguous.</li>
+<li>Arrow keys or A/D: orbit basket left/right around the tree.</li>
+<li>W/S or Up/Down: raise/lower basket through canopy layers.</li>
+<li>Space or Enter: Pluck/Catch active fruit / confirm start depending on state.</li>
+<li>1/2/3: choose crate lane or cycle requested crate.</li>
+<li>F: Fan Gust when charged/available.</li>
+<li>L: Leaf Net when charged/available.</li>
+<li>Q/E: rotate Sunwheel Reflector left/right.</li>
+<li>Shift or M: Harvest Focus when charged.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+<li>Mobile/touch:</li>
+<li>Use large Orbit Left, Orbit Right, Raise, Lower controls plus optional drag-to-orbit on the orchard stage.</li>
+<li>Use large Pluck/Catch, Crate Lane, Sunwheel, Fan Gust, Leaf Net, Harvest Focus, Pause, Restart, and Prompt buttons.</li>
+<li>Tapping fruit/ripeness/hornet/crate/sunwheel chips may show short explanations.</li>
+<li>No tiny virtual joystick. Interaction is basket orbit/height, pluck/catch/sort, sunwheel, fan, net, focus, pause/restart.</li>
+<li>Mobile layout/orientation:</li>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact orchard HUD with score, best, harvest hearts, bruise %, combo, basket height, selected crate, focus %, and elapsed time. Use mikan/basket/crate/leaf/sun/hornet chips, not wood/clamp/shrine/tea/firework/coin/rabbit/brush/kite icons.</li>
+<li>Below top: commission card with requested fruit ripeness/colors, crate order, bruise limit, sunwheel/fan/net requirements, and progress ticks.</li>
+<li>Center: tall 3D orchard stage with tree canopy, basket, fruit ripeness rings, drop arcs, crates, sunwheel beam, hornets, wind ribbons, helper art, and camera/depth cues. It must remain playable without zooming.</li>
+<li>Bottom: status helper plus large movement/action controls. Controls must not cover critical fruit clusters, active drop arc, crate mouths, hornet warnings, or ripeness rings.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, basket orbit/height, fruit ripeness, pluck/catch/sort, sunwheel, hornets/Fan Gust, Leaf Net, Harvest Focus, pause/restart must be visible.</li>
+<li>Requests must combine text, symbols, fruit shapes, crate letters, progress ticks, and line styles so hue alone is not required.</li>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<ul>
+<li>Shows title “Mikan Sunwheel Orchard”.</li>
+<li>Shows Day 030 badge, mode badge “3D”, public route <code>/mikan/</code>, best score, best Grand Harvest time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+<li>Notes: “Audio starts after you press Start; visual ripeness rings and drop arcs work if muted.”</li>
+</ul>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<ul>
+<li>Objective: “Orbit the basket through the 3D mikan tree, pluck fruit at golden ripeness, and sort clean catches into requested crates.”</li>
+<li>Movement: orbit left/right and raise/lower through canopy layers; depth rings show where the basket is.</li>
+<li>Ripeness: green fruit ripen to golden then overripe; use Sunwheel to warm shadow fruit carefully.</li>
+<li>Catch/sort: Pluck fruit, catch the falling arc, then send it to the requested crate lane.</li>
+<li>Hazards: hornets scare the basket and bruised fruit hurts the commission; Fan Gust and Leaf Net rescue bad moments.</li>
+<li>Harvest Focus: slows drops and previews ripeness/drop arcs when charged.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<ul>
+<li>Score, best score, harvest hearts, bruise %, commission name, combo, basket height/orbit, crate order, active fruit ripeness, hornet warning, Sunwheel charge/angle, Fan Gust charge, Leaf Net charge, Harvest Focus charge, elapsed time, latest warning.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<ol>
+<li>Status helper</li>
+</ol>
+<ul>
+<li>Non-blocking helper showing next requested fruit, active cluster ripeness, likely drop path, hornet timing, crate advice, focus readiness, and expected score effect.</li>
+<li>Must not cover the 3D orchard stage or bottom controls on mobile.</li>
+</ul>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, audio/mute toggle, prompt link.</li>
+</ul>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<ul>
+<li>Final score, best score, commission reached, Grand Harvest status, ripe-catch chain, crate accuracy, bruises, hornet scares, badges, restart button.</li>
+</ul>
+<ol>
+<li>Mikan Grand Harvest banner</li>
+</ol>
+<ul>
+<li>Trigger once per run after all three commissions and 4400 score.</li>
+<li>Non-blocking celebration: the sunwheel sends gold rays through the canopy, mikan fruit sparkle into a citrus crest, crates stamp with orchard seals, the shiba helper barks happily, and endless commissions continue after the banner fades.</li>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: shiba orchard helper mascot, portrait mikan orchard background, fruit/crate/tool icon sheet, and decorative Grand Harvest seal pieces. Three.js primitives may render interactive 3D tree trunk/branches, fruit spheres, basket, ripeness rings, drop arcs, hornets, wind ribbons, sunwheel beam, camera, particles, and UI chrome. Procedural code may crop, resize, alpha-clean, atlas-pack, optimize, animate, or place generated assets; it should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/030/assets/source/</code> and use optimized playable copies under <code>release/games/030/assets/</code>. Also copy optimized playable assets into <code>apps/day-030-mikan-sunwheel-orchard/assets/</code> and the public alias <code>release/mikan/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny fruit/tool details that disappear at final in-game size, and keep helper/mikan/basket/crate/sunwheel/hornet silhouettes distinct against bright orchard backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Shiba orchard helper mascot</li>
+</ol>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/030/assets/source/mikan-helper-source.png</code></li>
+<li>Optimized path: <code>release/games/030/assets/mikan-helper.png</code></li>
+<li>Imagegen2 prompt: “A charming friendly shiba inu orchard helper mascot for a mobile 3D mikan harvest browser arcade game, small tan shiba wearing an indigo farmer scarf, holding a bamboo picking basket and one glossy orange mikan, bright helpful expression, warm afternoon orchard rim light, centered readable silhouette, transparent or solid pale citrus background, no checkerboard background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Mikan hillside orchard background source</li>
+</ol>
+<ul>
+<li>Target: portrait-friendly background suitable behind a 3D orchard/tree stage with open readable center.</li>
+<li>Archive path: <code>release/games/030/assets/source/mikan-orchard-source.png</code></li>
+<li>Optimized path: <code>release/games/030/assets/mikan-orchard.png</code></li>
+<li>Imagegen2 prompt: “A sunny Japanese hillside mikan citrus orchard for a portrait mobile 3D harvest game, glossy orange fruit trees, bamboo picking ladders at the edges, wooden harvest crates, round sunwheel reflector, mountain haze, warm honey-gold afternoon light, soft green leaves, open readable central canopy area for interactive 3D fruit clusters and basket, crop-safe for phone portrait, no characters in the center, no readable text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<ol>
+<li>Mikan fruit, basket, crate, sunwheel, hornet, leaf net, and orchard UI icon sheet source</li>
+</ol>
+<ul>
+<li>Target: square icon sheet for objectives, hazards, tools, rewards, and UI decals.</li>
+<li>Archive path: <code>release/games/030/assets/source/mikan-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/030/assets/mikan-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a Japanese mikan orchard harvest arcade game: green mikan, golden ripe mikan, deep orange overripe mikan, bamboo picking basket, wooden crate A, wooden crate B, sunwheel reflector, small hornet hazard, leaf net rescue, wind ribbon, Harvest Focus citrus emblem, bruise meter fruit, harvest heart, Mikan Grand Harvest seal, transparent or solid pale citrus background, no checkerboard background, high contrast, no text, no watermark, generous margins so no icons are cut off.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/Three.js shiba/mikan/basket silhouettes, document the failure in <code>ai/postmortems/day-030.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the shiba helper mascot, verify transparent/cutout quality or clean background handling, readable friendly silhouette, centered pivot/crop margins, no unwanted text/watermarks, stable upright helper orientation, and that basket/mikan pose does not imply incompatible movement or rotation.</li>
+<li>Verify control-to-motion alignment in-game: Orbit Left/Right must move the basket around the tree in expected directions, Raise/Lower must visibly change canopy height, Pluck/Catch must take/drop the intended fruit, Crate Lane must route fruit to visible crate lanes, Sunwheel must shift/ripen a visible light beam, Fan Gust must push hornets/wind as described, Leaf Net must cushion intended drops, and Harvest Focus must slow/preview ripeness/drop arcs.</li>
+<li>For the background, verify the central orchard/canopy remains readable after portrait mobile crop and does not hide fruit, basket, drop arcs, crates, commission card, helper, or controls.</li>
+<li>For the icon sheet, verify green/ripe/overripe mikan, basket, crates, sunwheel, hornet, leaf net, wind ribbon, Harvest Focus, bruise meter, harvest heart, and Grand Harvest seal are distinct at final HUD/button size and cannot be confused. Watch specifically for fake checkerboard transparency; alpha-clean or composite onto pale citrus if needed and inspect again.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Audio and game feel</h2>
+<p>Because fruit plucking, basket catching, crate sorting, hornet pressure, sunwheel ripening, and orchard atmosphere are central to the theme, include lightweight WebAudio cues initialized only after a user gesture:</p>
+<ul>
+<li>Soft leaf rustle when orbiting/raising/lowering the basket.</li>
+<li>Bright fruit pop when a ripe mikan is plucked.</li>
+<li>Bamboo basket thump when a fruit lands cleanly.</li>
+<li>Wooden crate clack when sorting correctly.</li>
+<li>Warm sun shimmer when Sunwheel Reflector ripens a cluster.</li>
+<li>Buzz/rattle warning when hornets approach or scatter the basket.</li>
+<li>Soft net whoosh when Leaf Net cushions a drop.</li>
+<li>Sparkly citrus shimmer when Harvest Focus activates.</li>
+<li>Rising koto/flute/orchard-bell arpeggio when Mikan Grand Harvest triggers.</li>
+</ul>
+<p>Audio must not block play if WebAudio is unavailable. Verify no autoplay errors: audio context should be created/resumed only after Start or another user interaction. Include a visible mute toggle in pause/results or HUD.</p>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/030/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 030 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<ul>
+<li>Build the static 3D game under <code>apps/day-030-mikan-sunwheel-orchard/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/030/</code>.</li>
+<li>Create the public playable route under <code>release/mikan/</code>.</li>
+<li>Use static HTML/CSS/JS with Three.js/WebGL/WebAudio and no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+<li>If vendoring <code>three.module*.js</code>, also copy the matching <code>three.core*.js</code> beside it in the app, release archive, and <code>/mikan/</code> alias assets.</li>
+</ul>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, remove fake checkerboards if present, and tune mobile readability/game feel.</li>
+</ul>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, 3D orchard render, Orbit/Raise/Lower controls, Pluck/Catch, Crate Lane, Sunwheel, Fan Gust, Leaf Net, Harvest Focus control presence, ripeness/drop/crate/hornet feedback, generated screenshot, generated assets, WebAudio initialization after user gesture, and 390x844 portrait layout.</li>
+</ul>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<ul>
+<li>Write <code>ai/postmortems/day-030.md</code> after validation with what worked, what failed, generated-image inspection notes, audio verification, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 030 is real <code>3d</code> after Day 029 <code>2d</code>, with basket orbit/height, fruit depth, ripeness timers, drop arcs, sun/shadow, hornets, and crate sorting that matter mechanically.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/commission card, usable 52px+ movement/action/pause/restart controls, no forced landscape canvas, and no tiny survival-critical fruit or crate targets.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-030.md</code> is copied exactly to <code>release/games/030/prompt.md</code> and <code>release/mikan/prompt.md</code>.</li>
+<li><code>release/games/030/prompt.html</code> and <code>release/mikan/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/mikan/index.html</code>, <code>release/mikan/prompt.html</code>, <code>release/mikan/screenshot.png</code>, and <code>release/mikan/assets/</code> exist and work.</li>
+<li>Gallery card for Day 030 shows prompt availability, generation duration, public <code>/mikan/</code> links, mode <code>3d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/030/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/030/assets/source/</code> and optimized assets exist under <code>release/games/030/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive basket/fruit/crate/hornet visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>WebAudio initializes after user gesture and creates no autoplay console errors; audio is failsafe if unsupported and visual ripeness/drop/crate cues remain playable muted.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicons to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/**</code> through <code>release/games/029/**</code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/030/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/mikan/index.html, release/mikan/prompt.html, release/mikan/screenshot.png, optimized assets, source assets, and vendored Three.js files (if used) exist and are non-empty.
+# Prompt copy check: cmp prompts/day-030.md release/games/030/prompt.md and cmp prompts/day-030.md release/mikan/prompt.md.
+# Prompt HTML check: verify release/games/030/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+# Browser smoke: open the local/static /mikan/ route and verify menu, tutorial, gameplay start, 3D orchard render, Orbit/Raise/Lower, Pluck/Catch, Crate Lane, Sunwheel, Fan Gust, Leaf Net, Harvest Focus, ripeness/drop/crate/hornet feedback, pause, restart, prompt page, WebAudio after user gesture, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable orchard/action controls plus readable HUD/commission card/stage/controls.
+# Static screenshot check: inspect release/games/030/screenshot.png and release/mikan/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-030.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /mikan/ and /mikan/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 030.</code></pre></main></body></html>
