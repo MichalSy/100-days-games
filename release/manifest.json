@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-12T01:45:00.000Z",
+  "generatedAt": "2026-07-13T01:44:43.000Z",
   "totalDays": 100,
-  "completedDays": 30,
+  "completedDays": 31,
   "games": [
     {
       "day": 1,
@@ -271,6 +271,15 @@
       "playUrl": "/mikan/",
       "promptUrl": "/mikan/prompt.html",
       "screenshotUrl": "/mikan/screenshot.png",
+      "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 31,
+      "title": "Botan Ikebana Balance Atelier",
+      "slug": "botan-ikebana-balance-atelier",
+      "playUrl": "/botan/",
+      "promptUrl": "/botan/prompt.html",
+      "screenshotUrl": "/botan/screenshot.png",
       "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]

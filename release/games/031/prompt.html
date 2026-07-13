@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 031 Game Generation Prompt</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f6d4dc'/%3E%3Cpath d='M32 10c8 8 8 16 0 24-8-8-8-16 0-24Z' fill='%23d94f77'/%3E%3Ccircle cx='32' cy='35' r='13' fill='%23f7adc2'/%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: light; --ink:#2b1912; --muted:#6f5548; --paper:#fff8ec; --peony:#d94f77; --moss:#4d6332; --line:rgba(89,57,24,.18); }
+    * { box-sizing:border-box; } body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background: radial-gradient(circle at 10% 0%, #ffe2ea, transparent 28%), linear-gradient(180deg,#fff8ec,#f4ddc8); }
+    main { width:min(920px, calc(100vw - 28px)); margin:0 auto; padding:28px 0 56px; } .back { display:inline-flex; align-items:center; gap:.5rem; color:var(--moss); font-weight:900; text-decoration:none; border:1px solid var(--line); border-radius:999px; padding:10px 14px; background:rgba(255,255,255,.72); }
+    article { margin-top:18px; background:rgba(255,252,243,.9); border:1px solid var(--line); border-radius:28px; padding:clamp(20px,4vw,42px); box-shadow:0 24px 70px rgba(53,31,18,.18); }
+    h1 { font-size:clamp(36px,7vw,72px); letter-spacing:-.07em; line-height:.9; margin:.2em 0 .45em; } h2 { margin-top:2em; padding-top:1em; border-top:1px solid var(--line); font-size:clamp(24px,4vw,36px); letter-spacing:-.04em; } h3 { margin-top:1.5em; color:var(--moss); }
+    p, li { line-height:1.62; font-weight:620; } li { margin:.35em 0; } code { background:#f8e5cd; border:1px solid var(--line); border-radius:6px; padding:.1em .35em; } pre { overflow:auto; background:#2b1912; color:#fff8ec; border-radius:18px; padding:16px; } pre code { background:transparent; border:0; padding:0; color:inherit; }
+  </style>
+</head><body><main><a class="back" href="./index.html">← Back to game</a><article><h1>Day 031 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 031</li>
+<li>Title: Botan Ikebana Balance Atelier</li>
+<li>Slug: botan-ikebana-balance-atelier</li>
+<li>Public route word: botan</li>
+<li>Mode: 2D</li>
+<li>Genre: mobile-first floral balance puzzle / ikebana composition arcade / precision craft score chase</li>
+<li>Mood/style: quiet early-spring Japanese ikebana studio, peony-pink botan blossoms, ceramic suiban vase, brass kenzan pin frog, pale tatami, black ink composition cards, water shimmer, bamboo measuring stick, tiny helpful tanuki florist apprentice, elegant asymmetry, calm but tense balance feedback; direct 2D stem angle/anchor/water-balance play rather than mikan orchard harvesting, kumiko woodworking, foxfire shrine stealth, matcha whisking, fireworks, pachinko, mochi hopping, sumi tracing, kite cartography, dry-garden raking, underwater navigation, taiko rhythm lanes, daruma rolling, web weaving, pottery shaping, bamboo canals, origami folding, parasol rain procession, snow stacking, kimono stamping, bento cooking, windbell tuning, rail running, or koi collection.</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 028 <code>3d</code>: Akane foxfire shrine stealth/escort with torii paths, lantern pools, patrol cones, and crimson-violet shrine depth.</li>
+<li>Day 029 <code>2d</code>: Hinoki kumiko woodworking with rectangular lattice strips, notches, clamps, grain stress, and warm cypress workshop visuals.</li>
+<li>Day 030 <code>3d</code>: Mikan Sunwheel Orchard with bright 3D citrus canopy, basket orbit/height, ripeness rings, crates, hornets, and sunny green/orange orchard visuals.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>3d</code> (Day 030), so Day 031 may safely choose <code>2D</code> without extending a 2D streak. It deliberately shifts away from 3D harvest navigation and previous rectangular woodworking into a portrait-first floral composition puzzle. The new verb set is ikebana balance: choose stems, trim length, rotate angle, anchor stems into a kenzan, manage left/right vase balance, mist thirsty blossoms, tie a support loop, satisfy asymmetry/composition cards, and use Ma Focus to preview balance arcs and negative-space targets.</p>
+<p>Recent screenshot/visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 030 used sunny orchard background, green 3D canopy, orange fruit, bamboo baskets/crates, hornets, sunwheel beams, and broad yellow-green UI.</li>
+<li>Day 029 used warm cypress workbench, shoji panel grid, geometric blueprint strips, clamps/chisels, and tan/gold workshop UI.</li>
+<li>Day 028 used dark akane shrine corridors, torii gates, blue foxfire wisps, lantern pools, shadow cones, and violet/crimson HUD chips.</li>
+</ul>
+<p>Day 031 should use a calm ceramic-and-flower studio: a shallow suiban bowl/vase, visible kenzan pins, angled flower stems, peony/botan blooms, slender grass lines, water rings, negative-space guide silhouettes, soft tatami shadows, peony-pink and moss-green accents, ink-brush composition cards, and a tanuki florist helper. Avoid fruit trees/crates/hornets/sunwheels, wooden lattice panels/tools/clamps, shrine patrol cones/foxfire/torii, tea bowls/foam/whisks, fireworks/night sky, pachinko coins/cats, rabbits/mochi, calligraphy scroll strokes, kite threads/star maps, sand/stone gardens, underwater oxygen/pearls, drum pads, tilt boards, silk webs, pottery wheel rings, bamboo pipe irrigation, origami crease lines, rain parasols, snow blocks, kimono cloth panels, restaurant timers, or generic match-three flowers.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/canvas/WebAudio game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 028 <code>3d</code>, Day 029 <code>2d</code>, and Day 030 <code>3d</code>. The latest generated-mode streak is one <code>3d</code>; latest 2D streak is zero.</p>
+<p>Mode decision: Day 031 is <code>2D</code>. This is allowed because it follows a 3D day and does not extend a 2D streak. The implementation must still be mechanically rich and visually polished:</p>
+<ul>
+<li>Use static-browser HTML/CSS/JS with a canvas-based or DOM/canvas hybrid ikebana board, no backend.</li>
+<li>Render a portrait-first suiban/vase scene with kenzan pins, stem anchors, current stem preview, existing stems/blooms/leaves, water rings, balance meter, negative-space silhouettes, composition card targets, mist/tie tools, and helper art.</li>
+<li>Gameplay must depend on 2D spatial state: stem anchor point, angle, length, bloom weight, bend, water reach, support ties, left/right torque, silhouette coverage, negative-space gaps, color harmony, freshness timers, and commission goals.</li>
+<li>Player actions must manipulate the system: select stem type, move anchor, rotate angle, trim length, place/commit stem, mist thirsty blooms, tie support on drooping stems, remove or re-cut one mistake, use Ma Focus to slow freshness timers and preview balance/negative-space arcs, pause/restart, and inspect tutorial hints.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Create balanced ikebana arrangements by anchoring stems into a kenzan, matching composition-card silhouettes, preserving deliberate negative space, and keeping blossoms fresh before the studio bell rings.</li>
+<li>Win condition: Complete three commissions — First Peony Line, Moon Bowl Triangle, and Festival Botan Masterwork — while reaching 4500 points to trigger “Botan Grand Arrangement”. After the banner, continue into endless custom arrangements.</li>
+<li>Lose condition: Three studio hearts wilt, vase balance reaches 100% tilt, the commission timer expires, too many stems are placed outside the composition intent, or freshness drops below the safe threshold twice in one commission.</li>
+<li>Core loop:</li>
+</ul>
+<ol>
+<li>Start on a title/menu screen with Day 031 badge, mode badge “2D”, public route <code>/botan/</code>, best score, best Grand Arrangement time, tutorial, prompt link, and a large Start button.</li>
+<li>Show a portrait-friendly ikebana workbench. A ceramic suiban bowl with a brass kenzan fills the lower center; a composition card sits above; stem rack and tool buttons stay below/side in large touch targets.</li>
+<li>A commission card requests goals such as: “Place 3 tall line stems, 2 botan blooms, preserve left moon-space, keep balance under 40%, mist twice, finish with one Ma Focus unused.”</li>
+<li>Player chooses a stem from the rack: line grass, curved willow, botan bloom, maple accent, moss branch, or seed pod. Each has weight, water need, bend, color, and silhouette role.</li>
+<li>Player moves the anchor over large kenzan zones, rotates angle, and trims length. A ghost preview shows expected stem line, bloom weight, water reach, balance torque, and target silhouette contribution.</li>
+<li>Commit Stem pins it into the kenzan. Correct lines glow ink-gold, intentional empty spaces shimmer, and the score chain rises. Bad placements overcrowd the negative-space target or tilt the vase.</li>
+<li>Mist Brush refreshes thirsty flowers and briefly reveals water-reach circles. Mist too early wastes charge; mist too late causes wilt.</li>
+<li>Support Tie stabilizes a drooping heavy bloom or curved branch, lowering tilt risk but adding visual clutter if overused.</li>
+<li>Recut can remove or shorten one recent stem per commission, but costs combo and time.</li>
+<li>Ma Focus, charged by clean asymmetry and fresh blooms, slows timers and overlays balance lines, negative-space gaps, and target silhouettes for a short window.</li>
+<li>Completing a commission stamps a small washi seal, restores one studio heart if needed, awards points, and unlocks heavier blooms, stricter empty-space goals, and faster freshness drain.</li>
+<li>Pause/restart remain available throughout.</li>
+</ol>
+<ul>
+<li>15+ minute play-value strategy:</li>
+<li>Save best score, fastest Botan Grand Arrangement time, longest clean-placement chain, highest endless commission, lowest tilt finish, freshest final arrangement, fewest support ties, best negative-space score, and collected ikebana seal badges in localStorage.</li>
+<li>Include three authored commissions:</li>
+<li>First Peony Line: broad kenzan zones, one tall line stem, two light botan blooms, slow freshness drain, guided first placement, no studio-heart penalty during the first tutorial mistake.</li>
+<li>Moon Bowl Triangle: adds triangle composition, water-reach constraints, curved willow, one drooping heavy bloom, first Support Tie, and negative-space scoring.</li>
+<li>Festival Botan Masterwork: adds asymmetric left/right tension, heavier peonies, stricter empty-space silhouette, required Ma Focus preview, limited Recut, and freshness pressure.</li>
+<li>Deterministic Day 031 seed varies stem rack order, blossom weights, silhouette guides, kenzan safe zones, freshness timers, water reach, tie recharge, mist timing, and endless constraints while keeping the opening fair.</li>
+<li>Mastery badges: finish First Peony Line with zero tilt warnings, trigger Grand Arrangement under 260 seconds, complete Moon Bowl Triangle with 85%+ negative-space score, finish a commission without Recut, finish below 12% tilt, complete an endless arrangement with all studio hearts.</li>
+<li>Strategic scoring rewards planning: place tall line stems first, counterweight heavy botan blooms, trim before committing, preserve the empty-space silhouette instead of filling every gap, mist only when freshness crosses the sweet spot, use Support Tie for one decisive heavy bloom, save Ma Focus for dense asymmetric cards, and accept lower-score light accents instead of overcrowding.</li>
+<li>Endless mode after Grand Arrangement adds tighter negative-space cards, heavier blooms, faster freshness drain, trickier water reach, rarer ties, and mixed color-harmony goals without shrinking touch controls.</li>
+<li>Difficulty scaling:</li>
+<li>0-45 seconds: simple line-and-bloom card, broad anchor zones, light stems, forgiving tilt, guided first commit.</li>
+<li>45-140 seconds: curved stems, water reach, first heavy bloom, negative-space target, Support Tie tutorial.</li>
+<li>140-260 seconds: asymmetric masterwork, stricter balance, limited Recut, required Ma Focus preview, faster freshness.</li>
+<li>260+ seconds/endless: denser goals, heavier blooms, shorter freshness windows, same readable controls.</li>
+<li>Keep mobile fair: stems, anchor zones, bloom heads, silhouette targets, balance/freshness meters, commission card, helper, and action buttons must be large/readable at 390x844; primary touch buttons must be 52px+ where possible and never below 44px; no tiny survival-critical kenzan pins.</li>
+<li>Scoring/rewards:</li>
+<li>Preview matches composition silhouette: +70 points times combo tier.</li>
+<li>Clean committed stem within target role: +125 points and Ma Focus charge.</li>
+<li>Balanced counterweight placement: +145 points.</li>
+<li>Negative-space gap preserved: +170 points.</li>
+<li>Mist restores a flower in the sweet window: +130 points and freshness relief.</li>
+<li>Support Tie stabilizes a drooping bloom before tilt warning: +150 points.</li>
+<li>Commission complete below tilt target: +820 points and restore one studio heart if below max.</li>
+<li>Perfect no-wilt arrangement: +1050 points.</li>
+<li>Botan Grand Arrangement: +2100 points and endless commissions unlock.</li>
+<li>Crowded/invalid commit: combo soft-reset, tilt +8%, negative-space score drops.</li>
+<li>Wilted bloom: studio-heart damage if threshold crossed, freshness penalty, combo reset.</li>
+<li>Over-tied arrangement: clutter penalty and lower finish score.</li>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<li>Mouse click/tap: press action buttons, select stem rack pieces, choose kenzan zones, start/pause overlay button, prompt link, or explainable HUD chips.</li>
+<li>Mouse drag on the arrangement stage: position anchor and angle preview; release should preview/dry-fit, not commit, unless a clearly labeled Commit Stem action is pressed.</li>
+<li>Arrow keys or WASD: move anchor over kenzan zones.</li>
+<li>Q/E: rotate current stem counterclockwise/clockwise.</li>
+<li>W/S or Up/Down while holding Trim mode: lengthen/shorten preview.</li>
+<li>Space or Enter: Preview/Commit current stem depending on state.</li>
+<li>1/2/3/4: choose stem rack slot or tool group.</li>
+<li>M: Mist Brush.</li>
+<li>T: Support Tie.</li>
+<li>X: Recut recent stem.</li>
+<li>Shift or F: Ma Focus when charged.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+<li>Mobile/touch:</li>
+<li>Use large Anchor Up, Anchor Left, Anchor Right, Anchor Down controls plus optional drag-to-position on the suiban stage.</li>
+<li>Use large Rotate −, Rotate +, Trim −, Trim +, Preview, Commit Stem, Stem Rack, Mist Brush, Support Tie, Recut, Ma Focus, Pause, Restart, and Prompt buttons.</li>
+<li>Tapping stem/balance/freshness/space chips may show short explanations.</li>
+<li>No tiny virtual joystick. Interaction is anchor stepping/dragging, rotating, trimming, previewing, committing, misting, tying, recutting, focus, pause/restart.</li>
+<li>Mobile layout/orientation:</li>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact studio HUD with score, best, studio hearts, tilt %, freshness %, combo, active stem, Ma Focus charge, and elapsed time. Use flower/stem/vase/water/tie/ma chips, not fruit/wood/shrine/tea/firework/cat/rabbit/brush/kite icons.</li>
+<li>Below top: commission card with composition target, required stem roles, negative-space score, tilt limit, freshness target, tool requirements, and progress ticks.</li>
+<li>Center: large suiban/kenzan arrangement stage with existing stems, active ghost preview, bloom weights, target silhouette, empty-space shimmer, water rings, helper art, and readable canvas feedback. It must remain playable without zooming.</li>
+<li>Bottom: status helper plus large movement/action controls. Controls must not cover active anchor, bloom heads, balance warning, target silhouette, or commission progress.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, anchor movement, rotate/trim, preview/commit, balance, freshness/mist, support tie, Recut, Ma Focus, pause/restart must be visible.</li>
+<li>Requests must combine text, icons, line styles, shapes, and progress ticks so hue alone is not required.</li>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<ul>
+<li>Shows title “Botan Ikebana Balance Atelier”.</li>
+<li>Shows Day 031 badge, mode badge “2D”, public route <code>/botan/</code>, best score, best Grand Arrangement time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+<li>Notes: “Audio starts after you press Start; visual balance, freshness, and negative-space cues work if muted.”</li>
+</ul>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<ul>
+<li>Objective: “Anchor stems into the kenzan, balance peony weight, preserve empty space, and finish the composition before flowers wilt.”</li>
+<li>Placement: move the anchor, rotate and trim the preview, then Commit Stem when the guide glows.</li>
+<li>Balance: heavy botan blooms tilt the suiban; counterweight with line stems and support ties.</li>
+<li>Freshness: mist when flowers are thirsty; water rings show which stems are safely reached.</li>
+<li>Negative space: do not fill every gap; shimmering empty silhouettes are part of the score.</li>
+<li>Ma Focus: slows the studio and previews balance/space lines when charged.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<ul>
+<li>Score, best score, studio hearts, tilt %, freshness %, commission name, combo, active stem role/length/angle, negative-space score, Ma Focus charge, elapsed time, latest warning.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<ol>
+<li>Status helper</li>
+</ol>
+<ul>
+<li>Non-blocking helper showing suggested stem role, balance advice, water/freshness warning, negative-space guidance, tool readiness, Ma Focus readiness, and expected score effect.</li>
+<li>Must not cover the arrangement stage or bottom controls on mobile.</li>
+</ul>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, audio/mute toggle, prompt link.</li>
+</ul>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<ul>
+<li>Final score, best score, commission reached, Grand Arrangement status, clean-placement chain, negative-space score, tilt/freshness finish, ties/recuts used, mastery badges, restart button.</li>
+</ul>
+<ol>
+<li>Botan Grand Arrangement banner</li>
+</ol>
+<ul>
+<li>Trigger once per run after all three commissions and 4500 score.</li>
+<li>Non-blocking celebration: peony petals drift across the suiban, water rings glow gold, the tanuki helper stamps a tiny washi seal, and endless commissions continue after the banner fades.</li>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: tanuki florist helper mascot, portrait ikebana studio background, stem/tool/composition icon sheet, and decorative Grand Arrangement seal pieces. Canvas/SVG/DOM code may render interactive stems, blooms, kenzan pins, target silhouettes, water rings, balance lines, particles, and UI chrome. It should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/031/assets/source/</code> and use optimized playable copies under <code>release/games/031/assets/</code>. Also copy optimized playable assets into <code>apps/day-031-botan-ikebana-balance-atelier/assets/</code> and the public alias <code>release/botan/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny flower/tool details that disappear at final in-game size, and keep helper/stem/bloom/vase/mist/tie/focus silhouettes distinct against pale studio backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Tanuki florist helper mascot</li>
+</ol>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/031/assets/source/botan-helper-source.png</code></li>
+<li>Optimized path: <code>release/games/031/assets/botan-helper.png</code></li>
+<li>Imagegen2 prompt: “A charming friendly tanuki florist apprentice mascot for a mobile 2D ikebana balance browser puzzle game, small tanuki wearing a moss-green studio apron, holding a peony blossom and bamboo measuring stick, kind focused expression, soft tatami and studio rim light, centered readable silhouette, transparent or solid pale peony background, no checkerboard background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Ikebana studio background source</li>
+</ol>
+<ul>
+<li>Target: portrait-friendly background suitable behind a large suiban/kenzan arrangement stage with open readable center.</li>
+<li>Archive path: <code>release/games/031/assets/source/botan-studio-source.png</code></li>
+<li>Optimized path: <code>release/games/031/assets/botan-studio.png</code></li>
+<li>Imagegen2 prompt: “A serene Japanese ikebana studio for a portrait mobile floral balance puzzle game, pale tatami, low wooden work table, ceramic suiban vase, brass kenzan pin frog, peony blossoms and slender grasses arranged around the edges, bamboo measuring stick, small mist sprayer, black ink composition cards at the side, soft morning light, open readable central table area for interactive stems and blooms, crop-safe for phone portrait, no characters in the center, no readable text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<ol>
+<li>Ikebana stems, vase, mist, tie, freshness, and composition icon sheet source</li>
+</ol>
+<ul>
+<li>Target: square icon sheet for objectives, hazards, tools, rewards, and UI decals.</li>
+<li>Archive path: <code>release/games/031/assets/source/botan-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/031/assets/botan-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a Japanese ikebana balance arcade puzzle game: peony botan bloom, tall line grass stem, curved willow branch, ceramic suiban vase, brass kenzan pin frog, water ring, mist brush, support tie loop, trimming shears, freshness droplet, tilt warning triangle, negative-space moon shape, Ma Focus emblem, studio heart, Grand Arrangement washi seal, transparent or solid pale peony background, no checkerboard background, high contrast, no text, no watermark, generous margins so no icons are cut off.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas tanuki/flower/vase/tool silhouettes, document the failure in <code>ai/postmortems/day-031.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the tanuki helper mascot, verify transparent/cutout quality or clean background handling, readable friendly silhouette, centered pivot/crop margins, no unwanted text/watermarks, stable upright helper orientation, and that flower/measuring-stick pose does not imply incompatible movement or rotation.</li>
+<li>Verify control-to-motion alignment in-game: Anchor Up/Left/Right/Down must move the preview in expected directions, Rotate/Trim must visibly change stem angle/length, Preview must show valid/invalid composition feedback, Commit Stem must lock a visible stem, Mist Brush must restore freshness/show water rings, Support Tie must visibly stabilize a drooping stem/lower tilt, Recut must remove/shorten the intended stem, and Ma Focus must slow/preview balance/space lines.</li>
+<li>For the background, verify the central table/suiban remains readable after portrait mobile crop and does not hide stems, kenzan pins, preview lines, target silhouettes, commission card, helper, or controls.</li>
+<li>For the icon sheet, verify peony bloom, line grass, willow, suiban, kenzan, water ring, mist, support tie, shears, freshness droplet, tilt warning, negative-space moon, Ma Focus, studio heart, and Grand Arrangement seal are distinct at final HUD/button size and cannot be confused. Watch specifically for fake checkerboard transparency; alpha-clean or composite onto pale peony if needed and inspect again.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Audio and game feel</h2>
+<p>Because flower placement, trimming, misting, support ties, balance warnings, and a quiet studio atmosphere are central to the theme, include lightweight WebAudio cues initialized only after a user gesture:</p>
+<ul>
+<li>Soft bamboo tap when moving anchor or previewing a stem.</li>
+<li>Gentle pin click when a stem is committed into the kenzan.</li>
+<li>Clean snip when trimming length.</li>
+<li>Water mist shimmer when Mist Brush refreshes blooms.</li>
+<li>Silk thread pluck when Support Tie stabilizes a stem.</li>
+<li>Low ceramic wobble warning when tilt rises.</li>
+<li>Soft petal sigh when a bloom wilts.</li>
+<li>Quiet bell/ink shimmer when Ma Focus activates.</li>
+<li>Rising koto/shakuhachi/floral bell arpeggio when Botan Grand Arrangement triggers.</li>
+</ul>
+<p>Audio must not block play if WebAudio is unavailable. Verify no autoplay errors: audio context should be created/resumed only after Start or another user interaction. Include a visible mute toggle in pause/results or HUD.</p>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/031/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 031 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<ul>
+<li>Build the static 2D game under <code>apps/day-031-botan-ikebana-balance-atelier/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/031/</code>.</li>
+<li>Create the public playable route under <code>release/botan/</code>.</li>
+<li>Use static HTML/CSS/JS with Canvas/SVG/WebAudio and no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+</ul>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, remove fake checkerboards if present, and tune mobile readability/game feel.</li>
+</ul>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, arrangement render, Anchor controls, Rotate/Trim, Preview, Commit Stem, Mist Brush, Support Tie, Recut, Ma Focus control presence, balance/freshness/negative-space feedback, generated screenshot, generated assets, WebAudio initialization after user gesture, and 390x844 portrait layout.</li>
+</ul>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<ul>
+<li>Write <code>ai/postmortems/day-031.md</code> after validation with what worked, what failed, generated-image inspection notes, audio verification, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 031 is <code>2d</code> after Day 030 <code>3d</code> with zero latest 2D streak, and the mechanic is rich spatial/composition puzzle play rather than a low-effort flat demo.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/commission card, usable 44px+ movement/action/pause/restart controls, no forced landscape canvas, and no tiny survival-critical stems or anchor targets.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-031.md</code> is copied exactly to <code>release/games/031/prompt.md</code> and <code>release/botan/prompt.md</code>.</li>
+<li><code>release/games/031/prompt.html</code> and <code>release/botan/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/botan/index.html</code>, <code>release/botan/prompt.html</code>, <code>release/botan/screenshot.png</code>, and <code>release/botan/assets/</code> exist and work.</li>
+<li>Gallery card for Day 031 shows prompt availability, generation duration, public <code>/botan/</code> links, mode <code>2d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/031/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/031/assets/source/</code> and optimized assets exist under <code>release/games/031/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive stem/bloom/vase/tool visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>WebAudio initializes after user gesture and creates no autoplay console errors; audio is failsafe if unsupported and visual balance/freshness/composition cues remain playable muted.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicons to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/<strong></code> through <code>release/games/030/</strong></code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>
+pnpm typecheck
+
+pnpm test
+
+pnpm build
+
+pnpm release:validate
+
+pnpm test:smoke
+
+pnpm test:immutable -- --base origin/main
+
+</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code>
+# Screenshot/static checks: verify release/games/031/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/botan/index.html, release/botan/prompt.html, release/botan/screenshot.png, optimized assets, and source assets exist and are non-empty.
+
+# Prompt copy check: cmp prompts/day-031.md release/games/031/prompt.md and cmp prompts/day-031.md release/botan/prompt.md.
+
+# Prompt HTML check: verify release/games/031/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+
+# Browser smoke: open the local/static /botan/ route and verify menu, tutorial, gameplay start, arrangement render, Anchor controls, Rotate/Trim, Preview, Commit Stem, Mist Brush, Support Tie, Recut, Ma Focus, balance/freshness/space feedback, pause, restart, prompt page, WebAudio after user gesture, no console errors.
+
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable anchor/action controls plus readable HUD/commission card/stage/controls.
+
+# Static screenshot check: inspect release/games/031/screenshot.png and release/botan/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-031.md.
+
+# Docker/static smoke: build the Docker image locally, run it, curl /botan/ and /botan/prompt.html, then stop the container.
+
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 031.
+
+</code></pre></article></main></body></html>

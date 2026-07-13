@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Day 031 — Botan Ikebana Balance Atelier</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f6d4dc'/%3E%3Cpath d='M32 10c8 8 8 16 0 24-8-8-8-16 0-24Z' fill='%23d94f77'/%3E%3Ccircle cx='32' cy='35' r='13' fill='%23f7adc2'/%3E%3Cpath d='M32 35 48 55H16L32 35Z' fill='%237b8b45'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="game-shell" aria-label="Botan Ikebana Balance Atelier game">
+    <section class="topbar" aria-label="Game status">
+      <div class="brand-card">
+        <span class="eyebrow">Day 031</span>
+        <span class="mode-pill">2D</span>
+        <strong>Botan</strong>
+        <small>/botan/</small>
+      </div>
+      <div class="stat"><span>Score</span><strong id="score">0</strong></div>
+      <div class="stat"><span>Best</span><strong id="best">0</strong></div>
+      <div class="stat"><span>Hearts</span><strong id="hearts">♥♥♥</strong></div>
+      <div class="stat"><span>Tilt</span><strong id="tilt">0%</strong></div>
+      <button id="muteBtn" class="stat stat-button" type="button">Audio On</button>
+    </section>
+
+    <section class="commission" aria-label="Current commission">
+      <img src="./assets/botan-icons.png" alt="Botan icon sheet detail" />
+      <div>
+        <span id="chapter" class="eyebrow">First Peony Line</span>
+        <h1>Botan Ikebana Balance Atelier</h1>
+        <p id="objective">Anchor stems into the kenzan, balance peony weight, preserve empty space, and finish before flowers wilt.</p>
+      </div>
+      <div id="progressPips" class="progress-pips" aria-label="Commission progress"></div>
+    </section>
+
+    <section class="stage-card" aria-label="Ikebana arrangement stage">
+      <canvas id="gameCanvas" width="900" height="620" aria-label="Suiban, kenzan, stems, balance and negative-space canvas"></canvas>
+      <div id="stageBadge" class="stage-badge">Anchor center · Line grass · angle −68°</div>
+      <aside class="helper-card">
+        <img src="./assets/botan-helper.png" alt="Tanuki florist helper" />
+        <p id="helperText">Choose a stem, preview its line, then commit when the moon-space still breathes.</p>
+      </aside>
+    </section>
+
+    <p id="statusLine" class="status-line" role="status">Press Start. Audio begins after your first gesture; visual cues work muted.</p>
+
+    <section class="controls" aria-label="Game controls">
+      <button data-action="anchor-left">Anchor Left<span>A / ←</span></button>
+      <button data-action="anchor-up">Anchor Up<span>W / ↑</span></button>
+      <button data-action="anchor-right">Anchor Right<span>D / →</span></button>
+      <button data-action="anchor-down">Anchor Down<span>S / ↓</span></button>
+      <button data-action="rotate-left">Rotate −<span>Q</span></button>
+      <button data-action="rotate-right">Rotate +<span>E</span></button>
+      <button data-action="trim-down">Trim −<span>Z</span></button>
+      <button data-action="trim-up">Trim +<span>X</span></button>
+      <button class="primary" data-action="preview">Preview<span>Space</span></button>
+      <button class="primary" data-action="commit">Commit Stem<span>Enter</span></button>
+      <button data-action="stem">Stem Rack<span>1/2/3</span></button>
+      <button data-action="mist">Mist Brush<span>M</span></button>
+      <button data-action="tie">Support Tie<span>T</span></button>
+      <button data-action="recut">Recut<span>Backspace</span></button>
+      <button class="focus" data-action="focus">Ma Focus<span>Shift</span></button>
+      <button data-action="pause">Pause<span>P</span></button>
+      <button class="danger" data-action="restart">Restart<span>R</span></button>
+      <a class="prompt-button" href="./prompt.html">Prompt</a>
+    </section>
+  </main>
+
+  <div id="overlay" class="overlay open" role="dialog" aria-modal="true" aria-labelledby="overlayTitle">
+    <div class="panel">
+      <div class="panel-art"><img src="./assets/botan-studio.png" alt="Ikebana studio background" /></div>
+      <div class="panel-copy">
+        <span class="eyebrow">Day 031 · 2D · /botan/</span>
+        <h2 id="overlayTitle">Botan Ikebana Balance Atelier</h2>
+        <p>Anchor stems into the brass kenzan, balance peony weight, preserve deliberate moon-shaped empty space, and keep every bloom fresh.</p>
+        <ul>
+          <li><strong>Move / rotate / trim</strong> the preview stem until the guide glows.</li>
+          <li><strong>Commit Stem</strong> to score line, bloom, and negative-space goals.</li>
+          <li><strong>Mist</strong> thirsty blooms, <strong>Tie</strong> heavy stems, and <strong>Recut</strong> one mistake.</li>
+          <li><strong>Ma Focus</strong> slows the studio and reveals balance/space lines.</li>
+        </ul>
+        <div class="panel-actions">
+          <button id="startBtn" class="primary big" type="button">Start Arrangement</button>
+          <a href="./prompt.html">Read prompt</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

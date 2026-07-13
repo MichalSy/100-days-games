@@ -466,6 +466,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/mikan/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-12T01:45:00Z'
+  },
+  31: {
+    status: 'generated',
+    title: 'Botan Ikebana Balance Atelier',
+    slug: 'botan-ikebana-balance-atelier',
+    genre: ['floral balance puzzle', 'ikebana composition', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Create calm ikebana arrangements by anchoring stems into a brass kenzan, balancing peony weight, preserving moon-shaped negative space, misting thirsty blooms, and using Ma Focus to preview composition lines.',
+    objective: 'Complete First Peony Line, Moon Bowl Triangle, and Festival Botan Masterwork while reaching 4500 points to trigger Botan Grand Arrangement, then continue into endless floral commissions.',
+    playUrl: '/botan/',
+    promptUrl: '/botan/prompt.html',
+    promptExcerpt: 'Anchor stems, rotate and trim previews, preserve empty space, manage vase tilt and freshness, mist blooms, tie heavy branches, and use Ma Focus for balance lines.',
+    screenshotUrl: '/botan/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-13T01:44:43Z'
   }
 };
 
