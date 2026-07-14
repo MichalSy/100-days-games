@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="Day 032: Onsen Steamline Bathkeeper — a mobile-first 3D thermal-routing bathhouse puzzle." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23082a38'/%3E%3Cpath d='M18 42c8 7 20 7 28 0' stroke='%23f5d58a' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M24 29c-5-7 6-9 1-16M34 31c-5-7 6-9 1-16M44 29c-5-7 6-9 1-16' stroke='%23aee8ff' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <title>Onsen Steamline Bathkeeper · Day 032</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="app" class="app-shell" aria-label="Onsen Steamline Bathkeeper game">
+      <section id="menu" class="overlay title-screen" aria-labelledby="title-heading">
+        <div class="title-card glass-panel">
+          <div class="badge-row">
+            <span class="badge">Day 032</span>
+            <span class="badge badge-3d">3D</span>
+            <span class="badge">/onsen/</span>
+          </div>
+          <h1 id="title-heading">Onsen Steamline Bathkeeper</h1>
+          <p class="subtitle">Route hot steam, cool mist, and bamboo spouts through a dawn bathhouse. Keep every pool cozy before the mineral fog overloads.</p>
+          <div class="menu-stats" aria-live="polite">
+            <span><strong id="menuBest">0</strong><small>best score</small></span>
+            <span><strong id="menuYuge">—</strong><small>best Grand Yuge</small></span>
+          </div>
+          <div class="menu-actions">
+            <button id="startBtn" class="primary-action" type="button">Start bathkeeping</button>
+            <a class="ghost-link" href="./prompt.html">View prompt</a>
+          </div>
+          <p class="audio-note">Audio starts after you press Start; visual temperature, pressure, and steam-flow cues work if muted.</p>
+          <article class="tutorial-card" aria-label="Tutorial">
+            <h2>Bathkeeper tutorial</h2>
+            <ul>
+              <li><strong>Objective:</strong> Route steam through copper ducts, tune each pool to its comfort band, vent pressure, and keep macaques cozy.</li>
+              <li><strong>Valves:</strong> Select a lane/valve, rotate toward hot, cool, neutral, or outlet flow; steam arrows show current direction.</li>
+              <li><strong>Temperature:</strong> Pools drift toward inflow; gold/teal means safe, red means scalding, blue means too cold.</li>
+              <li><strong>Pressure:</strong> Vent before the gauge peaks. Over-venting cools pools and lowers mineral glow.</li>
+              <li><strong>Tools:</strong> Bamboo Spout cools one pool. Stir Pool stabilizes near-target water.</li>
+              <li><strong>Yuge Focus:</strong> Slows thermal drift and previews predicted temperatures and safe vent windows.</li>
+              <li><strong>Pause/restart:</strong> P/R on desktop or visible buttons on mobile.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="game" class="game-layout" aria-label="3D onsen game board">
+        <header class="hud glass-panel">
+          <div class="hud-chip"><span>Score</span><strong id="scoreEl">0</strong></div>
+          <div class="hud-chip"><span>Best</span><strong id="bestEl">0</strong></div>
+          <div class="hud-chip hearts"><span>Comfort</span><strong id="heartsEl">♥♥♥</strong></div>
+          <div class="hud-chip pressure"><span>Pressure</span><strong id="pressureEl">0%</strong></div>
+          <div class="hud-chip"><span>Combo</span><strong id="comboEl">x1</strong></div>
+          <div class="hud-chip"><span>Lane</span><strong id="laneEl">Near</strong></div>
+          <div class="hud-chip"><span>Valve</span><strong id="valveEl">Neutral</strong></div>
+          <div class="hud-chip"><span>Focus</span><strong id="focusEl">0%</strong></div>
+          <div class="hud-chip"><span>Mineral</span><strong id="mineralEl">100%</strong></div>
+          <div class="hud-chip"><span>Time</span><strong id="timeEl">0:00</strong></div>
+        </header>
+
+        <aside class="commission glass-panel" aria-label="Commission card">
+          <div class="commission-top">
+            <span class="kicker">Commission</span>
+            <strong id="commissionName">First Cedar Soak</strong>
+          </div>
+          <p id="commissionText">Warm Cedar Pool to 42°C, keep Stone Pool comfortable, and vent pressure safely.</p>
+          <div id="goalTicks" class="goal-ticks" aria-label="Commission progress"></div>
+        </aside>
+
+        <section class="stage-wrap">
+          <div id="stage" class="stage" aria-label="3D bathhouse board"></div>
+          <div class="stage-vignette"></div>
+          <div id="focusOverlay" class="focus-overlay" hidden>
+            <strong>Yuge Focus</strong>
+            <span id="predictionText">Predicted temperatures stable.</span>
+          </div>
+          <div class="pool-strip" aria-label="Pool temperatures">
+            <button class="pool-card" data-pool="0" type="button"><strong>Cedar</strong><span id="pool0Temp">38°C</span><em id="pool0Band">37–43°C</em></button>
+            <button class="pool-card" data-pool="1" type="button"><strong>Moonstone</strong><span id="pool1Temp">38°C</span><em id="pool1Band">37–43°C</em></button>
+            <button class="pool-card" data-pool="2" type="button"><strong>Macaque</strong><span id="pool2Temp">38°C</span><em id="pool2Band">37–43°C</em></button>
+          </div>
+        </section>
+
+        <p id="helperText" class="helper glass-panel" aria-live="polite">Pick a lane, rotate a valve to hot or cool, then stabilize the requested pool.</p>
+
+        <nav class="controls glass-panel" aria-label="Bathkeeper controls">
+          <button id="lanePrev" type="button">Lane −</button>
+          <button id="laneNext" type="button">Lane +</button>
+          <button id="valvePrev" type="button">Valve −</button>
+          <button id="valveNext" type="button">Valve +</button>
+          <button id="ventBtn" type="button">Vent Chimney</button>
+          <button id="spoutBtn" type="button">Bamboo Spout</button>
+          <button id="stirBtn" type="button">Stir Pool</button>
+          <button id="focusBtn" type="button">Yuge Focus</button>
+          <button id="pauseBtn" type="button">Pause</button>
+          <button id="restartBtn" type="button">Restart</button>
+          <a class="control-link" href="./prompt.html">Prompt</a>
+        </nav>
+      </section>
+
+      <section id="pauseOverlay" class="overlay pause-screen" hidden>
+        <div class="glass-panel modal-card">
+          <h2>Bathhouse paused</h2>
+          <p>Rotate valves with Q/E or Valve −/+; switch lanes with arrows or Lane −/+; V vents, B uses Bamboo Spout, T stirs, F or Shift activates Yuge Focus.</p>
+          <div class="modal-actions">
+            <button id="resumeBtn" class="primary-action" type="button">Resume</button>
+            <button id="pauseRestartBtn" type="button">Restart run</button>
+            <button id="muteBtn" type="button">Mute audio</button>
+            <a class="ghost-link" href="./prompt.html">Prompt</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="resultsOverlay" class="overlay results-screen" hidden>
+        <div class="glass-panel modal-card">
+          <h2 id="resultsTitle">Bathhouse results</h2>
+          <div id="resultsStats" class="results-grid"></div>
+          <div id="badgeList" class="badge-list"></div>
+          <div class="modal-actions">
+            <button id="resultsRestartBtn" class="primary-action" type="button">Restart</button>
+            <a class="ghost-link" href="./prompt.html">Prompt</a>
+          </div>
+        </div>
+      </section>
+
+      <div id="grandBanner" class="grand-banner" hidden>
+        <strong>Onsen Grand Yuge!</strong>
+        <span>Gold steam braids through the bathhouse. Endless commissions begin.</span>
+      </div>
+    </main>
+    <script type="module" src="./game.js"></script>
+  </body>
+</html>

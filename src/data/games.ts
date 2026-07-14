@@ -481,6 +481,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/botan/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-13T01:44:43Z'
+  },
+  32: {
+    status: 'generated',
+    title: 'Onsen Steamline Bathkeeper',
+    slug: 'onsen-steamline-bathkeeper',
+    genre: ['3D thermal-routing puzzle', 'steam-valve management', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Tune a cozy mountain onsen by rotating copper valves through near, mid, and far duct lanes, balancing hot steam, cool mist, pressure vents, bamboo spouts, and macaque guest comfort.',
+    objective: 'Complete First Cedar Soak, Moonstone Mineral Loop, and Snow-Monkey Dawn Bath while reaching 4600 points to trigger Onsen Grand Yuge, then continue into endless bathhouse commissions.',
+    playUrl: '/onsen/',
+    promptUrl: '/onsen/prompt.html',
+    promptExcerpt: 'Route hot steam and cool mist through 3D onsen ducts, tune pool temperatures, vent pressure, soothe macaque guests, and use Yuge Focus before fog overloads the bathhouse.',
+    screenshotUrl: '/onsen/screenshot.png',
+    generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-14T01:32:09Z'
   }
 };
 

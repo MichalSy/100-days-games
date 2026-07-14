@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-13T01:44:43.000Z",
+  "generatedAt": "2026-07-14T01:32:09.000Z",
   "totalDays": 100,
-  "completedDays": 31,
+  "completedDays": 32,
   "games": [
     {
       "day": 1,
@@ -281,6 +281,15 @@
       "promptUrl": "/botan/prompt.html",
       "screenshotUrl": "/botan/screenshot.png",
       "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 32,
+      "title": "Onsen Steamline Bathkeeper",
+      "slug": "onsen-steamline-bathkeeper",
+      "playUrl": "/onsen/",
+      "promptUrl": "/onsen/prompt.html",
+      "screenshotUrl": "/onsen/screenshot.png",
+      "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]
 }
