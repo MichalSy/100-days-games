@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-14T01:32:09.000Z",
+  "generatedAt": "2026-07-15T01:47:54.000Z",
   "totalDays": 100,
-  "completedDays": 32,
+  "completedDays": 33,
   "games": [
     {
       "day": 1,
@@ -289,6 +289,15 @@
       "playUrl": "/onsen/",
       "promptUrl": "/onsen/prompt.html",
       "screenshotUrl": "/onsen/screenshot.png",
+      "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 33,
+      "title": "Uchiwa Fan Dye Maestro",
+      "slug": "uchiwa-fan-dye-maestro",
+      "playUrl": "/uchiwa/",
+      "promptUrl": "/uchiwa/prompt.html",
+      "screenshotUrl": "/uchiwa/screenshot.png",
       "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]

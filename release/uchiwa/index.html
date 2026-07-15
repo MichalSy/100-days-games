@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Day 033 · Uchiwa Fan Dye Maestro</title>
+  <meta name="description" content="A mobile-first radial uchiwa fan dye puzzle about stencil alignment, pigment bleed, folding, blotting, and Kaze-Dry Focus." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23fff7da'/%3E%3Cpath d='M12 31a20 20 0 0 1 40 0v6H12z' fill='%23f7e7bf' stroke='%23b58b2e' stroke-width='3'/%3E%3Cpath d='M32 37v20M18 36l14 21M46 36 32 57M24 35l8 22M40 35l-8 22' stroke='%23b58b2e' stroke-width='2'/%3E%3Ccircle cx='32' cy='57' r='4' fill='%23c77635'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="game-shell" id="app">
+    <section class="topbar" aria-label="Game status">
+      <div class="brand-block">
+        <span class="day-badge">Day 033</span>
+        <span class="mode-badge">2D</span>
+        <h1>Uchiwa Fan Dye Maestro</h1>
+      </div>
+      <div class="quick-links">
+        <a class="chip-link" href="./prompt.html">Prompt</a>
+        <button class="chip-link" id="audioToggle" type="button" aria-pressed="false">Audio: On</button>
+      </div>
+    </section>
+
+    <section class="hud" aria-live="polite">
+      <div><strong id="score">0</strong><span>Score</span></div>
+      <div><strong id="bestScore">0</strong><span>Best</span></div>
+      <div><strong id="hearts">♡♡♡</strong><span>Paper</span></div>
+      <div><strong id="bleed">0%</strong><span>Bleed</span></div>
+      <div><strong id="combo">x1</strong><span>Combo</span></div>
+      <div><strong id="elapsed">0:00</strong><span>Time</span></div>
+    </section>
+
+    <section class="commission-card" id="commissionCard">
+      <div>
+        <p class="eyebrow">Commission</p>
+        <h2 id="commissionName">First Indigo Breeze</h2>
+      </div>
+      <p id="commissionText">Align the wave stencil, brush indigo sectors, preserve white gaps, and keep bleed low.</p>
+      <div class="progress-row" id="goalTicks"></div>
+    </section>
+
+    <section class="stage-card">
+      <canvas id="fanCanvas" width="720" height="720" aria-label="Radial uchiwa fan dye workbench"></canvas>
+      <img class="helper" src="./assets/uchiwa-helper.png" alt="Friendly kappa fanmaker helper" />
+      <div class="focus-ribbon" id="focusRibbon">Kaze-Dry Focus previews bleed arrows and drying rings</div>
+    </section>
+
+    <section class="status-helper" id="statusHelper">Start the workshop: dye requested fan sectors, protect white breeze gaps, and dry washi before pigment bleeds.</section>
+
+    <section class="controls" aria-label="Game controls">
+      <div class="control-row nav-row">
+        <button type="button" data-action="sectorPrev">Sector −</button>
+        <button type="button" data-action="sectorNext">Sector +</button>
+        <button type="button" data-action="bandPrev">Band −</button>
+        <button type="button" data-action="bandNext">Band +</button>
+      </div>
+      <div class="control-row pigment-row" role="group" aria-label="Pigment selection">
+        <button type="button" class="pigment active" data-pigment="indigo"><span></span>Indigo</button>
+        <button type="button" class="pigment" data-pigment="coral"><span></span>Coral</button>
+        <button type="button" class="pigment" data-pigment="saffron"><span></span>Saffron</button>
+      </div>
+      <div class="control-row tool-row">
+        <button type="button" data-action="stencilPrev">Stencil −</button>
+        <button type="button" data-action="stencilNext">Stencil +</button>
+        <button type="button" class="primary-action" data-action="brush">Brush Pigment</button>
+      </div>
+      <div class="control-row tool-row">
+        <button type="button" data-action="fold">Fold Edge</button>
+        <button type="button" data-action="blot">Blot Cloth</button>
+        <button type="button" data-action="dry">Fan Dry</button>
+        <button type="button" class="focus-button" data-action="focus">Kaze-Dry Focus</button>
+      </div>
+      <div class="control-row system-row">
+        <button type="button" data-action="pause">Pause</button>
+        <button type="button" data-action="restart">Restart</button>
+        <a href="./prompt.html">Prompt</a>
+      </div>
+    </section>
+
+    <section class="info-strip">
+      <div>Active: <strong id="activeReadout">Sector 1 · outer</strong></div>
+      <div>Pigment: <strong id="pigmentReadout">indigo</strong></div>
+      <div>Stencil: <strong id="stencilReadout">wave</strong></div>
+      <div>Dry gaps: <strong id="dryGapReadout">0/0</strong></div>
+      <div>Saturation: <strong id="satReadout">0%</strong></div>
+      <div>Focus: <strong id="focusReadout">0%</strong></div>
+    </section>
+  </main>
+
+  <div class="overlay show" id="menuOverlay" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
+    <div class="panel menu-panel">
+      <div class="title-art">
+        <img src="./assets/uchiwa-icons.png" alt="Uchiwa dye tool icon sheet preview" />
+        <div>
+          <span class="day-badge">Day 033</span>
+          <span class="mode-badge">2D · /uchiwa/</span>
+          <h2 id="menuTitle">Uchiwa Fan Dye Maestro</h2>
+          <p>Audio starts after you press Start; visual stencil, bleed, and dry-gap cues work if muted.</p>
+        </div>
+      </div>
+      <div class="menu-stats">
+        <span>Best score <strong id="menuBest">0</strong></span>
+        <span>Best Grand Breeze <strong id="menuGrand">—</strong></span>
+        <a href="./prompt.html">View archived prompt</a>
+      </div>
+      <article class="tutorial">
+        <h3>Tutorial & Objective</h3>
+        <ul>
+          <li><strong>Objective:</strong> Dye requested fan sectors, protect white breeze gaps, and dry the washi before pigment bleeds.</li>
+          <li><strong>Selection:</strong> Step with Sector −/+ and Band −/+ or tap large fan wedges.</li>
+          <li><strong>Pigment:</strong> Choose indigo, coral, or saffron; Brush Pigment when the stencil aligns.</li>
+          <li><strong>Stencil:</strong> Rotate wave, goldfish, lantern, and firefly masks onto requested sectors.</li>
+          <li><strong>Paper safety:</strong> Fold Edge redirects wet flow, Blot Cloth rescues bleed, Fan Dry locks clean edges.</li>
+          <li><strong>Kaze-Dry Focus:</strong> Charged by clean stencil matches; slows the workshop and previews bleed/dry paths.</li>
+          <li><strong>Pause/restart:</strong> P/R on desktop or visible buttons during play.</li>
+        </ul>
+      </article>
+      <div class="overlay-actions">
+        <button type="button" class="primary-action big" id="startButton">Start workshop</button>
+        <button type="button" id="menuMute">Audio: On</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="pauseOverlay" role="dialog" aria-modal="true" aria-labelledby="pauseTitle">
+    <div class="panel">
+      <h2 id="pauseTitle">Workshop paused</h2>
+      <p>Controls: Arrow/A-D sector, W/S band, Q/E stencil, 1/2/3 pigments, Space brush, F fold, B blot, D dry, K or Shift focus, P pause, R restart.</p>
+      <article class="tutorial compact">
+        <h3>Reminder</h3>
+        <p>Align stencil motifs before brushing. Preserve white gaps. Blot only when bleed approaches a rib, then Fan Dry to lock the edge.</p>
+      </article>
+      <div class="overlay-actions">
+        <button type="button" class="primary-action" id="resumeButton">Resume</button>
+        <button type="button" id="pauseRestart">Restart</button>
+        <button type="button" id="pauseMute">Audio: On</button>
+        <a href="./prompt.html">Prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="resultOverlay" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+    <div class="panel">
+      <h2 id="resultTitle">Fan workshop results</h2>
+      <div id="resultText" class="result-text"></div>
+      <div class="overlay-actions">
+        <button type="button" class="primary-action" id="resultRestart">Restart run</button>
+        <a href="./prompt.html">Prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grand-banner" id="grandBanner" aria-live="assertive">Uchiwa Grand Breeze!</div>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

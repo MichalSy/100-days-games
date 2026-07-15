@@ -496,6 +496,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/onsen/screenshot.png',
     generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-14T01:32:09Z'
+  },
+  33: {
+    status: 'generated',
+    title: 'Uchiwa Fan Dye Maestro',
+    slug: 'uchiwa-fan-dye-maestro',
+    genre: ['radial pattern puzzle', 'paper-fan dye routing', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Dye a summer festival uchiwa fan by aligning stencil masks, brushing indigo/coral/saffron pigment, preserving white breeze gaps, folding edges, blotting bleed, and fan-drying clean washi sectors.',
+    objective: 'Complete First Indigo Breeze, Goldfish Festival Arc, and Night-Market Firefly Fan while reaching 4700 points to trigger Uchiwa Grand Breeze, then continue into endless fan commissions.',
+    playUrl: '/uchiwa/',
+    promptUrl: '/uchiwa/prompt.html',
+    promptExcerpt: 'Select fan sectors, rotate stencil motifs, brush pigments, fold paper edges, blot bleed, fan-dry clean lines, and use Kaze-Dry Focus to preview safe dye paths.',
+    screenshotUrl: '/uchiwa/screenshot.png',
+    generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-15T01:47:54Z'
   }
 };
 
