@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-15T01:47:54.000Z",
+  "generatedAt": "2026-07-16T01:35:30.000Z",
   "totalDays": 100,
-  "completedDays": 33,
+  "completedDays": 34,
   "games": [
     {
       "day": 1,
@@ -298,6 +298,15 @@
       "playUrl": "/uchiwa/",
       "promptUrl": "/uchiwa/prompt.html",
       "screenshotUrl": "/uchiwa/screenshot.png",
+      "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 34,
+      "title": "Temari Thread Orbit Weaver",
+      "slug": "temari-thread-orbit-weaver",
+      "playUrl": "/temari/",
+      "promptUrl": "/temari/prompt.html",
+      "screenshotUrl": "/temari/screenshot.png",
       "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]

@@ -511,6 +511,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/uchiwa/screenshot.png',
     generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-15T01:47:54Z'
+  },
+  34: {
+    status: 'generated',
+    title: 'Temari Thread Orbit Weaver',
+    slug: 'temari-thread-orbit-weaver',
+    genre: ['3D spherical embroidery puzzle', 'silk-thread tension routing', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Rotate a lacquered 3D temari ball, set pearl start/end pins, wrap colored silk along curved orbit arcs, tune tension, lock intersections, and complete geometric pattern cards before tangle frays the thread.',
+    objective: 'Complete First Star Wrap, Kagome Lantern Lattice, and Moon Festival Temari while reaching 4800 points to trigger Temari Grand Orbit, then continue into endless pattern commissions.',
+    playUrl: '/temari/',
+    promptUrl: '/temari/prompt.html',
+    promptExcerpt: 'Wrap silk around a 3D temari sphere, tune safe tension, lock pearl intersections, avoid tangles, and use Kagome Focus to preview hidden arcs.',
+    screenshotUrl: '/temari/screenshot.png',
+    generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-16T01:35:30Z'
   }
 };
 

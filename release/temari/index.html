@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Temari Thread Orbit Weaver</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%23122635'/%3E%3Cpath d='M9 32c12-15 34-15 46 0M9 32c12 15 34 15 46 0M32 5c-8 14-8 40 0 54M32 5c8 14 8 40 0 54' stroke='%23d8ad55' stroke-width='4' fill='none'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23f6f0de'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app-shell" aria-label="Day 034 Temari Thread Orbit Weaver">
+    <section class="topbar" aria-label="Game title and meta">
+      <div class="title-block">
+        <span class="badge">DAY 034</span><span class="badge mode">3D</span>
+        <h1>Temari Thread Orbit Weaver</h1>
+        <p>/temari/ · spherical silk-thread craft</p>
+      </div>
+      <a class="small-button" href="./prompt.html" aria-label="Open Day 034 prompt">Prompt</a>
+      <button id="muteButton" class="small-button" type="button">Sound on</button>
+    </section>
+
+    <section class="hud" aria-label="Run status">
+      <div><strong id="score">0</strong><span>Score</span></div>
+      <div><strong id="bestScore">0</strong><span>Best</span></div>
+      <div><strong id="hearts">♥ ♥ ♥</strong><span>Thread</span></div>
+      <div><strong id="tangle">0%</strong><span>Tangle</span></div>
+      <div><strong id="combo">x1</strong><span>Combo</span></div>
+      <div><strong id="elapsed">0:00</strong><span>Time</span></div>
+    </section>
+
+    <section class="commission" aria-label="Current commission">
+      <div>
+        <span class="eyebrow">Commission</span>
+        <h2 id="commissionName">First Star Wrap</h2>
+      </div>
+      <p id="commissionGoals">3 broad wraps · Indigo + gold silk · 1 pearl intersection · Tangle under 55%</p>
+      <div class="ticks" aria-label="Pattern metrics"><i></i><i></i><i></i><i></i><i></i></div>
+    </section>
+
+    <section class="stage-card" aria-label="3D temari game stage">
+      <div class="focus-ribbon" id="stageHint">North Star · pin 1/12 · Indigo silk</div>
+      <canvas id="temariCanvas" aria-label="3D temari sphere canvas"></canvas>
+      <div class="stage-overlay top-left">Ring <b id="activeRing">North Star</b> · Silk <b id="silkName">Indigo</b> · Focus <b id="focusCharge">60%</b></div>
+      <div class="stage-overlay bottom-left">Tension <b id="tensionText">50</b>% <meter id="tensionMeter" min="0" max="100" value="50"></meter> · Symmetry <b id="symmetryText">70%</b> <meter id="symmetryMeter" min="0" max="100" value="70"></meter></div>
+      <div class="helper-card">
+        <img src="./assets/temari-helper.png" alt="Sparrow threadkeeper helper" />
+        <strong id="helperText">Choose a start pin on the glowing guide ring.</strong>
+      </div>
+    </section>
+
+    <section class="status-line" role="status">Wrap silk around the 3D temari sphere; no tangle is applied before your first action.</section>
+
+    <section class="controls" aria-label="Game controls">
+      <button type="button" id="ringMinus">Ring −</button>
+      <button type="button" id="ringPlus">Ring +</button>
+      <button type="button" id="pinMinus">Pin −</button>
+      <button type="button" id="pinPlus">Pin +</button>
+      <button type="button" class="silk" data-color="indigo">Indigo</button>
+      <button type="button" class="silk" data-color="vermilion">Vermilion</button>
+      <button type="button" class="silk" data-color="gold">Gold</button>
+      <button type="button" class="silk" data-color="jade">Jade</button>
+      <button type="button" class="silk" data-color="ivory">Ivory</button>
+      <button type="button" id="startPin">Start Pin</button>
+      <button type="button" id="endPin">End Pin</button>
+      <button type="button" id="wrapThread" class="primary">Wrap Thread</button>
+      <button type="button" id="tighten">Tighten</button>
+      <button type="button" id="loosen">Loosen</button>
+      <button type="button" id="pearlPin">Pearl Pin</button>
+      <button type="button" id="undoWrap">Undo Wrap</button>
+      <button type="button" id="focusButton">Kagome Focus</button>
+      <button type="button" id="pauseButton">Pause</button>
+      <button type="button" id="restartButton">Restart</button>
+      <button type="button" id="promptButton" onclick="location.href='./prompt.html'">Prompt</button>
+    </section>
+  </main>
+
+  <div class="overlay" id="titleScreen" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
+    <div class="panel menu-panel">
+      <span class="badge">DAY 034</span><span class="badge mode">3D</span>
+      <h2 id="menuTitle">Temari Thread Orbit Weaver</h2>
+      <p class="lead">Rotate a temari sphere, set start/end pearl pins, wrap silk arcs, tune tension, lock intersections, and keep the pattern from tangling.</p>
+      <ul class="tutorial-list">
+        <li><b>Objective:</b> complete three pattern cards and reach Temari Grand Orbit.</li>
+        <li><b>Selection:</b> Ring/Pin controls move the anchor; drag the ball to inspect hidden arcs.</li>
+        <li><b>Craft:</b> choose silk, set Start Pin and End Pin, then Wrap Thread.</li>
+        <li><b>Tension:</b> Tighten or Loosen until the safe band glows; over-tight silk snaps.</li>
+        <li><b>Pearls:</b> lock real intersections; Undo Wrap fixes one recent mistake.</li>
+        <li><b>Kagome Focus:</b> slows the table and previews hidden crossings when charged.</li>
+      </ul>
+      <p class="audio-note">Audio starts after you press Start; visual thread, tangle, and tension cues work if muted.</p>
+      <p>Best score: <b id="menuBest">0</b> · Best Grand Orbit: <b id="menuGrand">—</b></p>
+      <div class="panel-actions"><button type="button" id="startGame" class="primary big">Start Weaving</button><a href="./prompt.html" class="small-button">View Prompt</a></div>
+    </div>
+  </div>
+
+  <div class="overlay" id="pauseOverlay" role="dialog" aria-modal="true" aria-labelledby="pauseTitle" hidden>
+    <div class="panel"><h2 id="pauseTitle">Paused</h2><p>Check back-side arcs, tension, and pearl windows before the next wrap.</p><div class="panel-actions"><button id="resumeButton" class="primary" type="button">Resume</button><button id="pauseRestart" type="button">Restart</button><button id="pauseMute" type="button">Mute audio</button><a href="./prompt.html" class="small-button">Prompt</a></div></div>
+  </div>
+
+  <div class="overlay" id="resultsOverlay" role="dialog" aria-modal="true" aria-labelledby="resultTitle" hidden>
+    <div class="panel"><h2 id="resultTitle">Thread run complete</h2><p id="resultStats">Score 0</p><div id="badgeList" class="panel-actions"></div><div class="panel-actions"><button id="resultRestart" class="primary" type="button">Restart</button><a href="./prompt.html" class="small-button">Prompt</a></div></div>
+  </div>
+
+  <div class="stage-overlay" id="grandBanner" hidden>Temari Grand Orbit! Pearl pins glint across the completed silk sphere.</div>
+
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

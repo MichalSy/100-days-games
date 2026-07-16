@@ -1,0 +1,226 @@
+:root {
+  --ink: #172234;
+  --muted: #5d6675;
+  --paper: rgba(250, 242, 221, 0.93);
+  --paper-strong: rgba(255, 248, 229, 0.97);
+  --edge: rgba(216, 173, 85, 0.46);
+  --gold: #d8ad55;
+  --indigo: #183f77;
+  --verm: #c94a39;
+  --jade: #6da178;
+  --ivory: #f6f0de;
+  --shadow: 0 18px 45px rgba(16, 14, 10, 0.32);
+  color: var(--ink);
+  font-family: "Avenir Next", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; min-height: 100%; background: #24180f; }
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: linear-gradient(180deg, rgba(28,20,12,.16), rgba(28,20,12,.50)), url("./assets/temari-workroom.png");
+  background-size: cover;
+  background-position: center;
+}
+button, a { font: inherit; }
+button { cursor: pointer; }
+
+.app-shell {
+  width: min(1160px, calc(100vw - 24px));
+  min-height: min(900px, 100vh);
+  margin: 0 auto;
+  padding: 12px 0;
+  display: grid;
+  grid-template-rows: auto auto auto minmax(360px, 1fr) auto auto;
+  gap: 10px;
+}
+
+.topbar, .hud, .commission, .stage-card, .status-line, .controls, .panel {
+  border: 1px solid var(--edge);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(13px) saturate(1.2);
+}
+.topbar {
+  border-radius: 20px;
+  padding: 10px 14px;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+}
+.title-block h1 { margin: 2px 0 0; font-size: clamp(1.5rem, 4vw, 2.35rem); line-height: .95; letter-spacing: -0.04em; }
+.title-block p { margin: 3px 0 0; color: var(--muted); font-weight: 800; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 3px 8px;
+  margin-right: 6px;
+  border-radius: 999px;
+  background: #fff4d4;
+  border: 1px solid var(--edge);
+  color: #6f4c14;
+  font-size: .78rem;
+  font-weight: 1000;
+  letter-spacing: .06em;
+}
+.badge.mode { color: #153653; background: #eef5ff; }
+.small-button, button {
+  min-height: 46px;
+  border-radius: 14px;
+  border: 1px solid rgba(110, 83, 38, .34);
+  background: linear-gradient(180deg, #fff6db, #e9d29b);
+  color: var(--ink);
+  font-weight: 950;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 14px;
+  box-shadow: 0 8px 18px rgba(77, 55, 24, .18);
+}
+button:focus-visible, a:focus-visible { outline: 3px solid #77d1ff; outline-offset: 2px; }
+.primary { background: linear-gradient(180deg, #ffe29b, #d8ad55); color: #271908; }
+.big { min-height: 58px; font-size: 1.1rem; padding-inline: 24px; }
+
+.hud {
+  border-radius: 18px;
+  padding: 8px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+.hud div {
+  border-radius: 14px;
+  min-height: 58px;
+  padding: 8px;
+  background: rgba(255, 248, 228, .74);
+  display: grid;
+  align-content: center;
+  text-align: center;
+}
+.hud strong { font-size: 1.35rem; line-height: 1; }
+.hud span, .eyebrow { color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 1000; }
+
+.commission {
+  border-radius: 20px;
+  padding: 11px 14px;
+  display: grid;
+  grid-template-columns: minmax(200px, .55fr) 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+.commission h2 { margin: 1px 0 0; font-size: clamp(1.25rem, 3vw, 1.9rem); letter-spacing: -.03em; }
+.commission p { margin: 0; font-weight: 750; line-height: 1.28; }
+.goal { display: inline-block; margin-right: 10px; }
+.goal.done { color: #294f2a; }
+.ticks { display: grid; grid-template-columns: repeat(5, 18px); gap: 5px; }
+.ticks i { width: 18px; height: 18px; border-radius: 50%; border: 2px solid #936d2b; background: rgba(255,255,255,.48); }
+.ticks i.done { background: var(--gold); }
+
+.stage-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  min-height: 360px;
+  background: linear-gradient(180deg, rgba(26,30,39,.88), rgba(36,23,17,.82));
+}
+#gameCanvas, #temariCanvas { width: 100%; height: 100%; display: block; min-height: 360px; touch-action: none; }
+.focus-ribbon {
+  position: absolute; z-index: 4; top: 12px; left: 14px;
+  border-radius: 999px; padding: 7px 11px; background: rgba(18, 38, 53, .86); color: white;
+  font-weight: 900; font-size: .86rem; max-width: calc(100% - 28px);
+}
+.stage-overlay {
+  position: absolute; z-index: 4; border-radius: 12px; padding: 8px 10px; color: white; background: rgba(14, 31, 45, .78); border: 1px solid rgba(255,255,255,.16); font-weight: 900;
+}
+.top-left { top: 52px; left: 14px; }
+.bottom-left { bottom: 12px; left: 14px; }
+.helper-card {
+  position: absolute; z-index: 5; right: 14px; bottom: 12px;
+  width: min(360px, 43%); min-height: 82px;
+  display: grid; grid-template-columns: 74px 1fr; gap: 10px; align-items: center;
+  border-radius: 18px; padding: 8px 10px; background: rgba(255, 247, 224, .94); border: 1px solid var(--edge); box-shadow: var(--shadow);
+}
+.helper-card img { width: 74px; height: 74px; object-fit: cover; border-radius: 14px; }
+.helper-card strong { line-height: 1.15; }
+
+.status-line { border-radius: 16px; padding: 11px 14px; font-weight: 950; }
+.controls {
+  border-radius: 20px;
+  padding: 9px;
+  display: grid;
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+  gap: 7px;
+}
+.controls button { min-height: 52px; padding: 6px 8px; font-size: .9rem; line-height: 1.05; }
+
+.overlay {
+  position: fixed; inset: 0; z-index: 20;
+  display: grid; place-items: center;
+  padding: 16px;
+  background: rgba(18, 13, 7, .58);
+}
+.overlay.hidden { display: none; }
+.panel {
+  width: min(720px, 100%);
+  max-height: min(760px, calc(100vh - 32px));
+  overflow: auto;
+  border-radius: 24px;
+  padding: 20px;
+}
+.panel h2 { margin: 4px 0 8px; font-size: clamp(2rem, 6vw, 3.7rem); line-height: .95; letter-spacing: -.06em; }
+.lead { font-size: 1.08rem; font-weight: 800; line-height: 1.35; }
+.tutorial-list { padding-left: 1.2em; margin: 12px 0; display: grid; gap: 6px; font-weight: 750; }
+.audio-note { color: var(--muted); font-weight: 900; }
+.panel-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+@media (max-width: 760px) {
+  body { overflow: hidden; }
+  .app-shell {
+    width: 100vw;
+    height: 100vh;
+    min-height: 0;
+    padding: 5px 6px env(safe-area-inset-bottom);
+    grid-template-rows: 58px 54px 80px minmax(250px, 1fr) 38px 204px;
+    gap: 5px;
+  }
+  .topbar { grid-template-columns: 1fr auto auto; padding: 5px 8px; border-radius: 15px; }
+  .title-block h1 { font-size: 1.1rem; line-height: 1; }
+  .title-block p { display: none; }
+  .badge { min-height: 22px; padding: 2px 7px; font-size: .68rem; }
+  .small-button, button { min-height: 44px; border-radius: 12px; padding: 7px 8px; }
+  .hud { padding: 5px; gap: 5px; border-radius: 14px; }
+  .hud div { min-height: 42px; padding: 4px; border-radius: 11px; }
+  .hud strong { font-size: 1rem; }
+  .hud span { font-size: .58rem; }
+  .commission { grid-template-columns: 138px 1fr 42px; gap: 7px; padding: 7px 9px; border-radius: 15px; }
+  .commission h2 { font-size: 1rem; }
+  .commission p { font-size: .78rem; line-height: 1.15; }
+  .ticks { grid-template-columns: repeat(2, 14px); gap: 3px; }
+  .ticks i { width: 14px; height: 14px; border-width: 2px; }
+  .stage-card { min-height: 250px; border-radius: 16px; }
+  #gameCanvas, #temariCanvas { min-height: 250px; }
+  .focus-ribbon { top: 7px; left: 8px; font-size: .68rem; padding: 5px 8px; }
+  .stage-overlay { font-size: .68rem; padding: 5px 7px; border-radius: 10px; }
+  .top-left { top: 40px; left: 8px; }
+  .bottom-left { bottom: 7px; left: 8px; }
+  .helper-card { right: 8px; bottom: 7px; width: 45%; min-height: 58px; grid-template-columns: 48px 1fr; gap: 6px; padding: 5px; border-radius: 13px; }
+  .helper-card img { width: 48px; height: 48px; border-radius: 10px; }
+  .helper-card strong { font-size: .68rem; line-height: 1.05; }
+  .status-line { padding: 7px 9px; border-radius: 13px; font-size: .78rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .controls { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; padding: 5px; border-radius: 15px; }
+  .controls button { min-height: 44px; padding: 4px 3px; font-size: .72rem; border-radius: 11px; }
+  .panel { max-height: calc(100vh - 20px); padding: 13px; border-radius: 18px; }
+  .panel h2 { font-size: 1.8rem; }
+  .lead, .tutorial-list, .audio-note { font-size: .84rem; line-height: 1.2; }
+  .tutorial-list { gap: 3px; margin: 8px 0; }
+  .panel-actions .small-button { min-height: 48px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
