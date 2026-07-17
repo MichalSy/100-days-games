@@ -526,6 +526,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/temari/screenshot.png',
     generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-16T01:35:30Z'
+  },
+  35: {
+    status: 'generated',
+    title: 'Hashi Tanuki Bridgewright',
+    slug: 'hashi-tanuki-bridgewright',
+    genre: ['bridge-building physics puzzle', 'river-load testing', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Build bamboo-and-rope bridges across a dusk mountain stream, test them with tanuki lantern porters, manage budget, stress, current, repairs, and Survey Focus load-path previews.',
+    objective: 'Complete First Creek Span, Red Gorge Lantern Run, and Moon Shrine Load Test while reaching 4900 points to trigger Hashi Grand Crossing, then continue into endless bridge contracts.',
+    playUrl: '/hashi/',
+    promptUrl: '/hashi/prompt.html',
+    promptExcerpt: 'Select bridge nodes, place bamboo beams, rope braces, and stone piers, then test tanuki lantern porters while managing stress, budget, current, repair timing, and Survey Focus.',
+    screenshotUrl: '/hashi/screenshot.png',
+    generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-17T01:31:41Z'
   }
 };
 

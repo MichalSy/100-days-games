@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#17263d" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2317263d'/%3E%3Cpath d='M10 42h44M14 42l9-18 9 18 9-18 9 18' stroke='%23f5c866' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <title>Day 035 Game Generation Prompt</title>
+  <style>
+    :root { color-scheme: dark; --bg:#10192b; --panel:#fff4d8; --ink:#172033; --muted:#5a6475; --gold:#efbd58; --blue:#1d3859; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif; background:radial-gradient(circle at 20% 0%, rgba(239,189,88,.22), transparent 35%), linear-gradient(180deg,#17263d,#08111f); color:var(--ink); }
+    main { width:min(920px, calc(100vw - 24px)); margin:0 auto; padding:24px 0 48px; }
+    .card { background:rgba(255,244,216,.97); border:1px solid rgba(239,189,88,.4); box-shadow:0 18px 48px rgba(0,0,0,.36); border-radius:28px; padding:clamp(18px,4vw,38px); }
+    a.back { display:inline-flex; min-height:44px; align-items:center; padding:0 14px; border-radius:999px; background:var(--blue); color:#fff7dc; text-decoration:none; font-weight:900; margin-bottom:16px; }
+    h1 { font-size:clamp(2rem,7vw,4rem); line-height:.95; letter-spacing:-.06em; margin:.2rem 0 1rem; }
+    h2 { margin:2rem 0 .7rem; padding-top:.7rem; border-top:1px solid rgba(23,32,51,.16); font-size:1.45rem; }
+    h3 { margin:1.2rem 0 .4rem; color:#1d3859; }
+    p, li { line-height:1.55; }
+    li { margin:.25rem 0; }
+    code { background:rgba(29,56,89,.10); border:1px solid rgba(29,56,89,.14); border-radius:6px; padding:.05rem .25rem; }
+    pre { overflow:auto; background:#10192b; color:#fff4d8; padding:16px; border-radius:16px; }
+    ul, ol { padding-left:1.35rem; }
+  </style>
+</head>
+<body>
+  <main><article class="card">
+    <a class="back" href="./index.html">← Back to game</a>
+    <h1>Day 035 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 035</li>
+<li>Title: Hashi Tanuki Bridgewright</li>
+<li>Slug: hashi-tanuki-bridgewright</li>
+<li>Public route word: hashi</li>
+<li>Mode: 2D</li>
+<li>Genre: mobile-first bridge-building physics puzzle / river-load testing / construction score chase</li>
+<li>Mood/style: dusk mountain stream, mossy stones, warm paper lantern survey flags, bamboo beams, rope knots, moonlit water, playful tanuki apprentice bridgewright, tactile wood-creak and rope-tension feedback; side-view structural planning rather than spherical embroidery, fan dyeing, onsen steam routing, ikebana arranging, orchard harvesting, kumiko lattice fitting, foxfire stealth, matcha whisking, fireworks, pachinko, mochi hopping, calligraphy tracing, kite mapping, dry-garden raking, underwater diving, taiko rhythm, daruma rolling, silk-web weaving, pottery shaping, canal irrigation, origami folding, parasol sheltering, snow stacking, kimono stamping, bento cooking, windbell tuning, rail running, or koi collection.</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 032 <code>3d</code>: Onsen Steamline Bathkeeper with dark teal/copper bathhouse ducts, steam/valves, pool temperature, pressure, and macaque comfort.</li>
+<li>Day 033 <code>2d</code>: Uchiwa Fan Dye Maestro with bright fan workshop, radial sectors, pigment/stencil/drying/bleed controls, and a kappa helper.</li>
+<li>Day 034 <code>3d</code>: Temari Thread Orbit Weaver with warm night craft table, central 3D sphere, silk thread arcs, pearl pins, tension, symmetry, and sparrow helper.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>3d</code> (Day 034). Day 035 may safely choose <code>2d</code> without extending a 2D streak. This prompt deliberately switches away from recent radial/spherical craft compositions into a side-view engineering puzzle: build a bridge across an animated mountain stream using bamboo beams, rope knots, stone piers, and tension braces, then test it with tanuki porters carrying lantern crates. The play should feel like a tiny structural sandbox with readable forces and repair choices, not a flat decoration task or another centered craft object.</p>
+<p>Recent screenshot/visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 034 used a huge centered dark sphere, warm brown table, cream HUD bars, horizontal button rows, thread colors, pearl pins, and high craft-table density.</li>
+<li>Day 033 used a pale radial fan board, cream/gold palette, large fan wedge geometry, pigment blooms, and a bright washi-paper workspace.</li>
+<li>Day 032 used dark teal/copper 3D bathhouse surfaces, circular pools, valves, ducts, and steam bubbles.</li>
+</ul>
+<p>Day 035 should use a wide-but-mobile side-section river scene: left and right riverbanks, water gap, visible bridge deck, triangular bamboo trusses, rope knots, stone piers, load carts, current pulses, stress colors, survey flags, and a tanuki helper. Avoid central balls/fans/pools/flowers/fruit/lattices/foxfire cones/tea foam/firework skies/cat coins/rabbit pads/brush strokes/kite threads/raked sand/underwater pearls/drum pads/labyrinth tilt/spider webs/pottery wheels/canal grids/origami creases/rain parasols/snow blocks/kimono panels/restaurant timers/windbells/rail tracks/koi ponds.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/canvas/WebAudio game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 033 <code>2d</code> and Day 034 <code>3d</code>. The latest generated-mode streak is one <code>3d</code>, so Day 035 is allowed to be <code>2d</code>.</p>
+<p>Mode decision: Day 035 is rich mobile-first <code>2d</code>, chosen after a real 3D day. It must be mechanically deep enough to justify the mode:</p>
+<ul>
+<li>Use a static-browser HTML/CSS/JS game with Canvas/SVG/DOM as appropriate; no backend.</li>
+<li>Render a side-view bridge site with banks, stream, build nodes, bamboo beams, ropes, stone pier sockets, load carts, stress heatmaps, current pulses, and readable repair feedback.</li>
+<li>Gameplay must depend on 2D spatial state: beam length/angle, triangle bracing, knot load, deck sag, pier placement, current force, porter weight, lantern crate balance, budget, repair timing, and route continuity.</li>
+<li>Player actions must manipulate the system: select nodes, place bamboo beams, add rope braces, plant stone piers, remove/repair parts, run a test crossing, slow/preview stress with Survey Focus, pause/restart, and inspect tutorial hints.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Build stable bamboo-and-rope bridges across mountain-stream gaps so tanuki porters can carry lantern crates from the left bank to the shrine storehouse on the right without collapse, budget overrun, or washed-out supports.</li>
+<li>Win condition: Complete three contracts — First Creek Span, Red Gorge Lantern Run, and Moon Shrine Load Test — while reaching 4900 points to trigger “Hashi Grand Crossing”. After the banner, continue into endless bridge contracts.</li>
+<li>Lose condition: Three bridge hearts collapse, stress reaches catastrophic red for too long, a porter falls into the stream, budget debt reaches 100%, the test timer expires, or three repairs fail during one crossing.</li>
+<li>Core loop:</li>
+</ul>
+<ol>
+<li>Start on a title/menu screen with Day 035 badge, mode badge “2D”, public route <code>/hashi/</code>, best score, best Grand Crossing time, tutorial, prompt link, and a large Start button.</li>
+<li>Show a portrait-friendly river construction site. The top HUD is compact; the middle is a wide river gap with banks and build nodes; the lower panel contains large build/test/repair controls.</li>
+<li>A contract card requests goals such as: “Span 8m gap, use ≤ 6 bamboo beams, add 2 rope braces, keep max stress under 70%, deliver 3 lantern crates.”</li>
+<li>Player selects start/end build nodes using large Node −/+ controls or direct tapping on enlarged sockets. Valid candidate nodes glow; impossible beam lengths show a red ghost preview.</li>
+<li>Place Bamboo adds a straight compression/tension member between selected nodes. Strong triangles score well; long flat beams sag.</li>
+<li>Add Rope Brace adds a lighter diagonal support that resists sway/current but snaps under too much direct load.</li>
+<li>Plant Stone Pier spends budget to anchor a support into the streambed; currents push against it, and bad placement creates whirlpool stress.</li>
+<li>Remove/Repair lets the player delete a recent bad part or patch a creaking member during a test, with cooldown and score cost.</li>
+<li>Test Crossing sends tanuki porters across the deck with lantern crates. The bridge animates sag, sway, stress color, knot stretch, pier vibration, and water impact. Completing a clean test advances the contract.</li>
+<li>Survey Focus, charged by efficient triangles and low-stress tests, slows the crossing and overlays predicted stress lines, load path arrows, weak knots, current push, and recommended repair windows.</li>
+<li>Completing a contract stamps a construction seal, restores one bridge heart if needed, awards points, and unlocks longer spans, heavier crates, moving current pulses, fewer piers, and stricter budget goals.</li>
+<li>Pause/restart remain visible throughout.</li>
+</ol>
+<ul>
+<li>15+ minute play-value strategy:</li>
+<li>Save best score, fastest Hashi Grand Crossing time, longest no-collapse streak, highest endless contract, lowest-budget successful bridge, lowest max-stress bridge, most perfect repair windows, strongest triangle bonus, and collected contract seals in localStorage.</li>
+<li>Include three authored contracts:</li>
+<li>First Creek Span: short gap, fixed bank nodes, generous beam limit, one tanuki porter, slow water, tutorial ghost triangle, no heart penalty for the first failed stress preview.</li>
+<li>Red Gorge Lantern Run: wider gap, limited bamboo, rope braces, first stone pier, two porters with staggered crates, current pulses, and repair timing.</li>
+<li>Moon Shrine Load Test: asymmetric banks, three lantern crates, moving water push, strict budget, required Survey Focus preview, limited repairs, and target max stress under 75%.</li>
+<li>Deterministic Day 035 seed varies node positions, gap width, stream pulse timing, bamboo cost, rope strength, pier sockets, crate weight, porter spacing, repair cooldown, and endless constraints while keeping the opening fair.</li>
+<li>Mastery badges: complete First Creek Span with no red stress, trigger Grand Crossing under 280 seconds, finish Red Gorge under budget, complete Moon Shrine with no repairs, finish a contract below 35% max stress, complete an endless span with all bridge hearts.</li>
+<li>Strategic scoring rewards planning: build triangles before long decks, use rope for sway not direct load, place piers under compression nodes, keep deck nodes close enough for porters, test early with Survey Focus ready, repair before catastrophic red, and save budget for the final contract.</li>
+<li>Endless mode after Grand Crossing adds longer spans, heavier crate combinations, gust/current rhythm changes, fewer starting nodes, brittle old bamboo, and optional bonus lantern carts without shrinking touch controls.</li>
+<li>Difficulty scaling:</li>
+<li>0-45 seconds: short gap, broad sockets, obvious triangle preview, forgiving stress, slow porter.</li>
+<li>45-150 seconds: rope braces, pier placement, two porters, current pulses, budget pressure.</li>
+<li>150-280 seconds: asymmetric span, three crates, stricter stress threshold, required Survey Focus preview, limited repairs.</li>
+<li>280+ seconds/endless: longer spans, heavier loads, faster currents, brittle parts, same readable controls.</li>
+<li>Keep mobile fair: build nodes, beams, stress colors, contract card, helper, current arrows, and action buttons must be large/readable at 390x844; touch buttons should be 52px+ where possible and never below 44px; no tiny survival-critical sockets.</li>
+<li>Scoring/rewards:</li>
+<li>Valid bamboo member in efficient triangle: +120 points times combo tier.</li>
+<li>Rope brace absorbs sway without red stress: +135 points and Survey Focus charge.</li>
+<li>Stone pier placed under correct compression node: +160 points and stress relief.</li>
+<li>Clean load path from bank to bank: +220 points.</li>
+<li>Test crossing completed with max stress below target: +900 points and restore one bridge heart if below max.</li>
+<li>Perfect no-repair contract: +1150 points.</li>
+<li>Low-budget completion: +400 bonus.</li>
+<li>Hashi Grand Crossing: +2500 points and endless contracts unlock.</li>
+<li>Invalid/overlong member: no placement, status warning.</li>
+<li>Wrong brace/pier choice: budget debt, stress +8%, combo reset.</li>
+<li>Collapse/fall: bridge-heart damage, budget penalty, combo reset.</li>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<li>Mouse click/tap: press action buttons, select build nodes, start/pause overlay button, prompt link, or explainable HUD chips.</li>
+<li>Mouse drag on the bridge stage: pan a small amount or preview beam endpoint; actual placement still uses clearly labeled Select/Build actions.</li>
+<li>Arrow keys or A/D: select previous/next node.</li>
+<li>W/S or Up/Down: switch bank/deck/pier node rows.</li>
+<li>Q/E: choose previous/next material/tool.</li>
+<li>1/2/3: choose Bamboo, Rope Brace, or Stone Pier.</li>
+<li>Space or Enter: Place selected material or start test depending on state.</li>
+<li>X or Backspace: Remove recent part.</li>
+<li>H: Repair highlighted weak part.</li>
+<li>Shift or F: Survey Focus when charged.</li>
+<li>T: Test Crossing.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+<li>Mobile/touch:</li>
+<li>Use large Node −, Node +, Row −, Row + controls plus optional direct tap on large bridge sockets.</li>
+<li>Use large Bamboo, Rope, Stone Pier, Remove, Repair, Test Crossing, Survey Focus, Pause, Restart, and Prompt buttons.</li>
+<li>Tapping stress/budget/current/porter chips may show short explanations.</li>
+<li>No tiny virtual joystick. Interaction is node stepping/direct tap, material selection, placement, removal/repair, testing, focus, pause/restart.</li>
+<li>Mobile layout/orientation:</li>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact Hashi HUD with score, best, bridge hearts, budget %, max stress %, combo, selected nodes, material, Survey Focus charge, and elapsed time. Use bridge/beam/rope/pier/stress/current/tanuki chips, not thread/fan/pool/flower/fruit/wood-lattice/shrine/tea/firework/cat/rabbit/brush/kite/sand/pearl/drum icons.</li>
+<li>Below top: contract card with span width, budget, material goals, max-stress target, crate count, repair limit, and progress ticks.</li>
+<li>Center: large bridge stage with riverbanks, stream, bridge nodes, deck, beams, braces, piers, tanuki porters, lantern crates, stress heatmap, current arrows, helper art, and readable feedback. It must remain playable without zooming.</li>
+<li>Bottom: status helper plus large node/material/action controls. Controls must not cover build nodes, stress warnings, porters, or current hazards.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, node selection, bamboo/rope/pier placement, remove/repair, Test Crossing, Survey Focus, pause/restart must be visible.</li>
+<li>Requests must combine text, symbols, line styles, gauges, and patterns so hue alone is not required.</li>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<ul>
+<li>Shows title “Hashi Tanuki Bridgewright”.</li>
+<li>Shows Day 035 badge, mode badge “2D”, public route <code>/hashi/</code>, best score, best Grand Crossing time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+<li>Notes: “Audio starts after you press Start; visual stress, budget, and current cues work if muted.”</li>
+</ul>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<ul>
+<li>Objective: “Build a bamboo bridge, test it with tanuki porters, and keep stress below the contract limit.”</li>
+<li>Structure: triangles are strong; long flat spans sag; ropes help sway; piers carry vertical load.</li>
+<li>Selection: step through nodes with Node −/+ and Row −/+ or tap large sockets.</li>
+<li>Build/test: place Bamboo/Rope/Pier, then Test Crossing when the deck reaches the right bank.</li>
+<li>Safety: repair creaking red parts before collapse; avoid budget debt.</li>
+<li>Survey Focus: slows the test and previews weak load paths when charged.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<ul>
+<li>Score, best score, bridge hearts, budget %, max stress %, contract name, combo, selected node pair, active material/tool, current strength, Survey Focus charge, elapsed time, latest warning.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<ol>
+<li>Status helper</li>
+</ol>
+<ul>
+<li>Non-blocking helper showing next target node, triangle advice, budget warning, stress warning, repair timing, Survey Focus readiness, and expected score effect.</li>
+<li>Must not cover the bridge stage or bottom controls on mobile.</li>
+</ul>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, audio/mute toggle, prompt link.</li>
+</ul>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<ul>
+<li>Final score, best score, contract reached, Grand Crossing status, max stress, budget finish, collapses/falls, repairs used, badges, restart button.</li>
+</ul>
+<ol>
+<li>Hashi Grand Crossing banner</li>
+</ol>
+<ul>
+<li>Trigger once per run after all three contracts and 4900 score.</li>
+<li>Non-blocking celebration: tanuki porters parade across the completed bridge, lantern crates glow, river fireflies shimmer, rope knots sparkle, helper stamps a survey seal, and endless contracts continue after the banner fades.</li>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: tanuki bridgewright helper mascot, portrait mountain-stream bridge site background, bridge/material/stress/contract icon sheet, and decorative Grand Crossing seal pieces. Canvas/SVG/DOM code may render the interactive bridge nodes, beams, braces, stress heatmap, porters, currents, particles, and UI chrome. It should not create final character/background/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/035/assets/source/</code> and use optimized playable copies under <code>release/games/035/assets/</code>. Also copy optimized playable assets into <code>apps/day-035-hashi-tanuki-bridgewright/assets/</code> and the public alias <code>release/hashi/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny tool details that disappear at final in-game size, and keep helper/bridge/beam/rope/pier/stress/current/survey silhouettes distinct against dusk river backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Tanuki bridgewright helper mascot</li>
+</ol>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/035/assets/source/hashi-helper-source.png</code></li>
+<li>Optimized path: <code>release/games/035/assets/hashi-helper.png</code></li>
+<li>Imagegen2 prompt: “A charming friendly tanuki bridgewright helper mascot for a mobile 2D Japanese bamboo bridge-building physics puzzle game, small cute tanuki wearing a tiny navy work vest and rope tool belt, holding a bamboo beam and survey flag, kind focused expression, warm lantern rim light, centered readable silhouette, transparent or solid pale parchment background, no checkerboard background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Mountain-stream bridge site background source</li>
+</ol>
+<ul>
+<li>Target: portrait-friendly background suitable behind a side-view bridge-building stage with open readable center.</li>
+<li>Archive path: <code>release/games/035/assets/source/hashi-river-site-source.png</code></li>
+<li>Optimized path: <code>release/games/035/assets/hashi-river-site.png</code></li>
+<li>Imagegen2 prompt: “A dusk Japanese mountain stream construction site for a portrait mobile bridge-building puzzle game, mossy left and right riverbanks, shallow moonlit water gap, bamboo bundles, rope coils, stone pier blocks, paper lantern survey flags at the edges, soft indigo and amber evening light, open readable central river span for interactive bridge beams, crop-safe for phone portrait, no characters in the center, no readable text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<ol>
+<li>Hashi bridge material, stress, and contract UI icon sheet source</li>
+</ol>
+<ul>
+<li>Target: square icon sheet for objectives, hazards, tools, rewards, and UI decals.</li>
+<li>Archive path: <code>release/games/035/assets/source/hashi-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/035/assets/hashi-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a Japanese bamboo bridge-building physics puzzle game: bamboo beam, rope brace, stone pier, bridge node socket, tanuki porter, lantern crate, stress warning crack, budget coin, current arrow, repair mallet, remove saw, Survey Focus blueprint emblem, bridge heart, construction seal, Grand Crossing lantern bridge emblem, transparent or solid pale parchment background, no checkerboard background, high contrast, no text, no watermark, generous margins so no icons are cut off.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas tanuki/bridge/beam/rope/pier silhouettes, document the failure in <code>ai/postmortems/day-035.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the tanuki helper mascot, verify transparent/cutout quality or clean background handling, readable friendly silhouette, centered pivot/crop margins, no unwanted text/watermarks, stable upright helper orientation, and that beam/flag pose does not imply incompatible movement or rotation.</li>
+<li>Verify control-to-motion alignment in-game: Node −/+ must visibly move the selected node pair along the bridge, Row −/+ must change node row/bank/deck/pier layer, Bamboo/Rope/Pier must change the ghost preview and placed structure, Remove must remove the intended recent part, Repair must visibly lower stress on the intended weak part, Test Crossing must animate tanuki porters crossing the bridge, and Survey Focus must slow/preview load paths, weak knots, current push, and repair windows.</li>
+<li>For the background, verify the central bridge stage remains readable after portrait mobile crop and does not hide nodes, beams, stress heatmap, porters, river current, contract card, helper, or controls.</li>
+<li>For the icon sheet, verify bamboo beam, rope brace, stone pier, node socket, tanuki porter, lantern crate, stress crack, budget coin, current arrow, repair mallet, remove saw, Survey Focus, bridge heart, seal, and Grand Crossing emblem are distinct at final HUD/button size and cannot be confused. Watch specifically for fake checkerboard transparency; alpha-clean or composite onto pale parchment if needed and inspect again.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Audio and game feel</h2>
+<p>Because wood structure, rope tension, river current, load testing, and construction feedback are central to the theme, include lightweight WebAudio cues initialized only after a user gesture:</p>
+<ul>
+<li>Soft node tick when selecting sockets.</li>
+<li>Bamboo clack when placing a beam.</li>
+<li>Rope twang when adding a brace.</li>
+<li>Stone thud when planting a pier.</li>
+<li>Wooden creak that rises as stress approaches red.</li>
+<li>Water splash/current rush when a pier is strained or a collapse happens.</li>
+<li>Repair mallet tap when patching a weak part.</li>
+<li>Blueprint shimmer when Survey Focus activates.</li>
+<li>Rising festival bell and tanuki cheer when Hashi Grand Crossing triggers.</li>
+</ul>
+<p>Audio must not block play if WebAudio is unavailable. Verify no autoplay errors: audio context should be created/resumed only after Start or another user interaction. Include a visible mute toggle in pause/results or HUD.</p>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/035/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 035 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<ul>
+<li>Build the static 2D game under <code>apps/day-035-hashi-tanuki-bridgewright/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/035/</code>.</li>
+<li>Create the public playable route under <code>release/hashi/</code>.</li>
+<li>Use static HTML/CSS/JS with Canvas/SVG/WebAudio and no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+</ul>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, remove fake checkerboards if present, and tune mobile readability/game feel.</li>
+</ul>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, bridge stage render, Node −/+, Row −/+, Bamboo, Rope, Stone Pier, Remove, Repair, Test Crossing, Survey Focus control presence, stress/budget/current/porter feedback, generated screenshot, generated assets, WebAudio initialization after user gesture, and 390x844 portrait layout.</li>
+</ul>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<ul>
+<li>Write <code>ai/postmortems/day-035.md</code> after validation with what worked, what failed, generated-image inspection notes, audio verification, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 035 is <code>2d</code> after Day 034 <code>3d</code>, with rich bridge-physics construction rather than a low-effort flat decoration game.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/contract card, usable 44px+ node/material/action/pause/restart controls, no forced landscape canvas, and no tiny survival-critical sockets.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-035.md</code> is copied exactly to <code>release/games/035/prompt.md</code> and <code>release/hashi/prompt.md</code>.</li>
+<li><code>release/games/035/prompt.html</code> and <code>release/hashi/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/hashi/index.html</code>, <code>release/hashi/prompt.html</code>, <code>release/hashi/screenshot.png</code>, and <code>release/hashi/assets/</code> exist and work.</li>
+<li>Gallery card for Day 035 shows prompt availability, generation duration, public <code>/hashi/</code> links, mode <code>2d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/035/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/035/assets/source/</code> and optimized assets exist under <code>release/games/035/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive bridge/beam/rope/pier/stress visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>WebAudio initializes after user gesture and creates no autoplay console errors; audio is failsafe if unsupported and visual stress/budget/current cues remain playable muted.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicons to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/<strong></code> through <code>release/games/034/</strong></code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/035/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/hashi/index.html, release/hashi/prompt.html, release/hashi/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-035.md release/games/035/prompt.md and cmp prompts/day-035.md release/hashi/prompt.md.
+# Prompt HTML check: verify release/games/035/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes.
+# Browser smoke: open the local/static /hashi/ route and verify menu, tutorial, gameplay start, bridge stage render, Node −/+, Row −/+, Bamboo, Rope, Stone Pier, Remove, Repair, Test Crossing, Survey Focus, stress/budget/current/porter feedback, pause, restart, prompt page, WebAudio after user gesture, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable bridge/action controls plus readable HUD/contract card/stage/controls.
+# Static screenshot check: inspect release/games/035/screenshot.png and release/hashi/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-035.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /hashi/ and /hashi/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 035.</code></pre>
+  </article></main>
+</body>
+</html>
