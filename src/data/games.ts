@@ -541,6 +541,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/hashi/screenshot.png',
     generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-17T01:31:41Z'
+  },
+  36: {
+    status: 'generated',
+    title: 'Takumi Karakuri Gearwright',
+    slug: 'takumi-karakuri-gearwright',
+    genre: ['3D clockwork routing puzzle', 'layered gear-train engineering', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Build a layered karakuri gear train with brass gears, depth couplers, idlers, and oil timing so ordered shrine bells ring before torque jams the fox automaton.',
+    objective: 'Complete First Crank Blossom, Lantern Bell Relay, and Moon Fox Automaton while reaching 5000 points to trigger Takumi Grand Mechanism, then continue into endless clockwork commissions.',
+    playUrl: '/takumi/',
+    promptUrl: '/takumi/prompt.html',
+    promptExcerpt: 'Route crank power through near, middle, and far gear plates, place gears and couplers, flip direction, oil hot axles, and use Takumi Focus before jams crack the mechanism.',
+    screenshotUrl: '/takumi/screenshot.png',
+    generationDuration: 'manual controller run with implementation subagent and Imagegen2 assets ~160 minutes',
+    generatedAt: '2026-07-18T01:49:08Z'
   }
 };
 

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-17T01:31:41.000Z",
+  "generatedAt": "2026-07-18T01:49:08.000Z",
   "totalDays": 100,
-  "completedDays": 35,
+  "completedDays": 36,
   "games": [
     {
       "day": 1,
@@ -317,6 +317,15 @@
       "promptUrl": "/hashi/prompt.html",
       "screenshotUrl": "/hashi/screenshot.png",
       "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 36,
+      "title": "Takumi Karakuri Gearwright",
+      "slug": "takumi-karakuri-gearwright",
+      "playUrl": "/takumi/",
+      "promptUrl": "/takumi/prompt.html",
+      "screenshotUrl": "/takumi/screenshot.png",
+      "generationDuration": "manual controller run with implementation subagent and Imagegen2 assets ~160 minutes"
     }
   ]
 }

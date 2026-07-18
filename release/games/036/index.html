@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="Day 036: Takumi Karakuri Gearwright — a mobile-first 3D clockwork gear-routing puzzle." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%23f4b84b'/%3E%3Cpath d='M32 10l4 10 11-2-6 9 8 8-11 1-2 11-7-9-10 5 2-12-9-5 11-4z' fill='%23251620'/%3E%3C/svg%3E" />
+    <title>Takumi Karakuri Gearwright</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="app" class="shell" aria-label="Takumi Karakuri Gearwright game">
+      <section id="titleScreen" class="overlay title-screen" aria-modal="true">
+        <div class="title-card">
+          <div class="badges"><span>Day 036</span><span>3D</span><span>/takumi/</span></div>
+          <h1>Takumi Karakuri Gearwright</h1>
+          <p class="lede">Route crank power through layered gears, ring shrine bells in order, and keep the fox automaton from jamming.</p>
+          <div class="best-row"><span>Best score: <strong id="menuBest">0</strong></span><span>Best Grand time: <strong id="menuGrand">—</strong></span></div>
+          <div class="tutorial-panel" id="tutorialPanel">
+            <h2>Tutorial</h2>
+            <ul>
+              <li><strong>Objective:</strong> ring requested bells in order while managing torque, heat, and jam.</li>
+              <li><strong>Depth:</strong> switch near/mid/far plates; Depth Coupler transfers motion between matching axles.</li>
+              <li><strong>Mesh:</strong> gears must touch tooth-to-tooth; idlers flip direction; mismatches raise jam.</li>
+              <li><strong>Safety:</strong> oil hot axles before Test Crank. Takumi Focus previews torque paths and warnings.</li>
+              <li><strong>Controls:</strong> layer/axle buttons, 1/2/3 gear sizes, F flip, C coupler, O oil, K test, P pause, R restart.</li>
+            </ul>
+            <p>Audio starts after you press Start; visual gear, bell, torque, and jam cues work if muted.</p>
+          </div>
+          <div class="title-actions">
+            <button id="startBtn" class="primary big">Start Mechanism</button>
+            <a class="button-link" href="./prompt.html">View prompt</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="pauseOverlay" class="overlay hidden" aria-modal="true">
+        <div class="pause-card">
+          <h2 id="pauseTitle">Paused</h2>
+          <p id="pauseSummary">Inspect the layered plates, oil hot axles, then test the crank.</p>
+          <div class="pause-grid">
+            <button id="resumeBtn" class="primary">Resume</button>
+            <button id="restartOverlayBtn">Restart run</button>
+            <button id="audioOverlayBtn">Audio: On</button>
+            <a class="button-link" href="./prompt.html">Prompt</a>
+          </div>
+          <details open>
+            <summary>Tutorial reminder</summary>
+            <p>Layer −/+ changes depth plates. Axle −/+ highlights sockets. Place matching gear sizes, Flip Direction with idlers, Coupler between plates, Oil before heat peaks, then Test Crank. Takumi Focus slows and previews path warnings.</p>
+          </details>
+        </div>
+      </section>
+
+      <section id="resultOverlay" class="overlay hidden" aria-modal="true">
+        <div class="pause-card result-card">
+          <h2 id="resultTitle">Mechanism Complete</h2>
+          <div id="resultStats" class="stats-list"></div>
+          <button id="resultRestartBtn" class="primary big">Restart</button>
+          <a class="button-link" href="./prompt.html">Read prompt</a>
+        </div>
+      </section>
+
+      <header class="hud" aria-label="Game status">
+        <div class="hud-main">
+          <div class="brand"><span class="day">036</span><strong>Takumi</strong></div>
+          <div class="chips">
+            <span>Score <strong id="score">0</strong></span>
+            <span>Best <strong id="best">0</strong></span>
+            <span>❤ <strong id="hearts">3</strong></span>
+            <span>Jam <strong id="jam">0%</strong></span>
+            <span>Combo <strong id="combo">1x</strong></span>
+            <span>Time <strong id="elapsed">0:00</strong></span>
+          </div>
+          <div class="top-actions">
+            <button id="audioBtn" aria-label="Toggle audio">🔊</button>
+            <button id="pauseBtn">Pause</button>
+            <a class="prompt-chip" href="./prompt.html">Prompt</a>
+          </div>
+        </div>
+        <div class="commission-card" id="commissionCard"></div>
+      </header>
+
+      <section class="stage-wrap" aria-label="3D karakuri workbench">
+        <canvas id="gameCanvas" aria-label="3D layered karakuri gear stage"></canvas>
+        <div class="stage-labels">
+          <span id="layerReadout">Layer: Near</span>
+          <span id="axleReadout">Axle: 1</span>
+          <span id="gearReadout">Gear: Small</span>
+          <span id="torqueReadout">Torque: 0%</span>
+          <span id="focusReadout">Focus: 0%</span>
+        </div>
+        <div id="grandBanner" class="grand hidden">Takumi Grand Mechanism!</div>
+      </section>
+
+      <footer class="control-dock" aria-label="Game controls">
+        <div id="helper" class="helper"><img src="./assets/takumi-helper.png" alt="Takumi fox automaton helper" /><span id="statusText">Select the glowing axle, place a gear, and build the first crank path.</span></div>
+        <div class="controls">
+          <button id="layerPrevBtn">Layer −</button>
+          <button id="layerNextBtn">Layer +</button>
+          <button id="axlePrevBtn">Axle −</button>
+          <button id="axleNextBtn">Axle +</button>
+          <button id="gearSizeBtn">Gear Size</button>
+          <button id="placeBtn" class="primary">Place Gear</button>
+          <button id="flipBtn">Flip Direction</button>
+          <button id="couplerBtn">Depth Coupler</button>
+          <button id="oilBtn">Oil Axle</button>
+          <button id="removeBtn">Remove Gear</button>
+          <button id="testBtn" class="primary">Test Crank</button>
+          <button id="focusBtn">Takumi Focus</button>
+          <button id="restartBtn">Restart</button>
+        </div>
+      </footer>
+    </main>
+    <script type="module" src="./game.js"></script>
+  </body>
+</html>
