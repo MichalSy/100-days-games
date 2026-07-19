@@ -1,4 +1,0 @@
-{
-  "allowedDays": ["037"],
-  "reason": "Same-run correction after live mobile smoke found Day 037 portrait controls extended below the 390x844 first viewport. Allows the Day 037 immutable archive CSS/screenshot fix to pass CI immutability for this corrective commit."
-}
