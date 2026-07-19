@@ -208,23 +208,23 @@ meter { width: 100%; height: 12px; }
   .audio-note { margin: 7px 0; font-size: 0.78rem; }
   .menu-actions button, .menu-actions a { min-height: 48px; padding: 0.55rem 0.7rem; }
 
-  .play-screen { grid-template-rows: auto auto minmax(300px, 1fr) auto; gap: 6px; min-height: calc(100dvh - 10px); }
-  .hud { gap: 4px; padding: 5px; border-radius: 16px; }
-  .chip { min-height: 31px; padding: 0.24rem 0.4rem; font-size: 0.78rem; }
-  .chip span { font-size: 0.66rem; }
-  .order-card { grid-template-columns: 1fr; gap: 5px; padding: 8px; border-radius: 16px; }
-  .order-card h2 { font-size: 1.05rem; }
-  .request-list { gap: 5px; }
-  .request-pill { padding: 0.22rem 0.44rem; font-size: 0.76rem; }
-  .order-bars { grid-template-columns: 1fr 1fr; gap: 4px 8px; font-size: 0.72rem; }
-  .bonus-objective { font-size: 0.75rem; }
-  .stage-wrap { min-height: 318px; border-radius: 18px; }
-  #gameCanvas { min-height: 318px; }
+  .play-screen { grid-template-rows: auto auto minmax(0, 1fr) auto; gap: 5px; height: calc(100dvh - 10px); min-height: 0; overflow: hidden; }
+  .hud { gap: 3px; padding: 5px; border-radius: 16px; }
+  .chip { min-height: 30px; padding: 0.22rem 0.38rem; font-size: 0.76rem; }
+  .chip span { font-size: 0.64rem; }
+  .order-card { grid-template-columns: 1fr; gap: 4px; padding: 7px; border-radius: 16px; }
+  .order-card h2 { font-size: 1rem; }
+  .request-list { gap: 4px; }
+  .request-pill { padding: 0.2rem 0.42rem; font-size: 0.74rem; }
+  .order-bars { grid-template-columns: 1fr 1fr; gap: 3px 7px; font-size: 0.7rem; }
+  .bonus-objective { font-size: 0.72rem; line-height: 1.1; }
+  .stage-wrap { min-height: 0; border-radius: 18px; }
+  #gameCanvas { min-height: 0; }
   .stage-helper { left: 7px; right: 7px; bottom: 7px; padding: 5px; border-radius: 14px; }
-  .stage-helper img { width: 44px; height: 44px; }
-  .stage-helper p { font-size: 0.78rem; line-height: 1.16; }
-  .controls { grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 6px; border-radius: 16px; }
-  button, .controls a, #promptButton, .overlay-actions a { min-height: 44px; padding: 0.42rem 0.36rem; border-radius: 12px; font-size: 0.74rem; line-height: 1.05; }
+  .stage-helper img { width: 42px; height: 42px; }
+  .stage-helper p { font-size: 0.76rem; line-height: 1.12; }
+  .controls { grid-template-columns: repeat(4, 1fr); gap: 5px; padding: 5px; border-radius: 16px; }
+  button, .controls a, #promptButton, .overlay-actions a { min-height: 44px; padding: 0.38rem 0.32rem; border-radius: 12px; font-size: 0.72rem; line-height: 1.02; }
 }
 
 @media (prefers-reduced-motion: reduce) {
