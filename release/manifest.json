@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-18T01:49:08.000Z",
+  "generatedAt": "2026-07-19T01:46:15.000Z",
   "totalDays": 100,
-  "completedDays": 36,
+  "completedDays": 37,
   "games": [
     {
       "day": 1,
@@ -326,6 +326,15 @@
       "promptUrl": "/takumi/prompt.html",
       "screenshotUrl": "/takumi/screenshot.png",
       "generationDuration": "manual controller run with implementation subagent and Imagegen2 assets ~160 minutes"
+    },
+    {
+      "day": 37,
+      "title": "Kingyo Poi Festival Scooper",
+      "slug": "kingyo-poi-festival-scooper",
+      "playUrl": "/kingyo/",
+      "promptUrl": "/kingyo/prompt.html",
+      "screenshotUrl": "/kingyo/screenshot.png",
+      "generationDuration": "manual controller run with implementation subagent recovery and Imagegen2 assets ~150 minutes"
     }
   ]
 }

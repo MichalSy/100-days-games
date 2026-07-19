@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 037 Game Generation Prompt</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2308162c'/%3E%3Ccircle cx='29' cy='33' r='18' fill='%23f97316'/%3E%3Cpath d='M43 32l13-10v22zM19 29c-6-6-10-7-14-4 2 5 6 8 13 9z' fill='%23ffd166'/%3E%3Ccircle cx='23' cy='27' r='3' fill='%23020617'/%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: dark; --bg:#061428; --panel:#0b172a; --ink:#fff7df; --muted:#cbd5e1; --gold:#ffd166; --line:rgba(255,209,102,.34); }
+    * { box-sizing:border-box; } body { margin:0; font-family: ui-rounded, system-ui, sans-serif; background: radial-gradient(circle at 20% 0%, rgba(255,209,102,.18), transparent 28%), linear-gradient(180deg,#061428,#020713); color:var(--ink); line-height:1.58; }
+    main { width:min(920px, calc(100vw - 28px)); margin:0 auto; padding:24px 0 56px; }
+    .back { display:inline-flex; margin-bottom:16px; min-height:44px; align-items:center; border:1px solid var(--line); border-radius:999px; padding:0 14px; color:var(--ink); text-decoration:none; background:rgba(255,255,255,.06); font-weight:800; }
+    article { border:1px solid var(--line); border-radius:24px; padding:clamp(18px,4vw,34px); background:rgba(8,18,36,.86); box-shadow:0 18px 52px rgba(0,0,0,.34); }
+    h1 { font-size:clamp(2rem,6vw,4rem); line-height:1; letter-spacing:-.05em; color:var(--gold); margin:.2rem 0 1rem; }
+    h2 { margin-top:2rem; padding-top:1rem; border-top:1px solid var(--line); color:#ffdf91; } h3 { color:#9fe1ff; }
+    p, li { color:#f8edd2; } code { background:rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.12); border-radius:6px; padding:.08rem .28rem; color:#9fe1ff; }
+    pre { overflow:auto; padding:14px; border-radius:16px; background:#020713; border:1px solid rgba(255,255,255,.13); } pre code { border:0; padding:0; background:transparent; color:#d8f3ff; }
+    ul, ol { padding-left:1.4rem; } li+li { margin-top:.28rem; }
+  </style>
+</head>
+<body><main><a class="back" href="./index.html">← Back to game</a><article>
+<h1>Day 037 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 037</li>
+<li>Title: Kingyo Poi Festival Scooper</li>
+<li>Slug: kingyo-poi-festival-scooper</li>
+<li>Public route word: kingyo</li>
+<li>Mode: 2D</li>
+<li>Genre: mobile-first dexterity arcade / paper-net scooping / festival order fulfilment score chase</li>
+<li>Mood/style: blue-hour summer ennichi goldfish-scooping stall, shallow lacquer water tank, glowing paper lantern reflections, translucent ripples, patterned kingyo fish, fragile washi poi net, enamel prize bowl, tiny yatai helper cat, crisp water-plink and paper-tear feedback; tactile touch-first scooping rather than clockwork gears, bridge construction, spherical embroidery, fan dyeing, onsen valves, ikebana, orchard harvesting, kumiko woodworking, shrine stealth, matcha whisking, fireworks, pachinko coins, mochi hopping, calligraphy tracing, kite mapping, dry-garden raking, underwater pearl navigation, taiko rhythm routing, daruma labyrinths, spider webs, pottery wheels, canal grids, origami folds, rain parasols, snow stacking, kimono panels, bento orders, windbell tuning, rail running, or koi lantern collection.</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 033 <code>2d</code>: Uchiwa Fan Dye Maestro, bright cream radial fan, pigment/stencil/drying controls, large wedge geometry.</li>
+<li>Day 034 <code>3d</code>: Temari Thread Orbit Weaver, central 3D sphere, silk arcs, pearl pins, warm craft table.</li>
+<li>Day 035 <code>2d</code>: Hashi Tanuki Bridgewright, side-view dusk mountain stream, bamboo/rope/stone bridge engineering and stress overlays.</li>
+<li>Day 036 <code>3d</code>: Takumi Karakuri Gearwright, dark indigo/amber layered gear plates, brass gears, axles, torque/jam/bell routing.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>3d</code> (Day 036), so Day 037 may safely be <code>2d</code> without extending a 2D streak. This prompt intentionally switches away from engineering/craft-table routing into a direct, tactile festival dexterity game: drag a paper poi net through a shallow water tank, angle it under moving goldfish, lift at the right moment, fulfil pattern orders, and manage paper durability before it tears.</p>
+<p>Recent screenshot/visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 036 used a dark mechanical workbench, translucent depth plates, brass gears, circular teeth, amber buttons, and a compact engineering HUD.</li>
+<li>Day 035 used a wide horizontal river gap, bamboo beams, rope braces, stone piers, stress colors, and blue mountain water.</li>
+<li>Day 034 used a huge centered dark ball with orbit arcs and pearl pins.</li>
+<li>Day 033 used pale cream paper, fan sectors, radial geometry, and pigment wedges.</li>
+</ul>
+<p>Day 037 should use a shallow top-down festival water tank: oval/rounded tank border, visible water surface, goldfish with distinct body patterns, scoop net trajectory, ripples, paper-wetness rings, bowl targets, yatai lantern reflections, floating tickets, and a helpful stall-cat mascot. Avoid gear plates/axles/couplers/bells, bridges/rivers/bamboo trusses/stress heatmaps, centered spheres/thread arcs/pearl pins, radial fans/pigment sectors, ducts/valves/steam, flower/vase balance, orchard baskets, lattice strips, stealth cones, tea bowls, fireworks trajectories, pachinko pegs/coins, mochi platforms, brush strokes, kite threads, raked sand, underwater diver routes, taiko pads, labyrinth tilting, spider webs, pottery profiles, canal tiles, origami crease grids, rain parasols, snow blocks, kimono textile panels, restaurant conveyors, windbell note tuning, rail tracks, or koi pond spark collection.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/canvas/WebAudio game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 033 <code>2d</code>, Day 034 <code>3d</code>, Day 035 <code>2d</code>, and Day 036 <code>3d</code>. The latest generated-mode streak is one <code>3d</code>.</p>
+<p>Mode decision: Day 037 is rich mobile-first <code>2d</code>, selected after a real 3D day. It must be mechanically deep enough to justify the mode:</p>
+<ul>
+<li>Use static-browser HTML/CSS/JS with Canvas/SVG/DOM/WebAudio as appropriate; no backend.</li>
+<li>Render a top-down shallow kingyo-sukui tank where fish, water ripples, poi net position, net angle, lift timing, paper wetness, tear risk, fish alertness, bowl orders, and festival timer matter mechanically.</li>
+<li>Gameplay must depend on 2D spatial state: net center, rim angle, drag speed, fish direction/speed, fish size, water turbulence, scoop depth, lift timing, paper durability, combo chain, order patterns, and safe zones.</li>
+<li>Player actions must manipulate the system: move/tilt the poi net, slow-dip, quick-lift, swap paper net, nudge bowl position, calm water with Festival Focus, pause/restart, and inspect tutorial hints.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Scoop requested goldfish patterns into the prize bowl using a fragile paper poi net while keeping the paper from tearing, maintaining calm water, and completing festival stall orders before the lantern timer runs out.</li>
+<li>Win condition: Complete three order sets — First Lantern Scoop, Pattern Bowl Rush, and Grand Ennichi Kingyo — while reaching 5100 points to trigger “Kingyo Grand Stall Prize”. After the banner, continue into endless stall orders.</li>
+<li>Lose condition: Three poi papers tear, lantern timer expires, five requested fish escape after being startled, order patience reaches zero, or water turbulence hits 100% and scatters the tank.</li>
+<li>Core loop:</li>
+</ul>
+<ol>
+<li>Start on a title/menu screen with Day 037 badge, mode badge “2D”, public route <code>/kingyo/</code>, best score, best Grand Stall time, tutorial, prompt link, audio note, and a large Start button.</li>
+<li>Show a portrait-friendly festival stall. The center is a shallow water tank with moving fish, a visible poi net, current/ripple rings, order bowl, and large touch area.</li>
+<li>An order card requests goals such as: “Scoop 2 red kingyo, 1 calico, no paper tear, keep turbulence under 55%, finish before the lantern fades.”</li>
+<li>Player drags the poi net around the tank. Slow movement keeps paper dry; fast movement creates ripples and startles fish.</li>
+<li>Tilt Net cycles Flat, Left Edge, Right Edge, and Nose Down. Correct tilt lets the rim slide under the fish; wrong tilt pushes it away or wets paper.</li>
+<li>Dip/Lift button or upward flick attempts a scoop. The fish must overlap the net bowl, approach speed must be gentle, and lift timing must match the ripple ring.</li>
+<li>Successful scoop animates the fish riding the paper net into the bowl, scores by pattern, restores patience, and builds combo. Heavy/rare fish strain paper more.</li>
+<li>Paper wetness rises with fast dragging, failed lifts, turbulence, and heavy fish. Swap Poi replaces the paper at score/cooldown cost.</li>
+<li>Bowl Nudge shifts the prize bowl slightly left/right/up/down so the player can plan shorter carries, but careless nudges spill one stored fish.</li>
+<li>Festival Focus, charged by gentle scoops and pattern streaks, slows fish, quiets ripples, and overlays safe approach arcs, requested fish highlights, paper-tear warnings, and lift timing rings.</li>
+<li>Completing an order stamps a stall ticket, restores one paper heart if needed, awards points, changes requested fish/patterns, and unlocks faster fish, decoy leaves, heavier black telescope-eye fish, and smaller safe-lift windows.</li>
+<li>Pause/restart remain visible throughout.</li>
+</ol>
+<ul>
+<li>15+ minute play-value strategy:</li>
+<li>Save best score, fastest Kingyo Grand Stall Prize time, longest no-tear chain, highest endless order, rarest fish scooped, calmest order completion, most perfect lift windows, and collected stall ticket seals in localStorage.</li>
+<li>Include three authored order sets:</li>
+<li>First Lantern Scoop: slow red/orange fish, broad net, clear overlap highlight, one red fish request, generous paper durability, no paper-heart penalty for the first tutorial failed lift.</li>
+<li>Pattern Bowl Rush: red, calico, and black fish patterns; bowl nudge introduced; decoy floating maple leaves; two-step orders; turbulence meter becomes important.</li>
+<li>Grand Ennichi Kingyo: rare telescope-eye and white/red comet fish; patience pressure; required Festival Focus preview; smaller lift windows; limited Swap Poi uses; target turbulence under 60%.</li>
+<li>Deterministic Day 037 seed varies fish paths, fish sizes, pattern requests, ripple timing, paper wetness rates, patience decay, bowl position, decoy leaves, rare fish spawn, focus charge, and endless constraints while keeping opening seconds fair.</li>
+<li>Mastery badges: complete First Lantern Scoop with zero paper wetness warnings, trigger Grand Stall under 285 seconds, complete Pattern Rush with all requested patterns, finish Grand Ennichi with no paper tears, complete an order below 25% turbulence, scoop three rare fish in one run.</li>
+<li>Strategic scoring rewards gentle dexterity: approach fish from behind, match net tilt to fish direction, keep carries short with Bowl Nudge, avoid decoy leaves, swap paper before the tear threshold, save Festival Focus for rare/heavy fish, and chain requested patterns instead of random scoops.</li>
+<li>Endless mode after Grand Stall adds faster fish, heavier rare types, moving lantern shadows, extra decoys, shorter patience, and bonus sparkling fish without shrinking touch controls.</li>
+<li>Difficulty scaling:</li>
+<li>0-45 seconds: slow fish, broad net, obvious overlap/lift ring, forgiving paper, one requested color.</li>
+<li>45-150 seconds: pattern orders, bowl nudge, decoy leaves, paper wetness and turbulence pressure.</li>
+<li>150-285 seconds: rare fish, smaller timing rings, focus-required order, patience pressure, limited swaps.</li>
+<li>285+ seconds/endless: faster paths, heavier fish, moving reflections, denser tank, same readable controls.</li>
+<li>Keep mobile fair: fish silhouettes, pattern markings, net rim, lift ring, order card, paper hearts, turbulence meter, helper, and action buttons must be readable at 390x844; touch buttons should be 52px+ where possible and never below 44px; no tiny survival-critical fish.</li>
+<li>Scoring/rewards:</li>
+<li>Requested red/orange fish scoop: +140 points times combo tier.</li>
+<li>Requested calico/white-red fish: +190 points and patience relief.</li>
+<li>Rare black telescope-eye fish: +260 points and Festival Focus charge.</li>
+<li>Perfect gentle approach with paper wetness under 20%: +180 bonus.</li>
+<li>Order completed before patience warning: +980 points and restore one paper heart if below max.</li>
+<li>No-tear order: +1250 points.</li>
+<li>Calm water order under 25% turbulence: +520 bonus.</li>
+<li>Kingyo Grand Stall Prize: +2700 points and endless orders unlock.</li>
+<li>Decoy leaf scooped or wrong pattern: no order progress, turbulence +8%, combo reset.</li>
+<li>Paper tear: paper-heart damage, fish escape, order patience penalty, combo reset.</li>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<li>Mouse drag: move the poi net through the water tank.</li>
+<li>Mouse click / Space / Enter: Dip/Lift scoop attempt depending on current overlap and timing.</li>
+<li>A/D or ArrowLeft/ArrowRight: cycle fish target or nudge bowl horizontally when Bowl Nudge mode is active.</li>
+<li>W/S or ArrowUp/ArrowDown: adjust net tilt or bowl vertical nudge.</li>
+<li>Q/E: cycle Tilt Net mode.</li>
+<li>B: Bowl Nudge.</li>
+<li>X: Swap Poi paper.</li>
+<li>Shift or F: Festival Focus when charged.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+<li>Mobile/touch:</li>
+<li>Drag directly on the tank to move the poi net. The touch point should map to the net center with a small thumb-offset so the net remains visible above the finger.</li>
+<li>Use large Tilt Net, Dip/Lift, Bowl Nudge, Swap Poi, Festival Focus, Pause, Restart, and Prompt buttons.</li>
+<li>Direct fish tapping may briefly highlight the nearest requested fish but must not replace the scoop mechanic.</li>
+<li>Tapping order/paper/turbulence chips may show short explanations.</li>
+<li>No virtual joystick. Interaction is direct drag, tilt, lift, paper swap, bowl nudge, focus, pause/restart.</li>
+<li>Mobile layout/orientation:</li>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact Kingyo HUD with score, best, paper hearts, paper wetness %, turbulence %, combo, order patience, active tilt, Festival Focus charge, and elapsed time. Use fish/net/bowl/ripple/paper/lantern chips, not gear/bridge/thread/fan/valve/flower/fruit/lattice/shrine/tea/firework/cat-coin/rabbit/brush/kite/sand/pearl/drum icons.</li>
+<li>Below top: order card with requested fish patterns, completed ticks, patience bar, turbulence target, paper-swap limit, and bonus objective.</li>
+<li>Center: large water tank stage with fish, poi net, lift timing rings, ripples, decoy leaves, bowl, helper art, and readable feedback. It must remain playable without zooming.</li>
+<li>Bottom: status helper plus large action controls. Controls must not cover the fish tank, net, order card, or bowl.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, drag net, Tilt Net, Dip/Lift, Swap Poi, Bowl Nudge, Festival Focus, pause/restart must be visible.</li>
+<li>Requests must combine text, icons, shapes, fish pattern markings, line styles, and progress ticks so hue alone is not required.</li>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<ul>
+<li>Shows title “Kingyo Poi Festival Scooper”.</li>
+<li>Shows Day 037 badge, mode badge “2D”, public route <code>/kingyo/</code>, best score, best Grand Stall time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+<li>Notes: “Audio starts after you press Start; visual ripple, paper, and order cues work if muted.”</li>
+</ul>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<ul>
+<li>Objective: “Scoop the requested goldfish patterns into the bowl before the paper tears.”</li>
+<li>Movement: drag the poi net slowly; fast movement raises ripples and paper wetness.</li>
+<li>Tilt: Tilt Net changes which rim slides under a fish; approach from behind for clean scoops.</li>
+<li>Lift: press Dip/Lift when the fish overlaps the net and the timing ring is small.</li>
+<li>Safety: Swap Poi before paper tears; avoid decoy leaves and water turbulence.</li>
+<li>Festival Focus: slows fish and previews safe approach arcs when charged.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<ul>
+<li>Score, best score, paper hearts, paper wetness %, turbulence %, order name, combo, patience, active tilt, Festival Focus charge, elapsed time, latest warning.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<ol>
+<li>Status helper</li>
+</ol>
+<ul>
+<li>Non-blocking helper showing nearest requested fish, approach advice, tilt hint, paper wetness warning, turbulence warning, lift timing, Festival Focus readiness, and expected score effect.</li>
+<li>Must not cover the fish tank or bottom controls on mobile.</li>
+</ul>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, audio/mute toggle, prompt link.</li>
+</ul>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<ul>
+<li>Final score, best score, order reached, Grand Stall status, paper tears, fish escaped, rare fish scooped, calm-water bonus, badges, restart button.</li>
+</ul>
+<ol>
+<li>Kingyo Grand Stall Prize banner</li>
+</ol>
+<ul>
+<li>Trigger once per run after all three order sets and 5100 score.</li>
+<li>Non-blocking celebration: lantern reflections bloom, fish make a synchronized swirl, the prize bowl sparkles, helper cat stamps stall tickets, and endless orders continue after the banner fades.</li>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: stall-cat helper mascot, portrait festival goldfish-scooping stall/tank background, kingyo fish sprite sheet, and fish/net/bowl/ripple/paper UI icon sheet. Canvas/SVG/DOM code may render the interactive net rim, hitboxes, ripple rings, water highlights, lift timing, particles, gauges, and UI chrome. It should not create final character/background/fish/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/037/assets/source/</code> and use optimized playable copies under <code>release/games/037/assets/</code>. Also copy optimized playable assets into <code>apps/day-037-kingyo-poi-festival-scooper/assets/</code> and the public alias <code>release/kingyo/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny fish/tool details that disappear at final in-game size, and keep fish/net/bowl/ripple/paper/focus silhouettes distinct against dark blue festival water.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Festival stall-cat helper mascot</li>
+</ol>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/037/assets/source/kingyo-helper-source.png</code></li>
+<li>Optimized path: <code>release/games/037/assets/kingyo-helper.png</code></li>
+<li>Imagegen2 prompt: “A charming friendly Japanese festival stall cat helper mascot for a mobile kingyo-sukui goldfish scooping arcade game, small cute calico cat wearing a tiny indigo happi coat and red festival headband, holding a paper poi scoop and enamel fish bowl, kind focused expression, warm lantern rim light, centered readable silhouette, transparent or solid pale parchment background, no checkerboard background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Goldfish-scooping festival tank background source</li>
+</ol>
+<ul>
+<li>Target: portrait-friendly background suitable behind a playable top-down water tank with open readable center.</li>
+<li>Archive path: <code>release/games/037/assets/source/kingyo-stall-source.png</code></li>
+<li>Optimized path: <code>release/games/037/assets/kingyo-stall.png</code></li>
+<li>Imagegen2 prompt: “A blue-hour Japanese ennichi festival goldfish-scooping stall for a portrait mobile arcade game, shallow lacquer water tank, glowing paper lantern reflections, enamel fish bowls at the edges, yatai counter, warm amber lanterns, deep indigo summer night, open readable central water surface for interactive fish and scoop net, crop-safe for phone portrait, no characters in the center, no readable text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<ol>
+<li>Kingyo goldfish sprite sheet source</li>
+</ol>
+<ul>
+<li>Target: square sprite sheet with individual fish that can be cropped into runtime sprites; transparent if possible or solid dark-water background that can be alpha-cleaned/masked.</li>
+<li>Archive path: <code>release/games/037/assets/source/kingyo-fish-source.png</code></li>
+<li>Optimized path: <code>release/games/037/assets/kingyo-fish.png</code></li>
+<li>Imagegen2 prompt: “Sprite sheet of small readable top-down goldfish for a mobile kingyo-sukui arcade game: red/orange wakin, white-red comet, calico spotted goldfish, black telescope-eye goldfish, and tiny sparkling rare goldfish, viewed from above, each fish separated with generous margins, clear nose-to-tail direction, high contrast silhouettes, transparent or dark water background, no checkerboard background, no text, no watermark, sprite-friendly at 48-72 pixels.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Kingyo fish, net, bowl, ripple, paper, and focus UI icon sheet source</li>
+</ol>
+<ul>
+<li>Target: square icon sheet for objectives, hazards, tools, rewards, and UI decals.</li>
+<li>Archive path: <code>release/games/037/assets/source/kingyo-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/037/assets/kingyo-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a Japanese goldfish scooping festival arcade game: red goldfish, calico fish, black telescope fish, paper poi scoop net, enamel prize bowl, water ripple, paper tear crack, lantern timer, decoy maple leaf, Swap Poi paper stack, Bowl Nudge arrows, Festival Focus lantern-fish emblem, paper heart, stall ticket seal, Grand Stall prize emblem, transparent or solid pale parchment background, no checkerboard background, high contrast, no text, no watermark, generous margins so no icons are cut off.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas cat/fish/net/bowl/ripple silhouettes, document the failure in <code>ai/postmortems/day-037.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the stall-cat helper mascot, verify transparent/cutout quality or clean background handling, readable friendly silhouette, centered pivot/crop margins, no unwanted text/watermarks, stable upright helper orientation, and that poi/bowl pose does not imply incompatible movement or rotation.</li>
+<li>For fish sprites, verify clear nose-to-tail facing direction, separated fish, readable red/calico/black/rare patterns at final 48-72px size, usable crop margins, no baked checkerboard, no unwanted text/watermark, and a documented rotation baseline so movement direction matches visual orientation.</li>
+<li>Verify control-to-motion alignment in-game: dragging must move the visible poi net under the thumb-offset, Tilt Net must visibly change rim/angle state, Dip/Lift must show scoop attempt and fish transfer or miss, Swap Poi must visibly reset paper wetness, Bowl Nudge must move the bowl, Festival Focus must slow/preview safe arcs and timing rings, Pause/Restart must work, and fish should swim in the direction their sprite faces.</li>
+<li>For the background, verify the central tank remains readable after portrait mobile crop and does not hide fish, net, lift rings, bowl, order card, helper, or controls.</li>
+<li>For the icon sheet, verify red fish, calico fish, black fish, poi net, bowl, ripple, paper tear, lantern timer, decoy leaf, swap paper, bowl arrows, Festival Focus, paper heart, ticket seal, and Grand Stall emblem are distinct at final HUD/button size and cannot be confused. Watch specifically for fake checkerboard transparency; alpha-clean or composite onto pale parchment if needed and inspect again.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Audio and game feel</h2>
+<p>Because water ripples, paper-net tension, festival stall feedback, and scoop timing are central to the theme, include lightweight WebAudio cues initialized only after a user gesture:</p>
+<ul>
+<li>Soft water plink when the net enters calm water.</li>
+<li>Papery rustle when Tilt Net changes rim angle.</li>
+<li>Gentle scoop swoosh when Dip/Lift succeeds.</li>
+<li>Dull splash and paper-crinkle warning on failed lift.</li>
+<li>Rising tear crackle as paper wetness approaches red.</li>
+<li>Tiny bell ticket chime when an order fish lands in the bowl.</li>
+<li>Lantern shimmer when Festival Focus activates.</li>
+<li>Festival ta-da cadence when Kingyo Grand Stall Prize triggers.</li>
+</ul>
+<p>Audio must not block play if WebAudio is unavailable. Verify no autoplay errors: audio context should be created/resumed only after Start or another user interaction. Include a visible mute toggle in pause/results or HUD. Expose a narrow debug handle such as <code>window.__day037Audio = { ctx, enabled }</code> after user-gesture initialization so Playwright can assert audio state.</p>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/037/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 037 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<ul>
+<li>Build the static 2D game under <code>apps/day-037-kingyo-poi-festival-scooper/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/037/</code>.</li>
+<li>Create the public playable route under <code>release/kingyo/</code>.</li>
+<li>Use static HTML/CSS/JS with Canvas/SVG/WebAudio and no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+</ul>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, remove fake checkerboards if present, document fish facing/rotation baseline, and tune mobile readability/game feel.</li>
+</ul>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, water tank render, drag net, Tilt Net, Dip/Lift, Swap Poi, Bowl Nudge, Festival Focus control presence, fish movement/orientation, paper wetness/turbulence/order feedback, generated screenshot, generated assets, WebAudio initialization after user gesture, and 390x844 portrait layout.</li>
+</ul>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<ul>
+<li>Write <code>ai/postmortems/day-037.md</code> after validation with what worked, what failed, generated-image inspection notes, fish-sprite facing/rotation baseline, audio verification, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 037 is <code>2d</code> after Day 036 <code>3d</code>, with tactile water-tank scooping mechanics rather than low-effort flat decoration.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/order card, usable 44px+ drag/touch/action/pause/restart controls, no forced landscape canvas, and no tiny survival-critical fish.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-037.md</code> is copied exactly to <code>release/games/037/prompt.md</code> and <code>release/kingyo/prompt.md</code>.</li>
+<li><code>release/games/037/prompt.html</code> and <code>release/kingyo/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/kingyo/index.html</code>, <code>release/kingyo/prompt.html</code>, <code>release/kingyo/screenshot.png</code>, and <code>release/kingyo/assets/</code> exist and work.</li>
+<li>Gallery card for Day 037 shows prompt availability, generation duration, public <code>/kingyo/</code> links, mode <code>2d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/037/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/037/assets/source/</code> and optimized assets exist under <code>release/games/037/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; moving fish sprites have verified background handling, facing direction, rotation baseline, pivot/crop, readability, and control-to-motion alignment.</li>
+<li>WebAudio initializes after user gesture and creates no autoplay console errors; audio is failsafe if unsupported and visual fish/ripple/paper/order cues remain playable muted.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicons to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/**</code> through <code>release/games/036/**</code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/037/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/kingyo/index.html, release/kingyo/prompt.html, release/kingyo/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-037.md release/games/037/prompt.md and cmp prompts/day-037.md release/kingyo/prompt.md.
+# Prompt HTML check: verify release/games/037/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes, no direct nested lists, and no strong/b tags inside code.
+# Browser smoke: open the local/static /kingyo/ route and verify menu, tutorial, gameplay start, water tank render, drag net, Tilt Net, Dip/Lift, Swap Poi, Bowl Nudge, Festival Focus, paper/turbulence/order feedback, pause, restart, prompt page, WebAudio after user gesture, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable drag net/action controls plus readable HUD/order card/stage/controls.
+# Static screenshot check: inspect release/games/037/screenshot.png and release/kingyo/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-037.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /kingyo/ and /kingyo/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 037.</code></pre>
+</article></main></body></html>

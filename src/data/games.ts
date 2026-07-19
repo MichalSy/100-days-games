@@ -556,6 +556,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/takumi/screenshot.png',
     generationDuration: 'manual controller run with implementation subagent and Imagegen2 assets ~160 minutes',
     generatedAt: '2026-07-18T01:49:08Z'
+  },
+  37: {
+    status: 'generated',
+    title: 'Kingyo Poi Festival Scooper',
+    slug: 'kingyo-poi-festival-scooper',
+    genre: ['dexterity arcade', 'paper-net scooping', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Run a blue-hour ennichi goldfish-scooping stall by dragging a fragile paper poi net through lantern-lit water, tilting under requested fish patterns, lifting on ripple timing, and keeping paper and turbulence under control.',
+    objective: 'Complete First Lantern Scoop, Pattern Bowl Rush, and Grand Ennichi Kingyo while reaching 5100 points to trigger Kingyo Grand Stall Prize, then continue into endless stall orders.',
+    playUrl: '/kingyo/',
+    promptUrl: '/kingyo/prompt.html',
+    promptExcerpt: 'Drag and tilt a fragile paper poi net, scoop requested goldfish patterns into the bowl, swap paper before tears, nudge the bowl, and use Festival Focus to calm ripples.',
+    screenshotUrl: '/kingyo/screenshot.png',
+    generationDuration: 'manual controller run with implementation subagent recovery and Imagegen2 assets ~150 minutes',
+    generatedAt: '2026-07-19T01:46:15Z'
   }
 };
 

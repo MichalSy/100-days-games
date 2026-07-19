@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#07162d" />
+    <meta name="description" content="Day 037: Kingyo Poi Festival Scooper — mobile-first goldfish scooping arcade." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2308162c'/%3E%3Ccircle cx='29' cy='33' r='18' fill='%23f97316'/%3E%3Cpath d='M43 32l13-10v22zM19 29c-6-6-10-7-14-4 2 5 6 8 13 9z' fill='%23ffd166'/%3E%3Ccircle cx='23' cy='27' r='3' fill='%23020617'/%3E%3C/svg%3E" />
+    <title>Day 037 — Kingyo Poi Festival Scooper</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="app" class="game-shell" aria-live="polite">
+      <section id="menu" class="screen menu-screen">
+        <div class="lantern-glow"></div>
+        <div class="menu-card">
+          <div class="badges" aria-label="Game metadata">
+            <span>Day 037</span>
+            <span>2D</span>
+            <span>/kingyo/</span>
+          </div>
+          <div class="title-row">
+            <div>
+              <p class="eyebrow">Blue-hour ennichi dexterity arcade</p>
+              <h1>Kingyo Poi Festival Scooper</h1>
+            </div>
+            <img src="./assets/kingyo-helper.png" alt="Calico festival stall cat helper holding a poi scoop and bowl" class="helper-portrait" />
+          </div>
+          <p class="lead">Drag a fragile paper poi net through lantern-lit water, tilt the rim under requested goldfish, then lift on the shrinking ripple ring before the paper tears.</p>
+          <div class="best-grid">
+            <span><strong id="bestScoreMenu">0</strong>Best score</span>
+            <span><strong id="bestTimeMenu">—</strong>Best Grand Stall time</span>
+            <span><strong id="bestChainMenu">0</strong>No-tear chain</span>
+          </div>
+          <div class="tutorial-panel" id="tutorialPanel">
+            <h2>Tutorial</h2>
+            <ul>
+              <li><strong>Objective:</strong> Scoop requested goldfish patterns into the bowl before the paper tears.</li>
+              <li><strong>Move:</strong> drag slowly; fast movement raises ripples, turbulence, and paper wetness.</li>
+              <li><strong>Tilt Net:</strong> switch Flat, Left Edge, Right Edge, or Nose Down; approach from behind.</li>
+              <li><strong>Dip/Lift:</strong> lift when a requested fish overlaps the net and the timing ring is small.</li>
+              <li><strong>Safety:</strong> Swap Poi before tearing; avoid maple leaves and high turbulence.</li>
+              <li><strong>Festival Focus:</strong> when charged, slow fish and show safe arcs, requested highlights, and tear warnings.</li>
+              <li><strong>Pause/Restart:</strong> use visible buttons, or P/R on desktop.</li>
+            </ul>
+          </div>
+          <p class="audio-note">Audio starts after you press Start; visual ripple, paper, and order cues work if muted.</p>
+          <div class="menu-actions">
+            <button id="startButton" class="primary-action" type="button">Start scooping</button>
+            <a class="secondary-action" href="./prompt.html">View prompt</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="play" class="screen play-screen hidden" aria-label="Kingyo Poi Festival Scooper game">
+        <header class="hud" aria-label="Game heads-up display">
+          <div class="chip"><span>🏮 Score</span><strong id="scoreChip">0</strong></div>
+          <div class="chip"><span>🏆 Best</span><strong id="bestChip">0</strong></div>
+          <div class="chip hearts"><span>💗 Paper</span><strong id="heartChip">♡♡♡</strong></div>
+          <div class="chip"><span>💧 Wet</span><strong id="wetChip">0%</strong></div>
+          <div class="chip"><span>〰 Turb</span><strong id="turbChip">0%</strong></div>
+          <div class="chip"><span>✨ Combo</span><strong id="comboChip">x1</strong></div>
+          <div class="chip"><span>↙ Tilt</span><strong id="tiltChip">Flat</strong></div>
+          <div class="chip"><span>🕯 Focus</span><strong id="focusChip">0%</strong></div>
+          <div class="chip"><span>⏱ Time</span><strong id="timeChip">0:00</strong></div>
+        </header>
+
+        <article class="order-card" aria-label="Current stall order">
+          <div>
+            <p class="eyebrow">Current order</p>
+            <h2 id="orderName">First Lantern Scoop</h2>
+          </div>
+          <div class="request-list" id="requestList"></div>
+          <div class="order-bars">
+            <label>Patience <meter id="patienceMeter" min="0" max="100" value="100"></meter></label>
+            <label>Turbulence target <span id="turbTarget">under 55%</span></label>
+            <label>Swap Poi uses <span id="swapLimit">2</span></label>
+          </div>
+          <p id="bonusObjective" class="bonus-objective">Bonus: keep water calm and paper un-torn.</p>
+        </article>
+
+        <div class="stage-wrap">
+          <canvas id="gameCanvas" width="900" height="1120" aria-label="Top-down shallow kingyo-sukui water tank. Drag to move the poi net." tabindex="0"></canvas>
+          <div class="stage-helper">
+            <img src="./assets/kingyo-helper.png" alt="Stall cat helper" />
+            <p id="statusHelper">Drag the poi net slowly toward the highlighted red fish.</p>
+          </div>
+        </div>
+
+        <nav class="controls" aria-label="Touch controls">
+          <button id="tiltButton" type="button">Tilt Net: Flat</button>
+          <button id="liftButton" type="button" class="lift">Dip/Lift</button>
+          <button id="nudgeButton" type="button">Bowl Nudge</button>
+          <button id="swapButton" type="button">Swap Poi</button>
+          <button id="focusButton" type="button">Festival Focus</button>
+          <button id="pauseButton" type="button">Pause</button>
+          <button id="restartButton" type="button">Restart</button>
+          <a id="promptButton" href="./prompt.html">Prompt</a>
+        </nav>
+      </section>
+
+      <section id="pauseOverlay" class="overlay hidden" aria-modal="true" role="dialog" aria-labelledby="pauseTitle">
+        <div class="overlay-card">
+          <h2 id="pauseTitle">Paused at the festival tank</h2>
+          <p>Resume to keep scooping. Desktop: drag mouse, Space/Enter lift, Q/E tilt, B nudge, X swap, F focus, P pause, R restart.</p>
+          <ul>
+            <li>Tilt the rim under a fish from behind.</li>
+            <li>Lift on a small timing ring for a perfect scoop.</li>
+            <li>Swap Poi before wetness reaches the red tear zone.</li>
+          </ul>
+          <div class="overlay-actions">
+            <button id="resumeButton" type="button" class="primary-action">Resume</button>
+            <button id="pauseRestartButton" type="button">Restart</button>
+            <button id="muteButton" type="button">Mute: Off</button>
+            <a href="./prompt.html">Prompt</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="resultsOverlay" class="overlay hidden" aria-modal="true" role="dialog" aria-labelledby="resultsTitle">
+        <div class="overlay-card results-card">
+          <h2 id="resultsTitle">Festival results</h2>
+          <p id="resultsSummary">Final score: 0</p>
+          <div id="badgeList" class="badge-list"></div>
+          <div class="overlay-actions">
+            <button id="resultsRestartButton" type="button" class="primary-action">Restart run</button>
+            <a href="./prompt.html">Prompt</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./game.js"></script>
+  </body>
+</html>
