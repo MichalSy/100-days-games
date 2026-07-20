@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-19T01:46:15.000Z",
+  "generatedAt": "2026-07-20T01:31:39.000Z",
   "totalDays": 100,
-  "completedDays": 37,
+  "completedDays": 38,
   "games": [
     {
       "day": 1,
@@ -335,6 +335,15 @@
       "promptUrl": "/kingyo/prompt.html",
       "screenshotUrl": "/kingyo/screenshot.png",
       "generationDuration": "manual controller run with implementation subagent recovery and Imagegen2 assets ~150 minutes"
+    },
+    {
+      "day": 38,
+      "title": "Yatai Okonomiyaki Flipmaster",
+      "slug": "yatai-okonomiyaki-flipmaster",
+      "playUrl": "/yatai/",
+      "promptUrl": "/yatai/prompt.html",
+      "screenshotUrl": "/yatai/screenshot.png",
+      "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]
 }

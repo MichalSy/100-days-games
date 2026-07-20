@@ -571,6 +571,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/kingyo/screenshot.png',
     generationDuration: 'manual controller run with implementation subagent recovery and Imagegen2 assets ~150 minutes',
     generatedAt: '2026-07-19T01:46:15Z'
+  },
+  38: {
+    status: 'generated',
+    title: 'Yatai Okonomiyaki Flipmaster',
+    slug: 'yatai-okonomiyaki-flipmaster',
+    genre: ['3D griddle juggling', 'heat-zone cooking', 'mobile-first arcade'],
+    mode: '3d',
+    description: 'Run a warm night-market okonomiyaki yatai by sliding cakes across a 3D teppan, flipping in the golden window, finishing sauce/toppings, fanning smoke, and plating exact order tickets.',
+    objective: 'Complete First Sizzle, Lantern Sauce Rush, and Grand Matsuri Stack while reaching 5200 points to trigger Yatai Grand Service, then continue into endless night-market tickets.',
+    playUrl: '/yatai/',
+    promptUrl: '/yatai/prompt.html',
+    promptExcerpt: 'Slide okonomiyaki cakes across Cool Prep, Golden Cook, and Hot Sear lanes, flip golden sides, finish sauce/mayo/toppings, fan smoke, and use Chef Focus before plating.',
+    screenshotUrl: '/yatai/screenshot.png',
+    generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-20T01:31:39Z'
   }
 };
 

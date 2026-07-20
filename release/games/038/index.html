@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Yatai Okonomiyaki Flipmaster</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23220f0a'/%3E%3Ccircle cx='32' cy='34' r='20' fill='%23d98b32'/%3E%3Cpath d='M17 30h30' stroke='%236b2c11' stroke-width='5'/%3E%3Cpath d='M20 39c8-6 16 6 24 0' stroke='%23fff0b8' stroke-width='5' fill='none'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="app" class="app shell" aria-label="Day 038 Yatai Okonomiyaki Flipmaster">
+      <section id="menu" class="overlay menu-overlay" aria-labelledby="title">
+        <div class="menu-card">
+          <div class="badges"><span>Day 038</span><span>3D</span><span>/yatai/</span></div>
+          <h1 id="title">Yatai Okonomiyaki Flipmaster</h1>
+          <p class="tagline">Juggle glossy okonomiyaki across a hot 3D teppan, flip golden sides, finish the ticket, and plate before the lantern line loses patience.</p>
+          <div class="menu-stats">
+            <span>Best <b id="menuBest">0</b></span>
+            <span>Best Grand Service <b id="menuTime">—</b></span>
+          </div>
+          <div class="tutorial compact-tutorial" id="tutorialText">
+            <h2>Tutorial</h2>
+            <ul>
+              <li><strong>Objective:</strong> Cook the requested okonomiyaki, flip in the golden window, finish toppings, and plate before tickets lose patience.</li>
+              <li><strong>Heat:</strong> Slide cakes between Cool Prep, Golden Cook, and Hot Sear; hotter lanes cook faster but smoke more.</li>
+              <li><strong>Flip:</strong> Use Flip Cake when the underside ring is golden; early is raw, late is burned.</li>
+              <li><strong>Finish:</strong> Apply Sauce Brush, Mayo Ribbon, and requested Toppings only after enough cooking.</li>
+              <li><strong>Safety:</strong> Fan Steam before smoke redlines; Tilt Griddle gently so cakes do not fall off.</li>
+              <li><strong>Chef Focus:</strong> Slows drift and previews heat, doneness, and order match when charged.</li>
+              <li><strong>Pause/restart:</strong> P/R on desktop or visible buttons on mobile.</li>
+            </ul>
+          </div>
+          <p class="audio-note">Audio starts after you press Start; visual heat, smoke, flip, and topping cues work if muted.</p>
+          <div class="menu-actions">
+            <button id="startBtn" class="primary big">Start</button>
+            <a class="button-link" href="./prompt.html">View prompt</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="hud" aria-label="Yatai HUD">
+        <div class="hud-row top-hud">
+          <span class="chip">Score <b id="score">0</b></span>
+          <span class="chip">Best <b id="best">0</b></span>
+          <span class="chip hearts" id="hearts">♥♥♥</span>
+          <span class="chip smoke">Smoke <b id="smoke">0%</b></span>
+          <span class="chip">Combo <b id="combo">1x</b></span>
+          <span class="chip">Cake <b id="selectedCake">1/1</b></span>
+          <span class="chip">Tilt <b id="tiltState">Level</b></span>
+          <span class="chip">Chef Focus <b id="focusCharge">45%</b></span>
+          <span class="chip">Time <b id="time">0:00</b></span>
+        </div>
+        <article class="ticket" aria-label="Order ticket">
+          <div>
+            <p class="eyebrow">Order ticket</p>
+            <h2 id="ticketTitle">First Sizzle</h2>
+            <p id="ticketText">Plain cabbage cake — golden both sides, sauce + mayo, plate before patience drops.</p>
+          </div>
+          <div class="ticket-bars">
+            <label>Patience <span id="patienceLabel">100%</span><progress id="patience" max="100" value="100"></progress></label>
+            <label>Ticket progress <span id="ticketProgress">0/1</span><progress id="progress" max="1" value="0"></progress></label>
+          </div>
+        </article>
+      </section>
+
+      <section id="stageWrap" class="stage-wrap" aria-label="3D teppan stage">
+        <canvas id="gameCanvas" aria-label="3D teppan with near mid far heat zones and okonomiyaki cakes"></canvas>
+        <div class="lane-labels" aria-hidden="true"><span>Cool Prep</span><span>Golden Cook</span><span>Hot Sear</span></div>
+        <img class="helper" src="./assets/yatai-helper.png" alt="Shiba yatai chef helper holding a spatula and sauce brush" />
+        <div id="spatulaGhost" class="spatula-ghost" aria-hidden="true">▰</div>
+      </section>
+
+      <section class="helper-line" id="helperLine" aria-live="polite">Press Start, then select a cake and slide it into Golden Cook.</section>
+
+      <section class="controls" aria-label="Cooking controls">
+        <div class="control-row cakes">
+          <button data-action="prevCake">Cake −</button>
+          <button data-action="nextCake">Cake +</button>
+          <button data-action="slideUp">Slide ↑</button>
+          <button data-action="slideDown">Slide ↓</button>
+          <button data-action="slideLeft">Slide ←</button>
+          <button data-action="slideRight">Slide →</button>
+        </div>
+        <div class="control-row actions">
+          <button data-action="tilt">Tilt Griddle: Level</button>
+          <button data-action="flip" class="accent">Flip Cake</button>
+          <button data-action="sauce">Sauce Brush</button>
+          <button data-action="mayo">Mayo Ribbon</button>
+          <button data-action="topping">Toppings</button>
+          <button data-action="plate" class="accent">Plate Order</button>
+          <button data-action="fan">Fan Steam</button>
+          <button data-action="focus">Chef Focus</button>
+          <button data-action="pause">Pause</button>
+          <button data-action="restart">Restart</button>
+          <button data-action="mute" id="muteBtn">Audio: On</button>
+          <a class="button-link prompt-control" href="./prompt.html">Prompt</a>
+        </div>
+      </section>
+
+      <section id="pauseOverlay" class="overlay pause-overlay hidden" aria-labelledby="pauseTitle">
+        <div class="menu-card small-card">
+          <h2 id="pauseTitle">Paused at the yatai</h2>
+          <p>Resume service, restart the current run, or review the cooking controls.</p>
+          <div class="tutorial reminder">
+            <p><b>Controls:</b> Select cakes, Slide Cake, Tilt Griddle, Flip Cake in the golden window, Sauce Brush, Mayo Ribbon, Toppings, Plate Order, Fan Steam, and Chef Focus.</p>
+          </div>
+          <div class="menu-actions">
+            <button data-action="resume" class="primary">Resume</button>
+            <button data-action="restart">Restart</button>
+            <button data-action="mute">Audio: Toggle</button>
+            <a class="button-link" href="./prompt.html">Prompt</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="resultOverlay" class="overlay pause-overlay hidden" aria-labelledby="resultTitle">
+        <div class="menu-card small-card">
+          <h2 id="resultTitle">Yatai results</h2>
+          <div id="results"></div>
+          <div class="menu-actions">
+            <button data-action="restart" class="primary">Restart</button>
+            <a class="button-link" href="./prompt.html">Prompt</a>
+          </div>
+        </div>
+      </section>
+
+      <div id="grandBanner" class="grand-banner hidden">Yatai Grand Service! Lanterns bloom and endless tickets begin.</div>
+    </main>
+    <script type="module" src="./game.js"></script>
+  </body>
+</html>

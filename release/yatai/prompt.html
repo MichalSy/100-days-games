@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Day 038 Game Generation Prompt</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23220f0a'/%3E%3Ccircle cx='32' cy='34' r='20' fill='%23d98b32'/%3E%3C/svg%3E" />
+<style>
+:root { color-scheme: dark; --bg:#120805; --panel:#21100a; --line:#8f6335; --gold:#ffc65f; --ink:#fff4d0; --muted:#e7c99d; }
+* { box-sizing:border-box; } body { margin:0; font-family: 'Trebuchet MS', system-ui, sans-serif; background: radial-gradient(circle at top,#4a1c0b,#120805 46%,#050302); color:var(--ink); line-height:1.58; }
+main { width:min(940px, calc(100% - 28px)); margin:0 auto; padding:24px 0 56px; }
+.back { display:inline-flex; align-items:center; min-height:44px; padding:.55rem .85rem; border:1px solid rgba(255,198,95,.55); border-radius:999px; color:var(--gold); background:rgba(0,0,0,.28); text-decoration:none; font-weight:900; }
+article { margin-top:18px; padding:clamp(16px,3vw,34px); border:1px solid rgba(255,198,95,.42); border-radius:28px; background:linear-gradient(180deg, rgba(33,16,10,.96), rgba(11,6,4,.97)); box-shadow:0 24px 70px rgba(0,0,0,.45); }
+h1 { font-size:clamp(2.1rem,6vw,4.8rem); line-height:.95; margin:.35em 0 .25em; color:#fff5d0; }
+h2 { margin-top:1.6em; color:var(--gold); border-top:1px solid rgba(255,198,95,.25); padding-top:.8em; } h3 { color:#ffd98f; }
+code { background:rgba(0,0,0,.38); border:1px solid rgba(255,198,95,.2); border-radius:6px; padding:.08rem .28rem; color:#ffe1a3; }
+pre { overflow:auto; padding:14px; border-radius:16px; background:#080504; border:1px solid rgba(255,198,95,.24); } pre code { border:0; padding:0; background:transparent; }
+li { margin:.25rem 0; } strong { color:#fff0b0; }
+</style>
+</head>
+<body><main><a class="back" href="./index.html">← Back to game</a><article><h1>Day 038 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 038</li>
+<li>Title: Yatai Okonomiyaki Flipmaster</li>
+<li>Slug: yatai-okonomiyaki-flipmaster</li>
+<li>Public route word: yatai</li>
+<li>Mode: 3D</li>
+<li>Genre: mobile-first 3D griddle juggling / heat-zone cooking arcade / night-market order score chase</li>
+<li>Mood/style: warm Osaka-style festival yatai at night, black-iron teppan griddle, glossy okonomiyaki rounds, dancing bonito flakes, cabbage batter, sauce-brush shine, mayo ribbons, red pickled ginger, paper lantern steam, cute shiba chef helper, tactile sizzle-and-spatula feedback; real 3D pan/heat/flipping gameplay rather than goldfish scooping, clockwork gears, bridge engineering, spherical embroidery, fan dyeing, steam ducts, ikebana, orchard harvesting, kumiko woodworking, shrine stealth, matcha whisking, fireworks, pachinko, mochi hopping, calligraphy, kite mapping, dry-garden raking, underwater pearls, taiko routing, daruma labyrinths, spider webs, pottery wheels, canal grids, origami folds, rain parasols, snow stacking, kimono panels, bento conveyors, windbell tuning, rail running, or koi collection.</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 035 <code>2d</code>: Hashi Tanuki Bridgewright, side-view river bridge construction with bamboo/rope/stress.</li>
+<li>Day 036 <code>3d</code>: Takumi Karakuri Gearwright, dark indigo/amber layered brass gears, axles, torque, jam, bells.</li>
+<li>Day 037 <code>2d</code>: Kingyo Poi Festival Scooper, shallow lantern-lit goldfish tank, drag net, paper wetness, turbulence, bowl orders.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>2d</code> (Day 037), so Day 038 deliberately chooses real <code>3D</code> to keep the cadence strong. It switches away from water/fish/net dexterity and mechanical gear routing into a cooking-performance juggling game: manage several physical okonomiyaki cakes across depth-separated heat zones on a tilted 3D griddle, flip them at the right doneness, brush sauce, add toppings, plate correct orders, and avoid burning or undercooking.</p>
+<p>Recent screenshot/visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 037 used dark blue water, goldfish sprites, bowl/net/ripple rings, lantern reflections, paper wetness chips, and bottom dexterity buttons.</li>
+<li>Day 036 used a dark mechanical workbench, translucent depth plates, brass gears, circular teeth, torque arrows, axle sockets, and compact engineering controls.</li>
+<li>Day 035 used a horizontal river gap, bamboo beams, rope braces, stone piers, tanuki helper, and stress-colored structural lines.</li>
+</ul>
+<p>Day 038 should use a hot black-iron griddle table viewed with a shallow 3D camera: near/mid/far heat zones, round batter pancakes that physically slide/rotate/flip, visible browned underside previews, sauce brush strokes, mayo ribbons, toppings, steam plumes, serving plates, order tickets, and a shiba chef helper. Avoid water tanks/fish/bowls/nets/ripples, gear teeth/axles/couplers/bells, bridges/rivers/bamboo trusses/stress heatmaps, centered spheres/thread arcs, radial fans/pigment sectors, valves/steam duct routing, floral balance, orchard baskets, lattice strips, stealth cones, tea bowls, firework arcs, pachinko coins, mochi platforms, brush-stroke tracing, kite strings, sand rakes, underwater navigation, taiko pads, maze tilting, web strands, pottery profiles, canal tiles, origami creases, parasol sheltering, snow block stacking, kimono panels, conveyor cooking, windbell notes, rail tracks, or koi ponds.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/Three.js/WebGL/WebAudio game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 035 <code>2d</code>, Day 036 <code>3d</code>, and Day 037 <code>2d</code>. The latest generated-mode streak is one <code>2d</code>.</p>
+<p>Mode decision: Day 038 is real <code>3D</code>. It must implement meaningful spatial gameplay, not decorative perspective:</p>
+<ul>
+<li>Use Three.js/WebGL or equivalent static-browser 3D rendering.</li>
+<li>Render a real 3D teppan griddle with visible camera depth, near/mid/far heat lanes, cakes with x/z position, radius/thickness, rotation, flip state, browned underside, steam, heat zones, spatula ghost, and serving plates.</li>
+<li>Gameplay must depend on 3D state: cake position on heat zones, slide velocity, griddle tilt, underside/topside doneness, burn risk, topping side, sauce coverage, plate distance, order requirements, spatula angle, and flip timing.</li>
+<li>Player actions must manipulate the 3D system: select a cake, slide it between heat zones, tilt the griddle, flip with a spatula, brush sauce, add topping set, plate the correct cake, fan steam, use Chef Focus to slow/preview doneness arcs, pause/restart, and inspect tutorial hints.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Cook and serve requested okonomiyaki orders by juggling cakes across hot/cool griddle zones, flipping at the ideal doneness, applying sauce/toppings in the right order, and plating before tickets lose patience.</li>
+<li>Win condition: Complete three order sets — First Sizzle, Lantern Sauce Rush, and Grand Matsuri Stack — while reaching 5200 points to trigger “Yatai Grand Service”. After the banner, continue into endless night-market tickets.</li>
+<li>Lose condition: Three chef hearts fail, five cakes burn or fall off the griddle, order patience reaches zero three times, smoke meter reaches 100%, or a Grand Matsuri required cake is plated raw/burned twice.</li>
+<li>Core loop:</li>
+</ul>
+<p>1. Start on a title/menu screen with Day 038 badge, mode badge “3D”, public route <code>/yatai/</code>, best score, best Grand Service time, tutorial, prompt link, audio note, and a large Start button.</p>
+<p>2. Show a portrait-friendly night-market griddle. A 3D teppan fills the center with three readable heat lanes: Cool Prep, Golden Cook, and Hot Sear.</p>
+<p>3. An order ticket requests goals such as: “Serve 1 pork okonomiyaki, golden both sides, sauce + mayo + aonori, smoke under 55%, no burned cakes.”</p>
+<p>4. Player selects the active cake by tapping/clicking it or using Cake −/+ controls. The selected cake gets a clear rim, height bounce, and shadow.</p>
+<p>5. Slide Cake nudges the cake forward/back/left/right across near/mid/far heat lanes. Position changes doneness rate and smoke risk.</p>
+<p>6. Tilt Griddle cycles Level, Left Lean, Right Lean, Forward Lean, and Back Lean. Tilt makes cakes slowly drift, enabling skillful repositioning but risking edge falls.</p>
+<p>7. Flip Cake launches a short 3D flip arc. A perfect flip happens when the underside doneness ring is in the golden window; early flips lower score, late flips burn and add smoke.</p>
+<p>8. Sauce Brush paints glossy sauce coverage on the cooked top side. Mayo Ribbon and Toppings cycle/add required finishing styles: pork strips, shrimp bits, green onion, bonito flakes, aonori, ginger.</p>
+<p>9. Plate Order moves the selected cake to the plate lane only if it matches the active ticket closely enough. Wrong topping or wrong doneness resets combo and drains patience.</p>
+<p>10. Fan Steam lowers smoke and reveals brief underside-color previews, but over-fanning cools the griddle and slows service.</p>
+<p>11. Chef Focus, charged by perfect flips and clean tickets, slows cake drift, overlays heat flow arrows, underside doneness arcs, topping checklist highlights, smoke danger, and plate-match score.</p>
+<p>12. Completing a ticket stamps a yatai order seal, restores one chef heart if needed, awards points, changes recipes, and unlocks faster patience, split heat zones, thicker cakes, multiple simultaneous cakes, and trickier topping combos.</p>
+<p>13. Pause/restart remain visible throughout.</p>
+<ul>
+<li>15+ minute play-value strategy:</li>
+</ul>
+<p>- Save best score, fastest Yatai Grand Service time, longest perfect-flip chain, highest endless ticket, fewest burned cakes, cleanest smoke finish, best topping accuracy, most sauce-perfect cakes, and collected yatai seal badges in localStorage.</p>
+<p>- Include three authored order sets:</p>
+<p>- First Sizzle: one plain cabbage cake, broad golden doneness window, gentle heat, guided first Flip Cake, no heart penalty for the first tutorial undercook.</p>
+<p>- Lantern Sauce Rush: two cakes, pork/shrimp recipes, sauce + mayo requirements, first smoke pressure, Fan Steam introduced, patience matters.</p>
+<p>- Grand Matsuri Stack: three simultaneous cakes, split hot/cool lane targets, bonito/aonori/ginger checklist, required Chef Focus preview, tighter flip windows, smoke target under 60%.</p>
+<p>- Deterministic Day 038 seed varies heat lane strength, cake thickness, topping requests, sauce coverage target, patience decay, smoke rate, drift speed, flip window, plate bonus, and endless constraints while keeping opening seconds fair.</p>
+<p>- Mastery badges: finish First Sizzle with a perfect flip, trigger Grand Service under 285 seconds, complete Lantern Sauce Rush with no smoke warnings, finish Grand Matsuri with no burned cakes, serve three sauce-perfect cakes in a row, complete an order below 20% smoke.</p>
+<p>- Strategic scoring rewards cooking skill: preheat on Hot Sear then rest on Golden Cook, flip just inside the golden window, use Tilt Griddle to shepherd cakes without over-sliding, Fan Steam before smoke redlines, save Chef Focus for multi-cake order checks, and plate only exact recipes.</p>
+<p>- Endless mode after Grand Service adds thicker batter, surprise recipe swaps, extra toppings, hotter corners, shorter patience, and bonus VIP tickets without shrinking touch controls.</p>
+<ul>
+<li>Difficulty scaling:</li>
+</ul>
+<p>- 0-45 seconds: one cake, slow smoke, broad flip window, clear underside preview, forgiving patience.</p>
+<p>- 45-150 seconds: two cakes, sauce/mayo/topping checklists, fan steam, drift/tilt pressure.</p>
+<p>- 150-285 seconds: three cakes, split heat lanes, required Chef Focus, tighter golden windows, limited mistakes.</p>
+<p>- 285+ seconds/endless: hotter zones, thicker cakes, recipe combos, faster tickets, same readable controls.</p>
+<p>- Keep mobile fair: cakes, heat lanes, sauce coverage, topping icons, order ticket, smoke meter, helper, and action buttons must be large/readable at 390x844; primary touch buttons should be 52px+ where possible and never below 44px; no tiny survival-critical cakes.</p>
+<ul>
+<li>Scoring/rewards:</li>
+</ul>
+<p>- Cake moved into correct heat lane: +120 points times combo tier.</p>
+<p>- Perfect flip in golden window: +230 points and Chef Focus charge.</p>
+<p>- Sauce coverage within target band: +170 points.</p>
+<p>- Correct topping set: +185 points and patience relief.</p>
+<p>- Plate an exact order before patience warning: +980 points and restore one chef heart if below max.</p>
+<p>- No-smoke ticket: +720 bonus.</p>
+<p>- Perfect three-cake ticket: +1350 points.</p>
+<p>- Yatai Grand Service: +2800 points and endless tickets unlock.</p>
+<p>- Wrong topping / undercooked plate: no ticket progress, combo reset, patience penalty.</p>
+<p>- Burned cake / falls off griddle: chef-heart damage, smoke spike, combo reset.</p>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+</ul>
+<p>- Mouse click/tap: select cakes, press controls, start/pause overlay button, prompt link, or explainable HUD chips.</p>
+<p>- Mouse drag on the 3D stage: slide selected cake toward the pointer with limited force; controls remain available for deterministic QA.</p>
+<p>- Arrow keys or WASD: nudge selected cake across the griddle.</p>
+<p>- Q/E: cycle Tilt Griddle.</p>
+<p>- Space or Enter: Flip Cake.</p>
+<p>- S: Sauce Brush.</p>
+<p>- M: Mayo Ribbon.</p>
+<p>- T: cycle/add topping.</p>
+<p>- F: Fan Steam.</p>
+<p>- Shift or C: Chef Focus when charged.</p>
+<p>- P: pause/resume.</p>
+<p>- R: restart current run.</p>
+<ul>
+<li>Mobile/touch:</li>
+</ul>
+<p>- Tap a cake to select it. Drag within the griddle to slide the selected cake with a visible spatula ghost and thumb offset.</p>
+<p>- Use large Cake −, Cake +, Slide controls or a four-direction nudge cluster if direct drag misses.</p>
+<p>- Use large Tilt Griddle, Flip Cake, Sauce Brush, Mayo Ribbon, Toppings, Plate Order, Fan Steam, Chef Focus, Pause, Restart, and Prompt buttons.</p>
+<p>- Tapping heat/smoke/doneness/order chips may show short explanations.</p>
+<p>- No tiny virtual joystick. Interaction is direct cake select/drag plus labeled cooking/action controls.</p>
+<ul>
+<li>Mobile layout/orientation:</li>
+</ul>
+<p>- Default target is portrait phone play around 390x844; do not require landscape.</p>
+<p>- Top: compact Yatai HUD with score, best, chef hearts, smoke %, combo, active cake, active tilt, Chef Focus charge, and elapsed time. Use griddle/cake/flip/sauce/fan/order/smoke chips, not fish/gear/bridge/thread/fan-dye/valve/flower/fruit/lattice/shrine/tea-bowl/firework/cat-coin/rabbit/brush/kite/sand/pearl/drum icons.</p>
+<p>- Below top: order ticket with requested doneness, side count, sauce/mayo/toppings checklist, patience bar, smoke target, cake count, and progress ticks.</p>
+<p>- Center: large 3D griddle stage with heat lanes, cakes, spatula ghost, sauce/topping overlays, serving plate, steam, helper art, and readable feedback. It must remain playable without zooming.</p>
+<p>- Bottom: status helper plus large cooking controls. Controls must not cover cakes, heat lanes, order ticket, smoke warnings, or serving plate.</p>
+<p>- Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, select/slide cake, Tilt Griddle, Flip Cake, Sauce Brush, Mayo/Toppings, Plate Order, Fan Steam, Chef Focus, pause/restart must be visible.</p>
+<p>- Requests must combine text, symbols, topping shapes, progress ticks, surface color, and checklist states so hue alone is not required.</p>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<p>- Shows title “Yatai Okonomiyaki Flipmaster”.</p>
+<p>- Shows Day 038 badge, mode badge “3D”, public route <code>/yatai/</code>, best score, best Grand Service time if available, and a prompt link.</p>
+<p>- Shows a large Start button and visible tutorial panel by default.</p>
+<p>- Notes: “Audio starts after you press Start; visual heat, smoke, flip, and topping cues work if muted.”</p>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<p>- Objective: “Cook the requested okonomiyaki, flip in the golden window, finish toppings, and plate before tickets lose patience.”</p>
+<p>- Heat: slide cakes between Cool Prep, Golden Cook, and Hot Sear; hotter lanes cook faster but smoke more.</p>
+<p>- Flip: use Flip Cake when the underside ring is golden; early is raw, late is burned.</p>
+<p>- Finish: apply sauce, mayo, and requested toppings only after enough cooking.</p>
+<p>- Safety: Fan Steam before smoke redlines; tilt gently so cakes do not slide off the griddle.</p>
+<p>- Chef Focus: slows drift and previews heat/doneness/order match when charged.</p>
+<p>- Pause/restart: P/R on desktop or visible buttons on mobile.</p>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<p>- Score, best score, chef hearts, smoke %, ticket name, combo, selected cake, current tilt, Chef Focus charge, elapsed time, latest warning.</p>
+<p>- Pause/restart controls visible or immediately accessible.</p>
+<ol>
+<li>Status helper</li>
+</ol>
+<p>- Non-blocking helper showing next cake, heat advice, flip timing, sauce/topping checklist, smoke warning, Chef Focus readiness, and expected score effect.</p>
+<p>- Must not cover the 3D griddle stage or bottom controls on mobile.</p>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<p>- Resume, restart, tutorial reminder, controls summary, audio/mute toggle, prompt link.</p>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<p>- Final score, best score, ticket reached, Grand Service status, burned cakes, falls, perfect flips, sauce accuracy, smoke finish, badges, restart button.</p>
+<ol>
+<li>Yatai Grand Service banner</li>
+</ol>
+<p>- Trigger once per run after all three ticket sets and 5200 score.</p>
+<p>- Non-blocking celebration: lanterns bloom, steam curls into a festival crest, bonito flakes dance, shiba helper stamps tickets, and endless orders continue after the banner fades.</p>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: shiba yatai chef helper mascot, portrait night-market griddle stall background, okonomiyaki ingredient/topping sprite sheet, and griddle/cake/sauce/topping/smoke UI icon sheet. Three.js primitives may render the interactive griddle, cakes, heat lanes, flip arcs, sauce/mayo overlays, toppings, steam particles, spatula ghost, plates, and UI chrome. It should not create final character/background/ingredient/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/038/assets/source/</code> and use optimized playable copies under <code>release/games/038/assets/</code>. Also copy optimized playable assets into <code>apps/day-038-yatai-okonomiyaki-flipmaster/assets/</code> and the public alias <code>release/yatai/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny food/tool details that disappear at final in-game size, and keep helper/griddle/cake/sauce/mayo/topping/fan/smoke/order silhouettes distinct against warm night-market backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Shiba yatai chef helper mascot</li>
+</ol>
+<p>- Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</p>
+<p>- Archive path: <code>release/games/038/assets/source/yatai-helper-source.png</code></p>
+<p>- Optimized path: <code>release/games/038/assets/yatai-helper.png</code></p>
+<p>- Imagegen2 prompt: “A charming friendly shiba inu yatai chef helper mascot for a mobile 3D Japanese okonomiyaki griddle arcade game, small cute shiba wearing a navy festival apron and white chef headband, holding a flat metal spatula and sauce brush, kind focused expression, warm lantern rim light, centered readable silhouette, transparent or solid warm parchment background, no checkerboard background, no text, no watermark, sprite-friendly, high contrast at small size.”</p>
+<p>- Aspect ratio: square.</p>
+<ol>
+<li>Night-market okonomiyaki griddle stall background source</li>
+</ol>
+<p>- Target: portrait-friendly background suitable behind a large 3D griddle with open readable center.</p>
+<p>- Archive path: <code>release/games/038/assets/source/yatai-stall-source.png</code></p>
+<p>- Optimized path: <code>release/games/038/assets/yatai-stall.png</code></p>
+<p>- Imagegen2 prompt: “A warm Osaka-style Japanese night-market yatai okonomiyaki stall for a portrait mobile 3D cooking arcade game, black iron teppan griddle, paper lanterns, sauce bottles, mayo squeeze bottle, cabbage bowl, bonito flake tray, small serving plates at the edges, amber festival light against deep navy night, open readable central griddle surface for interactive cakes, crop-safe for phone portrait, no characters in the center, no readable text, no watermark.”</p>
+<p>- Aspect ratio: portrait.</p>
+<ol>
+<li>Okonomiyaki ingredient and topping sprite sheet source</li>
+</ol>
+<p>- Target: square sheet with separated readable ingredients/toppings that can be cropped or sampled into runtime sprites.</p>
+<p>- Archive path: <code>release/games/038/assets/source/yatai-toppings-source.png</code></p>
+<p>- Optimized path: <code>release/games/038/assets/yatai-toppings.png</code></p>
+<p>- Imagegen2 prompt: “Sprite sheet of small readable okonomiyaki ingredients and toppings for a mobile 3D Japanese griddle arcade game: round cabbage batter cake top, browned underside, pork strip, shrimp bits, green onion, bonito flakes, aonori powder, red pickled ginger, glossy brown sauce streak, white mayo ribbon, steam puff, each element separated with generous margins, transparent or warm parchment background, no checkerboard background, no text, no watermark, readable at 40-72 pixels.”</p>
+<p>- Aspect ratio: square.</p>
+<ol>
+<li>Yatai griddle, cake, sauce, topping, smoke, and focus UI icon sheet source</li>
+</ol>
+<p>- Target: square icon sheet for objectives, hazards, tools, rewards, and UI decals.</p>
+<p>- Archive path: <code>release/games/038/assets/source/yatai-icons-source.png</code></p>
+<p>- Optimized path: <code>release/games/038/assets/yatai-icons.png</code></p>
+<p>- Imagegen2 prompt: “Small readable icon sheet for a Japanese okonomiyaki yatai cooking arcade game: black griddle, round okonomiyaki cake, flip spatula, sauce brush, mayo squeeze bottle, topping bowl, serving plate, steam fan, smoke warning puff, golden doneness ring, burned edge, order ticket seal, chef heart, Chef Focus lantern-griddle emblem, Grand Service festival crest, transparent or solid warm parchment background, no checkerboard background, high contrast, no text, no watermark, generous margins so no icons are cut off.”</p>
+<p>- Aspect ratio: square.</p>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/Three.js shiba/griddle/cake/topping silhouettes, document the failure in <code>ai/postmortems/day-038.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the shiba helper mascot, verify transparent/cutout quality or clean background handling, readable friendly silhouette, centered pivot/crop margins, no unwanted text/watermarks, stable upright helper orientation, and that spatula/brush pose is compatible with static helper placement.</li>
+<li>For topping sprites, verify separated elements, readable browned/uncooked cake sides, distinct pork/shrimp/green onion/bonito/aonori/ginger/sauce/mayo/steam symbols at final 40-72px size, usable crop margins, no baked checkerboard, no unwanted text/watermark, and a documented visual baseline for which side is cooked/uncooked.</li>
+<li>Verify control-to-motion alignment in-game: selecting a cake must visibly highlight the intended 3D cake, Slide/drag must move it on x/z griddle lanes, Tilt Griddle must visibly change drift direction, Flip Cake must show a 3D arc and swap top/underside/doneness, Sauce Brush/Mayo/Toppings must visibly change the selected cake, Plate Order must transfer a matching cake to the plate, Fan Steam must reduce smoke/preview underside, Chef Focus must slow/preview heat/doneness/order match, Pause/Restart must work.</li>
+<li>For the background, verify the central griddle remains readable after portrait mobile crop and does not hide cakes, heat lanes, order ticket, helper, smoke, or controls.</li>
+<li>For the icon sheet, verify griddle, cake, spatula, sauce brush, mayo, topping bowl, serving plate, steam fan, smoke, doneness ring, burned edge, ticket seal, chef heart, focus emblem, and Grand Service crest are distinct at final HUD/button size and cannot be confused. Watch specifically for fake checkerboard transparency; alpha-clean or composite onto warm parchment if needed and inspect again.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Audio and game feel</h2>
+<p>Because sizzling batter, spatula flips, sauce brushing, toppings, smoke, and plate service are central to the theme, include lightweight WebAudio cues initialized only after a user gesture:</p>
+<ul>
+<li>Soft griddle sizzle after Start.</li>
+<li>Spatula tap when selecting or sliding a cake.</li>
+<li>Bright whoosh/clack when Flip Cake succeeds.</li>
+<li>Dull splat when a flip is early/late or a cake lands poorly.</li>
+<li>Sauce brush swish and mayo squeeze chirp.</li>
+<li>Bonito-flake shimmer when toppings complete.</li>
+<li>Rising smoke hiss as smoke approaches red.</li>
+<li>Paper ticket bell when a correct order plates.</li>
+<li>Lantern shimmer when Chef Focus activates.</li>
+<li>Festival ta-da cadence when Yatai Grand Service triggers.</li>
+</ul>
+<p>Audio must not block play if WebAudio is unavailable. Verify no autoplay errors: audio context should be created/resumed only after Start or another user interaction. Include a visible mute toggle in pause/results or HUD. Expose a narrow debug handle such as <code>window.__day038Audio = { ctx, enabled }</code> after user-gesture initialization so Playwright can assert audio state.</p>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/038/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&amp;lt;pre&amp;gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&amp;lt;title&amp;gt;</code> and <code>&amp;lt;h1&amp;gt;</code> using <code>Day 038 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<p>- Build the static 3D game under <code>apps/day-038-yatai-okonomiyaki-flipmaster/</code>.</p>
+<p>- Integrate it into immutable release output under <code>release/games/038/</code>.</p>
+<p>- Create the public playable route under <code>release/yatai/</code>.</p>
+<p>- Use static HTML/CSS/JS with Three.js/WebGL/WebAudio and no backend.</p>
+<p>- The public alias must be self-contained or asset paths must be alias-safe.</p>
+<p>- If vendoring <code>three.module*.js</code>, also copy the matching <code>three.core*.js</code> beside it in the app, release archive, and <code>/yatai/</code> alias assets.</p>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<p>- Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, remove fake checkerboards if present, and tune mobile readability/game feel.</p>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<p>- Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, 3D griddle stage render, Cake −/+, Slide/drag, Tilt Griddle, Flip Cake, Sauce Brush, Mayo Ribbon, Toppings, Plate Order, Fan Steam, Chef Focus control presence and visible mechanical effect, heat/doneness/smoke/order feedback, generated screenshot, generated assets, WebAudio initialization after user gesture, and 390x844 portrait layout.</p>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<p>- Write <code>ai/postmortems/day-038.md</code> after validation with what worked, what failed, generated-image inspection notes, topping/cake visual baseline, audio verification, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 038 is real <code>3d</code> after Day 037 <code>2d</code>, with a meaningful griddle/cake depth/heat/flip system rather than decorative perspective.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/order ticket, usable 44px+ cake/action/pause/restart controls, no forced landscape canvas, and no tiny survival-critical cakes.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-038.md</code> is copied exactly to <code>release/games/038/prompt.md</code> and <code>release/yatai/prompt.md</code>.</li>
+<li><code>release/games/038/prompt.html</code> and <code>release/yatai/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&amp;lt;pre&amp;gt;</code> dump.</li>
+<li>Public alias <code>release/yatai/index.html</code>, <code>release/yatai/prompt.html</code>, <code>release/yatai/screenshot.png</code>, and <code>release/yatai/assets/</code> exist and work.</li>
+<li>Gallery card for Day 038 shows prompt availability, generation duration, public <code>/yatai/</code> links, mode <code>3d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/038/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/038/assets/source/</code> and optimized assets exist under <code>release/games/038/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive cake/topping/griddle assets have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>WebAudio initializes after user gesture and creates no autoplay console errors; audio is failsafe if unsupported and visual heat/doneness/smoke/order cues remain playable muted.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicons to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/**</code> through <code>release/games/037/**</code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/038/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/yatai/index.html, release/yatai/prompt.html, release/yatai/screenshot.png, optimized assets, source assets, and vendored Three.js files (if used) exist and are non-empty.
+# Prompt copy check: cmp prompts/day-038.md release/games/038/prompt.md and cmp prompts/day-038.md release/yatai/prompt.md.
+# Prompt HTML check: verify release/games/038/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes, no direct nested lists, and no strong/b tags inside code.
+# Browser smoke: open the local/static /yatai/ route and verify menu, tutorial, gameplay start, 3D griddle stage render, Cake selection, Slide/drag, Tilt Griddle, Flip Cake, Sauce Brush, Mayo Ribbon, Toppings, Plate Order, Fan Steam, Chef Focus, heat/doneness/smoke/order feedback, pause, restart, prompt page, WebAudio after user gesture, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable cake/action controls plus readable HUD/order ticket/stage/controls.
+# Static screenshot check: inspect release/games/038/screenshot.png and release/yatai/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-038.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /yatai/ and /yatai/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 038.</code></pre></article></main></body></html>
