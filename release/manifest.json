@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-20T01:31:39.000Z",
+  "generatedAt": "2026-07-21T01:48:13.000Z",
   "totalDays": 100,
-  "completedDays": 38,
+  "completedDays": 39,
   "games": [
     {
       "day": 1,
@@ -344,6 +344,15 @@
       "promptUrl": "/yatai/prompt.html",
       "screenshotUrl": "/yatai/screenshot.png",
       "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 39,
+      "title": "Tatami Moonroom Matwright",
+      "slug": "tatami-moonroom-matwright",
+      "playUrl": "/tatami/",
+      "promptUrl": "/tatami/prompt.html",
+      "screenshotUrl": "/tatami/screenshot.png",
+      "generationDuration": "manual controller run with implementation subagent dispatch and Imagegen2 assets ~150 minutes"
     }
   ]
 }

@@ -586,6 +586,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/yatai/screenshot.png',
     generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-20T01:31:39Z'
+  },
+  39: {
+    status: 'generated',
+    title: 'Tatami Moonroom Matwright',
+    slug: 'tatami-moonroom-matwright',
+    genre: ['tatami-layout logic puzzle', 'room-flow planning', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Arrange woven tatami mats in a quiet moonlit washitsu, rotate grain directions, avoid four-corner seam clusters, preserve a guest walking path, calm the sleepy cat, and finish room commissions before the incense burns down.',
+    objective: 'Complete First Moon Mat, Tea Guest Flow, and Grand Tokonoma Room while reaching 5300 points to trigger Tatami Moonroom Harmony, then continue into endless room-layout commissions.',
+    playUrl: '/tatami/',
+    promptUrl: '/tatami/prompt.html',
+    promptExcerpt: 'Drag, rotate, swap, and lock tatami mats, place cushion/table anchors, preview the guest walk, calm the cat, and use Ma Focus to solve seam and grain harmony.',
+    screenshotUrl: '/tatami/screenshot.png',
+    generationDuration: 'manual controller run with implementation subagent dispatch and Imagegen2 assets ~150 minutes',
+    generatedAt: '2026-07-21T01:48:13Z'
   }
 };
 

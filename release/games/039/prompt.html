@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Day 039 Game Generation Prompt</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316241b'/%3E%3Cpath d='M12 14h40v36H12z' fill='%23d7c678' stroke='%233d5c2f' stroke-width='4'/%3E%3C/svg%3E"><style>
+:root{--bg:#07110d;--panel:#111f17;--ink:#fff4d6;--muted:#d6cda8;--gold:#f1ca73;--line:rgba(241,202,115,.38)}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#25351f,#07110d 54%,#030705);color:var(--ink);font-family:ui-rounded,system-ui,sans-serif;line-height:1.6}main{max-width:960px;margin:auto;padding:28px 16px 60px}.top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap}a{color:var(--gold);font-weight:800}.back{border:1px solid var(--line);border-radius:999px;padding:10px 14px;background:rgba(0,0,0,.25);text-decoration:none}article{background:linear-gradient(145deg,rgba(17,31,23,.96),rgba(31,43,25,.92));border:1px solid var(--line);border-radius:24px;padding:clamp(18px,4vw,34px);box-shadow:0 20px 60px rgba(0,0,0,.42)}h1{font-size:clamp(34px,6vw,62px);line-height:.96;color:var(--gold);letter-spacing:-.04em;margin:.1em 0 .35em}h2{margin-top:1.6em;color:#ffdf8b;border-top:1px solid var(--line);padding-top:.8em}h3{color:#dff0b9}code{background:rgba(0,0,0,.35);padding:.12em .35em;border-radius:.35em;color:#baf7ff}pre{overflow:auto;background:#030705;border:1px solid var(--line);border-radius:14px;padding:14px}li{margin:.28em 0}p,li{color:var(--muted)}strong{color:var(--ink)}
+</style></head><body><main><div class="top"><a class="back" href="/tatami/">← Back to game</a><span>100 Days Games · Day 039</span></div><article><h1>Day 039 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 039</li>
+<li>Title: Tatami Moonroom Matwright</li>
+<li>Slug: tatami-moonroom-matwright</li>
+<li>Public route word: tatami</li>
+<li>Mode: 2D</li>
+<li>Genre: mobile-first tatami-layout logic puzzle / room-flow planning / harmony score chase</li>
+<li>Mood/style: quiet moonlit washitsu room, woven igusa tatami texture, dark green cloth borders, shoji moonbeams, low lacquer table, incense timer, sleepy calico cat helper, tactile mat-sliding and seam-click feedback; a calm but strategic spatial puzzle rather than okonomiyaki cooking, goldfish scooping, karakuri gears, bridge trusses, temari thread orbits, uchiwa dyeing, onsen valves, ikebana balancing, orchard harvesting, kumiko woodworking, shrine stealth, matcha whisking, fireworks, pachinko, mochi hopping, calligraphy tracing, kite mapping, dry-garden raking, underwater pearl navigation, taiko rhythm routing, daruma labyrinths, spider webs, pottery wheels, canal grids, origami folds, rain parasols, snow stacking, kimono stamping, bento conveyors, windbell tuning, rail running, or koi collection.</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 036 <code>3d</code>: Takumi Karakuri Gearwright, dark indigo/amber layered brass gears, axles, couplers, torque, jam, bells.</li>
+<li>Day 037 <code>2d</code>: Kingyo Poi Festival Scooper, blue-hour festival water tank, fish sprites, poi net, paper wetness, ripples, bowl orders.</li>
+<li>Day 038 <code>3d</code>: Yatai Okonomiyaki Flipmaster, warm night-market griddle, 3D heat lanes, cakes, sauce, toppings, smoke, shiba helper.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>3d</code> (Day 038), so Day 039 may safely be a rich <code>2d</code> game without extending a 2D streak. It deliberately moves away from food/water/mechanical routing into a rules-based interior arrangement puzzle: lay tatami mats in a moonlit room, rotate half/full mats, avoid four-corner seam violations, preserve guest walking flow, place cushion/tea-table zones, and complete room commissions before incense burns down.</p>
+<p>Recent screenshot/visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 038 used amber/black cooking surfaces, three heat lanes, round 3D cakes, sauce/topping buttons, smoke, and a shiba chef helper.</li>
+<li>Day 037 used deep blue water, fish sprites, circular scoop rings, lantern reflections, paper wetness chips, and a bottom dexterity control row.</li>
+<li>Day 036 used translucent 3D plates, brass gears, circular tooth outlines, torque arrows, dark mechanical cards, and compact engineering controls.</li>
+</ul>
+<p>Day 039 should use a top-down but richly textured washitsu floor board: rectangular tatami mats, half-mats, visible woven grain direction, cloth borders, seam intersections, shoji moonlight strips, alcove/tokonoma edge, cushion/low-table silhouettes, incense countdown, guest-footstep path previews, and a sleepy calico cat helper. Avoid griddles/cakes/sauce/smoke/cooking tickets, water tanks/fish/nets/bowls/ripples, gears/axles/couplers/bells, bridges/rivers/bamboo trusses/stress heatmaps, centered spheres/thread arcs, radial fans/pigment sectors, valves/steam ducts, floral vases, orchard baskets, lattice strips, stealth cones, tea-bowl foam, firework arcs, pachinko coins, mochi platforms, brush-stroke tracing, kite strings, sand rakes, underwater routes, taiko pads, tilt labyrinths, web strands, pottery profiles, canal tiles, origami crease grids, parasols, snow blocks, kimono panels, restaurant conveyors, windbell notes, rail tracks, or koi ponds.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/canvas/WebAudio game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 036 <code>3d</code>, Day 037 <code>2d</code>, and Day 038 <code>3d</code>. The latest generated-mode streak is one <code>3d</code>.</p>
+<p>Mode decision: Day 039 is rich mobile-first <code>2d</code>, selected after a real 3D day. It must be mechanically deep enough to justify the mode:</p>
+<ul>
+<li>Use static-browser HTML/CSS/JS with Canvas/SVG/DOM/WebAudio as appropriate; no backend.</li>
+<li>Render a top-down tatami planning board where mat position, mat orientation, mat size, seam intersections, grain direction, walking path, furniture anchors, harmony meters, incense time, and cat disruption matter mechanically.</li>
+<li>Gameplay must depend on 2D spatial state: grid cells, full/half mat footprints, rotation, seam endpoints, four-corner conflicts, forbidden alcove cells, moonbeam bonus zones, cushion/table anchor requirements, guest path continuity, cat nap zones, undo/budget, and room harmony.</li>
+<li>Player actions must manipulate the system: select a mat, rotate it, slide/drag it to board cells, swap full/half mat, lock a mat, place/reposition cushion and low table markers, preview guest walk, calm the cat, use Ma Focus to preview rule violations and optimal negative space, pause/restart, and inspect tutorial hints.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Arrange tatami mats for requested washitsu room commissions, satisfying mat-count, grain-flow, seam, furniture, moonbeam, and guest-path constraints before the incense timer burns down.</li>
+<li>Win condition: Complete three room commissions — First Moon Mat, Tea Guest Flow, and Grand Tokonoma Room — while reaching 5300 points to trigger “Tatami Moonroom Harmony”. After the banner, continue into endless room-layout commissions.</li>
+<li>Lose condition: Three harmony hearts break, incense burns out, four-corner seam violations reach four in one room, guest path is blocked three times, or the cat scatters unlocked mats after repeated uncalmed disruptions.</li>
+<li>Core loop:</li>
+</ul>
+<ol>
+<li>Start on a title/menu screen with Day 039 badge, mode badge “2D”, public route <code>/tatami/</code>, best score, best Harmony time, tutorial, prompt link, audio note, and a large Start button.</li>
+<li>Show a portrait-friendly moonlit washitsu. The center is a rectangular planning board with cells, alcove edge, moonbeam bonus strips, existing door/threshold markers, and large draggable mats.</li>
+<li>A room commission requests goals such as: “Lay 4 full mats + 1 half mat, no four-corner seams, align two mats with moonbeam grain, leave a path from shoji door to cushion, table centered on calm seam.”</li>
+<li>Player selects the active mat by tapping/clicking it or using Mat −/+ controls. The selected mat gets a glowing rim, woven-grain arrow, and footprint preview.</li>
+<li>Drag/Slide Mat moves the selected mat between board cells. Invalid overlaps glow vermilion, valid footprints glow gold/green, and snap points are large enough for thumbs.</li>
+<li>Rotate Mat flips woven-grain direction between east-west and north-south. Grain matters for commission bonuses, moonbeam comfort, and seam harmony.</li>
+<li>Swap Full/Half toggles between a full rectangular mat and a half mat when the room commission allows it; half mats solve edge gaps but can create forbidden seam clusters.</li>
+<li>Lock Mat protects a placed mat from cat disruption and accidental drag, but locked mats cost an undo token to unlock.</li>
+<li>Place Cushion and Place Table controls move/rest the tea cushion and low table anchors. They must sit on stable mats and preserve guest walking flow.</li>
+<li>Preview Walk draws a guest-footstep route from the shoji door through the room to the cushion/table. Blocked, awkward, or seam-heavy paths reduce harmony.</li>
+<li>Calm Cat moves the sleepy calico helper out of the selected footprint and prevents one disruption; ignoring cat warnings lets it paw an unlocked mat off-grid.</li>
+<li>Ma Focus, charged by clean placements and no-violation room completions, overlays four-corner seam risks, grain-flow arrows, guest-path score, moonbeam comfort zones, negative-space balance, and the next best mat candidate.</li>
+<li>Completing a room stamps a tatami room seal, restores one harmony heart if needed, awards points, changes room shape and constraints, and unlocks irregular alcoves, two doors, more half mats, stricter guest paths, and mischievous cat naps.</li>
+<li>Pause/restart remain visible throughout.</li>
+</ol>
+<ul>
+<li>15+ minute play-value strategy:</li>
+<li>Save best score, fastest Tatami Moonroom Harmony time, longest no-violation chain, highest endless room, fewest undo tokens used, best guest-flow score, most moonbeam-grain bonuses, calmest cat streak, and collected room seal badges in localStorage.</li>
+<li>Include three authored room commissions:</li>
+<li>First Moon Mat: simple 3x3 room, three full mats and one half mat, generous incense, highlighted first Rotate Mat, no heart penalty for first tutorial overlap.</li>
+<li>Tea Guest Flow: larger room with door and cushion/table anchors, two grain-direction requirements, first cat nap zone, one moonbeam bonus strip, and a guest route score.</li>
+<li>Grand Tokonoma Room: irregular alcove, full and half mat mixture, no four-corner seam tolerance, required Ma Focus preview, two path targets, table centered, incense under pressure.</li>
+<li>Deterministic Day 039 seed varies room shape, door location, alcove cells, moonbeam strips, mat inventory, grain bonuses, cat nap timing, incense decay, table/cushion anchor requirements, seam penalty, focus charge, and endless constraints while keeping opening seconds fair.</li>
+<li>Mastery badges: complete First Moon Mat with zero violations, trigger Harmony under 285 seconds, finish Tea Guest Flow with 90%+ walk score, complete Grand Tokonoma with no four-corner seams, earn three moonbeam-grain bonuses, calm the cat three times without losing a mat.</li>
+<li>Strategic scoring rewards spatial planning: place full mats first to avoid corner clusters, reserve half mats for alcove edges, rotate grains to create calm flow, lock only stable mats, keep a clear guest path, calm the cat before it reaches unlocked mats, and save Ma Focus for irregular rooms.</li>
+<li>Endless mode after Harmony adds odd room footprints, double doors, stricter negative-space goals, faster incense, cat feints, and bonus scroll commissions without shrinking touch controls.</li>
+<li>Difficulty scaling:</li>
+<li>0-45 seconds: small room, broad snap zones, obvious four-corner warning, forgiving incense, one half mat.</li>
+<li>45-150 seconds: cushion/table anchors, guest path preview, cat nap warning, moonbeam grain bonuses.</li>
+<li>150-285 seconds: irregular alcove, stricter seams, required Ma Focus, fewer undo tokens, tighter incense.</li>
+<li>285+ seconds/endless: odd shapes, multiple doors, stricter harmony targets, same readable controls.</li>
+<li>Keep mobile fair: board cells, mats, grain arrows, seam warnings, room card, harmony hearts, incense meter, helper, and action buttons must be readable at 390x844; touch buttons should be 52px+ where possible and never below 44px; no tiny survival-critical cells.</li>
+<li>Scoring/rewards:</li>
+<li>Valid mat placed: +130 points times combo tier.</li>
+<li>Correct grain direction in requested zone: +170 points and Ma Focus charge.</li>
+<li>No four-corner seam after placement: +145 points.</li>
+<li>Guest path preview reaches cushion/table cleanly: +260 points and incense relief.</li>
+<li>Cushion/table anchor satisfied: +210 points.</li>
+<li>Calm Cat before disruption: +150 points and preserve combo.</li>
+<li>Complete room before incense warning: +980 points and restore one harmony heart if below max.</li>
+<li>Perfect no-violation room: +1300 points.</li>
+<li>Moonbeam-grain bonus chain: +520 bonus.</li>
+<li>Tatami Moonroom Harmony: +2900 points and endless rooms unlock.</li>
+<li>Invalid overlap/forbidden alcove: no placement, status warning.</li>
+<li>Four-corner seam violation: harmony penalty and combo reset.</li>
+<li>Guest path blocked or cat scatters mat: harmony-heart damage, incense penalty, combo reset.</li>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<li>Mouse click/tap: select mats, board cells, action buttons, start/pause overlay button, prompt link, or explainable HUD chips.</li>
+<li>Mouse drag on the board: move selected mat with snap preview and a thumb/mouse offset.</li>
+<li>Arrow keys or WASD: nudge selected mat one cell.</li>
+<li>Q/E or Space: Rotate Mat.</li>
+<li>H: Swap Full/Half when available.</li>
+<li>L: Lock Mat / Unlock with undo token.</li>
+<li>C: Place Cushion.</li>
+<li>T: Place Table.</li>
+<li>W: Preview Walk.</li>
+<li>G: Calm Cat.</li>
+<li>Shift or M: Ma Focus when charged.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+<li>Mobile/touch:</li>
+<li>Tap a mat to select it. Drag inside the board to slide the selected mat with a visible offset so the footprint remains visible above the finger.</li>
+<li>Use large Mat −, Mat +, Slide ↑/↓/←/→, Rotate Mat, Swap Full/Half, Lock Mat, Place Cushion, Place Table, Preview Walk, Calm Cat, Ma Focus, Pause, Restart, and Prompt buttons.</li>
+<li>Tapping seam/incense/grain/path/cat chips may show short explanations.</li>
+<li>No tiny virtual joystick. Interaction is direct mat select/drag plus labeled layout/action controls.</li>
+<li>Mobile layout/orientation:</li>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact Tatami HUD with score, best, harmony hearts, incense %, combo, active mat, inventory, violations, Ma Focus charge, and elapsed time. Use mat/grain/seam/path/incense/cat/chashitsu chips, not griddle/fish/gear/bridge/thread/fan/valve/flower/fruit/lattice/shrine/tea-foam/firework/cat-coin/rabbit/brush/kite/sand/pearl/drum icons.</li>
+<li>Below top: room commission card with requested mat inventory, grain goals, cushion/table anchors, path target, seam limit, moonbeam bonus, and progress ticks.</li>
+<li>Center: large tatami board stage with mats, seam intersections, grain arrows, shoji/moonbeam overlays, cushion/table markers, cat helper, path preview, violation highlights, and readable feedback. It must remain playable without zooming.</li>
+<li>Bottom: status helper plus large layout/action controls. Controls must not cover the board, room card, seam warnings, cat, or path preview.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, select/drag mat, Rotate Mat, Swap Full/Half, Lock Mat, Place Cushion/Table, Preview Walk, Calm Cat, Ma Focus, pause/restart must be visible.</li>
+<li>Requests must combine text, icons, grain arrows, seam markers, patterns, and progress ticks so hue alone is not required.</li>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<ul>
+<li>Shows title “Tatami Moonroom Matwright”.</li>
+<li>Shows Day 039 badge, mode badge “2D”, public route <code>/tatami/</code>, best score, best Harmony time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+<li>Notes: “Audio starts after you press Start; visual seam, grain, path, cat, and incense cues work if muted.”</li>
+</ul>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<ul>
+<li>Objective: “Arrange tatami mats, avoid bad seam clusters, keep the guest path open, and finish before incense burns out.”</li>
+<li>Placement: drag mats onto the room grid; green/gold footprints are valid, vermilion means overlap or forbidden alcove.</li>
+<li>Rotation: Rotate Mat changes woven grain direction; match moonbeams and commission goals.</li>
+<li>Harmony: avoid four mat corners meeting at one point; use half mats and negative space to solve irregular rooms.</li>
+<li>Furniture/path: place cushion and low table, then Preview Walk from shoji door to guest seat.</li>
+<li>Cat: Calm Cat before it paws an unlocked mat away.</li>
+<li>Ma Focus: previews seam risks, grain flow, path score, and calm negative space when charged.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<ul>
+<li>Score, best score, harmony hearts, incense %, commission name, combo, active mat, inventory, violation count, Ma Focus charge, elapsed time, latest warning.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<ol>
+<li>Status helper</li>
+</ol>
+<ul>
+<li>Non-blocking helper showing selected mat, next placement hint, seam risk, grain advice, path warning, cat warning, Ma Focus readiness, and expected score effect.</li>
+<li>Must not cover the tatami board or bottom controls on mobile.</li>
+</ul>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, audio/mute toggle, prompt link.</li>
+</ul>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<ul>
+<li>Final score, best score, room reached, Harmony status, seam violations, path score, cat disruptions, moonbeam bonuses, badges, restart button.</li>
+</ul>
+<ol>
+<li>Tatami Moonroom Harmony banner</li>
+</ol>
+<ul>
+<li>Trigger once per run after all three room commissions and 5300 score.</li>
+<li>Non-blocking celebration: moonbeams sweep across woven mats, seam warnings dissolve into gold, the cat curls on the perfect cushion, incense smoke forms a room seal, and endless commissions continue after the banner fades.</li>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: sleepy calico tatami helper mascot, portrait moonlit washitsu room background, tatami mat/furniture texture sprite sheet, and mat/grain/seam/path/incense/cat UI icon sheet. Canvas/SVG/DOM code may render the interactive grid, mat rectangles, seam markers, grain arrows, path lines, highlights, particles, and UI chrome. It should not create final character/background/texture/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/039/assets/source/</code> and use optimized playable copies under <code>release/games/039/assets/</code>. Also copy optimized playable assets into <code>apps/day-039-tatami-moonroom-matwright/assets/</code> and the public alias <code>release/tatami/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny woven details that disappear at final in-game size, and keep helper/mats/grain/seams/cushion/table/incense/path/focus silhouettes distinct against moonlit green-gold room backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Sleepy calico tatami helper mascot</li>
+</ol>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/039/assets/source/tatami-helper-source.png</code></li>
+<li>Optimized path: <code>release/games/039/assets/tatami-helper.png</code></li>
+<li>Imagegen2 prompt: “A charming sleepy calico cat helper mascot for a mobile Japanese tatami room layout puzzle game, small cute cat wearing a tiny indigo furoshiki collar charm, gently pawing a rolled tatami edge, kind calm expression, moonlit shoji rim light, centered readable silhouette, transparent or solid warm parchment background, no checkerboard background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Moonlit washitsu tatami room background source</li>
+</ol>
+<ul>
+<li>Target: portrait-friendly background suitable behind a top-down tatami planning board with open readable center.</li>
+<li>Archive path: <code>release/games/039/assets/source/tatami-room-source.png</code></li>
+<li>Optimized path: <code>release/games/039/assets/tatami-room.png</code></li>
+<li>Imagegen2 prompt: “A quiet moonlit Japanese washitsu tatami room for a portrait mobile 2D puzzle game, shoji screens with soft moonbeams, tokonoma alcove edge, low lacquer table and cushions at room edges, woven green-gold tatami floor atmosphere, incense holder, calm nighttime palette, open readable central floor area for interactive tatami mat layout, crop-safe for phone portrait, no characters in the center, no readable text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<ol>
+<li>Tatami mat and furniture texture sprite sheet source</li>
+</ol>
+<ul>
+<li>Target: square sheet with separated readable materials that can be cropped or sampled into runtime sprites.</li>
+<li>Archive path: <code>release/games/039/assets/source/tatami-pieces-source.png</code></li>
+<li>Optimized path: <code>release/games/039/assets/tatami-pieces.png</code></li>
+<li>Imagegen2 prompt: “Sprite sheet of small readable Japanese washitsu puzzle pieces: full tatami mat top with green cloth border, half tatami mat, woven igusa grain samples in two directions, square cushion zabuton, low chabudai table top, shoji door marker, incense smoke puff, moonbeam strip, each element separated with generous margins, transparent or warm parchment background, no checkerboard background, no text, no watermark, readable at 40-96 pixels.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Tatami layout, grain, seam, path, incense, and focus UI icon sheet source</li>
+</ol>
+<ul>
+<li>Target: square icon sheet for objectives, hazards, tools, rewards, and UI decals.</li>
+<li>Archive path: <code>release/games/039/assets/source/tatami-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/039/assets/tatami-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a Japanese tatami room layout puzzle game: full mat, half mat, rotate grain arrow, four-corner seam warning, shoji door, cushion seat, low table, guest footstep path, incense timer, sleepy cat paw, lock mat, undo token, Ma Focus moon-room emblem, harmony heart, room seal, Grand Harmony crest, transparent or solid warm parchment background, no checkerboard background, high contrast, no text, no watermark, generous margins so no icons are cut off.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas cat/tatami/cushion/table/incense/icon silhouettes, document the failure in <code>ai/postmortems/day-039.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the cat helper mascot, verify transparent/cutout quality or clean background handling, readable friendly silhouette, centered pivot/crop margins, no unwanted text/watermarks, stable upright/curled orientation, and that the pawing pose is compatible with static helper placement.</li>
+<li>For tatami pieces, verify separated full/half mats, readable woven grain direction, distinct cushion/table/shoji/incense/moonbeam elements at final 40-96px size, usable crop margins, no baked checkerboard, no unwanted text/watermark, and a documented visual baseline for east-west vs north-south grain.</li>
+<li>Verify control-to-motion alignment in-game: selecting a mat must visibly highlight the intended mat, drag/Slide must move it between grid cells, Rotate Mat must visibly change grain direction/footprint orientation, Swap Full/Half must change piece size, Lock Mat must visibly mark and protect it, Place Cushion/Table must move anchors, Preview Walk must draw a route, Calm Cat must move/quiet the helper warning, Ma Focus must preview seam/grain/path risks, Pause/Restart must work.</li>
+<li>For the background, verify the central board remains readable after portrait mobile crop and does not hide mats, seam intersections, grain arrows, commission card, helper, path, or controls.</li>
+<li>For the icon sheet, verify full mat, half mat, rotate arrow, seam warning, shoji door, cushion, low table, footstep path, incense timer, cat paw, lock, undo, Ma Focus, harmony heart, room seal, and Grand Harmony crest are distinct at final HUD/button size and cannot be confused. Watch specifically for fake checkerboard transparency; alpha-clean or composite onto warm parchment if needed and inspect again.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Audio and game feel</h2>
+<p>Because woven mats, shoji-room calm, incense countdown, cat pawing, and snap-into-place seams are central to the theme, include lightweight WebAudio cues initialized only after a user gesture:</p>
+<ul>
+<li>Soft tatami rustle when selecting or sliding a mat.</li>
+<li>Crisp woven snap when a mat lands on a valid cell.</li>
+<li>Gentle hollow thump when Rotate Mat changes grain direction.</li>
+<li>Quiet warning click when a four-corner seam risk appears.</li>
+<li>Paper-shoji swish when Preview Walk draws a successful route.</li>
+<li>Tiny bell/incense chime when a room commission completes.</li>
+<li>Soft cat mew/paw tap when Calm Cat succeeds or a cat warning begins.</li>
+<li>Moon shimmer when Ma Focus activates.</li>
+<li>Calm koto-like flourish when Tatami Moonroom Harmony triggers.</li>
+</ul>
+<p>Audio must not block play if WebAudio is unavailable. Verify no autoplay errors: audio context should be created/resumed only after Start or another user interaction. Include a visible mute toggle in pause/results or HUD. Expose a narrow debug handle such as <code>window.__day039Audio = { ctx, enabled }</code> after user-gesture initialization so Playwright can assert audio state.</p>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/039/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&amp;lt;pre&amp;gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&amp;lt;title&amp;gt;</code> and <code>&amp;lt;h1&amp;gt;</code> using <code>Day 039 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<ul>
+<li>Build the static 2D game under <code>apps/day-039-tatami-moonroom-matwright/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/039/</code>.</li>
+<li>Create the public playable route under <code>release/tatami/</code>.</li>
+<li>Use static HTML/CSS/JS with Canvas/SVG/WebAudio and no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+</ul>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, remove fake checkerboards if present, document mat-grain visual baseline, and tune mobile readability/game feel.</li>
+</ul>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, tatami board render, mat selection/drag, Mat −/+, Slide, Rotate Mat, Swap Full/Half, Lock Mat, Place Cushion, Place Table, Preview Walk, Calm Cat, Ma Focus control presence and visible mechanical effect, seam/grain/path/incense/cat feedback, generated screenshot, generated assets, WebAudio initialization after user gesture, and 390x844 portrait layout.</li>
+</ul>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<ul>
+<li>Write <code>ai/postmortems/day-039.md</code> after validation with what worked, what failed, generated-image inspection notes, mat-grain visual baseline, audio verification, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 039 is <code>2d</code> after Day 038 <code>3d</code>, with tactile mat-layout logic mechanics rather than low-effort flat decoration.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/room card, usable 44px+ drag/touch/action/pause/restart controls, no forced landscape canvas, and no tiny survival-critical cells.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-039.md</code> is copied exactly to <code>release/games/039/prompt.md</code> and <code>release/tatami/prompt.md</code>.</li>
+<li><code>release/games/039/prompt.html</code> and <code>release/tatami/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&amp;lt;pre&amp;gt;</code> dump.</li>
+<li>Public alias <code>release/tatami/index.html</code>, <code>release/tatami/prompt.html</code>, <code>release/tatami/screenshot.png</code>, and <code>release/tatami/assets/</code> exist and work.</li>
+<li>Gallery card for Day 039 shows prompt availability, generation duration, public <code>/tatami/</code> links, mode <code>2d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/039/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/039/assets/source/</code> and optimized assets exist under <code>release/games/039/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive mat/grain/seam/path visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>WebAudio initializes after user gesture and creates no autoplay console errors; audio is failsafe if unsupported and visual seam/grain/path/cat/order cues remain playable muted.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicons to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/**</code> through <code>release/games/038/**</code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/039/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/tatami/index.html, release/tatami/prompt.html, release/tatami/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-039.md release/games/039/prompt.md and cmp prompts/day-039.md release/tatami/prompt.md.
+# Prompt HTML check: verify release/games/039/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes, no direct nested lists, and no strong/b tags inside code.
+# Browser smoke: open the local/static /tatami/ route and verify menu, tutorial, gameplay start, tatami board render, mat selection/drag, Mat −/+, Slide controls, Rotate Mat, Swap Full/Half, Lock Mat, Place Cushion, Place Table, Preview Walk, Calm Cat, Ma Focus, seam/grain/path/incense/cat feedback, pause, restart, prompt page, WebAudio after user gesture, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable drag/action controls plus readable HUD/room card/stage/controls.
+# Static screenshot check: inspect release/games/039/screenshot.png and release/tatami/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-039.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /tatami/ and /tatami/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 039.</code></pre></article></main></body></html>

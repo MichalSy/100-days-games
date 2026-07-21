@@ -1,0 +1,105 @@
+:root {
+  --ink: #fff4d6;
+  --muted: #d6cda8;
+  --bg: #07110d;
+  --panel: rgba(13, 25, 18, 0.92);
+  --panel-2: rgba(31, 43, 25, 0.9);
+  --line: rgba(218, 184, 87, 0.55);
+  --gold: #f1ca73;
+  --gold-2: #ffdd8b;
+  --green: #7ea35a;
+  --deep: #13261c;
+  --red: #f06f57;
+  --blue: #88b9ff;
+  font-family: ui-rounded, "SF Pro Rounded", "Trebuchet MS", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: radial-gradient(circle at 50% 0%, #20311f 0, #07110d 55%, #030705 100%); color: var(--ink); }
+body { min-height: 100vh; overflow-x: hidden; }
+a { color: inherit; }
+.shell {
+  width: min(1120px, 100vw);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: max(8px, env(safe-area-inset-top)) 10px max(8px, env(safe-area-inset-bottom));
+  display: grid;
+  grid-template-rows: auto auto minmax(350px, 1fr) auto auto;
+  gap: 10px;
+  position: relative;
+}
+.hud, .commission, .stage-card, .helper, .controls, .title-card, .pause-card {
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, rgba(8, 18, 13, 0.94), rgba(25, 35, 19, 0.9));
+  border-radius: 20px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.07);
+}
+.hud { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 8px 10px; font-size: 15px; font-weight: 800; }
+.hud span { min-height: 30px; display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 999px; background: rgba(0,0,0,.42); border: 1px solid rgba(241,202,115,.38); }
+.hud b { color: var(--gold-2); }
+.commission { display: grid; grid-template-columns: 1fr 270px; gap: 14px; padding: 14px 16px; }
+.label { color: var(--gold-2); text-transform: uppercase; letter-spacing: .22em; font-weight: 900; font-size: 12px; }
+.commission h2 { margin: 3px 0 5px; font-size: clamp(20px, 3.4vw, 28px); line-height: 1.04; }
+.commission p { margin: 0; color: var(--ink); font-weight: 750; line-height: 1.3; }
+.meters { display: grid; gap: 7px; font-weight: 800; color: var(--gold-2); }
+.meters label { display: grid; gap: 3px; }
+progress { width: 100%; height: 9px; accent-color: var(--gold); }
+.stage-card { position: relative; overflow: hidden; min-height: 340px; display: grid; place-items: center; background-image: linear-gradient(rgba(7,17,13,.18), rgba(7,17,13,.82)), url('./assets/tatami-room.png'); background-size: cover; background-position: center; }
+#board { width: min(100%, 760px); height: min(100%, 660px); max-height: 100%; display: block; touch-action: none; filter: drop-shadow(0 16px 30px rgba(0,0,0,.45)); }
+.helper-art { position: absolute; right: 14px; bottom: 12px; width: clamp(68px, 10vw, 105px); border-radius: 18px; border: 1px solid rgba(241,202,115,.5); background: #f6e4b8; box-shadow: 0 8px 28px rgba(0,0,0,.45); }
+.helper { min-height: 50px; display: flex; align-items: center; gap: 10px; padding: 8px 12px; color: var(--ink); font-size: 17px; font-weight: 850; }
+.helper img { width: 42px; height: 42px; border-radius: 12px; background: #f6e4b8; flex: 0 0 auto; }
+.controls { display: grid; grid-template-columns: repeat(8, minmax(92px, 1fr)); gap: 8px; padding: 8px; }
+button, .button { min-height: 48px; border: 1px solid rgba(241,202,115,.55); border-radius: 12px; background: linear-gradient(#473019, #29190e); color: var(--ink); font: inherit; font-weight: 900; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; padding: 7px 10px; text-align: center; line-height: 1.05; }
+button:hover, .button:hover, button:focus-visible, .button:focus-visible { outline: 3px solid #7ee7ff; outline-offset: 1px; }
+button:disabled { opacity: .48; cursor: not-allowed; }
+.primary { background: linear-gradient(180deg, #ffd77a, #e69231); color: #241307; }
+.big { min-width: 160px; min-height: 58px; font-size: 20px; }
+.ghost { background: rgba(0,0,0,.22); }
+.overlay { position: absolute; z-index: 20; inset: 10px; margin: auto; width: min(760px, calc(100% - 20px)); height: fit-content; max-height: calc(100vh - 20px); overflow: auto; padding: 22px; text-align: center; }
+.title-card h1 { margin: 6px 0 8px; font-size: clamp(34px, 7vw, 72px); line-height: .93; letter-spacing: -.05em; color: var(--gold-2); text-shadow: 0 4px 0 rgba(0,0,0,.45); }
+.title-kicker { color: var(--gold); font-weight: 950; text-transform: uppercase; letter-spacing: .18em; }
+.lede { margin: 0 auto 15px; max-width: 650px; color: var(--muted); font-size: 18px; line-height: 1.35; font-weight: 700; }
+.menu-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 12px 0; }
+.tutorial-card { text-align: left; background: rgba(0,0,0,.24); border: 1px solid rgba(241,202,115,.25); border-radius: 16px; padding: 12px 16px; }
+.tutorial-card h2 { margin: 0 0 8px; }
+.tutorial-card ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+.audio-note, .best-menu { color: var(--gold-2); font-weight: 800; }
+.pause-card h2 { color: var(--gold-2); margin: 0 0 8px; font-size: 42px; }
+.pause-card p { color: var(--muted); font-weight: 750; }
+.hidden { display: none !important; }
+
+@media (max-width: 760px) {
+  .shell { min-height: 100svh; grid-template-rows: auto auto minmax(250px, 1fr) auto auto; gap: 5px; padding: 5px; }
+  .hud { gap: 4px; padding: 6px; font-size: 12px; }
+  .hud span { min-height: 26px; padding: 3px 7px; }
+  .commission { grid-template-columns: 1fr; gap: 8px; padding: 9px 11px; }
+  .commission h2 { font-size: 20px; }
+  .commission p { font-size: 13px; }
+  .meters { grid-template-columns: repeat(3, 1fr); gap: 6px; font-size: 11px; }
+  .stage-card { min-height: 250px; border-radius: 16px; }
+  #board { width: 100%; height: 100%; min-height: 250px; }
+  .helper-art { width: 56px; right: 8px; bottom: 8px; border-radius: 12px; }
+  .helper { min-height: 44px; font-size: 13px; padding: 5px 8px; border-radius: 14px; }
+  .helper img { width: 34px; height: 34px; }
+  .controls { grid-template-columns: repeat(5, 1fr); gap: 5px; padding: 5px; border-radius: 14px; }
+  button, .button { min-height: 44px; border-radius: 10px; padding: 5px 3px; font-size: 10.5px; }
+  .overlay { inset: 6px; width: calc(100% - 12px); padding: 12px; border-radius: 16px; }
+  .title-card h1 { font-size: 36px; }
+  .lede { font-size: 14px; }
+  .tutorial-card { font-size: 12px; padding: 9px 10px; }
+  .big { min-height: 50px; font-size: 17px; }
+}
+
+@media (max-width: 400px) and (max-height: 870px) {
+  .shell { grid-template-rows: auto auto minmax(240px, 1fr) auto auto; }
+  .stage-card { min-height: 240px; }
+  #board { min-height: 240px; }
+  .commission p { display: none; }
+  .controls { grid-template-columns: repeat(5, 1fr); }
+  button, .button { min-height: 44px; font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}

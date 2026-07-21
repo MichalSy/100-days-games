@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#16241b" />
+  <title>Tatami Moonroom Matwright — Day 039</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316241b'/%3E%3Cpath d='M12 14h40v36H12z' fill='%23d7c678' stroke='%233d5c2f' stroke-width='4'/%3E%3Cpath d='M17 20h30M17 28h30M17 36h30M17 44h30' stroke='%238f884d' stroke-width='2'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="shell" aria-label="Day 039 Tatami Moonroom Matwright">
+    <section id="menu" class="overlay title-card" aria-live="polite">
+      <div class="title-kicker">Day 039 · 2D · /tatami/</div>
+      <h1>Tatami Moonroom Matwright</h1>
+      <p class="lede">Arrange woven tatami mats, avoid bad seam clusters, preserve the guest path, and finish the moonlit room before the incense burns out.</p>
+      <div class="menu-actions">
+        <button id="startButton" class="primary big">Start</button>
+        <a class="button ghost" role="button" href="./prompt.html">Prompt</a>
+      </div>
+      <div class="tutorial-card">
+        <h2>Tutorial</h2>
+        <ul>
+          <li><strong>Place:</strong> drag or slide the selected mat onto glowing cells.</li>
+          <li><strong>Rotate Mat:</strong> match grain arrows with moonbeam and room goals.</li>
+          <li><strong>Harmony:</strong> avoid four mat corners meeting at one point.</li>
+          <li><strong>Path:</strong> place cushion/table and Preview Walk from shoji door.</li>
+          <li><strong>Cat:</strong> Calm Cat before it paws an unlocked mat away.</li>
+          <li><strong>Ma Focus:</strong> previews seam, grain, path, and negative-space risks.</li>
+        </ul>
+        <p class="audio-note">Audio starts after Start; visual seam, grain, path, cat, and incense cues work if muted.</p>
+      </div>
+      <div id="bestMenu" class="best-menu">Best: 0 · Harmony time: —</div>
+    </section>
+
+    <section id="hud" class="hud" aria-label="Game status">
+      <span>Score <b id="score">0</b></span>
+      <span>Best <b id="bestScore">0</b></span>
+      <span>Harmony <b id="hearts">♥♥♥</b></span>
+      <span>Incense <b id="incense">100%</b></span>
+      <span>Combo <b id="combo">x1.0</b></span>
+      <span>Mat <b id="activeMatLabel">1/4</b></span>
+      <span>Violations <b id="violations">0</b></span>
+      <span>Ma Focus <b id="focus">35%</b></span>
+      <span>Time <b id="time">0:00</b></span>
+    </section>
+
+    <section id="commission" class="commission" aria-label="Current room commission">
+      <div>
+        <div class="label">Room commission</div>
+        <h2 id="commissionName">First Moon Mat 0/1</h2>
+        <p id="commissionText">Lay three full mats and one half mat. Keep seams calm and leave a guest route to the cushion.</p>
+      </div>
+      <div class="meters">
+        <label>Incense <progress id="incenseMeter" max="100" value="100"></progress></label>
+        <label>Path score <progress id="pathMeter" max="100" value="0"></progress></label>
+        <label>Moonbeam <progress id="moonMeter" max="100" value="0"></progress></label>
+      </div>
+    </section>
+
+    <section class="stage-card" aria-label="Tatami board stage">
+      <canvas id="board" width="720" height="720" aria-label="Tatami planning board"></canvas>
+      <img id="helperArt" class="helper-art" src="./assets/tatami-helper.png" alt="Sleepy calico tatami helper" />
+    </section>
+
+    <section id="helper" class="helper" aria-live="polite">
+      <img src="./assets/tatami-helper.png" alt="" />
+      <span id="statusText">Select a mat, rotate its grain, and fill the moonlit room without four-corner seams.</span>
+    </section>
+
+    <section class="controls" aria-label="Game controls">
+      <button id="prevMat">Mat −</button>
+      <button id="nextMat">Mat +</button>
+      <button id="slideUp">Slide ↑</button>
+      <button id="slideDown">Slide ↓</button>
+      <button id="slideLeft">Slide ←</button>
+      <button id="slideRight">Slide →</button>
+      <button id="rotateMat" class="primary">Rotate Mat</button>
+      <button id="swapMat">Swap Full/Half</button>
+      <button id="lockMat">Lock Mat</button>
+      <button id="placeCushion">Place Cushion</button>
+      <button id="placeTable">Place Table</button>
+      <button id="previewWalk" class="primary">Preview Walk</button>
+      <button id="calmCat">Calm Cat</button>
+      <button id="maFocus" disabled>Ma Focus 35%</button>
+      <button id="pauseButton">Pause</button>
+      <button id="restartButton">Restart</button>
+      <button id="audioToggle">Audio: On</button>
+      <button id="promptButton" onclick="location.href='./prompt.html'">Prompt</button>
+    </section>
+
+    <section id="pauseOverlay" class="overlay pause-card hidden" aria-live="polite">
+      <h2>Paused</h2>
+      <p>Build calm rooms: rotate grain, avoid four-corner seams, preview the guest walk, and keep the cat away from unlocked mats.</p>
+      <div class="menu-actions">
+        <button id="resumeButton" class="primary big">Resume</button>
+        <button id="pauseRestartButton">Restart</button>
+        <a class="button ghost" role="button" href="./prompt.html">Prompt</a>
+      </div>
+    </section>
+
+    <section id="resultOverlay" class="overlay pause-card hidden" aria-live="polite">
+      <h2 id="resultTitle">Room quiets</h2>
+      <p id="resultText"></p>
+      <div class="menu-actions">
+        <button id="resultRestartButton" class="primary big">Restart</button>
+        <a class="button ghost" role="button" href="./prompt.html">Prompt</a>
+      </div>
+    </section>
+  </main>
+  <script src="./game.js"></script>
+</body>
+</html>
