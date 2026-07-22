@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#160d18" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23160d18'/%3E%3Cpath d='M14 44c12-4 28-4 36 2' stroke='%23f5c862' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M22 15l9 16 15-9-10 17 12 10-17-5-12 9 5-16z' fill='%23f5c862'/%3E%3C/svg%3E" />
+    <title>Day 040: Kohaku Kintsugi Star Mender</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app" class="app-shell">
+      <header class="hud" aria-label="Kohaku repair HUD">
+        <div class="hud-row primary">
+          <span class="brand">Kohaku</span>
+          <span class="chip">Day 040</span>
+          <span class="chip mode">3D</span>
+          <span class="score">Score <b id="score">0</b></span>
+          <span class="best">Best <b id="bestScore">0</b></span>
+        </div>
+        <div class="hud-grid">
+          <span title="Porcelain hearts">♡ <b id="hearts">3</b></span>
+          <span title="Lacquer skin timer">Skin <b id="skin">0%</b></span>
+          <span title="Dust contamination">Dust <b id="contamination">0%</b></span>
+          <span title="Combo tier">Combo <b id="combo">1x</b></span>
+          <span title="Selected shard">Shard <b id="activeShard">1/3</b></span>
+          <span title="Snap seam gap">Gap <b id="gap">--</b></span>
+          <span title="Clamp risk">Clamp <b id="clampRisk">low</b></span>
+          <span title="Star Focus charge">Focus <b id="focusCharge">0%</b></span>
+          <span title="Elapsed repair time">Time <b id="elapsed">0:00</b></span>
+        </div>
+      </header>
+
+      <section class="commission-card" aria-label="Current repair commission">
+        <div>
+          <p class="eyebrow">Repair commission</p>
+          <h2 id="commissionTitle">First Gold Hairline</h2>
+          <p id="commissionText">Align 3 base shards, snap clean seams, brush gold lacquer, and learn the star order.</p>
+        </div>
+        <div class="progress" id="commissionProgress" aria-label="Commission progress"></div>
+      </section>
+
+      <main class="stage-wrap">
+        <div id="threeStage" class="three-stage" role="application" aria-label="Interactive 3D kintsugi shard repair tray"></div>
+        <div class="stage-badges">
+          <span id="viscosityBadge">Viscosity: balanced</span>
+          <span id="orderBadge">Order: clockwise</span>
+        </div>
+        <img class="helper" src="./assets/kohaku-helper.png" alt="Sparrow lacquer apprentice helper" />
+      </main>
+
+      <aside id="statusHelper" class="status-helper" aria-live="polite">
+        Select a shard, slide it toward the ghost bowl, rotate yaw and tilt until the seam ghost turns gold, then Snap Shard.
+      </aside>
+
+      <nav class="controls" aria-label="Repair controls">
+        <button data-action="prevShard">Shard −</button>
+        <button data-action="nextShard">Shard +</button>
+        <button data-action="slideUp">Slide ↑</button>
+        <button data-action="slideDown">Slide ↓</button>
+        <button data-action="slideLeft">Slide ←</button>
+        <button data-action="slideRight">Slide →</button>
+        <button data-action="rotateYaw">Rotate Yaw</button>
+        <button data-action="tilt">Tilt Pitch/Roll</button>
+        <button class="primary-action" data-action="snap">Snap Shard</button>
+        <button data-action="brush">Brush Lacquer</button>
+        <button data-action="clamp">Place Clamp</button>
+        <button data-action="dust">Dust Gold</button>
+        <button data-action="warm">Warm Lamp</button>
+        <button data-action="cool">Cool Tray</button>
+        <button data-action="focus">Star Focus</button>
+        <button data-action="pause">Pause</button>
+        <button data-action="restart">Restart</button>
+        <button data-action="audio">Audio</button>
+        <a class="button-link" href="./prompt.html">Prompt</a>
+      </nav>
+    </div>
+
+    <div id="menuOverlay" class="overlay menu-overlay" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
+      <div class="panel title-panel">
+        <div class="badge-row"><span>Day 040</span><span>Mode 3D</span><span>/kohaku/</span></div>
+        <h1 id="menuTitle">Kohaku Kintsugi Star Mender</h1>
+        <p class="subtitle">Align porcelain shards in 3D, snap clean seams, brush gold lacquer, and complete the repair before lacquer skins over.</p>
+        <div class="menu-stats">
+          <span>Best score <b id="menuBestScore">0</b></span>
+          <span>Best Star Mend <b id="menuBestTime">--</b></span>
+        </div>
+        <section class="tutorial" aria-label="Tutorial">
+          <h2>Tutorial</h2>
+          <ul>
+            <li><b>Objective:</b> rebuild kohaku porcelain with clean kintsugi seams before lacquer skins over.</li>
+            <li><b>Select/slide:</b> tap a shard or use Shard −/+ and Slide controls to move it toward the ghost bowl.</li>
+            <li><b>Rotate Yaw + Tilt Pitch/Roll:</b> turn the curved shard until seam ghosts become gold.</li>
+            <li><b>Snap Shard:</b> snap only when the gap is small; severe mismatches crack porcelain.</li>
+            <li><b>Brush Lacquer + Dust Gold:</b> brush in the requested star order, then dust when the seam sparkles.</li>
+            <li><b>Place Clamp + Warm/Cool:</b> stabilize fragile seams, warm for flow, cool to slow skin and bubbles.</li>
+            <li><b>Star Focus:</b> spend charge to preview target ghosts, alignment hints, safe brush direction, and clamp risk.</li>
+            <li><b>Pause/Restart:</b> P/R on desktop or visible buttons on mobile. Audio starts after Start; visual cues work muted.</li>
+          </ul>
+        </section>
+        <div class="menu-actions">
+          <button id="startButton" class="start-button">Start repair</button>
+          <a href="./prompt.html" class="prompt-link">View archived prompt</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="pauseOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="pauseTitle">
+      <div class="panel pause-panel">
+        <h2 id="pauseTitle">Paused in the midnight atelier</h2>
+        <p>Controls: click/tap shards or drag the tray; WASD/Arrow keys slide, Q/E Rotate Yaw, Z/X Tilt Pitch/Roll, Space/Enter Snap Shard, B Brush Lacquer, C Place Clamp, D Dust Gold, W Warm Lamp, S Cool Tray, Shift/F Star Focus, P pause, R restart.</p>
+        <div class="pause-actions">
+          <button data-action="resume">Resume</button>
+          <button data-action="restart">Restart run</button>
+          <button data-action="audio">Toggle audio</button>
+          <a href="./prompt.html" class="button-link">Prompt</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="resultOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+      <div class="panel result-panel">
+        <h2 id="resultTitle">Repair results</h2>
+        <div id="resultText" class="result-text"></div>
+        <button data-action="restart" class="start-button">Restart Day 040</button>
+      </div>
+    </div>
+
+    <div id="starBanner" class="star-banner hidden" aria-live="assertive">Kohaku Star Mend! Gold seams become a constellation.</div>
+    <script type="module" src="./game.js"></script>
+  </body>
+</html>

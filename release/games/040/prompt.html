@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 040 Game Generation Prompt</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23150f18'/%3E%3Cpath d='M15 43c9 8 26 8 35-2-2 10-29 12-35 2Z' fill='%23f4ead6'/%3E%3Cpath d='M32 13l-2 17 9-12-7 19 14-9-12 14' fill='none' stroke='%23ffd66b' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: dark; --bg:#120d12; --panel:#1f171c; --ink:#fff5e5; --muted:#d8c4a4; --gold:#ffd76a; --line:rgba(255,215,106,.24); }
+    * { box-sizing: border-box; } body { margin:0; background:radial-gradient(circle at top,#38251d,#120d12 48%,#080609); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; line-height:1.6; }
+    main { width:min(980px, calc(100% - 28px)); margin:0 auto; padding:28px 0 64px; }
+    a { color:var(--gold); } .back { display:inline-flex; align-items:center; min-height:44px; padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,.06); text-decoration:none; font-weight:800; }
+    article { margin-top:18px; padding:clamp(18px,4vw,42px); border:1px solid var(--line); border-radius:28px; background:rgba(31,23,28,.88); box-shadow:0 20px 60px rgba(0,0,0,.35); }
+    h1 { font-size:clamp(2rem,6vw,4.6rem); line-height:.95; letter-spacing:-.055em; margin:10px 0 18px; color:#fff8dc; }
+    h2 { margin-top:2rem; color:var(--gold); border-top:1px solid var(--line); padding-top:1.25rem; } h3 { color:#ffe8a0; }
+    p, li { color:var(--muted); } strong { color:#fff1c8; } code { color:#ffe28b; background:rgba(255,255,255,.07); padding:.1em .35em; border-radius:.4em; }
+    pre { overflow:auto; padding:14px; background:#0c090d; border:1px solid var(--line); border-radius:16px; } pre code { background:transparent; padding:0; }
+    ul, ol { padding-left:1.35rem; } li { margin:.25rem 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="./">← Back to game</a>
+    <article>
+      <h1>Day 040 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 040</li>
+<li>Title: Kohaku Kintsugi Star Mender</li>
+<li>Slug: kohaku-kintsugi-star-mender</li>
+<li>Public route word: kohaku</li>
+<li>Mode: 3D</li>
+<li>Genre: mobile-first 3D ceramic shard alignment puzzle / lacquer-flow repair arcade / calm precision score chase</li>
+<li>Mood/style: a quiet lacquer repair atelier at midnight, amber-white porcelain shards hovering over a dark urushi work tray, gold kintsugi seams, star-map crack constellations, silk clamps, warm desk lamp, powdered gold dust, tiny sparrow apprentice helper, tactile rotate-and-snap mending feedback; real 3D shard curvature and seam alignment rather than tatami room layout, okonomiyaki cooking, goldfish scooping, karakuri gears, bridge trusses, temari threads, uchiwa dye, onsen valves, ikebana, orchard harvesting, kumiko screens, shrine stealth, matcha foam, fireworks, pachinko, mochi hopping, calligraphy, kite mapping, dry-garden raking, underwater pearls, taiko routing, daruma tilting, web weaving, pottery-wheel shaping, canal routing, origami folding, parasol sheltering, snow stacking, kimono stamping, bento service, windbell tuning, rail running, or koi collection.</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 037 <code>2d</code>: Kingyo Poi Festival Scooper, blue-hour festival water tank, fish sprites, poi net, paper wetness, ripples, bowl orders.</li>
+<li>Day 038 <code>3d</code>: Yatai Okonomiyaki Flipmaster, warm night-market griddle, 3D heat lanes, cakes, sauce, toppings, smoke, shiba helper.</li>
+<li>Day 039 <code>2d</code>: Tatami Moonroom Matwright, moonlit washitsu floor planning, mat rotation, seam clusters, guest path, cat helper.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>2d</code> (Day 039), so Day 040 deliberately chooses real <code>3d</code> to keep the cadence strong. It moves away from interior 2D grid planning and food/water dexterity into a meditative object-repair puzzle: rotate curved ceramic shards in 3D, match crack silhouettes on a bowl armature, brush gold lacquer through seam channels, clamp fragile joints, and complete constellation-like repairs before lacquer skin forms.</p>
+<p>Recent screenshot/visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 039 used top-down green-gold tatami rectangles, room cards, seam/path overlays, shoji moonbeams, and a calico helper.</li>
+<li>Day 038 used black griddle lanes, round cakes, amber cooking light, topping buttons, smoke, and a shiba helper.</li>
+<li>Day 037 used indigo water, fish sprites, circular scoop rings, paper wetness, lantern reflections, and bowl targets.</li>
+</ul>
+<p>Day 040 should use a close, sculptural 3D repair bench: a broken porcelain tea bowl or moon dish represented by curved shard meshes, floating crack-edge outlines, gold seam channels, tiny lacquer brush, silk clamp ribbons, lacquer viscosity meter, dust specks, star-map guide, and a sparrow apprentice helper. Avoid rectangular room/mat planning, griddle/cake/topping/smoke cooking surfaces, water tanks/fish/nets/bowls/ripples, gear teeth/axles/couplers/bells, bridges/rivers/bamboo trusses, centered thread spheres, radial fan pigment wedges, valve ducts, floral stems, orchard fruit, wooden lattice strips, stealth cones, matcha foam, firework arcs, pachinko pegs, mochi platforms, brush-calligraphy tracing, kite strings, sand rakes, underwater routes, taiko pads, maze boards, web strands, pottery wheel profiles, bamboo canal tiles, origami crease grids, parasols, snow blocks, kimono panels, conveyor food, windbell notes, rail tracks, or koi ponds.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/Three.js/WebGL/WebAudio game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 037 <code>2d</code>, Day 038 <code>3d</code>, and Day 039 <code>2d</code>. The latest generated-mode streak is one <code>2d</code>.</p>
+<p>Mode decision: Day 040 is real <code>3d</code>. It must implement meaningful spatial gameplay, not decorative perspective:</p>
+<ul>
+<li>Use Three.js/WebGL or equivalent static-browser 3D rendering.</li>
+<li>Render a real 3D repair tray with a curved bowl/dish armature, shard meshes with x/y/z position, yaw/pitch/roll, curved surface normals, crack-edge guide lines, depth-separated slots, clamps, and brush/lacquer trails.</li>
+<li>Gameplay must depend on 3D state: shard orientation, depth layer, edge alignment, seam gap, curvature match, lacquer flow direction, clamp tension, dust contamination, lacquer skin timer, guide-star order, and bowl stability.</li>
+<li>Player actions must manipulate the 3D system: select a shard, rotate yaw/pitch/roll, nudge/slide it across the tray, snap it into the bowl armature, brush lacquer along a highlighted seam, place a clamp, dust gold powder, warm/cool lacquer, use Star Focus to preview alignment, pause/restart, and inspect tutorial hints.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Rebuild cracked kohaku porcelain pieces by aligning curved shards on a 3D bowl armature, filling seams with gold lacquer, clamping fragile joints, and completing star-map repair commissions before the lacquer skin timer hardens.</li>
+<li>Win condition: Complete three repair commissions — First Gold Hairline, Moon Bowl Rim, and Grand Star Kintsugi — while reaching 5400 points to trigger “Kohaku Star Mend”. After the banner, continue into endless repair commissions.</li>
+<li>Lose condition: Three porcelain hearts crack, lacquer skin reaches 100%, five shards are snapped with severe mismatch, clamp tension breaks three times, dust contamination reaches 100%, or the Grand Star seam is brushed in the wrong order twice.</li>
+<li>Core loop:</li>
+</ul>
+<ol>
+<li>Start on a title/menu screen with Day 040 badge, mode badge “3D”, public route <code>/kohaku/</code>, best score, best Star Mend time, tutorial, prompt link, audio note, and a large Start button.</li>
+<li>Show a portrait-friendly lacquer workbench. The center is a 3D tray with a ghost bowl silhouette, loose curved shards, crack-line guide stars, gold lacquer channels, clamps, and a tiny helper sparrow.</li>
+<li>A repair card requests goals such as: “Align 4 rim shards, keep seam gap under 18%, brush clockwise gold lacquer, clamp two red-risk joints, dust one star seam, keep contamination under 50%.”</li>
+<li>Player selects the active shard by tapping/clicking it or using Shard −/+ controls. The selected shard gets a luminous rim, normal arrow, crack-edge endpoints, and shadow.</li>
+<li>Slide Shard nudges it across tray/bowl depth. Moving near the ghost bowl previews snap quality using green/gold/vermilion seam ghosts.</li>
+<li>Rotate Yaw and Tilt Pitch/Roll change the shard&#x27;s orientation. Correct angles align crack patterns and curved porcelain highlights; wrong angles widen seam gaps.</li>
+<li>Snap Shard locks a shard into the bowl armature when alignment is acceptable. Good snaps score and reveal the next seam; bad snaps cost a porcelain heart or require Undo Lacquer.</li>
+<li>Brush Lacquer draws a gold line through the active seam. Brush too fast creates bubbles; brush against requested order wastes lacquer and increases skin timer.</li>
+<li>Place Clamp adds a silk clamp to stabilize fragile seams. Clamp tension decays and must be released or retightened before it cracks the shard.</li>
+<li>Dust Gold sprinkles powdered gold on a freshly brushed seam for bonus points, but dusting before lacquer is ready contaminates adjacent shards.</li>
+<li>Warm Lamp / Cool Tray manage lacquer viscosity: warm flows into gaps faster, cool slows skin formation and bubble spread.</li>
+<li>Star Focus, charged by clean snaps and smooth brushing, overlays shard target ghosts, yaw/pitch/roll hints, seam-gap percentages, safe brush direction, clamp risk, dust-ready stars, and the next best shard candidate.</li>
+<li>Completing a repair stamps a kintsugi seal, restores one porcelain heart if needed, awards points, changes bowl shape and constraints, and unlocks thinner shards, hidden underside seams, stricter clamp windows, dust gusts, and multi-step star repairs.</li>
+<li>Pause/restart remain visible throughout.</li>
+</ol>
+<ul>
+<li>15+ minute play-value strategy:</li>
+<li>Save best score, fastest Kohaku Star Mend time, longest no-crack chain, highest endless repair, fewest bad snaps, smoothest lacquer brush score, best clamp discipline, most gold-star seams, and collected repair seal badges in localStorage.</li>
+<li>Include three authored repair commissions:</li>
+<li>First Gold Hairline: three large base shards, broad snap tolerance, guided first Rotate Yaw and Snap Shard, no heart penalty for the first tutorial mismatch.</li>
+<li>Moon Bowl Rim: five shards around a bowl rim, first clamp requirement, clockwise Brush Lacquer order, one dust bonus, mild lacquer-skin pressure.</li>
+<li>Grand Star Kintsugi: irregular moon dish with seven shards, underside curvature, two fragile seams, required Star Focus preview, dust timing, clamp release, and stricter seam gap.</li>
+<li>Deterministic Day 040 seed varies shard shapes, rim/base curvature, crack endpoints, ghost target positions, lacquer flow speed, bubble chance, clamp tension, dust contamination, warm/cool lamp effects, star order, and endless constraints while keeping opening seconds fair.</li>
+<li>Mastery badges: complete First Gold Hairline with zero mismatch, trigger Star Mend under 285 seconds, finish Moon Bowl Rim with all seams brushed in order, complete Grand Star with no porcelain cracks, keep contamination below 20%, and dust three gold-star seams in one run.</li>
+<li>Strategic scoring rewards spatial planning: solve base curvature before rim shards, rotate yaw before tilt, snap only when seam gap is green/gold, brush lacquer in requested star order, clamp red-risk seams before warming, cool tray before bubbles spread, save Star Focus for irregular underside pieces.</li>
+<li>Endless mode after Star Mend adds thinner shards, double-curved pieces, hidden underside guide stars, variable lacquer viscosity, gusty gold dust, stricter clamp timing, and bonus museum commissions without shrinking touch controls.</li>
+<li>Difficulty scaling:</li>
+<li>0-45 seconds: large shards, obvious ghost targets, forgiving yaw/pitch ranges, slow skin timer, no clamp breaks.</li>
+<li>45-150 seconds: rim repairs, brush order, clamp tension, dust-ready windows, warm/cool lamp choices.</li>
+<li>150-285 seconds: irregular curvature, underside target hints, required Star Focus, faster skin timer, fewer undo tokens.</li>
+<li>285+ seconds/endless: thinner shards, hidden seams, tighter gaps, gusts, multi-stage repairs, same readable controls.</li>
+<li>Keep mobile fair: shards, target ghosts, seam gaps, brush paths, repair card, skin meter, helper, and action buttons must be readable at 390x844; primary touch buttons should be 52px+ where possible and never below 44px; no tiny survival-critical shards.</li>
+<li>Scoring/rewards:</li>
+<li>Shard moved into a correct depth band: +130 points times combo tier.</li>
+<li>Clean snap with seam gap under 12%: +240 points and Star Focus charge.</li>
+<li>Correct yaw/pitch/roll alignment before snap: +180 points.</li>
+<li>Smooth Brush Lacquer in requested direction: +220 points.</li>
+<li>Clamp fragile seam before red risk: +170 points and heart protection.</li>
+<li>Dust Gold at star-ready timing: +260 points.</li>
+<li>Complete repair before skin warning: +980 points and restore one porcelain heart if below max.</li>
+<li>Perfect no-crack commission: +1400 points.</li>
+<li>Kohaku Star Mend: +3000 points and endless repairs unlock.</li>
+<li>Bad snap, over-brush bubbles, wrong dust timing: combo reset, skin/contamination penalty.</li>
+<li>Clamp break or severe mismatch: porcelain-heart damage.</li>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<li>Mouse click/tap: select shards, press controls, start/pause overlay button, prompt link, or explainable HUD chips.</li>
+<li>Mouse drag on the 3D stage: slide selected shard toward the pointer with depth-limited snap preview.</li>
+<li>Arrow keys or WASD: nudge selected shard across tray/depth.</li>
+<li>Q/E: Rotate Yaw left/right.</li>
+<li>Z/X: Tilt Pitch/Roll cycle.</li>
+<li>Space or Enter: Snap Shard.</li>
+<li>B: Brush Lacquer.</li>
+<li>C: Place Clamp / release current clamp when selected.</li>
+<li>D: Dust Gold.</li>
+<li>W: Warm Lamp.</li>
+<li>S: Cool Tray.</li>
+<li>Shift or F: Star Focus when charged.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+<li>Mobile/touch:</li>
+<li>Tap a shard to select it. Drag within the 3D tray to slide the selected shard with a visible offset so the seam preview remains visible above the finger.</li>
+<li>Use large Shard −, Shard +, Slide ↑/↓/←/→, Rotate Yaw, Tilt Pitch/Roll, Snap Shard, Brush Lacquer, Place Clamp, Dust Gold, Warm Lamp, Cool Tray, Star Focus, Pause, Restart, Audio, and Prompt buttons.</li>
+<li>Tapping seam/skin/clamp/dust/focus chips may show short explanations.</li>
+<li>No tiny virtual joystick. Interaction is direct shard select/drag plus labeled repair/action controls.</li>
+<li>Mobile layout/orientation:</li>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact Kohaku HUD with score, best, porcelain hearts, lacquer skin %, contamination %, combo, active shard, snap gap, clamp risk, Star Focus charge, and elapsed time. Use shard/seam/lacquer/clamp/dust/star/chawan chips, not tatami/cake/fish/gear/bridge/thread/fan/valve/flower/fruit/lattice/shrine/tea-foam/firework/cat-coin/rabbit/brush-calligraphy/kite/sand/pearl/drum icons.</li>
+<li>Below top: repair commission card with required shards, seam order, brush direction, clamp count, dust bonus, skin target, and progress ticks.</li>
+<li>Center: large 3D repair tray stage with ghost bowl, shards, seam lines, crack endpoints, brush path, clamp ribbons, dust stars, helper art, and readable feedback. It must remain playable without zooming.</li>
+<li>Bottom: status helper plus large repair controls. Controls must not cover shards, seam previews, repair card, helper, or brush path.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, select/slide shard, Rotate Yaw, Tilt Pitch/Roll, Snap Shard, Brush Lacquer, Place Clamp, Dust Gold, Warm/Cool, Star Focus, pause/restart must be visible.</li>
+<li>Requests must combine text, icons, seam line styles, star markers, progress ticks, and shape outlines so hue alone is not required.</li>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<ul>
+<li>Shows title “Kohaku Kintsugi Star Mender”.</li>
+<li>Shows Day 040 badge, mode badge “3D”, public route <code>/kohaku/</code>, best score, best Star Mend time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+<li>Notes: “Audio starts after you press Start; visual seam, shard, clamp, dust, and lacquer cues work if muted.”</li>
+</ul>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<ul>
+<li>Objective: “Align porcelain shards in 3D, snap clean seams, brush gold lacquer, and complete the repair before lacquer skins over.”</li>
+<li>Alignment: select a shard, slide it toward the ghost bowl, then rotate yaw and tilt until seam ghosts turn gold.</li>
+<li>Snap: use Snap Shard only when the gap is small; bad snaps crack porcelain.</li>
+<li>Lacquer: Brush Lacquer in the requested star order, then Dust Gold only when the seam sparkles.</li>
+<li>Clamps/temperature: Place Clamp on fragile seams; Warm Lamp improves flow, Cool Tray slows skin and bubbles.</li>
+<li>Star Focus: previews the best target, alignment hints, safe brush direction, and clamp risk when charged.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<ul>
+<li>Score, best score, porcelain hearts, lacquer skin %, contamination %, repair name, combo, selected shard, seam gap, clamp risk, Star Focus charge, elapsed time, latest warning.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<ol>
+<li>Status helper</li>
+</ol>
+<ul>
+<li>Non-blocking helper showing selected shard, target seam, yaw/tilt hint, skin warning, clamp warning, dust-ready state, Star Focus readiness, and expected score effect.</li>
+<li>Must not cover the 3D repair tray or bottom controls on mobile.</li>
+</ul>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, audio/mute toggle, prompt link.</li>
+</ul>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<ul>
+<li>Final score, best score, repair reached, Star Mend status, cracks, bad snaps, brush smoothness, clamp saves, dust bonuses, badges, restart button.</li>
+</ul>
+<ol>
+<li>Kohaku Star Mend banner</li>
+</ol>
+<ul>
+<li>Trigger once per run after all three repair commissions and 5400 score.</li>
+<li>Non-blocking celebration: gold seams glow into a constellation, porcelain shards settle into a complete moon bowl, the sparrow stamps a repair seal, dust motes swirl, and endless commissions continue after the banner fades.</li>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: sparrow lacquer apprentice helper mascot, portrait kintsugi repair atelier background, porcelain shard/lacquer/clamp texture sprite sheet, and shard/seam/lacquer/clamp/dust/star UI icon sheet. Three.js primitives may render the interactive bowl armature, shard meshes, seam lines, crack endpoints, brush/lacquer trails, clamps, dust particles, star overlays, and UI chrome. It should not create final character/background/texture/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/040/assets/source/</code> and use optimized playable copies under <code>release/games/040/assets/</code>. Also copy optimized playable assets into <code>apps/day-040-kohaku-kintsugi-star-mender/assets/</code> and the public alias <code>release/kohaku/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny crack details that disappear at final in-game size, and keep helper/shards/gold seams/clamps/dust/star/focus silhouettes distinct against dark lacquer and porcelain backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Sparrow lacquer apprentice helper mascot</li>
+</ol>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/040/assets/source/kohaku-helper-source.png</code></li>
+<li>Optimized path: <code>release/games/040/assets/kohaku-helper.png</code></li>
+<li>Imagegen2 prompt: “A charming tiny sparrow apprentice helper mascot for a mobile Japanese kintsugi porcelain repair puzzle game, small cute bird wearing a miniature indigo craft apron, holding a fine lacquer brush with a little gold powder pouch, kind focused expression, warm desk-lamp rim light, centered readable silhouette, transparent or solid warm parchment background, no checkerboard background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Midnight kintsugi repair atelier background source</li>
+</ol>
+<ul>
+<li>Target: portrait-friendly background suitable behind a large 3D repair tray with open readable center.</li>
+<li>Archive path: <code>release/games/040/assets/source/kohaku-atelier-source.png</code></li>
+<li>Optimized path: <code>release/games/040/assets/kohaku-atelier.png</code></li>
+<li>Imagegen2 prompt: “A quiet midnight Japanese kintsugi repair atelier for a portrait mobile 3D puzzle game, dark urushi work tray, broken kohaku porcelain tea bowl pieces, warm desk lamp, small lacquer jars, gold powder dish, silk clamps, washi notes at the edges, deep navy and amber palette, open readable central tray area for interactive 3D shards, crop-safe for phone portrait, no characters in the center, no readable text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<ol>
+<li>Porcelain shard and repair material texture sprite sheet source</li>
+</ol>
+<ul>
+<li>Target: square sheet with separated readable materials that can be used as textures/decals.</li>
+<li>Archive path: <code>release/games/040/assets/source/kohaku-pieces-source.png</code></li>
+<li>Optimized path: <code>release/games/040/assets/kohaku-pieces.png</code></li>
+<li>Imagegen2 prompt: “Sprite sheet of small readable kintsugi repair materials for a mobile 3D porcelain puzzle game: curved white porcelain shard top, kohaku amber glaze shard, broken crack edge sample, gold lacquer seam stroke, silk clamp ribbon, lacquer brush tip, gold powder sparkle, bubble warning, each element separated with generous margins, transparent or warm parchment background, no checkerboard background, no text, no watermark, readable at 40-96 pixels.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Kohaku shard, seam, lacquer, clamp, dust, and focus UI icon sheet source</li>
+</ol>
+<ul>
+<li>Target: square icon sheet for objectives, hazards, tools, rewards, and UI decals.</li>
+<li>Archive path: <code>release/games/040/assets/source/kohaku-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/040/assets/kohaku-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a Japanese kintsugi porcelain repair puzzle game: curved porcelain shard, rotate yaw arrow, tilt pitch roll icon, gold seam line, lacquer brush, silk clamp, gold dust star, warm lamp, cool tray, lacquer skin timer, bubble warning, contamination speck, Star Focus constellation bowl emblem, porcelain heart, repair seal, Grand Star Mend crest, transparent or solid warm parchment background, no checkerboard background, high contrast, no text, no watermark, generous margins so no icons are cut off.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/Three.js sparrow/shard/lacquer/clamp/icon silhouettes, document the failure in <code>ai/postmortems/day-040.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the sparrow helper mascot, verify transparent/cutout quality or clean background handling, readable friendly silhouette, centered pivot/crop margins, no unwanted text/watermarks, stable upright orientation, and that the brush/powder pose is compatible with static helper placement.</li>
+<li>For the shard/material sheet, verify separated porcelain shards, readable crack edges, gold seam sample, clamp ribbon, brush tip, dust sparkle, bubble warning, usable crop margins, no baked checkerboard, no unwanted text/watermark, and a documented visual baseline for shard top/broken-edge orientation.</li>
+<li>Verify control-to-motion alignment in-game: selecting a shard must visibly highlight the intended 3D shard, Slide/drag must move it in tray/depth space, Rotate Yaw and Tilt Pitch/Roll must visibly change orientation and seam gap, Snap Shard must lock it into the ghost bowl, Brush Lacquer must draw a gold line, Place Clamp must add/release a clamp, Dust Gold must add star particles only when ready, Warm Lamp/Cool Tray must visibly change viscosity/skin feedback, Star Focus must preview alignment/seam/clamp risks, Pause/Restart must work.</li>
+<li>For the background, verify the central tray remains readable after portrait mobile crop and does not hide shards, seam lines, repair card, helper, brush path, or controls.</li>
+<li>For the icon sheet, verify shard, rotate, tilt, seam, brush, clamp, dust, warm lamp, cool tray, skin timer, bubble, contamination, Star Focus, porcelain heart, repair seal, and Grand Star Mend crest are distinct at final HUD/button size and cannot be confused. Watch specifically for fake checkerboard transparency; alpha-clean or composite onto warm parchment if needed and inspect again.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Audio and game feel</h2>
+<p>Because porcelain clicks, gold lacquer brushing, clamp tension, dust sparkle, and calm atelier repair are central to the theme, include lightweight WebAudio cues initialized only after a user gesture:</p>
+<ul>
+<li>Soft porcelain click when selecting or nudging a shard.</li>
+<li>Low ceramic thump when Rotate Yaw or Tilt Pitch/Roll changes orientation.</li>
+<li>Bright porcelain chime when Snap Shard succeeds.</li>
+<li>Dull crack warning when a mismatch or clamp tension risk appears.</li>
+<li>Smooth brush swish when Brush Lacquer lays a clean seam.</li>
+<li>Tiny silk twang when Place Clamp stabilizes a joint.</li>
+<li>Gold dust shimmer when Dust Gold succeeds.</li>
+<li>Warm lamp hum / cool tray glass tap for temperature controls.</li>
+<li>Star shimmer when Star Focus activates.</li>
+<li>Calm koto-like flourish when Kohaku Star Mend triggers.</li>
+</ul>
+<p>Audio must not block play if WebAudio is unavailable. Verify no autoplay errors: audio context should be created/resumed only after Start or another user interaction. Include a visible mute toggle in pause/results or HUD. Expose a narrow debug handle such as <code>window.__day040Audio = { ctx, enabled }</code> after user-gesture initialization so Playwright can assert audio state.</p>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/040/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&amp;lt;pre&amp;gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&amp;lt;title&amp;gt;</code> and <code>&amp;lt;h1&amp;gt;</code> using <code>Day 040 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<ul>
+<li>Build the static 3D game under <code>apps/day-040-kohaku-kintsugi-star-mender/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/040/</code>.</li>
+<li>Create the public playable route under <code>release/kohaku/</code>.</li>
+<li>Use static HTML/CSS/JS with Three.js/WebGL/WebAudio and no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+<li>If vendoring <code>three.module*.js</code>, also copy the matching <code>three.core*.js</code> beside it in the app, release archive, and <code>/kohaku/</code> alias assets.</li>
+</ul>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, remove fake checkerboards if present, document shard/edge visual baseline, and tune mobile readability/game feel.</li>
+</ul>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, 3D repair tray render, Shard −/+, Slide/drag, Rotate Yaw, Tilt Pitch/Roll, Snap Shard, Brush Lacquer, Place Clamp, Dust Gold, Warm Lamp, Cool Tray, Star Focus control presence and visible mechanical effect, seam/skin/clamp/dust/star feedback, generated screenshot, generated assets, WebAudio initialization after user gesture, and 390x844 portrait layout.</li>
+</ul>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<ul>
+<li>Write <code>ai/postmortems/day-040.md</code> after validation with what worked, what failed, generated-image inspection notes, shard-edge visual baseline, audio verification, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 040 is real <code>3d</code> after Day 039 <code>2d</code>, with meaningful shard depth/curvature/orientation/seam/lacquer mechanics rather than decorative perspective.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/repair card, usable 44px+ shard/action/pause/restart controls, no forced landscape canvas, and no tiny survival-critical shards.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-040.md</code> is copied exactly to <code>release/games/040/prompt.md</code> and <code>release/kohaku/prompt.md</code>.</li>
+<li><code>release/games/040/prompt.html</code> and <code>release/kohaku/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&amp;lt;pre&amp;gt;</code> dump.</li>
+<li>Public alias <code>release/kohaku/index.html</code>, <code>release/kohaku/prompt.html</code>, <code>release/kohaku/screenshot.png</code>, and <code>release/kohaku/assets/</code> exist and work.</li>
+<li>Gallery card for Day 040 shows prompt availability, generation duration, public <code>/kohaku/</code> links, mode <code>3d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/040/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/040/assets/source/</code> and optimized assets exist under <code>release/games/040/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive shard/seam/lacquer/clamp visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>WebAudio initializes after user gesture and creates no autoplay console errors; audio is failsafe if unsupported and visual seam/shard/clamp/dust/order cues remain playable muted.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicons to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/**</code> through <code>release/games/039/**</code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/040/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/kohaku/index.html, release/kohaku/prompt.html, release/kohaku/screenshot.png, optimized assets, source assets, and vendored Three.js files (if used) exist and are non-empty.
+# Prompt copy check: cmp prompts/day-040.md release/games/040/prompt.md and cmp prompts/day-040.md release/kohaku/prompt.md.
+# Prompt HTML check: verify release/games/040/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes, no direct nested lists, and no strong/b tags inside code.
+# Browser smoke: open the local/static /kohaku/ route and verify menu, tutorial, gameplay start, 3D repair tray render, shard selection, Slide/drag, Rotate Yaw, Tilt Pitch/Roll, Snap Shard, Brush Lacquer, Place Clamp, Dust Gold, Warm Lamp, Cool Tray, Star Focus, seam/skin/clamp/dust/star feedback, pause, restart, prompt page, WebAudio after user gesture, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable shard/action controls plus readable HUD/repair card/stage/controls.
+# Static screenshot check: inspect release/games/040/screenshot.png and release/kohaku/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-040.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /kohaku/ and /kohaku/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 040.</code></pre>
+    </article>
+  </main>
+</body>
+</html>

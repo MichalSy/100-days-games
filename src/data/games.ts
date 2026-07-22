@@ -601,6 +601,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/tatami/screenshot.png',
     generationDuration: 'manual controller run with implementation subagent dispatch and Imagegen2 assets ~150 minutes',
     generatedAt: '2026-07-21T01:48:13Z'
+  },
+  40: {
+    status: 'generated',
+    title: 'Kohaku Kintsugi Star Mender',
+    slug: 'kohaku-kintsugi-star-mender',
+    genre: ['3D ceramic shard alignment puzzle', 'lacquer-flow repair arcade', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Repair a midnight kohaku porcelain bowl by aligning curved 3D shards, snapping clean crack seams, brushing gold lacquer, clamping fragile joints, and dusting star-ready kintsugi lines before the lacquer skins over.',
+    objective: 'Complete First Gold Hairline, Moon Bowl Rim, and Grand Star Kintsugi while reaching 5400 points to trigger Kohaku Star Mend, then continue into endless repair commissions.',
+    playUrl: '/kohaku/',
+    promptUrl: '/kohaku/prompt.html',
+    promptExcerpt: 'Select, slide, rotate, tilt, and snap curved porcelain shards, brush gold lacquer, place silk clamps, dust star seams, and use Star Focus before the repair hardens.',
+    screenshotUrl: '/kohaku/screenshot.png',
+    generationDuration: 'manual controller run with implementation subagent dispatch and Imagegen2 assets ~150 minutes',
+    generatedAt: '2026-07-22T01:45:19Z'
   }
 };
 

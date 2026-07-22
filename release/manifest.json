@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-21T01:48:13.000Z",
+  "generatedAt": "2026-07-22T01:45:19.000Z",
   "totalDays": 100,
-  "completedDays": 39,
+  "completedDays": 40,
   "games": [
     {
       "day": 1,
@@ -352,6 +352,15 @@
       "playUrl": "/tatami/",
       "promptUrl": "/tatami/prompt.html",
       "screenshotUrl": "/tatami/screenshot.png",
+      "generationDuration": "manual controller run with implementation subagent dispatch and Imagegen2 assets ~150 minutes"
+    },
+    {
+      "day": 40,
+      "title": "Kohaku Kintsugi Star Mender",
+      "slug": "kohaku-kintsugi-star-mender",
+      "playUrl": "/kohaku/",
+      "promptUrl": "/kohaku/prompt.html",
+      "screenshotUrl": "/kohaku/screenshot.png",
       "generationDuration": "manual controller run with implementation subagent dispatch and Imagegen2 assets ~150 minutes"
     }
   ]
