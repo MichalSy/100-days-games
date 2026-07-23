@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 041 Game Generation Prompt</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1c18'/%3E%3Cpath d='M15 35c2-13 31-13 34 0H15z' fill='%238d5cff'/%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: dark; --bg:#07130f; --panel:#10231e; --ink:#fff6d2; --muted:#c7d7b9; --line:rgba(167,255,208,.28); --gold:#ffd76c; }
+    * { box-sizing: border-box; } body { margin:0; font-family:"Trebuchet MS",system-ui,sans-serif; background:radial-gradient(circle at 15% 0%, rgba(179,107,255,.16), transparent 28%), var(--bg); color:var(--ink); line-height:1.6; }
+    main { width:min(980px, calc(100vw - 28px)); margin:24px auto 60px; padding:24px; border:1px solid var(--line); border-radius:24px; background:rgba(16,35,30,.9); box-shadow:0 22px 60px rgba(0,0,0,.42); }
+    a.back { display:inline-flex; margin-bottom:16px; color:#102016; background:linear-gradient(180deg,#fff0a3,#f5b454); border-radius:999px; padding:9px 14px; font-weight:900; text-decoration:none; }
+    h1,h2,h3 { line-height:1.15; color:var(--gold); } h1 { font-family:Georgia,serif; font-size:clamp(34px,7vw,58px); } h2 { margin-top:34px; border-top:1px solid var(--line); padding-top:18px; }
+    p, li { color:var(--muted); } strong { color:var(--ink); } code { color:#9effd1; background:rgba(0,0,0,.25); padding:.12em .35em; border-radius:6px; }
+    pre { overflow:auto; padding:14px; border-radius:14px; border:1px solid var(--line); background:#06100e; } pre code { background:transparent; padding:0; color:#d8ffe8; }
+    ul,ol { padding-left:1.35rem; } li { margin:.28rem 0; }
+  </style>
+</head>
+<body><main><a class="back" href="./index.html">← Back to game</a><h1>Day 041 Game Generation Prompt</h1><h1>Day 041 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 041</li>
+<li>Title: Kinoko Mycelium Glowkeeper</li>
+<li>Slug: kinoko-mycelium-glowkeeper</li>
+<li>Public route word: kinoko</li>
+<li>Mode: 2D</li>
+<li>Genre: mobile-first mycelium network routing puzzle / timed nutrient-pulse arcade / forest-floor score chase</li>
+<li>Mood/style: bioluminescent midnight cedar forest floor, glowing mushroom caps, soft moss, amber dew, violet spore mist, tiny kodama mushroom helper, tactile rotate-and-pulse network feedback; a living underground signal puzzle rather than kintsugi shard repair, tatami layout, okonomiyaki cooking, goldfish scooping, karakuri gears, bridge trusses, temari thread orbits, fan dyeing, onsen valves, ikebana balance, orchard harvesting, kumiko screens, shrine stealth, matcha foam, fireworks, pachinko, mochi hopping, calligraphy tracing, kite mapping, dry-garden raking, underwater pearls, taiko rhythm routing, daruma tilting, spider-web weaving, pottery shaping, bamboo canals, origami folding, parasol sheltering, snow stacking, kimono stamping, bento service, windbell tuning, rail running, or koi collection.</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 038 <code>3d</code>: Yatai Okonomiyaki Flipmaster, amber/black griddle lanes, 3D pancakes, smoke, sauce, toppings, shiba helper.</li>
+<li>Day 039 <code>2d</code>: Tatami Moonroom Matwright, moonlit washitsu grid, tatami rectangles, grain arrows, seam/path rules, calico helper.</li>
+<li>Day 040 <code>3d</code>: Kohaku Kintsugi Star Mender, dark lacquer tray, curved 3D porcelain shards, gold seams, clamp/dust controls, sparrow helper.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>3d</code> (Day 040), so Day 041 may safely be a rich mobile-first <code>2d</code> game without extending a 2D streak. It deliberately moves away from close object repair, rectangular interior planning, and food/cooking into an organic living-network puzzle: rotate mushroom-root nodes, send timed glowing nutrient pulses through branching mycelium, bloom requested caps in order, mist dry paths, shoo beetles, and keep the forest chorus synchronized.</p>
+<p>Recent screenshot/visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 040 used a dark purple/amber repair bench, oval tray, porcelain shards, gold seams, side control column, and sparrow helper.</li>
+<li>Day 039 used top-down green-gold tatami rectangles, room cards, seam/path overlays, shoji moonbeams, and calico helper.</li>
+<li>Day 038 used black griddle lanes, round cakes, amber cooking light, topping buttons, smoke, and shiba helper.</li>
+</ul>
+<p>Day 041 should use a lush forest-floor board with irregular glowing mycelium strands, mushroom-cap nodes, dew reservoirs, spore lanterns, beetle hazards, moss patches, pulse wavefronts, and a kodama helper. Avoid oval repair trays, porcelain shards, gold lacquer, clamps, dust, rectangular room/mat grids, griddles/cakes/sauce/smoke, water tanks/fish/nets/bowls/ripples, gear teeth/axles/couplers/bells, bridges/rivers/bamboo trusses, centered thread spheres, radial pigment fans, valve ducts, floral stems, orchard fruit, wooden lattice strips, stealth cones, tea foam, firework arcs, pachinko pegs, mochi platforms, brush-calligraphy tracing, kite strings, sand rakes, underwater routes, taiko pads, maze boards, spider web strands, pottery profiles, bamboo canal tiles, origami crease grids, parasols, snow blocks, kimono panels, conveyor food, windbell notes, rail tracks, or koi ponds.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/canvas/WebAudio game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 038 <code>3d</code>, Day 039 <code>2d</code>, and Day 040 <code>3d</code>. The latest generated-mode streak is one <code>3d</code>.</p>
+<p>Mode decision: Day 041 is rich mobile-first <code>2d</code>, selected after a real 3D day. It must be mechanically deep enough to justify the mode:</p>
+<ul>
+<li>Use static-browser HTML/CSS/JS with Canvas/SVG/DOM/WebAudio as appropriate; no backend.</li>
+<li>Render a 2D living mycelium board where node type, branch orientation, pulse timing, nutrient color, wetness, beetle pressure, spore wind, bloom order, and chorus harmony matter mechanically.</li>
+<li>Gameplay must depend on 2D network state: mushroom-cap nodes, root junctions, one-way hypha arrows, dew reservoirs, blocked moss cells, dry/cracked paths, pulsing wavefronts, beetle bites, spore charge, chorus targets, and bloom chains.</li>
+<li>Player actions must manipulate the system: select a node, rotate branches, flip one-way flow, send a nutrient pulse, mist spores, shoo beetles, harvest glow, lock a route, use Bloom Focus to preview pulse paths and timing windows, pause/restart, and inspect tutorial hints.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Bloom requested mushroom caps by routing colored nutrient pulses through a glowing mycelium network in the correct order, keeping branches moist, protecting key junctions from beetles, and maintaining forest chorus harmony before night dew evaporates.</li>
+<li>Win condition: Complete three forest commissions — First Spore Spark, Cedar Root Chorus, and Grand Kinoko Glowring — while reaching 5500 points to trigger “Kinoko Grand Mycelium Bloom”. After the banner, continue into endless grove commissions.</li>
+<li>Lose condition: Three grove hearts wither, night dew reaches 0%, five key branches dry out, beetles chew through three active routes, or the Grand Glowring commission receives wrong-color pulses twice.</li>
+<li>Core loop:</li>
+</ul>
+<ol>
+<li>Start on a title/menu screen with Day 041 badge, mode badge “2D”, public route <code>/kinoko/</code>, best score, best Grand Bloom time, tutorial, prompt link, audio note, and a large Start button.</li>
+<li>Show a portrait-friendly forest-floor board. The center is an irregular moss network with mushroom caps, root junctions, dew wells, spore gates, beetle approach lanes, and glowing pulse paths.</li>
+<li>A grove commission requests goals such as: “Bloom blue → amber → violet caps, keep dew above 45%, protect the fork junction, and complete one chorus chain without beetle damage.”</li>
+<li>Player selects the active node by tapping/clicking it or using Node −/+ controls. The selected node gets a luminous cap ring, branch endpoint dots, flow arrows, and a small bounce.</li>
+<li>Rotate Branch turns the selected junction through its available branch orientations. Valid paths glow green/gold; routes that would send pulses into dry moss glow vermilion.</li>
+<li>Flip Flow reverses one-way hypha arrows for the selected junction when allowed. Flip timing matters because wrong-way pulses bounce and waste dew.</li>
+<li>Pulse Nutrients sends the active color pulse from the dew well. Pulses travel along connected mycelium, split at forks, fade in dry sections, and bloom matching caps when they arrive during the requested timing window.</li>
+<li>Mist Spores restores wetness along a small area around the selected node and temporarily slows beetles, but over-misting dilutes color strength and reduces combo score.</li>
+<li>Shoo Beetles pushes beetles away from one active route. Beetles chew highlighted branches if ignored, forcing repairs and draining grove hearts.</li>
+<li>Lock Route protects one branch orientation for the current pulse chain but costs focus charge to unlock.</li>
+<li>Harvest Glow collects energy from freshly bloomed caps, raising score and charging Bloom Focus; harvesting too early reduces the cap&#x27;s chorus value.</li>
+<li>Bloom Focus, charged by clean pulse arrivals and no-damage chains, overlays predicted pulse paths, color mixing, arrival timing, dry-route risk, beetle targets, next best node, and commission-matching caps.</li>
+<li>Completing a commission stamps a mushroom seal, restores one grove heart if needed, awards points, changes network shape and constraints, and unlocks faster beetles, branching pulses, alternating colors, hidden dry spots, and multi-cap chorus orders.</li>
+<li>Pause/restart remain visible throughout.</li>
+</ol>
+<ul>
+<li>15+ minute play-value strategy:</li>
+<li>Save best score, fastest Kinoko Grand Mycelium Bloom time, longest clean chorus chain, highest endless grove, fewest dry branches, most beetles shooed without damage, highest wetness finish, most perfect color pulses, and collected mushroom seal badges in localStorage.</li>
+<li>Include three authored grove commissions:</li>
+<li>First Spore Spark: small network, three caps, broad timing window, guided first Rotate Branch and Pulse Nutrients, no heart penalty for the first tutorial misroute.</li>
+<li>Cedar Root Chorus: medium network with two dew wells, first Flip Flow requirement, beetle warning lane, one dry branch, and blue/amber pulse order.</li>
+<li>Grand Kinoko Glowring: large circular-but-irregular grove, branching split pulse, violet/blue/amber order, required Bloom Focus preview, beetle pressure, and dew target above 40%.</li>
+<li>Deterministic Day 041 seed varies node positions, branch graph, dew well strength, cap colors, pulse speed, dry-route decay, spore mist radius, beetle spawn timing, color mixing, focus charge, and endless constraints while keeping opening seconds fair.</li>
+<li>Mastery badges: complete First Spore Spark with zero misroutes, trigger Grand Bloom under 285 seconds, finish Cedar Root Chorus with no beetle bites, complete Grand Glowring with dew above 55%, bloom three caps in one pulse chain, harvest five glow caps at perfect timing.</li>
+<li>Strategic scoring rewards network planning: rotate junctions before pulsing, preserve wetness on long routes, flip one-way branches only when the order demands it, mist before a pulse enters a dry lane, shoo beetles away from high-value forks, and save Bloom Focus for split-pulse chorus chains.</li>
+<li>Endless mode after Grand Bloom adds extra cap colors, beetle feints, hidden dry patches, forked pulses, shorter dew timer, chorus echo bonuses, and bonus elder-mushroom commissions without shrinking touch controls.</li>
+<li>Difficulty scaling:</li>
+<li>0-45 seconds: small graph, slow beetles, broad timing, obvious branch previews, forgiving dew.</li>
+<li>45-150 seconds: two colors, Flip Flow, first dry branch, beetle warning lane, mist management.</li>
+<li>150-285 seconds: split pulses, required Bloom Focus, tighter arrival timing, more caps, faster dew evaporation.</li>
+<li>285+ seconds/endless: hidden dry patches, color-mix decoys, faster beetles, same readable controls.</li>
+<li>Keep mobile fair: nodes, branches, pulse wavefronts, commission card, dew meter, beetle warnings, helper, and action buttons must be readable at 390x844; primary touch buttons should be 52px+ where possible and never below 44px; no tiny survival-critical nodes.</li>
+<li>Scoring/rewards:</li>
+<li>Valid branch rotation that opens a requested path: +140 points times combo tier.</li>
+<li>Correct-color pulse reaches requested cap: +260 points and Bloom Focus charge.</li>
+<li>Split pulse blooms two caps: +420 points.</li>
+<li>Mist restores a critical dry route before pulse arrival: +170 points.</li>
+<li>Shoo Beetles before a bite: +160 points and preserve combo.</li>
+<li>Harvest Glow at full bloom: +210 points.</li>
+<li>Complete commission before dew warning: +980 points and restore one grove heart if below max.</li>
+<li>Perfect no-damage chorus: +1450 points.</li>
+<li>Kinoko Grand Mycelium Bloom: +3100 points and endless groves unlock.</li>
+<li>Wrong-color bloom, dry-route fade, bounced pulse, or beetle bite: combo reset, dew/grove-heart penalty.</li>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<li>Mouse click/tap: select nodes, press controls, start/pause overlay button, prompt link, or explainable HUD chips.</li>
+<li>Mouse drag on the board: move the selector to nearby nodes and preview the next branch orientation; direct node selection remains deterministic.</li>
+<li>Arrow keys or WASD: move selection to adjacent node.</li>
+<li>Q/E or Space: Rotate Branch.</li>
+<li>F: Flip Flow.</li>
+<li>Enter: Pulse Nutrients.</li>
+<li>M: Mist Spores.</li>
+<li>B: Shoo Beetles.</li>
+<li>L: Lock Route.</li>
+<li>H: Harvest Glow.</li>
+<li>Shift or G: Bloom Focus when charged.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+<li>Mobile/touch:</li>
+<li>Tap a node to select it. Drag within the board to scrub between large node targets with a visible offset so branch endpoints remain visible above the finger.</li>
+<li>Use large Node −, Node +, Rotate Branch, Flip Flow, Pulse Nutrients, Mist Spores, Shoo Beetles, Lock Route, Harvest Glow, Bloom Focus, Pause, Restart, Audio, and Prompt buttons.</li>
+<li>Tapping dew/color/beetle/dryness/focus chips may show short explanations.</li>
+<li>No tiny virtual joystick. Interaction is direct node select/drag plus labeled network/action controls.</li>
+<li>Mobile layout/orientation:</li>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact Kinoko HUD with score, best, grove hearts, dew %, dry branches, combo, active node, active color, beetle risk, Bloom Focus charge, and elapsed time. Use mushroom/root/dew/spore/beetle/glow chips, not shard/tatami/cake/fish/gear/bridge/thread/fan/valve/flower/fruit/lattice/shrine/tea-foam/firework/cat-coin/rabbit/brush-calligraphy/kite/sand/pearl/drum icons.</li>
+<li>Below top: grove commission card with requested cap colors/order, dew target, beetle-protection target, branch count, chorus progress, and timing ticks.</li>
+<li>Center: large forest-floor mycelium board with nodes, branch lines, flow arrows, pulse wavefronts, mushroom caps, dew wells, dry cracks, beetles, helper art, and readable feedback. It must remain playable without zooming.</li>
+<li>Bottom: status helper plus large network/action controls. Controls must not cover nodes, pulse previews, commission card, helper, beetle warnings, or branch paths.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, select/rotate node, Flip Flow, Pulse Nutrients, Mist Spores, Shoo Beetles, Lock Route, Harvest Glow, Bloom Focus, pause/restart must be visible.</li>
+<li>Requests must combine text, icons, cap shapes, branch outlines, pulse patterns, progress ticks, and labels so hue alone is not required.</li>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<ul>
+<li>Shows title “Kinoko Mycelium Glowkeeper”.</li>
+<li>Shows Day 041 badge, mode badge “2D”, public route <code>/kinoko/</code>, best score, best Grand Bloom time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+<li>Notes: “Audio starts after you press Start; visual pulse, dew, beetle, color, and bloom cues work if muted.”</li>
+</ul>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<ul>
+<li>Objective: “Rotate the glowing mycelium, send nutrient pulses, bloom the requested mushrooms, and protect the grove before the dew fades.”</li>
+<li>Network: select a node, Rotate Branch to connect roots, and Flip Flow when an arrow points the wrong way.</li>
+<li>Pulses: Pulse Nutrients from the dew well; match cap colors/order and timing windows.</li>
+<li>Wetness/safety: Mist Spores before dry cracks fade a pulse; Shoo Beetles before they chew active routes.</li>
+<li>Harvest: Harvest Glow after a cap fully blooms to score and charge Bloom Focus.</li>
+<li>Bloom Focus: previews pulse paths, timing, dry risks, beetle targets, and commission matches when charged.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<ul>
+<li>Score, best score, grove hearts, dew %, dry branches, commission name, combo, selected node, active pulse color, beetle risk, Bloom Focus charge, elapsed time, latest warning.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<ol>
+<li>Status helper</li>
+</ol>
+<ul>
+<li>Non-blocking helper showing selected node, route hint, next cap, dew warning, beetle warning, pulse timing, Bloom Focus readiness, and expected score effect.</li>
+<li>Must not cover the mycelium board or bottom controls on mobile.</li>
+</ul>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, audio/mute toggle, prompt link.</li>
+</ul>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<ul>
+<li>Final score, best score, commission reached, Grand Bloom status, dry branches, beetle bites, clean pulse chains, harvest timing, badges, restart button.</li>
+</ul>
+<ol>
+<li>Kinoko Grand Mycelium Bloom banner</li>
+</ol>
+<ul>
+<li>Trigger once per run after all three grove commissions and 5500 score.</li>
+<li>Non-blocking celebration: all caps glow in a ring, pulse paths shimmer like constellations under moss, the kodama helper stamps a mushroom seal, spore motes swirl upward, and endless commissions continue after the banner fades.</li>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: kodama mushroom helper mascot, portrait bioluminescent cedar forest floor background, mushroom-cap/mycelium/dew/beetle sprite sheet, and mushroom/root/dew/spore/beetle/glow UI icon sheet. Canvas/SVG code may render the interactive branch graph, pulse wavefronts, node highlights, flow arrows, dry cracks, beetle path overlays, particles, and UI chrome. It should not create final character/background/texture/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/041/assets/source/</code> and use optimized playable copies under <code>release/games/041/assets/</code>. Also copy optimized playable assets into <code>apps/day-041-kinoko-mycelium-glowkeeper/assets/</code> and the public alias <code>release/kinoko/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny branch details that disappear at final in-game size, and keep helper/mushrooms/roots/dew/beetles/spores/glow/focus silhouettes distinct against dark moss and violet forest backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Kodama mushroom helper mascot</li>
+</ol>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/041/assets/source/kinoko-helper-source.png</code></li>
+<li>Optimized path: <code>release/games/041/assets/kinoko-helper.png</code></li>
+<li>Imagegen2 prompt: “A charming tiny kodama mushroom helper mascot for a mobile Japanese forest-floor mycelium routing puzzle game, small friendly spirit with a round mushroom cap hat, moss-green scarf, holding a glowing dew drop lantern and tiny twig pointer, kind curious expression, violet bioluminescent rim light, centered readable silhouette, transparent or solid warm parchment background, no checkerboard background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Bioluminescent cedar forest floor background source</li>
+</ol>
+<ul>
+<li>Target: portrait-friendly background suitable behind a large 2D mycelium board with open readable center.</li>
+<li>Archive path: <code>release/games/041/assets/source/kinoko-forest-source.png</code></li>
+<li>Optimized path: <code>release/games/041/assets/kinoko-forest.png</code></li>
+<li>Imagegen2 prompt: “A magical midnight Japanese cedar forest floor for a portrait mobile 2D puzzle game, soft moss, glowing mushrooms, amber dew drops, violet spore mist, small cedar roots at the edges, deep indigo and emerald palette, open readable central moss area for an overlaid mycelium network board, crop-safe for phone portrait, no characters in the center, no readable text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<ol>
+<li>Mushroom cap, mycelium, dew, and beetle sprite sheet source</li>
+</ol>
+<ul>
+<li>Target: square sheet with separated readable materials that can be used as sprites/decals.</li>
+<li>Archive path: <code>release/games/041/assets/source/kinoko-pieces-source.png</code></li>
+<li>Optimized path: <code>release/games/041/assets/kinoko-pieces.png</code></li>
+<li>Imagegen2 prompt: “Sprite sheet of small readable forest mycelium puzzle pieces: blue glowing mushroom cap, amber glowing mushroom cap, violet glowing mushroom cap, branching white mycelium root segment, fork junction, dew well, spore mist puff, moss patch, dry cracked branch, tiny black beetle, golden bloom sparkle, each element separated with generous margins, transparent or warm parchment background, no checkerboard background, no text, no watermark, readable at 40-96 pixels.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Kinoko root, dew, spore, beetle, bloom, and focus UI icon sheet source</li>
+</ol>
+<ul>
+<li>Target: square icon sheet for objectives, hazards, tools, rewards, and UI decals.</li>
+<li>Archive path: <code>release/games/041/assets/source/kinoko-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/041/assets/kinoko-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a Japanese mycelium glow routing puzzle game: mushroom cap, rotate branch arrow, one-way flow arrow, nutrient pulse, dew drop, mist spores, beetle warning, lock route, harvest glow, dry cracked root, Bloom Focus mushroom-ring emblem, grove heart leaf, mushroom seal, Grand Mycelium Bloom crest, transparent or solid warm parchment background, no checkerboard background, high contrast, no text, no watermark, generous margins so no icons are cut off.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/canvas kodama/mushroom/root/dew/beetle/icon silhouettes, document the failure in <code>ai/postmortems/day-041.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the kodama helper mascot, verify transparent/cutout quality or clean background handling, readable friendly silhouette, centered pivot/crop margins, no unwanted text/watermarks, stable upright orientation, and that dew-lantern/twig pose is compatible with static helper placement.</li>
+<li>For the pieces sheet, verify separated blue/amber/violet mushroom caps, readable mycelium root/junction/dew/mist/moss/dry/beetle/glow elements at final 40-96px size, usable crop margins, no baked checkerboard, no unwanted text/watermark, and a documented visual baseline for cap color/order and branch flow direction.</li>
+<li>Verify control-to-motion alignment in-game: selecting a node must visibly highlight the intended node, Rotate Branch must visibly change branch endpoints, Flip Flow must reverse arrows, Pulse Nutrients must animate along connected routes, Mist Spores must restore wetness, Shoo Beetles must move/slow beetles, Lock Route must visibly mark a protected branch, Harvest Glow must collect bloom energy, Bloom Focus must preview pulse/dry/beetle risks, Pause/Restart must work.</li>
+<li>For the background, verify the central board remains readable after portrait mobile crop and does not hide nodes, branches, pulse wavefronts, commission card, helper, beetles, or controls.</li>
+<li>For the icon sheet, verify mushroom cap, rotate, flow, nutrient pulse, dew, mist, beetle, lock, harvest, dry root, Bloom Focus, grove heart, mushroom seal, and Grand Bloom crest are distinct at final HUD/button size and cannot be confused. Watch specifically for fake checkerboard transparency; alpha-clean or composite onto warm parchment if needed and inspect again.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Audio and game feel</h2>
+<p>Because glowing pulses, dew droplets, spore mist, mushroom blooms, beetle warnings, and forest chorus are central to the theme, include lightweight WebAudio cues initialized only after a user gesture:</p>
+<ul>
+<li>Soft moss tap when selecting a node.</li>
+<li>Gentle root-click when Rotate Branch or Flip Flow changes orientation.</li>
+<li>Liquid chime when Pulse Nutrients launches.</li>
+<li>Rising shimmer as a pulse reaches a correct cap.</li>
+<li>Dry crack tick when a pulse enters a dry branch.</li>
+<li>Mist spray hush when Mist Spores restores wetness.</li>
+<li>Tiny wooden clack when Shoo Beetles succeeds.</li>
+<li>Warm glow pluck when Harvest Glow collects a cap.</li>
+<li>Deep forest hum when Bloom Focus activates.</li>
+<li>Calm bell-and-cricket flourish when Kinoko Grand Mycelium Bloom triggers.</li>
+</ul>
+<p>Audio must not block play if WebAudio is unavailable. Verify no autoplay errors: audio context should be created/resumed only after Start or another user interaction. Include a visible mute toggle in pause/results or HUD. Expose a narrow debug handle such as <code>window.__day041Audio = { ctx, enabled }</code> after user-gesture initialization so Playwright can assert audio state.</p>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/041/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 041 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<ul>
+<li>Build the static 2D game under <code>apps/day-041-kinoko-mycelium-glowkeeper/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/041/</code>.</li>
+<li>Create the public playable route under <code>release/kinoko/</code>.</li>
+<li>Use static HTML/CSS/JS with Canvas/SVG/WebAudio and no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+</ul>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, remove fake checkerboards if present, document cap-color/branch-flow visual baselines, and tune mobile readability/game feel.</li>
+</ul>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, mycelium board render, node selection/drag, Node −/+, Rotate Branch, Flip Flow, Pulse Nutrients, Mist Spores, Shoo Beetles, Lock Route, Harvest Glow, Bloom Focus control presence and visible mechanical effect, pulse/dew/dry/beetle/bloom feedback, generated screenshot, generated assets, WebAudio initialization after user gesture, and 390x844 portrait layout.</li>
+</ul>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<ul>
+<li>Write <code>ai/postmortems/day-041.md</code> after validation with what worked, what failed, generated-image inspection notes, cap-color/branch-flow visual baseline, audio verification, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 041 is <code>2d</code> after Day 040 <code>3d</code>, with meaningful living-network routing/timing mechanics rather than low-effort flat decoration.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/grove card, usable 44px+ node/action/pause/restart controls, no forced landscape canvas, and no tiny survival-critical nodes.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-041.md</code> is copied exactly to <code>release/games/041/prompt.md</code> and <code>release/kinoko/prompt.md</code>.</li>
+<li><code>release/games/041/prompt.html</code> and <code>release/kinoko/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/kinoko/index.html</code>, <code>release/kinoko/prompt.html</code>, <code>release/kinoko/screenshot.png</code>, and <code>release/kinoko/assets/</code> exist and work.</li>
+<li>Gallery card for Day 041 shows prompt availability, generation duration, public <code>/kinoko/</code> links, mode <code>2d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/041/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/041/assets/source/</code> and optimized assets exist under <code>release/games/041/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive node/root/pulse/dew/beetle visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>WebAudio initializes after user gesture and creates no autoplay console errors; audio is failsafe if unsupported and visual pulse/dew/dry/beetle/order cues remain playable muted.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicons to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/**</code> through <code>release/games/040/**</code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/041/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/kinoko/index.html, release/kinoko/prompt.html, release/kinoko/screenshot.png, optimized assets, and source assets exist and are non-empty.
+# Prompt copy check: cmp prompts/day-041.md release/games/041/prompt.md and cmp prompts/day-041.md release/kinoko/prompt.md.
+# Prompt HTML check: verify release/games/041/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes, no direct nested lists, and no strong/b tags inside code.
+# Browser smoke: open the local/static /kinoko/ route and verify menu, tutorial, gameplay start, mycelium board render, node selection/drag, Node −/+, Rotate Branch, Flip Flow, Pulse Nutrients, Mist Spores, Shoo Beetles, Lock Route, Harvest Glow, Bloom Focus, pulse/dew/dry/beetle/bloom feedback, pause, restart, prompt page, WebAudio after user gesture, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable node/action controls plus readable HUD/grove card/stage/controls.
+# Static screenshot check: inspect release/games/041/screenshot.png and release/kinoko/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-041.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /kinoko/ and /kinoko/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 041.</code></pre></main></body></html>

@@ -616,6 +616,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/kohaku/screenshot.png',
     generationDuration: 'manual controller run with implementation subagent dispatch and Imagegen2 assets ~150 minutes',
     generatedAt: '2026-07-22T01:45:19Z'
+  },
+  41: {
+    status: 'generated',
+    title: 'Kinoko Mycelium Glowkeeper',
+    slug: 'kinoko-mycelium-glowkeeper',
+    genre: ['mycelium network routing puzzle', 'timed nutrient-pulse arcade', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Rotate glowing mycelium branches in a bioluminescent cedar forest, send colored nutrient pulses, mist dry routes, shoo beetles, harvest glowing caps, and keep the mushroom chorus blooming before night dew fades.',
+    objective: 'Complete First Spore Spark, Cedar Root Chorus, and Grand Kinoko Glowring while reaching 5500 points to trigger Kinoko Grand Mycelium Bloom, then continue into endless grove commissions.',
+    playUrl: '/kinoko/',
+    promptUrl: '/kinoko/prompt.html',
+    promptExcerpt: 'Select mushroom-root nodes, rotate branches, flip one-way flow, pulse nutrients through the mycelium, mist dry paths, shoo beetles, harvest glow caps, and use Bloom Focus for route previews.',
+    screenshotUrl: '/kinoko/screenshot.png',
+    generationDuration: 'manual controller run with implementation subagent dispatch and Imagegen2 assets ~150 minutes',
+    generatedAt: '2026-07-23T01:32:25Z'
   }
 };
 

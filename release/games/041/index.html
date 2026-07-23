@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Day 041 — Kinoko Mycelium Glowkeeper</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1c18'/%3E%3Cpath d='M15 35c2-13 31-13 34 0H15z' fill='%238d5cff'/%3E%3Cpath d='M29 35h6v16h-6z' fill='%23f5e6b9'/%3E%3Cpath d='M32 46c-8 0-13 4-18 9m18-9c8 0 13 4 18 9' stroke='%2392ffd7' stroke-width='3' fill='none'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="shell" aria-label="Kinoko Mycelium Glowkeeper game">
+    <section class="top-panel hud" aria-label="Game status">
+      <div class="brand"><strong>Kinoko</strong><span>Day 041</span><span>2D</span></div>
+      <div class="chip">Score <b id="score">0</b></div>
+      <div class="chip">Best <b id="best">0</b></div>
+      <div class="chip">Grove <b id="hearts">♡♡♡</b></div>
+      <div class="chip">Dew <b id="dew">100%</b></div>
+      <div class="chip">Dry <b id="dry">0</b></div>
+      <div class="chip">Combo <b id="combo">1x</b></div>
+      <div class="chip">Node <b id="nodeLabel">1/7</b></div>
+      <div class="chip">Color <b id="colorLabel">blue</b></div>
+      <div class="chip">Beetles <b id="beetleRisk">low</b></div>
+      <div class="chip">Bloom Focus <b id="focusLabel">0%</b></div>
+      <div class="chip">Time <b id="timeLabel">0:00</b></div>
+    </section>
+
+    <section class="commission" aria-label="Current grove commission">
+      <div>
+        <p class="eyebrow">Grove commission</p>
+        <h1 id="commissionTitle">First Spore Spark 0/3</h1>
+        <p id="commissionText">Bloom blue, amber, then violet caps by rotating mycelium roots and sending clean nutrient pulses.</p>
+      </div>
+      <div class="meters" aria-label="Progress meters">
+        <label>Dew target <span id="dewTargetText">45%</span><progress id="dewMeter" max="100" value="100"></progress></label>
+        <label>Chorus <span id="chorusText">0/3</span><progress id="chorusMeter" max="3" value="0"></progress></label>
+        <label>Route health <span id="healthText">clean</span><progress id="healthMeter" max="100" value="100"></progress></label>
+      </div>
+    </section>
+
+    <section class="stage-card" aria-label="Mycelium board">
+      <canvas id="gameCanvas" width="900" height="620" aria-label="Interactive mycelium routing board"></canvas>
+      <img id="helperImg" src="./assets/kinoko-helper.png" alt="Kodama mushroom helper" />
+    </section>
+
+    <section class="helper-row" aria-live="polite">
+      <img src="./assets/kinoko-helper.png" alt="" />
+      <p id="statusText">Rotate the first root toward the blue cap, then Pulse Nutrients.</p>
+    </section>
+
+    <section class="controls" aria-label="Game controls">
+      <button data-action="prevNode">Node −</button>
+      <button data-action="nextNode">Node +</button>
+      <button data-action="rotate">Rotate Branch</button>
+      <button data-action="flip">Flip Flow</button>
+      <button data-action="pulse" class="primary">Pulse Nutrients</button>
+      <button data-action="mist">Mist Spores</button>
+      <button data-action="beetle">Shoo Beetles</button>
+      <button data-action="lock">Lock Route</button>
+      <button data-action="harvest">Harvest Glow</button>
+      <button data-action="focus">Bloom Focus</button>
+      <button data-action="pause">Pause</button>
+      <button data-action="restart">Restart</button>
+      <button data-action="audio">Audio: On</button>
+      <a class="button-link" href="./prompt.html">Prompt</a>
+    </section>
+  </main>
+
+  <section id="menu" class="overlay" aria-label="Title screen">
+    <div class="modal">
+      <div class="modal-kicker"><span>Day 041</span><span>2D</span><span>/kinoko/</span></div>
+      <h2>Kinoko Mycelium Glowkeeper</h2>
+      <p class="lead">Rotate glowing roots, send nutrient pulses, bloom requested mushrooms, and protect the grove before the night dew fades.</p>
+      <div class="tutorial-grid">
+        <p><b>Objective:</b> bloom mushroom caps in the requested color order.</p>
+        <p><b>Network:</b> select a node, Rotate Branch, and Flip Flow arrows.</p>
+        <p><b>Pulses:</b> Pulse Nutrients from dew wells through connected roots.</p>
+        <p><b>Safety:</b> Mist Spores before dry cracks; Shoo Beetles before bites.</p>
+        <p><b>Harvest:</b> Harvest Glow after bloom to score and charge Bloom Focus.</p>
+        <p><b>Focus:</b> previews pulse paths, dry risks, beetles, and targets.</p>
+      </div>
+      <p class="audio-note">Audio starts after you press Start; visual pulse, dew, beetle, color, and bloom cues work if muted.</p>
+      <div class="modal-actions">
+        <button id="startButton" class="primary big">Start</button>
+        <a href="./prompt.html" class="button-link big">Prompt</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="pauseOverlay" class="overlay hidden" aria-label="Paused">
+    <div class="modal compact">
+      <h2>Paused</h2>
+      <p>Controls summary: select nodes, Rotate Branch, Flip Flow, Pulse Nutrients, Mist Spores, Shoo Beetles, Lock Route, Harvest Glow, and use Bloom Focus for previews.</p>
+      <div class="modal-actions">
+        <button data-action="resume" class="primary big">Resume</button>
+        <button data-action="restart" class="big">Restart</button>
+        <button data-action="audio" class="big">Audio Toggle</button>
+        <a href="./prompt.html" class="button-link big">Prompt</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="resultOverlay" class="overlay hidden" aria-label="Results">
+    <div class="modal compact">
+      <h2 id="resultTitle">Grove Resting</h2>
+      <p id="resultText">Final score 0.</p>
+      <div id="badgeList" class="badges"></div>
+      <div class="modal-actions">
+        <button data-action="restart" class="primary big">Restart</button>
+        <a href="./prompt.html" class="button-link big">Prompt</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="./game.js" type="module"></script>
+</body>
+</html>

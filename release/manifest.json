@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-22T01:45:19.000Z",
+  "generatedAt": "2026-07-23T01:32:25.000Z",
   "totalDays": 100,
-  "completedDays": 40,
+  "completedDays": 41,
   "games": [
     {
       "day": 1,
@@ -361,6 +361,15 @@
       "playUrl": "/kohaku/",
       "promptUrl": "/kohaku/prompt.html",
       "screenshotUrl": "/kohaku/screenshot.png",
+      "generationDuration": "manual controller run with implementation subagent dispatch and Imagegen2 assets ~150 minutes"
+    },
+    {
+      "day": 41,
+      "title": "Kinoko Mycelium Glowkeeper",
+      "slug": "kinoko-mycelium-glowkeeper",
+      "playUrl": "/kinoko/",
+      "promptUrl": "/kinoko/prompt.html",
+      "screenshotUrl": "/kinoko/screenshot.png",
       "generationDuration": "manual controller run with implementation subagent dispatch and Imagegen2 assets ~150 minutes"
     }
   ]
