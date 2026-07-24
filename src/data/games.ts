@@ -631,6 +631,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/kinoko/screenshot.png',
     generationDuration: 'manual controller run with implementation subagent dispatch and Imagegen2 assets ~150 minutes',
     generatedAt: '2026-07-23T01:32:25Z'
+  },
+  42: {
+    status: 'generated',
+    title: 'Kabuto Cedar Canopy Climber',
+    slug: 'kabuto-cedar-canopy-climber',
+    genre: ['3D vertical climbing arcade', 'bark-orbit navigation', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Climb a bright dawn cedar canopy as a glossy kabutomushi beetle, orbit around the trunk, collect ordered sap beads, leap to branch ledges, rescue firefly charms, and ring the canopy bell before grip and daylight fade.',
+    objective: 'Complete First Bark Grip, Sap Spiral Crossing, and Grand Canopy Bell while reaching 5600 points to trigger Kabuto Dawn Canopy Ring, then continue into endless cedar ascents.',
+    playUrl: '/kabuto/',
+    promptUrl: '/kabuto/prompt.html',
+    promptExcerpt: 'Climb and orbit around a 3D cedar trunk, collect ordered sap, leap to branch ledges, Lock Claws through gusts, Fan Wings from falls, and use Canopy Focus to preview the bell route.',
+    screenshotUrl: '/kabuto/screenshot.png',
+    generationDuration: 'manual controller run with implementation subagent dispatch and Imagegen2 assets ~150 minutes',
+    generatedAt: '2026-07-24T01:31:24Z'
   }
 };
 

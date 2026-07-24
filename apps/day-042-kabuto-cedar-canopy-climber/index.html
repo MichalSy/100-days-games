@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Day 042 — Kabuto Cedar Canopy Climber</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f5f3a'/%3E%3Cpath d='M32 8c9 0 17 8 17 21 0 16-8 27-17 27S15 45 15 29C15 16 23 8 32 8Z' fill='%237b3219'/%3E%3Cpath d='M32 5c-3 8-3 15 0 21 3-6 3-13 0-21Z' fill='%23f4c15d'/%3E%3Ccircle cx='25' cy='25' r='4' fill='white'/%3E%3Ccircle cx='39' cy='25' r='4' fill='white'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell" aria-label="Kabuto Cedar Canopy Climber game">
+      <section class="topbar" aria-label="Live climb HUD">
+        <div class="brand"><span>Day 042</span><strong>Kabuto Cedar Canopy Climber</strong><em>3D /kabuto/</em></div>
+        <div class="chips" aria-live="polite">
+          <span>Score <b id="scoreChip">0</b></span>
+          <span>Best <b id="bestChip">0</b></span>
+          <span>Shell <b id="heartChip">♥♥♥</b></span>
+          <span>Grip <b id="gripChip">100%</b></span>
+          <span>Haze <b id="hazeChip">0%</b></span>
+          <span>Combo <b id="comboChip">1.0x</b></span>
+          <span>Height <b id="heightChip">0m</b></span>
+          <span>Lane <b id="laneChip">Front</b></span>
+          <span>Next sap <b id="sapChip">Blue</b></span>
+          <span>Risk <b id="riskChip">calm</b></span>
+          <span>Focus <b id="focusChip">100%</b></span>
+          <span>Time <b id="timeChip">0:00</b></span>
+        </div>
+      </section>
+
+      <section class="commission" aria-label="Current ascent objective">
+        <div>
+          <p class="eyebrow">Ascent commission</p>
+          <h2 id="ascentName">First Bark Grip</h2>
+        </div>
+        <p id="objectiveText">Collect blue-tag sap → gold-tag sap → red-tag sap, rescue 2 firefly charms, keep grip above 35%, avoid leaf gusts, and ring the bell before haze 80%.</p>
+        <div class="ticks" id="progressTicks" aria-label="Commission progress ticks"></div>
+      </section>
+
+      <section class="stage-card">
+        <div id="stage" class="stage" role="application" aria-label="3D cedar trunk stage. Drag up down to climb and side to side to orbit.">
+          <div class="stageHint">Drag stage: climb + orbit • Current branch ring follows the golden arc</div>
+          <canvas id="gameCanvas" aria-label="Three.js 3D cylindrical cedar canopy climb"></canvas>
+        </div>
+      </section>
+
+      <section class="helper" aria-live="polite">
+        <img src="./assets/kabuto-hero.png" alt="Kabutomushi beetle helper" />
+        <p id="helperText">Press Start. The suzumushi guide will call lane, sap order, grip, wind, hazard, focus, and expected score cues without covering the stage.</p>
+      </section>
+
+      <section class="controls" aria-label="Large Day 042 controls">
+        <button type="button" data-action="climbUp">Climb Up</button>
+        <button type="button" data-action="climbDown">Climb Down</button>
+        <button type="button" data-action="orbitLeft">Orbit Left</button>
+        <button type="button" data-action="orbitRight">Orbit Right</button>
+        <button type="button" data-action="leap">Leap Branch</button>
+        <button type="button" data-action="lock">Lock Claws</button>
+        <button type="button" data-action="horn">Charge Horn</button>
+        <button type="button" data-action="dash">Sap Dash</button>
+        <button type="button" data-action="wings">Fan Wings</button>
+        <button type="button" data-action="focus">Canopy Focus</button>
+        <button type="button" data-action="pause">Pause</button>
+        <button type="button" data-action="restart">Restart</button>
+        <button type="button" data-action="audio">Audio</button>
+        <a class="button" href="./prompt.html">Prompt</a>
+      </section>
+    </main>
+
+    <section id="menuOverlay" class="overlay open" aria-modal="true" role="dialog" aria-label="Title screen and tutorial">
+      <div class="panel menu-panel">
+        <div class="badges"><span>Day 042</span><span>Mode 3D</span><span>Route /kabuto/</span></div>
+        <h1>Kabuto Cedar Canopy Climber</h1>
+        <p class="subtitle">Guide a glossy kabutomushi up a cylindrical cedar, collect ordered amber sap, rescue firefly charms, and ring the Grand Canopy Bell before grip and daylight fade.</p>
+        <div class="menu-stats"><span>Best score <b id="menuBest">0</b></span><span>Best Canopy Ring <b id="menuRing">—</b></span></div>
+        <div class="menu-actions primary-actions">
+          <button id="startButton" type="button">Start Climbing</button>
+          <a class="button" href="./prompt.html">View Prompt</a>
+        </div>
+        <div class="tutorial-grid">
+          <p><b>Objective:</b> Climb the cedar, collect sap in order, rescue firefly charms, and ring the canopy bell before grip and daylight fade.</p>
+          <p><b>Movement:</b> Climb Up/Down and Orbit Left/Right around the trunk; sap lanes wrap around the cedar cylinder.</p>
+          <p><b>Leaps:</b> use Leap Branch only when the reach ring turns gold; Fan Wings can slow a fall.</p>
+          <p><b>Safety:</b> Lock Claws during leaf gusts and woodpecker shadows; Charge Horn clears brittle bark and rival beetles.</p>
+          <p><b>Sap:</b> collect ordered sap beads, then use Sap Dash along a glowing vein for score chains.</p>
+          <p><b>Canopy Focus:</b> previews reachable ledges, wind, hazards, sap order, and the safest route when charged.</p>
+          <p><b>Pause/restart:</b> P/R on desktop or visible Pause and Restart buttons on mobile.</p>
+          <p><b>Audio:</b> starts after you press Start; visual climb, grip, sap, wind, hazard, and bell cues work if muted.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pauseOverlay" class="overlay hidden" aria-modal="true" role="dialog" aria-label="Paused">
+      <div class="panel">
+        <h2>Paused beneath the cedar needles</h2>
+        <p>Controls: drag stage to climb/orbit, Arrow/WASD to move, Space Leap Branch, C/L Lock Claws, H Charge Horn, D Sap Dash, F Fan Wings, Shift/G Canopy Focus, P pause, R restart.</p>
+        <p>Tutorial reminder: line up the next sap lane, leap only when the reach ring glows gold, lock claws through wind, and save focus for split routes.</p>
+        <div class="menu-actions">
+          <button type="button" data-action="pause">Resume</button>
+          <button type="button" data-action="restart">Restart</button>
+          <button type="button" data-action="audio">Audio</button>
+          <a class="button" href="./prompt.html">Prompt</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultOverlay" class="overlay hidden" aria-modal="true" role="dialog" aria-label="Results">
+      <div class="panel">
+        <h2 id="resultTitle">Canopy results</h2>
+        <p id="resultSummary">Final score 0.</p>
+        <div id="badgeList" class="badges"></div>
+        <div class="menu-actions">
+          <button type="button" data-action="restart">Restart</button>
+          <a class="button" href="./prompt.html">Prompt</a>
+        </div>
+      </div>
+    </section>
+
+    <div id="ringBanner" class="ring-banner hidden" role="status" aria-live="assertive">Kabuto Dawn Canopy Ring! Sunrise beams flare, sap spirals sparkle, and the beetle taps the Grand Canopy Bell.</div>
+
+    <script type="module" src="./game.js"></script>
+  </body>
+</html>

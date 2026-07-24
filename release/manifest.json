@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-23T01:32:25.000Z",
+  "generatedAt": "2026-07-24T01:31:24.000Z",
   "totalDays": 100,
-  "completedDays": 41,
+  "completedDays": 42,
   "games": [
     {
       "day": 1,
@@ -370,6 +370,15 @@
       "playUrl": "/kinoko/",
       "promptUrl": "/kinoko/prompt.html",
       "screenshotUrl": "/kinoko/screenshot.png",
+      "generationDuration": "manual controller run with implementation subagent dispatch and Imagegen2 assets ~150 minutes"
+    },
+    {
+      "day": 42,
+      "title": "Kabuto Cedar Canopy Climber",
+      "slug": "kabuto-cedar-canopy-climber",
+      "playUrl": "/kabuto/",
+      "promptUrl": "/kabuto/prompt.html",
+      "screenshotUrl": "/kabuto/screenshot.png",
       "generationDuration": "manual controller run with implementation subagent dispatch and Imagegen2 assets ~150 minutes"
     }
   ]

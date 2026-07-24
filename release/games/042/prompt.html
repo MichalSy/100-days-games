@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 042 Game Generation Prompt</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='24' font-size='24'%3E%F0%9F%AA%B2%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: dark; --bg:#07131a; --panel:#10251f; --ink:#f8f1d6; --muted:#b9c9b4; --line:rgba(255,238,181,.2); --sap:#ffbf4f; }
+    * { box-sizing:border-box; } body { margin:0; font-family: ui-rounded, "Avenir Next", "Segoe UI", system-ui, sans-serif; background: radial-gradient(circle at 20% 0%, rgba(127,208,255,.2), transparent 34%), linear-gradient(180deg,#07131a,#0d1d17); color:var(--ink); line-height:1.58; }
+    main { width:min(920px, calc(100% - 28px)); margin:0 auto; padding:28px 0 56px; }
+    .back { display:inline-flex; gap:8px; align-items:center; color:#102016; background:linear-gradient(180deg,#ffe283,#c98129); border-radius:999px; padding:10px 14px; font-weight:900; text-decoration:none; margin-bottom:18px; }
+    article { background:rgba(8,24,23,.78); border:1px solid var(--line); border-radius:24px; padding:clamp(18px,4vw,42px); box-shadow:0 24px 70px rgba(0,0,0,.35); }
+    h1 { font-size:clamp(32px,6vw,58px); line-height:.98; margin:0 0 18px; color:#fff4b4; } h2 { margin-top:34px; color:#a8f6cf; border-top:1px solid var(--line); padding-top:22px; } h3 { color:#ffdc86; }
+    p, li { color:#eef5d6; } ul,ol { padding-left:1.35rem; } li { margin:.28rem 0; } code { color:#ffe8a0; background:rgba(255,255,255,.08); padding:.12em .32em; border-radius:6px; } pre { overflow:auto; background:#06100e; border:1px solid var(--line); border-radius:14px; padding:14px; } pre code { background:transparent; padding:0; color:#f9e7b2; }
+  </style>
+</head>
+<body><main><a class="back" href="./index.html">← Back to game</a><article><h1>Day 042 Game Generation Prompt</h1><h1>Day 042 Game Generation Prompt</h1>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 042</li>
+<li>Title: Kabuto Cedar Canopy Climber</li>
+<li>Slug: kabuto-cedar-canopy-climber</li>
+<li>Public route word: kabuto</li>
+<li>Mode: 3D</li>
+<li>Genre: mobile-first 3D vertical climbing arcade / bark-orbit navigation / canopy-rescue score chase</li>
+<li>Mood/style: dawn sunlight high in a Japanese cedar canopy, massive bark columns, mossy ledges, glossy kabutomushi beetle shell, amber sap beads, fluttering leaves, tanuki rope flags far below, tiny suzumushi cricket guide, tactile claw-grip and wing-buzz feedback; a vertical spatial action game rather than mycelium network routing, kintsugi shard repair, tatami room layout, okonomiyaki cooking, goldfish scooping, karakuri gears, bridge trusses, temari thread orbits, fan dyeing, onsen valves, ikebana, orchard harvesting, kumiko woodworking, shrine stealth, matcha whisking, fireworks, pachinko, mochi hopping, calligraphy, kite mapping, dry-garden raking, underwater pearls, taiko routing, daruma tilting, web weaving, pottery shaping, canal routing, origami folding, parasol sheltering, snow stacking, kimono stamping, bento service, windbell tuning, rail running, or koi collection.</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 038 <code>3d</code>: Yatai Okonomiyaki Flipmaster, warm night-market griddle, 3D cakes, heat lanes, smoke, sauce, toppings, shiba helper.</li>
+<li>Day 039 <code>2d</code>: Tatami Moonroom Matwright, moonlit washitsu grid, mat rectangles, grain arrows, seam/path rules, calico helper.</li>
+<li>Day 040 <code>3d</code>: Kohaku Kintsugi Star Mender, dark lacquer repair tray, 3D porcelain shards, gold seams, clamps, dust, sparrow helper.</li>
+<li>Day 041 <code>2d</code>: Kinoko Mycelium Glowkeeper, dark cedar forest floor, glowing network branches, mushroom caps, dew, beetles, kodama helper.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>2d</code> (Day 041), so Day 042 deliberately returns to real <code>3D</code> to keep the cadence strong and to contrast with Day 041&#x27;s flat forest-floor network. It should move the camera and play space upward: a vertical cedar trunk with cylindrical depth, orbital movement around the bark, branch ledges projecting toward/away from the camera, leap arcs, claw grip, sap-route choices, falling leaf gusts, and a rescue ascent toward a canopy bell.</p>
+<p>Recent screenshot/visual variety notes to avoid repeating:</p>
+<ul>
+<li>Day 041 used a dark green board, glowing mycelium lines, mushroom nodes, beetle hazards as tiny 2D dots, a compact top HUD, commission card, and dense bottom controls.</li>
+<li>Day 040 used a dark purple/amber workbench, oval tray, porcelain shards, gold seams, side control column, and sparrow helper.</li>
+<li>Day 039 used top-down green-gold tatami rectangles, shoji room framing, seam/path overlays, and calico helper.</li>
+<li>Day 038 used a black griddle with warm amber/brown lighting, three heat lanes, cakes, steam, and shiba helper.</li>
+</ul>
+<p>Day 042 should contrast by using a bright dawn vertical composition: sky-blue gaps between cedar trunks, tall bark texture, leaf shadows, golden sap beads, red-white climbing flags, shell reflections, and strong up/down motion. Avoid glowing underground networks, mushroom caps as objectives, porcelain shards/trays/gold lacquer, rectangular room/mat grids, griddles/cakes/sauce/smoke, water tanks/fish/nets/bowls/ripples, gear teeth/axles/couplers/bells, bridges/rivers/bamboo trusses, centered thread spheres, radial pigment fans, valve ducts, floral stems, orchard fruit baskets, wooden lattice strips, stealth cones, tea foam, firework arcs, pachinko pegs, mochi platforms, brush-calligraphy tracing, kite strings, sand rakes, underwater routes, taiko pads, maze boards, spider web strands, pottery profiles, bamboo canal tiles, origami crease grids, parasols, snow blocks, kimono panels, conveyor food, windbell notes, rail tracks, or koi ponds.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/Three.js/WebGL/WebAudio game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 038 <code>3d</code>, Day 039 <code>2d</code>, Day 040 <code>3d</code>, and Day 041 <code>2d</code>. The latest generated-mode streak is one <code>2d</code>.</p>
+<p>Mode decision: Day 042 is real <code>3d</code>. It must implement meaningful spatial gameplay, not decorative perspective:</p>
+<ul>
+<li>Use Three.js/WebGL or equivalent static-browser 3D rendering.</li>
+<li>Render a real vertical 3D cedar-climbing stage with a cylindrical trunk, visible camera depth, wrap-around left/right orbit lanes, foreground/background branch ledges, bark ridges, sap beads at different heights/depths, wind leaves, hazard beetles/woodpecker shadows, and a canopy bell target.</li>
+<li>Gameplay must depend on 3D state: height, angular position around the trunk, depth lane, grip stamina, leap trajectory, branch distance, wind direction, bark slickness, sap chain route, shell charge, hazard approach angle, and camera-relative controls.</li>
+<li>Player actions must manipulate the 3D system: climb up/down, orbit left/right around the trunk, leap to side branches, lock claw grip, charge horn, dash through sap lines, fan wings to slow falls, use Canopy Focus to preview reachable ledges/wind/hazards, pause/restart, and inspect tutorial hints.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Guide a glossy kabutomushi climber up a towering cedar, collect ordered amber sap beads, rescue scattered lantern firefly charms from branch ledges, dodge falling leaves and woodpecker shadows, manage claw grip, and ring the canopy bell before dusk haze rolls in.</li>
+<li>Win condition: Complete three ascent commissions — First Bark Grip, Sap Spiral Crossing, and Grand Canopy Bell — while reaching 5600 points to trigger “Kabuto Dawn Canopy Ring”. After the banner, continue into endless cedar ascents.</li>
+<li>Lose condition: Three shell hearts crack, grip stamina reaches 0 while airborne/falling, the beetle misses five leap-safe ledges, hazard strikes reach three in one ascent, dusk haze reaches 100%, or Grand Canopy Bell receives the wrong sap order twice.</li>
+<li>Core loop:</li>
+</ul>
+<ol>
+<li>Start on a title/menu screen with Day 042 badge, mode badge “3D”, public route <code>/kabuto/</code>, best score, best Canopy Ring time, tutorial, prompt link, audio note, and a large Start button.</li>
+<li>Show a portrait-friendly vertical cedar trunk stage. The trunk rises through the center; branch ledges and sap beads wrap around the cylinder in near/mid/far depth bands. Camera follows the beetle upward.</li>
+<li>An ascent card requests goals such as: “Collect blue-tag sap → gold-tag sap → red-tag sap, rescue 2 firefly charms, keep grip above 35%, avoid two leaf gusts, ring the bell before haze 80%.”</li>
+<li>Player selects the active route by moving the beetle directly. Orbit Left/Right wraps around the trunk; the beetle visibly travels around the cylindrical surface and can hide behind/peek around bark curvature.</li>
+<li>Climb Up/Down moves along the trunk. Climbing drains grip slowly on slick bark and restores small grip on moss pads.</li>
+<li>Leap Branch launches a short 3D arc toward a highlighted side branch or bark ledge. Good timing lands on gold reach rings; bad timing slides down but Fan Wings can save the fall.</li>
+<li>Lock Claws spends stamina to cling safely during gusts, woodpecker shadows, or while planning the next leap.</li>
+<li>Charge Horn builds a short forward burst that breaks brittle bark flakes, bumps rival beetles away, and collects a tight sap line. Overcharging overheats the shell and costs a shell-heart if released into stone-hard bark.</li>
+<li>Sap Dash converts collected sap into a fast climb along the next glowing sap vein. It must be aimed in the current angular lane; wrong-lane dashes miss beads and waste sap.</li>
+<li>Fan Wings slows falls, pushes the beetle outward from the trunk, and briefly reveals hidden firefly charms behind leaves. It has a cooldown and should be verified visually.</li>
+<li>Canopy Focus, charged by clean landings, ordered sap, and charm rescues, overlays reachable ledges, leap arcs, sap order labels, wind arrows, safe grip pockets, next best route, hazard cones, and bell distance.</li>
+<li>Completing an ascent stamps a cedar-shell seal, restores one shell heart if needed, awards points, changes trunk geometry and constraints, and unlocks forked branches, stronger gusts, slick rain bark, rival beetles, moving woodpecker shadows, and multi-sap route choices.</li>
+<li>Pause/restart remain visible throughout.</li>
+</ol>
+<ul>
+<li>15+ minute play-value strategy:</li>
+<li>Save best score, fastest Kabuto Dawn Canopy Ring time, longest perfect landing chain, highest endless canopy, fewest missed leaps, most firefly charms rescued, highest final grip, longest sap dash chain, most hazard-free ascents, and collected cedar-shell seal badges in localStorage.</li>
+<li>Include three authored ascent commissions:</li>
+<li>First Bark Grip: low cedar segment, broad orbit lanes, three sap beads, one moss rest pad, guided first Orbit Right, Climb Up, and Leap Branch, no shell-heart penalty for the first tutorial slide.</li>
+<li>Sap Spiral Crossing: taller trunk with wrap-around sap order, first firefly charm rescue, first leaf gust, required Lock Claws during warning, and one branch ledge in the far depth band.</li>
+<li>Grand Canopy Bell: high trunk segment with split sap routes, two charms, woodpecker shadow sweep, required Canopy Focus preview, grip target above 35%, and final leap to a hanging bell.</li>
+<li>Deterministic Day 042 seed varies trunk ridge positions, angular sap lanes, branch height/depth, moss-rest pockets, gust timing, charm positions, horn charge rate, shell heat, sap dash speed, focus charge, bell route, and endless constraints while keeping opening seconds fair.</li>
+<li>Mastery badges: complete First Bark Grip with zero slides, trigger Canopy Ring under 285 seconds, finish Sap Spiral with all charms, reach Grand Canopy with grip above 60%, collect five sap beads in one dash chain, land three branch leaps perfectly, and avoid all woodpecker shadows.</li>
+<li>Strategic scoring rewards spatial planning: orbit to line up sap lanes before climbing, rest on moss pads before long slick sections, save Lock Claws for gust warnings, leap only when reach ring is gold, Fan Wings before falling past a charm, use Charge Horn for rival beetles and brittle flakes, and save Canopy Focus for split branch routes.</li>
+<li>Endless mode after Canopy Ring adds taller trunks, offset branch rings, hidden charms, stronger crosswinds, bark flakes, rival beetle pushes, alternating sap order, shorter haze timer, and bonus shrine-rope flags without shrinking touch controls.</li>
+<li>Difficulty scaling:</li>
+<li>0-45 seconds: short trunk, broad orbit and leap tolerances, slow haze, visible sap order labels, forgiving grip.</li>
+<li>45-150 seconds: taller trunk, first branch leap, one gust, first charm rescue, sap order matters, Lock Claws introduced.</li>
+<li>150-285 seconds: split routes, required Canopy Focus, woodpecker shadow timing, slick bark, final bell leap, tighter grip target.</li>
+<li>285+ seconds/endless: more angular lanes, hidden depth ledges, stronger wind, rival beetles, same readable controls.</li>
+<li>Keep mobile fair: beetle, trunk, sap beads, ledges, reach rings, gust arrows, hazard shadows, ascent card, grip meter, helper, and action buttons must be readable at 390x844; primary touch buttons should be 52px+ where possible and never below 44px; no tiny survival-critical ledges.</li>
+<li>Scoring/rewards:</li>
+<li>Climb into correct sap lane: +130 points times combo tier.</li>
+<li>Ordered sap bead collected: +230 points and Canopy Focus charge.</li>
+<li>Perfect branch leap landing: +280 points and grip restore.</li>
+<li>Firefly charm rescued: +360 points.</li>
+<li>Lock Claws through a gust without sliding: +190 points.</li>
+<li>Charge Horn clears hazard/rival cleanly: +220 points.</li>
+<li>Sap Dash collects a chain: +150 per bead plus chain bonus.</li>
+<li>Complete ascent before haze warning: +980 points and restore one shell heart if below max.</li>
+<li>Perfect no-slide ascent: +1450 points.</li>
+<li>Kabuto Dawn Canopy Ring: +3200 points and endless ascents unlock.</li>
+<li>Wrong sap order, missed leap, overcharged horn, or hazard strike: combo reset, grip/haze/shell penalty.</li>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<li>Mouse/tap on trunk or branch: steer toward angular lane/ledge, select reachable target, press controls, start/pause overlay button, prompt link, or explainable HUD chips.</li>
+<li>Mouse drag on the 3D stage: orbit the beetle around the trunk and preview a leap direction with a visible thumb/mouse offset.</li>
+<li>Arrow keys or WASD: Climb Up/Down and Orbit Left/Right.</li>
+<li>Space or Enter: Leap Branch.</li>
+<li>C or L: Lock Claws.</li>
+<li>H: Charge Horn / release horn burst.</li>
+<li>D: Sap Dash when sap charge is ready.</li>
+<li>F: Fan Wings.</li>
+<li>Shift or G: Canopy Focus when charged.</li>
+<li>P: pause/resume.</li>
+<li>R: restart current run.</li>
+<li>Mobile/touch:</li>
+<li>Drag vertically on the stage to climb and horizontally to orbit; the beetle keeps a visible offset above the finger.</li>
+<li>Tap highlighted branch ledges to preview/launch Leap Branch when reachable.</li>
+<li>Use large Climb Up, Climb Down, Orbit Left, Orbit Right, Leap Branch, Lock Claws, Charge Horn, Sap Dash, Fan Wings, Canopy Focus, Pause, Restart, Audio, and Prompt buttons.</li>
+<li>Tapping grip/sap/wind/hazard/focus chips may show short explanations.</li>
+<li>No tiny virtual joystick. Interaction is direct trunk drag plus labeled climbing/action controls.</li>
+<li>Mobile layout/orientation:</li>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact Kabuto HUD with score, best, shell hearts, grip %, haze %, combo, height, active lane, sap order, hazard risk, Canopy Focus charge, and elapsed time. Use beetle/sap/claw/wing/leaf/bell/shell chips, not mushroom/root/dew/spore/kintsugi/tatami/cake/fish/gear/bridge/thread/fan-dye/valve/flower/fruit/lattice/shrine/tea-foam/firework/cat-coin/rabbit/brush/kite/sand/pearl/drum icons.</li>
+<li>Below top: ascent commission card with requested sap order, charm rescue count, grip target, hazard warnings, bell distance, progress ticks, and current route hint.</li>
+<li>Center: tall 3D cedar climbing stage with trunk cylinder, beetle, branch ledges, sap beads, reach rings, firefly charms, leaf gusts, woodpecker shadows, helper art, and readable feedback. It must remain playable without zooming.</li>
+<li>Bottom: status helper plus large climbing/action controls. Controls must not cover beetle, sap beads, branch ledges, reach previews, commission card, helper, or hazards.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, climb/orbit, Leap Branch, Lock Claws, Charge Horn, Sap Dash, Fan Wings, Canopy Focus, pause/restart must be visible.</li>
+<li>Requests must combine text, icons, bead shapes, route rings, motion arrows, progress ticks, and labels so hue alone is not required.</li>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<ul>
+<li>Shows title “Kabuto Cedar Canopy Climber”.</li>
+<li>Shows Day 042 badge, mode badge “3D”, public route <code>/kabuto/</code>, best score, best Canopy Ring time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+<li>Notes: “Audio starts after you press Start; visual climb, grip, sap, wind, hazard, and bell cues work if muted.”</li>
+</ul>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<ul>
+<li>Objective: “Climb the cedar, collect sap in order, rescue firefly charms, and ring the canopy bell before grip and daylight fade.”</li>
+<li>Movement: climb up/down and orbit around the trunk; sap lanes wrap around the cedar cylinder.</li>
+<li>Leaps: use Leap Branch only when the reach ring turns gold; Fan Wings can slow a fall.</li>
+<li>Safety: Lock Claws during leaf gusts and woodpecker shadows; Charge Horn clears brittle bark and rival beetles.</li>
+<li>Sap: collect ordered sap beads, then use Sap Dash along a glowing vein for score chains.</li>
+<li>Canopy Focus: previews reachable ledges, wind, hazards, sap order, and the safest route when charged.</li>
+<li>Pause/restart: P/R on desktop or visible buttons on mobile.</li>
+</ul>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<ul>
+<li>Score, best score, shell hearts, grip %, haze %, ascent name, combo, height, active lane, next sap, hazard risk, Canopy Focus charge, elapsed time, latest warning.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<ol>
+<li>Status helper</li>
+</ol>
+<ul>
+<li>Non-blocking helper showing current lane, next ledge, sap order hint, grip warning, wind warning, hazard warning, Canopy Focus readiness, and expected score effect.</li>
+<li>Must not cover the 3D climbing stage or bottom controls on mobile.</li>
+</ul>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, audio/mute toggle, prompt link.</li>
+</ul>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<ul>
+<li>Final score, best score, ascent reached, Canopy Ring status, missed leaps, charms rescued, sap chains, hazards avoided, grip finish, badges, restart button.</li>
+</ul>
+<ol>
+<li>Kabuto Dawn Canopy Ring banner</li>
+</ol>
+<ul>
+<li>Trigger once per run after all three ascent commissions and 5600 score.</li>
+<li>Non-blocking celebration: sunrise beams flare through the cedar needles, sap beads sparkle into a spiral, the beetle taps the hanging bell, the cricket guide bows on a leaf, and endless ascents continue after the banner fades.</li>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: glossy kabutomushi climber hero, portrait cedar canopy climbing background, bark/sap/leaf/charm/hazard material sprite sheet, and beetle/claw/sap/wing/wind/bell UI icon sheet. Three.js primitives may render the interactive trunk cylinder, beetle proxy mesh, branch ledges, sap beads, reach rings, wind arrows, hazard shadows, particles, and UI chrome. It should not create final character/background/texture/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/042/assets/source/</code> and use optimized playable copies under <code>release/games/042/assets/</code>. Also copy optimized playable assets into <code>apps/day-042-kabuto-cedar-canopy-climber/assets/</code> and the public alias <code>release/kabuto/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in text, avoid watermarks, avoid fake UI labels, avoid tiny bark details that disappear at final in-game size, and keep beetle/sap/branch/leaf/gust/charm/bell/hazard/focus silhouettes distinct against bright dawn cedar backgrounds.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Kabutomushi climber hero mascot</li>
+</ol>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/042/assets/source/kabuto-hero-source.png</code></li>
+<li>Optimized path: <code>release/games/042/assets/kabuto-hero.png</code></li>
+<li>Imagegen2 prompt: “A charming glossy Japanese rhinoceros beetle kabutomushi hero for a mobile 3D cedar canopy climbing arcade game, cute but athletic beetle with polished dark chestnut shell, small golden scarf flag, bright friendly eyes, strong horn silhouette, tiny clawed feet gripping bark, dawn sunlight rim light, centered readable silhouette, transparent or solid warm parchment background, no checkerboard background, no text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Dawn cedar canopy climbing background source</li>
+</ol>
+<ul>
+<li>Target: portrait-friendly background suitable behind a tall 3D trunk with open readable center.</li>
+<li>Archive path: <code>release/games/042/assets/source/kabuto-canopy-source.png</code></li>
+<li>Optimized path: <code>release/games/042/assets/kabuto-canopy.png</code></li>
+<li>Imagegen2 prompt: “A bright dawn Japanese cedar forest canopy for a portrait mobile 3D climbing arcade game, tall cedar trunks rising upward, blue morning sky gaps, gold sunbeams through needles, mossy branch ledges at edges, hanging shimenawa rope flags far above, amber sap glints, open readable central vertical space for an overlaid 3D climbing trunk, crop-safe for phone portrait, no central character, no readable text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<ol>
+<li>Bark, sap, leaf, charm, and hazard sprite sheet source</li>
+</ol>
+<ul>
+<li>Target: square sheet with separated readable materials that can be used as textures/decals.</li>
+<li>Archive path: <code>release/games/042/assets/source/kabuto-pieces-source.png</code></li>
+<li>Optimized path: <code>release/games/042/assets/kabuto-pieces.png</code></li>
+<li>Imagegen2 prompt: “Sprite sheet of small readable cedar canopy climbing game pieces: rough cedar bark patch, moss rest pad, amber sap bead, blue-tag sap bead, red-tag sap bead, firefly lantern charm, falling green leaf, brittle bark flake, rival tiny beetle, woodpecker shadow mark, golden reach ring, small hanging bell, each element separated with generous margins, transparent or warm parchment background, no checkerboard background, no text, no watermark, readable at 40-96 pixels.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Kabuto claw, sap, wing, wind, hazard, and focus UI icon sheet source</li>
+</ol>
+<ul>
+<li>Target: square icon sheet for objectives, hazards, tools, rewards, and UI decals.</li>
+<li>Archive path: <code>release/games/042/assets/source/kabuto-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/042/assets/kabuto-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a Japanese kabutomushi cedar climbing arcade game: beetle shell, claw grip, climb arrow, orbit arrow around trunk, leap branch arc, horn charge, sap dash bead, fan wings, leaf gust, woodpecker warning shadow, firefly charm, moss rest, shell heart, Canopy Focus cedar-bell emblem, cedar-shell seal, Grand Canopy Bell crest, transparent or solid warm parchment background, no checkerboard background, high contrast, no text, no watermark, generous margins so no icons are cut off.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/Three.js beetle/bark/sap/leaf/charm/bell/icon silhouettes, document the failure in <code>ai/postmortems/day-042.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the kabutomushi hero, verify transparent/cutout quality or clean background handling, readable horn/shell silhouette, centered pivot/crop margins, no unwanted text/watermarks, stable upright/head-up climbing orientation, and that the claw pose is compatible with trunk climbing placement and movement.</li>
+<li>For the pieces sheet, verify separated bark, moss, amber/blue/red sap beads, firefly charm, falling leaf, brittle bark, rival beetle, woodpecker shadow, reach ring, and bell elements at final 40-96px size, usable crop margins, no baked checkerboard, no unwanted text/watermark, and a documented visual baseline: beetle head/horn points upward by default; sap beads are round route collectibles; reach rings are gold landing targets.</li>
+<li>Verify control-to-motion alignment in-game: Climb Up/Down must move the beetle vertically, Orbit Left/Right must visibly wrap it around the cylindrical trunk, Leap Branch must show an arc and land/fall, Lock Claws must visibly cling/reduce slide, Charge Horn must show a buildup/release, Sap Dash must move along a glowing vein, Fan Wings must slow fall/reveal charm, Canopy Focus must preview routes/hazards, Pause/Restart must work.</li>
+<li>For the background, verify the central trunk remains readable after portrait mobile crop and does not hide beetle, sap beads, ledges, commission card, helper, hazards, or controls.</li>
+<li>For the icon sheet, verify beetle shell, claw, climb, orbit, leap, horn, sap dash, wing, leaf gust, woodpecker warning, firefly charm, moss, shell heart, Canopy Focus, cedar-shell seal, and Grand Bell crest are distinct at final HUD/button size and cannot be confused. Watch specifically for fake checkerboard transparency; alpha-clean or composite onto warm parchment if needed and inspect again.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Audio and game feel</h2>
+<p>Because claw taps, wing buzzes, sap pops, bark scraping, leaf gusts, and the canopy bell are central to the theme, include lightweight WebAudio cues initialized only after a user gesture:</p>
+<ul>
+<li>Soft claw tap when selecting/starting a climb.</li>
+<li>Bark scratch loop or short scrape when Climb Up/Down moves.</li>
+<li>Wrapped whoosh when Orbit Left/Right crosses depth lanes.</li>
+<li>Elastic leap chirp and landing thud for Leap Branch.</li>
+<li>Claw-lock click when Lock Claws succeeds.</li>
+<li>Rising shell hum for Charge Horn and crisp knock on release.</li>
+<li>Sweet sap pop/shimmer when Sap Dash or ordered sap collection succeeds.</li>
+<li>Wing flutter when Fan Wings slows a fall.</li>
+<li>Dry leaf rustle warning for gusts and woodpecker shadow low knock.</li>
+<li>Bright cedar-bell flourish when Kabuto Dawn Canopy Ring triggers.</li>
+</ul>
+<p>Audio must not block play if WebAudio is unavailable. Verify no autoplay errors: audio context should be created/resumed only after Start or another user interaction. Include a visible mute toggle in pause/results or HUD. Expose a narrow debug handle such as <code>window.__day042Audio = { ctx, enabled }</code> after user-gesture initialization so Playwright can assert audio state.</p>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/042/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 042 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<ul>
+<li>Build the static 3D game under <code>apps/day-042-kabuto-cedar-canopy-climber/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/042/</code>.</li>
+<li>Create the public playable route under <code>release/kabuto/</code>.</li>
+<li>Use static HTML/CSS/JS with Three.js/WebGL/WebAudio and no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+<li>If vendoring <code>three.module*.js</code>, also copy the matching <code>three.core*.js</code> beside it in the app, release archive, and <code>/kabuto/</code> alias assets.</li>
+</ul>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, remove fake checkerboards if present, document beetle orientation/sap/reach-ring visual baselines, and tune mobile readability/game feel.</li>
+</ul>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, 3D cedar trunk render, Climb Up/Down, Orbit Left/Right, direct stage drag, Leap Branch, Lock Claws, Charge Horn, Sap Dash, Fan Wings, Canopy Focus control presence and visible mechanical effect, grip/sap/wind/hazard/bell feedback, generated screenshot, generated assets, WebAudio initialization after user gesture, and 390x844 portrait layout.</li>
+</ul>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<ul>
+<li>Write <code>ai/postmortems/day-042.md</code> after validation with what worked, what failed, generated-image inspection notes, beetle orientation/sap/reach-ring visual baseline, audio verification, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 042 is real <code>3d</code> after Day 041 <code>2d</code>, with meaningful cylindrical trunk/orbit/height/depth/leap/grip mechanics rather than decorative perspective.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/ascent card, usable 44px+ climb/action/pause/restart controls, no forced landscape canvas, and no tiny survival-critical ledges.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-042.md</code> is copied exactly to <code>release/games/042/prompt.md</code> and <code>release/kabuto/prompt.md</code>.</li>
+<li><code>release/games/042/prompt.html</code> and <code>release/kabuto/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/kabuto/index.html</code>, <code>release/kabuto/prompt.html</code>, <code>release/kabuto/screenshot.png</code>, and <code>release/kabuto/assets/</code> exist and work.</li>
+<li>Gallery card for Day 042 shows prompt availability, generation duration, public <code>/kabuto/</code> links, mode <code>3d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/042/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/042/assets/source/</code> and optimized assets exist under <code>release/games/042/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive beetle/trunk/sap/ledge/wind/hazard visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>WebAudio initializes after user gesture and creates no autoplay console errors; audio is failsafe if unsupported and visual climb/grip/sap/wind/hazard/order cues remain playable muted.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicons to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/**</code> through <code>release/games/041/**</code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/042/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/kabuto/index.html, release/kabuto/prompt.html, release/kabuto/screenshot.png, optimized assets, source assets, and vendored Three.js files (if used) exist and are non-empty.
+# Prompt copy check: cmp prompts/day-042.md release/games/042/prompt.md and cmp prompts/day-042.md release/kabuto/prompt.md.
+# Prompt HTML check: verify release/games/042/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes, no direct nested lists, and no strong/b tags inside code.
+# Browser smoke: open the local/static /kabuto/ route and verify menu, tutorial, gameplay start, 3D trunk render, Climb Up/Down, Orbit Left/Right, stage drag, Leap Branch, Lock Claws, Charge Horn, Sap Dash, Fan Wings, Canopy Focus, grip/sap/wind/hazard/bell feedback, pause, restart, prompt page, WebAudio after user gesture, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable climb/action controls plus readable HUD/ascent card/stage/controls.
+# Static screenshot check: inspect release/games/042/screenshot.png and release/kabuto/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-042.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /kabuto/ and /kabuto/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 042.</code></pre></article></main></body></html>
