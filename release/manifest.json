@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-24T01:31:24.000Z",
+  "generatedAt": "2026-07-25T01:31:42.000Z",
   "totalDays": 100,
-  "completedDays": 42,
+  "completedDays": 43,
   "games": [
     {
       "day": 1,
@@ -380,6 +380,15 @@
       "promptUrl": "/kabuto/prompt.html",
       "screenshotUrl": "/kabuto/screenshot.png",
       "generationDuration": "manual controller run with implementation subagent dispatch and Imagegen2 assets ~150 minutes"
+    },
+    {
+      "day": 43,
+      "title": "Karuta Mooncall Duelist",
+      "slug": "karuta-mooncall-duelist",
+      "playUrl": "/karuta/",
+      "promptUrl": "/karuta/prompt.html",
+      "screenshotUrl": "/karuta/screenshot.png",
+      "generationDuration": "manual controller run with implementation/QA subagents ~150 minutes"
     }
   ]
 }

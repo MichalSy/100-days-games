@@ -646,6 +646,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/kabuto/screenshot.png',
     generationDuration: 'manual controller run with implementation subagent dispatch and Imagegen2 assets ~150 minutes',
     generatedAt: '2026-07-24T01:31:24Z'
+  },
+  43: {
+    status: 'generated',
+    title: 'Karuta Mooncall Duelist',
+    slug: 'karuta-mooncall-duelist',
+    genre: ['karuta memory-reaction arcade', 'poem-card scanning', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Play a moonlit karuta duel by listening to reader cues, scanning a spread of cards, marking likely matches, sweeping the correct card before the rival hand, and chaining poem-set victories.',
+    objective: 'Complete First Moon Syllable, Crane Verse Rush, and Full Lantern Match while reaching 5700 points to trigger Karuta Mooncall Victory, then continue into endless card-call rounds.',
+    playUrl: '/karuta/',
+    promptUrl: '/karuta/prompt.html',
+    promptExcerpt: 'Scan karuta card traits, Memory Mark likely matches, Lock Card when confident, Sweep Card before the rival hand, and use Mooncall Focus to reveal targets and decoys.',
+    screenshotUrl: '/karuta/screenshot.png',
+    generationDuration: 'manual controller run with implementation/QA subagents and Imagegen2 assets ~150 minutes',
+    generatedAt: '2026-07-25T01:31:42Z'
   }
 };
 

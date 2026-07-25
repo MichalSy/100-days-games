@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Karuta Mooncall Duelist — Day 043</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%8C%99%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="shell" id="gameShell">
+    <section class="topbar" aria-label="Game HUD">
+      <div class="brand"><b>Karuta</b><span>Day 043</span><span>2D</span></div>
+      <div class="hud-grid" id="hudGrid">
+        <span>Score <b id="score">0</b></span><span>Best <b id="best">0</b></span><span>Focus <b id="hearts">♥♥♥</b></span><span>Lantern <b id="lantern">100%</b></span><span>Rival <b id="rivalCards">0</b></span><span>Combo <b id="combo">1.0x</b></span><span>Card <b id="activeCard">1/10</b></span><span>Cue <b id="cueTrait">moon</b></span><span>Window <b id="windowHud">wide</b></span><span>Risk <b id="risk">low</b></span><span>Focus <b id="focus">0%</b></span><span>Time <b id="time">0:00</b></span>
+      </div>
+    </section>
+
+    <section class="cue-card" aria-label="Reader cue">
+      <div><small>READER MOONCALL</small><h2 id="setName">First Moon Syllable <span id="setProgress">0/3</span></h2><p id="cueText">Match the moon card with the blue spring seal before the rival hand arrives.</p></div>
+      <div class="meters"><label>Rival reach <span id="rivalReachLabel">18%</span></label><meter id="rivalReach" min="0" max="100" value="18"></meter><label>Poem chain <span id="chainLabel">0/3</span></label><meter id="chainMeter" min="0" max="3" value="0"></meter></div>
+    </section>
+
+    <section class="stage-wrap">
+      <canvas id="gameCanvas" width="900" height="560" aria-label="Karuta card table"></canvas>
+      <div class="stage-badges"><span>Scan traits</span><span>Lock moon</span><span>Sweep timing</span></div>
+    </section>
+
+    <section class="helper"><img src="./assets/karuta-helper.png" alt="Suzume karuta helper" /><p id="helperText">The reader lifts the first cue. Scan the cards, mark a likely match, then sweep cleanly.</p></section>
+
+    <section class="controls" aria-label="Controls">
+      <button data-action="prev">Card −</button><button data-action="next">Card +</button><button data-action="scan">Scan Fan</button><button data-action="mark">Memory Mark</button><button data-action="lock">Lock Card</button><button data-action="sweep" class="primary">Sweep Card</button><button data-action="guard">Guard Rival</button><button data-action="shuffle">Reshuffle Fan</button><button data-action="focus">Mooncall Focus</button><button data-action="pause">Pause</button><button data-action="restart">Restart</button><button data-action="audio">Audio: On</button><a class="button-link" href="./prompt.html">Prompt</a>
+    </section>
+  </main>
+
+  <div class="overlay" id="menu">
+    <section class="panel menu-panel">
+      <div class="badges"><span>Day 043</span><span>Mode 2D</span><span>/karuta/</span></div>
+      <h1>Karuta Mooncall Duelist</h1>
+      <p class="lede">Listen to the mooncall, find the matching card, and sweep it before the rival hand.</p>
+      <div class="tutorial">
+        <p><b>Reading cues:</b> match cue fragments with card symbols, season seals, and moon marks.</p>
+        <p><b>Memory:</b> use Scan Fan, Memory Mark, and Lock Card only when confident.</p>
+        <p><b>Duel timing:</b> Sweep Card before the rival hand reaches the card; Guard Rival in the red warning lane.</p>
+        <p><b>Mooncall Focus:</b> previews likely targets, decoys, rival paths, and safe sweep timing.</p>
+        <p><b>Pause/restart:</b> P/R on desktop or visible buttons on mobile. Audio starts after Start and can be muted.</p>
+      </div>
+      <div class="menu-actions"><button id="startButton" class="primary big">Start Mooncall</button><a class="button-link" href="./prompt.html">View prompt</a></div>
+    </section>
+  </div>
+
+  <div class="overlay hidden" id="pauseOverlay"><section class="panel"><h2>Paused</h2><p>Scan Fan reveals traits; Memory Mark suspected cards; Lock Card slows rival; Sweep Card decides; Guard Rival blocks red lanes; Mooncall Focus previews targets.</p><div class="menu-actions"><button data-action="resume" class="primary">Resume</button><button data-action="restart">Restart</button><button data-action="audio">Audio: On</button><a class="button-link" href="./prompt.html">Prompt</a></div></section></div>
+  <div class="overlay hidden" id="resultOverlay"><section class="panel"><h2 id="resultTitle">Results</h2><p id="resultText"></p><div class="menu-actions"><button data-action="restart" class="primary">Restart</button><a class="button-link" href="./prompt.html">Prompt</a></div></section></div>
+  <div class="victory hidden" id="victoryBanner">Karuta Mooncall Victory — cards flutter into a crescent!</div>
+  <script src="./game.js" type="module"></script>
+</body>
+</html>
