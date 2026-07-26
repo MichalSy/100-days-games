@@ -661,6 +661,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/karuta/screenshot.png',
     generationDuration: 'manual controller run with implementation/QA subagents and Imagegen2 assets ~150 minutes',
     generatedAt: '2026-07-25T01:31:42Z'
+  },
+  44: {
+    status: 'generated',
+    title: 'Kakigori Prism Shavewright',
+    slug: 'kakigori-prism-shavewright',
+    genre: ['3D dessert sculpting arcade', 'syrup-channel routing', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Sculpt a translucent kakigori mound at a summer matsuri stall, carve height-band grooves, route colored syrup ribbons, place toppings, and keep the ice from melting into the lacquer tray.',
+    objective: 'Complete First Strawberry Snow, Mikan Prism Steps, and Grand Matsuri Rainbow while reaching 5800 points to trigger Kakigori Prism Service, then continue into endless summer-stall orders.',
+    playUrl: '/kakigori/',
+    promptUrl: '/kakigori/prompt.html',
+    promptExcerpt: 'Rotate a 3D shaved-ice mound, shave and carve channels, pour syrup, place toppings, freeze mist, drain puddles, and use Prism Focus before the kakigori melts.',
+    screenshotUrl: '/kakigori/screenshot.png',
+    generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-26T01:31:33Z'
   }
 };
 

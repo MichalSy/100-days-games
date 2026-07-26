@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-25T01:31:42.000Z",
+  "generatedAt": "2026-07-26T01:31:33.000Z",
   "totalDays": 100,
-  "completedDays": 43,
+  "completedDays": 44,
   "games": [
     {
       "day": 1,
@@ -389,6 +389,15 @@
       "promptUrl": "/karuta/prompt.html",
       "screenshotUrl": "/karuta/screenshot.png",
       "generationDuration": "manual controller run with implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 44,
+      "title": "Kakigori Prism Shavewright",
+      "slug": "kakigori-prism-shavewright",
+      "playUrl": "/kakigori/",
+      "promptUrl": "/kakigori/prompt.html",
+      "screenshotUrl": "/kakigori/screenshot.png",
+      "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]
 }
