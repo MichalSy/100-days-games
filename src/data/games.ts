@@ -676,6 +676,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/kakigori/screenshot.png',
     generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-26T01:31:33Z'
+  },
+  45: {
+    status: 'generated',
+    title: 'Kendama Star Cup Juggler',
+    slug: 'kendama-star-cup-juggler',
+    genre: ['pendulum dexterity arcade', 'cup-and-spike timing', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Swing a vermilion kendama ball on an indigo string, tilt polished wooden cups, catch paper star charms, hold wobble balance, and spike the festival finale before the lantern fades.',
+    objective: 'Complete First Cup Clack, Lantern Orbit, and Grand Star Spike while reaching 5900 points to trigger Kendama Star Cup Ceremony, then continue into endless trick chains.',
+    playUrl: '/kendama/',
+    promptUrl: '/kendama/prompt.html',
+    promptExcerpt: 'Tilt the handle, swing the ball, pull the string, catch in requested cups, balance cleanly, collect paper stars, and use Star Focus before the finale spike.',
+    screenshotUrl: '/kendama/screenshot.png',
+    generationDuration: 'manual controller run with implementation/QA subagents and Imagegen2 assets ~150 minutes',
+    generatedAt: '2026-07-27T01:31:11Z'
   }
 };
 

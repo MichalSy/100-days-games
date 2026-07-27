@@ -1,0 +1,330 @@
+:root {
+  color-scheme: dark;
+  --ink: #fff4dd;
+  --muted: #e5c99b;
+  --bg: #170d15;
+  --panel: rgba(43, 21, 32, 0.88);
+  --panel-strong: rgba(70, 31, 35, 0.95);
+  --line: rgba(255, 214, 130, 0.28);
+  --gold: #ffd66e;
+  --wood: #d69a54;
+  --red: #de3b2d;
+  --indigo: #26396c;
+  --green: #76e0a3;
+  --danger: #ff785f;
+  font-family: Inter, ui-rounded, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 50% -10%, rgba(255, 157, 70, 0.28), transparent 38rem),
+    linear-gradient(160deg, #130913, #2b1520 48%, #140b11);
+  overflow-x: hidden;
+}
+button, .button-link {
+  min-height: 44px;
+  border: 1px solid rgba(255, 218, 132, 0.35);
+  border-radius: 14px;
+  color: var(--ink);
+  background: linear-gradient(180deg, rgba(117, 53, 46, 0.95), rgba(65, 26, 34, 0.95));
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(255,255,255,0.1);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+button:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+button:active { transform: translateY(1px); }
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  text-decoration: none;
+}
+.game-shell {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto auto;
+  gap: 10px;
+  padding: max(10px, env(safe-area-inset-top)) 12px max(14px, env(safe-area-inset-bottom));
+}
+.topbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(27, 12, 20, 0.74);
+  backdrop-filter: blur(12px);
+}
+.brand-block { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.badge, .route, .ticket {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(255, 214, 110, 0.14);
+  border: 1px solid rgba(255, 214, 110, 0.26);
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+.badge.mode { color: #bce6ff; }
+.route { color: var(--muted); }
+.quick-controls { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.quick-controls button, .quick-controls .button-link { min-height: 38px; padding: 0 11px; font-size: 0.84rem; }
+.hud {
+  display: grid;
+  grid-template-columns: repeat(11, minmax(82px, 1fr));
+  gap: 6px;
+}
+.chip {
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 5px 8px;
+  background: rgba(23, 11, 18, 0.72);
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+.chip strong { color: var(--ink); font-size: 0.86rem; }
+.card-row { min-height: 78px; }
+.trick-card, .objective-panel, .helper-panel {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.28);
+}
+.trick-card { padding: 10px 12px; }
+.trick-heading { display: flex; gap: 10px; align-items: center; justify-content: space-between; }
+.trick-heading strong { font-size: 1.05rem; color: #fff0c6; }
+.trick-card p { margin: 7px 0; color: var(--muted); line-height: 1.25; }
+.judge-note { font-size: 0.84rem; }
+.progress-ticks { display: flex; gap: 7px; flex-wrap: wrap; }
+.tick {
+  min-width: 28px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.tick.done { background: linear-gradient(90deg, var(--gold), #ff8b57); }
+.play-area {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 10px;
+}
+.canvas-wrap {
+  position: relative;
+  height: clamp(360px, 52svh, 560px);
+  min-height: 360px;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: #24131a;
+  box-shadow: inset 0 0 60px rgba(0,0,0,0.42), 0 18px 40px rgba(0,0,0,0.32);
+}
+#stage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  touch-action: none;
+}
+.stage-label {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  max-width: calc(100% - 24px);
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(22, 9, 16, 0.72);
+  border: 1px solid rgba(255, 214, 110, 0.22);
+  color: var(--muted);
+  font-size: 0.78rem;
+  pointer-events: none;
+}
+.helper-panel {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-content: start;
+  padding: 12px;
+  gap: 10px;
+}
+.helper-panel img {
+  width: min(100%, 180px);
+  justify-self: center;
+  border-radius: 22px;
+  background: rgba(255, 245, 221, 0.86);
+}
+.helper-panel p { color: var(--muted); line-height: 1.35; margin-bottom: 0; }
+.control-pad {
+  display: grid;
+  grid-template-columns: repeat(14, minmax(74px, 1fr));
+  gap: 7px;
+}
+.control-pad button, .control-pad .button-link {
+  min-height: 50px;
+  padding: 6px 8px;
+  font-size: 0.8rem;
+}
+.objective-panel {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+.objective-panel strong { color: var(--gold); }
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  place-items: center;
+  padding: 16px;
+  background: rgba(12, 5, 10, 0.72);
+  backdrop-filter: blur(8px);
+}
+.overlay.show { display: grid; }
+.modal {
+  width: min(760px, 100%);
+  max-height: min(92svh, 820px);
+  overflow: auto;
+  border: 1px solid rgba(255, 218, 132, 0.35);
+  border-radius: 28px;
+  padding: 22px;
+  background:
+    linear-gradient(180deg, rgba(77, 35, 38, 0.96), rgba(31, 13, 24, 0.98)),
+    url('./assets/kendama-stall.png') center / cover;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.62);
+}
+.menu-modal { width: min(880px, 100%); }
+.modal-kicker { display: flex; flex-wrap: wrap; gap: 8px; color: var(--gold); font-weight: 900; }
+.modal h1, .modal h2 { margin: 10px 0; }
+.modal h1 { font-size: clamp(2rem, 7vw, 4.6rem); line-height: 0.94; color: #fff1c8; }
+.modal .lead { font-size: 1.05rem; color: #ffddb0; line-height: 1.45; }
+.menu-stats { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.menu-stats span, .menu-stats a {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 11px;
+  background: rgba(24, 10, 18, 0.55);
+  color: var(--ink);
+  text-decoration: none;
+}
+.tutorial {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 12px 14px;
+  background: rgba(21, 10, 17, 0.62);
+}
+.tutorial h2 { margin-top: 0; color: var(--gold); }
+.tutorial ul { margin: 0; padding-left: 1.2rem; }
+.tutorial li { margin: 6px 0; color: var(--ink); }
+.audio-note { color: var(--muted); font-weight: 800; }
+.start-button { width: 100%; min-height: 58px; margin-top: 14px; font-size: 1.05rem; background: linear-gradient(180deg, #e65335, #7c2e29); }
+.modal-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.modal-actions > * { flex: 1 1 130px; }
+.results-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
+.result-item { padding: 10px; border-radius: 14px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); }
+.ceremony {
+  position: fixed;
+  z-index: 18;
+  left: 50%;
+  top: 12px;
+  transform: translate(-50%, -140%);
+  display: none;
+  gap: 4px;
+  width: min(560px, calc(100% - 24px));
+  padding: 14px 18px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #fff0a4, #f05c31 48%, #2e3268);
+  color: #210c12;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.45);
+  transition: transform 360ms ease;
+  text-align: center;
+}
+.ceremony.show { display: grid; transform: translate(-50%, 0); }
+.ceremony strong { font-size: 1.25rem; }
+
+@media (max-width: 980px) {
+  .game-shell { gap: 7px; padding: 8px; }
+  .topbar { align-items: flex-start; }
+  .brand-block strong { width: 100%; }
+  .quick-controls { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; }
+  .topbar { display: grid; }
+  .hud { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .chip { min-height: 31px; font-size: 0.68rem; padding: 4px 6px; }
+  .chip strong { font-size: 0.74rem; }
+  .play-area { grid-template-columns: 1fr; gap: 7px; }
+  .canvas-wrap { height: clamp(270px, 34svh, 330px); min-height: 270px; }
+  #stage { height: 100%; min-height: 270px; max-height: 100%; }
+  .helper-panel { grid-template-columns: 58px 1fr; grid-template-rows: auto; padding: 8px; }
+  .helper-panel img { width: 58px; border-radius: 14px; }
+  .helper-panel p { margin: 4px 0 0; font-size: 0.8rem; }
+  .control-pad { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+  .control-pad button, .control-pad .button-link { min-height: 46px; font-size: 0.72rem; padding: 4px 5px; border-radius: 12px; }
+  .objective-panel { font-size: 0.78rem; padding: 8px 10px; }
+  .trick-card { padding: 8px 10px; }
+  .trick-card p { font-size: 0.8rem; }
+  .trick-heading strong { font-size: 0.92rem; }
+  .stage-label { font-size: 0.68rem; }
+  .modal { padding: 14px; max-height: 94svh; }
+  .modal h1 { font-size: clamp(1.8rem, 10vw, 3.1rem); }
+  .tutorial li { margin: 4px 0; font-size: 0.84rem; }
+  .start-button { min-height: 54px; }
+}
+
+@media (max-width: 430px) {
+  .game-shell { gap: 5px; padding: 6px 8px; overflow: hidden; }
+  .topbar { padding: 6px; border-radius: 14px; gap: 5px; }
+  .brand-block { gap: 5px; }
+  .brand-block strong { width: auto; font-size: 0.82rem; line-height: 1; }
+  .route { display: none; }
+  .badge { min-height: 22px; padding: 2px 7px; font-size: 0.66rem; }
+  .quick-controls { gap: 4px; }
+  .quick-controls button, .quick-controls .button-link { min-height: 32px; font-size: 0.66rem; padding: 0 4px; border-radius: 10px; }
+  .hud { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; }
+  .chip { min-height: 28px; padding: 3px 4px; font-size: 0.56rem; gap: 2px; border-radius: 9px; }
+  .chip strong { font-size: 0.62rem; }
+  .hud .chip:nth-child(11) { display: none; }
+  .card-row { min-height: 58px; }
+  .trick-card { padding: 5px 7px; border-radius: 13px; }
+  .trick-heading { gap: 4px; }
+  .trick-heading strong { font-size: 0.76rem; }
+  .ticket { min-height: 20px; padding: 2px 6px; font-size: 0.58rem; }
+  .trick-card p { margin: 3px 0; font-size: 0.66rem; line-height: 1.12; }
+  .judge-note { display: none; }
+  .tick { height: 7px; min-width: 20px; }
+  .canvas-wrap { height: 250px; min-height: 250px; border-radius: 16px; }
+  #stage { height: 100%; min-height: 250px; max-height: 100%; }
+  .stage-label { display: none; }
+  .helper-panel { grid-template-columns: 44px 1fr; padding: 5px 7px; gap: 7px; border-radius: 13px; }
+  .helper-panel img { width: 44px; border-radius: 10px; }
+  .helper-panel strong { font-size: 0.74rem; }
+  .helper-panel p { margin: 2px 0 0; font-size: 0.66rem; line-height: 1.15; }
+  .control-pad { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; }
+  .control-pad button, .control-pad .button-link { min-height: 44px; font-size: 0.56rem; padding: 2px 3px; border-radius: 10px; }
+  .objective-panel { display: none; }
+  .modal .lead { font-size: 0.88rem; }
+  .tutorial li { font-size: 0.78rem; line-height: 1.2; }
+  .audio-note { font-size: 0.78rem; }
+  .menu-stats span, .menu-stats a { padding: 6px 8px; font-size: 0.8rem; }
+}

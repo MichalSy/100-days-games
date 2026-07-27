@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#2b1520" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232b1520'/%3E%3Ccircle cx='34' cy='22' r='11' fill='%23d83b25'/%3E%3Cpath d='M32 31v22M20 39h24M18 39c0 8 28 8 28 0' stroke='%23f0c27a' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Cpath d='m49 10 2 6 6 2-6 2-2 6-2-6-6-2 6-2z' fill='%23ffd66e'/%3E%3C/svg%3E" />
+    <title>Kendama Star Cup Juggler</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="game-shell" id="gameShell">
+      <header class="topbar" aria-label="Day 045 game header">
+        <div class="brand-block">
+          <span class="badge">Day 045</span>
+          <span class="badge mode">2D</span>
+          <strong>Kendama Star Cup Juggler</strong>
+          <span class="route">/kendama/</span>
+        </div>
+        <nav class="quick-controls" aria-label="Always visible controls">
+          <button id="pauseBtn" type="button">Pause</button>
+          <button id="restartBtn" type="button">Restart</button>
+          <button id="audioBtn" type="button" aria-pressed="false">Audio: On</button>
+          <a class="button-link" id="promptTopLink" href="./prompt.html">Prompt</a>
+        </nav>
+      </header>
+
+      <section class="hud" aria-label="Kendama run status">
+        <span class="chip">Score <strong id="scoreChip">0</strong></span>
+        <span class="chip">Best <strong id="bestChip">0</strong></span>
+        <span class="chip">Hearts <strong id="heartsChip">♥♥♥</strong></span>
+        <span class="chip">Lantern <strong id="lanternChip">100%</strong></span>
+        <span class="chip">Balance <strong id="balanceChip">0%</strong></span>
+        <span class="chip">Tension <strong id="tensionChip">12%</strong></span>
+        <span class="chip">Combo <strong id="comboChip">x1</strong></span>
+        <span class="chip">Target <strong id="targetChip">Big Cup</strong></span>
+        <span class="chip">Window <strong id="windowChip">Wide</strong></span>
+        <span class="chip">Focus <strong id="focusChip">0%</strong></span>
+        <span class="chip">Time <strong id="timeChip">0:00</strong></span>
+      </section>
+
+      <section class="card-row">
+        <article class="trick-card" aria-live="polite">
+          <div class="trick-heading">
+            <span class="ticket">Festival trick card</span>
+            <strong id="cardName">First Cup Clack</strong>
+          </div>
+          <p id="cardGoal">Tilt, Swing Ball, Pull String, catch Big Cup, balance 1.2s, collect a star.</p>
+          <div class="progress-ticks" id="progressTicks" aria-label="Trick progress"></div>
+          <p class="judge-note" id="judgeNote">Fox judge: Start a run, then time the upward swing before catching.</p>
+        </article>
+      </section>
+
+      <section class="play-area">
+        <div class="canvas-wrap">
+          <canvas id="stage" width="720" height="720" aria-label="2D kendama stage with handle, cups, ball, string, star charms and chalk timing arcs"></canvas>
+          <div class="stage-label" id="stageLabel">Drag stage to Tilt Handle • Tap cups/spike to Swap target</div>
+        </div>
+        <aside class="helper-panel" aria-label="Status helper">
+          <img src="./assets/kendama-helper.png" alt="Fox toy-stall judge helper mascot" />
+          <div>
+            <strong id="helperTitle">Ready for wood-clack timing</strong>
+            <p id="helperText">Active Big Cup. Build a gentle arc, Pull String near the rising phase, then Cup Catch when the halo glows.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="control-pad" aria-label="Desktop and mobile kendama controls">
+        <button data-action="tiltLeft" type="button">Tilt Left</button>
+        <button data-action="tiltRight" type="button">Tilt Right</button>
+        <button data-action="swing" type="button">Swing Ball</button>
+        <button data-action="pull" type="button">Pull String</button>
+        <button data-action="cup" type="button">Cup Catch</button>
+        <button data-action="spike" type="button">Spike Catch</button>
+        <button data-action="toss" type="button">Toss Release</button>
+        <button data-action="balance" type="button">Balance Hold</button>
+        <button data-action="swap" type="button">Swap Cup</button>
+        <button data-action="focus" type="button">Star Focus</button>
+        <button data-action="pause" type="button">Pause</button>
+        <button data-action="restart" type="button">Restart</button>
+        <button data-action="audio" type="button">Audio</button>
+        <a class="button-link" href="./prompt.html">Prompt</a>
+      </section>
+
+      <section class="objective-panel">
+        <strong>Objective</strong>
+        <span>Swing the ball, catch it in the requested cup, balance it, collect star charms, then spike the finale. Complete three trick cards and 5900 points for the Kendama Star Cup Ceremony.</span>
+      </section>
+    </main>
+
+    <div class="overlay show" id="menuOverlay" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
+      <div class="modal menu-modal">
+        <div class="modal-kicker"><span>Day 045</span><span>Mode 2D</span><span>/kendama/</span></div>
+        <h1 id="menuTitle">Kendama Star Cup Juggler</h1>
+        <p class="lead">A warm toy-stall pendulum dexterity arcade: tilt the kendama, swing the red ball, catch cups, balance through wobble, collect star charms, and spike the finale before the lantern fades.</p>
+        <div class="menu-stats">
+          <span>Best score <strong id="menuBest">0</strong></span>
+          <span>Best Ceremony <strong id="menuCeremony">—</strong></span>
+          <a href="./prompt.html">View prompt</a>
+        </div>
+        <section class="tutorial" aria-label="Tutorial">
+          <h2>Tutorial</h2>
+          <ul>
+            <li><strong>Objective:</strong> Swing the ball, catch it in the requested cup, balance it, collect star charms, then spike the finale.</li>
+            <li><strong>Movement:</strong> Tilt Handle left/right or drag the stage; timing matters more than speed.</li>
+            <li><strong>Rhythm:</strong> Swing Ball builds momentum; Pull String lifts the ball; Cup Catch lands when the cup window glows.</li>
+            <li><strong>Tricks:</strong> Toss Release transitions between cups; Balance Hold steadies a catch; Spike Catch needs low sideways speed.</li>
+            <li><strong>Star Focus:</strong> When charged, preview ball arcs, catch windows, spike alignment, tension risk, and trick progress.</li>
+            <li><strong>Pause/restart:</strong> Use P/R on desktop or visible Pause/Restart buttons on mobile.</li>
+          </ul>
+          <p class="audio-note">Audio starts after you press Start; visual ball, string, cup, spike, balance, tension, star, and focus cues work if muted.</p>
+        </section>
+        <button id="startBtn" class="start-button" type="button">Start toy-stall run</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="pauseOverlay" role="dialog" aria-modal="true" aria-labelledby="pauseTitle">
+      <div class="modal">
+        <h2 id="pauseTitle">Paused at the toy stall</h2>
+        <p>Controls: A/D or arrows tilt, X Swing Ball, Z Pull String, Space Cup Catch, Shift/K Spike Catch, T Toss Release, B Balance Hold, C Swap Cup, F Star Focus, P pause, R restart.</p>
+        <p>Tutorial reminder: choose the requested cup early, swing gently, pull on the rising phase, and catch when the halo glows.</p>
+        <div class="modal-actions">
+          <button id="resumeBtn" type="button">Resume</button>
+          <button id="pauseRestartBtn" type="button">Restart</button>
+          <button id="pauseAudioBtn" type="button">Audio: On</button>
+          <a class="button-link" href="./prompt.html">Prompt</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" id="resultOverlay" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+      <div class="modal">
+        <h2 id="resultTitle">Run results</h2>
+        <div id="resultSummary" class="results-grid"></div>
+        <div class="modal-actions">
+          <button id="resultRestartBtn" type="button">Restart</button>
+          <a class="button-link" href="./prompt.html">Prompt</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ceremony" id="ceremonyBanner" aria-live="polite">
+      <strong>Kendama Star Cup Ceremony!</strong>
+      <span>Star charms orbit the spike. Endless trick chains unlocked.</span>
+    </div>
+
+    <script src="./game.js" defer></script>
+  </body>
+</html>

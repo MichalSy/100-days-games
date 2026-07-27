@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-26T01:31:33.000Z",
+  "generatedAt": "2026-07-27T01:31:11.000Z",
   "totalDays": 100,
-  "completedDays": 44,
+  "completedDays": 45,
   "games": [
     {
       "day": 1,
@@ -398,6 +398,15 @@
       "promptUrl": "/kakigori/prompt.html",
       "screenshotUrl": "/kakigori/screenshot.png",
       "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 45,
+      "title": "Kendama Star Cup Juggler",
+      "slug": "kendama-star-cup-juggler",
+      "playUrl": "/kendama/",
+      "promptUrl": "/kendama/prompt.html",
+      "screenshotUrl": "/kendama/screenshot.png",
+      "generationDuration": "manual controller run with implementation/QA subagents and Imagegen2 assets ~150 minutes"
     }
   ]
 }
