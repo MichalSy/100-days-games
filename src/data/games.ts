@@ -691,6 +691,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/kendama/screenshot.png',
     generationDuration: 'manual controller run with implementation/QA subagents and Imagegen2 assets ~150 minutes',
     generatedAt: '2026-07-27T01:31:11Z'
+  },
+  46: {
+    status: 'generated',
+    title: 'Shachi Roofline Rainwright',
+    slug: 'shachi-roofline-rainwright',
+    genre: ['3D roof-tile repair', 'rain-gutter routing', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Repair a blue-hour Japanese temple roof by replacing cracked kawara tiles, sealing moonlit overlaps, sliding copper gutters under rain streams, ringing rain chains, and bracing the gold shachi ridge through storm gusts.',
+    objective: 'Complete First Eave Leak, Moon Gutter Turn, and Grand Shachi Stormseal while reaching 6000 points to trigger Shachi Moon-Roof Blessing, then continue into endless storm repairs.',
+    playUrl: '/shachi/',
+    promptUrl: '/shachi/prompt.html',
+    promptExcerpt: 'Rotate a 3D temple roof, replace cracked tiles, seal overlaps, route rain into copper chains, brace ridge gusts, and use Shachi Focus before leaks flood the shrine.',
+    screenshotUrl: '/shachi/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets, implementation subagent dispatch, and QA recovery ~150 minutes',
+    generatedAt: '2026-07-28T01:41:11Z'
   }
 };
 

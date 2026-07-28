@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-27T01:31:11.000Z",
+  "generatedAt": "2026-07-28T01:41:11.000Z",
   "totalDays": 100,
-  "completedDays": 45,
+  "completedDays": 46,
   "games": [
     {
       "day": 1,
@@ -407,6 +407,15 @@
       "promptUrl": "/kendama/prompt.html",
       "screenshotUrl": "/kendama/screenshot.png",
       "generationDuration": "manual controller run with implementation/QA subagents and Imagegen2 assets ~150 minutes"
+    },
+    {
+      "day": 46,
+      "title": "Shachi Roofline Rainwright",
+      "slug": "shachi-roofline-rainwright",
+      "playUrl": "/shachi/",
+      "promptUrl": "/shachi/prompt.html",
+      "screenshotUrl": "/shachi/screenshot.png",
+      "generationDuration": "manual controller run with Imagegen2 assets, implementation subagent dispatch, and QA recovery ~150 minutes"
     }
   ]
 }

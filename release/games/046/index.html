@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Shachi Roofline Rainwright — Day 046</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2307192d'/%3E%3Cpath d='M4 21h24l-4-8H8z' fill='%23f4c95d'/%3E%3Cpath d='M8 21c5-5 11-5 16 0' stroke='%2389d8ff' stroke-width='2' fill='none'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="shell" id="gameShell">
+    <section id="menu" class="overlay menu-panel" aria-labelledby="menuTitle">
+      <div class="menu-card">
+        <div class="badges"><span>Day 046</span><span>3D</span><span>/shachi/</span></div>
+        <h1 id="menuTitle">Shachi Roofline Rainwright</h1>
+        <p class="lede">Replace cracked kawara tiles, seal moonlit overlaps, guide rain into copper chains, and keep the shrine dry through the Grand Shachi Stormseal.</p>
+        <div class="tutorial-grid">
+          <p><strong>Objective:</strong> repair roof tiles, route rain into gutters, brace the ridge, and keep leak/storm pressure below the danger line.</p>
+          <p><strong>3D movement:</strong> drag or Rotate Roof to inspect near, mid, far, left eave, right eave, and ridge faces.</p>
+          <p><strong>Repairs:</strong> Row −/+, Lift Tile, Seal Crack, Slide Gutter, Sweep Leaves, Ring Rain Chain, Moon Glaze, and Shachi Focus all have visible roof effects.</p>
+          <p><strong>Storm timing:</strong> Brace Ridge during red gusts, ring chains on blue drip pulses, and use Focus before hidden leaks flood the rooms.</p>
+          <p><strong>Pause/restart:</strong> P/R on desktop or visible buttons. Audio starts after Start; visual cues work muted.</p>
+        </div>
+        <div class="menu-actions">
+          <button id="startBtn" class="primary">Start roof repair</button>
+          <a class="ghost-link" href="./prompt.html">View prompt</a>
+        </div>
+      </div>
+    </section>
+
+    <header class="topbar">
+      <div class="title-row"><span class="game-title">Shachi</span><span>Day 046</span><span>3D</span><span>/shachi/</span></div>
+      <div class="top-actions">
+        <button data-action="pause">Pause</button>
+        <button data-action="restart">Restart</button>
+        <button data-action="audio" id="audioBtn">Audio: On</button>
+        <a href="./prompt.html">Prompt</a>
+      </div>
+    </header>
+
+    <section class="hud" aria-label="Game status">
+      <span>Score <b id="score">0</b></span>
+      <span>Best <b id="best">0</b></span>
+      <span>Hearts <b id="hearts">♥♥♥</b></span>
+      <span>Leak <b id="leak">0%</b></span>
+      <span>Storm <b id="storm">10%</b></span>
+      <span>Combo <b id="combo">x1.0</b></span>
+      <span>Row <b id="row">Lower</b></span>
+      <span>Face <b id="face">Front</b></span>
+      <span>Gutter <b id="gutter">Near</b></span>
+      <span>Ridge <b id="ridge">Calm</b></span>
+      <span>Focus <b id="focus">35%</b></span>
+      <span class="time-chip">Time <b id="time">0:00</b></span>
+    </section>
+
+    <section class="commission-card" aria-label="Roof commission">
+      <div>
+        <small>Roof commission</small>
+        <h2 id="commissionName">First Eave Leak 0/3</h2>
+        <p id="commissionText">Replace two cracked front tiles, seal the lower overlap, slide the gutter under the blue stream, and keep leaks below 45%.</p>
+      </div>
+      <div class="progress-box">
+        <label>Repairs <meter id="repairMeter" min="0" max="3" value="0"></meter></label>
+        <label>Chains <meter id="chainMeter" min="0" max="3" value="0"></meter></label>
+      </div>
+    </section>
+
+    <section class="stage-card">
+      <div id="stage" class="stage" aria-label="3D temple roof repair stage"></div>
+      <div class="stage-tags"><span>Rain paths</span><span>Cracked tiles</span><span>Gutter catches</span><span>Ridge gust</span></div>
+    </section>
+
+    <section class="helper-card">
+      <img src="./assets/shachi-helper.png" alt="Gold shachi roof guardian helper" />
+      <p id="helper"><strong>Ready for rain repair.</strong> Rotate the roof, choose a row, lift cracked tiles, and guide the first stream into the copper chain.</p>
+    </section>
+
+    <section class="controls" aria-label="Controls">
+      <button data-action="rowDown">Row −</button>
+      <button data-action="rowUp">Row +</button>
+      <button data-action="rotateLeft">Rotate Left</button>
+      <button data-action="rotateRight">Rotate Right</button>
+      <button data-action="liftTile">Lift Tile</button>
+      <button data-action="sealCrack">Seal Crack</button>
+      <button data-action="slideGutter">Slide Gutter</button>
+      <button data-action="braceRidge">Brace Ridge</button>
+      <button data-action="sweepLeaves">Sweep Leaves</button>
+      <button data-action="ringChain">Ring Rain Chain</button>
+      <button data-action="moonGlaze">Moon Glaze</button>
+      <button data-action="shachiFocus">Shachi Focus</button>
+      <button data-action="pause">Pause</button>
+      <button data-action="restart">Restart</button>
+      <button data-action="audio">Audio</button>
+      <a href="./prompt.html">Prompt</a>
+    </section>
+
+    <section class="objective"><b>Objective</b><span>Complete three roof commissions and 6000 points for the Shachi Moon-Roof Blessing, then continue endless storm repairs.</span></section>
+
+    <section id="pauseOverlay" class="overlay hidden" aria-label="Paused">
+      <div class="modal">
+        <h2>Paused — controls summary</h2>
+        <p>Rotate the roof, Row −/+, Lift Tile, Seal Crack, Slide Gutter, Brace Ridge, Sweep Leaves, Ring Rain Chain, Moon Glaze, and Shachi Focus. Keep leak and storm pressure low.</p>
+        <div class="menu-actions"><button data-action="resume" class="primary">Resume</button><button data-action="restart">Restart</button><button data-action="audio">Audio / mute</button><a class="ghost-link" href="./prompt.html">Prompt</a></div>
+      </div>
+    </section>
+
+    <section id="resultOverlay" class="overlay hidden" aria-label="Results">
+      <div class="modal">
+        <h2 id="resultTitle">Storm report</h2>
+        <p id="resultText">The roof report will appear here.</p>
+        <div class="menu-actions"><button data-action="restart" class="primary">Restart</button><a class="ghost-link" href="./prompt.html">Prompt</a></div>
+      </div>
+    </section>
+
+    <div id="blessing" class="blessing hidden">Shachi Moon-Roof Blessing!</div>
+  </main>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>
