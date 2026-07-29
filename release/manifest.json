@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-28T01:41:11.000Z",
+  "generatedAt": "2026-07-29T01:49:15.000Z",
   "totalDays": 100,
-  "completedDays": 46,
+  "completedDays": 47,
   "games": [
     {
       "day": 1,
@@ -416,6 +416,15 @@
       "promptUrl": "/shachi/prompt.html",
       "screenshotUrl": "/shachi/screenshot.png",
       "generationDuration": "manual controller run with Imagegen2 assets, implementation subagent dispatch, and QA recovery ~150 minutes"
+    },
+    {
+      "day": 47,
+      "title": "Tombo Dewline Glider",
+      "slug": "tombo-dewline-glider",
+      "playUrl": "/tombo/",
+      "promptUrl": "/tombo/prompt.html",
+      "screenshotUrl": "/tombo/screenshot.png",
+      "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]
 }

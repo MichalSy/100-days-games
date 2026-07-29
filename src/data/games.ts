@@ -706,6 +706,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/shachi/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets, implementation subagent dispatch, and QA recovery ~150 minutes',
     generatedAt: '2026-07-28T01:41:11Z'
+  },
+  47: {
+    status: 'generated',
+    title: 'Tombo Dewline Glider',
+    slug: 'tombo-dewline-glider',
+    genre: ['aerial dexterity arcade', 'rice-paddy dew routing', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Guide a shimmering dragonfly through luminous rice-paddy dewlines, skim ordered dew beads, perch on reeds to restore wing energy, dodge frog arcs, clear spider silk, and beat the rising sun.',
+    objective: 'Complete First Dew Skim, Reed Gate Spiral, and Sunrise Terrace Crossing while reaching 6100 points to trigger Tombo Dawnline Blessing, then continue into endless terrace flights.',
+    playUrl: '/tombo/',
+    promptUrl: '/tombo/prompt.html',
+    promptExcerpt: 'Steer a dragonfly through ordered dewlines, skim beads at the right angle, perch on reeds, dodge frogs, clear silk, and use Tombo Focus before the sun dries the field.',
+    screenshotUrl: '/tombo/screenshot.png',
+    generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-29T01:49:15Z'
   }
 };
 

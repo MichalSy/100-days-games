@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f6b59" />
+    <title>Day 047 — Tombo Dewline Glider</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f6b59'/%3E%3Cpath d='M12 34c14-18 28 16 40-2' fill='none' stroke='%23f7d66d' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='36' cy='30' r='5' fill='%23baf7e5'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app" class="game-shell">
+      <section id="menu" class="panel menu-panel" aria-labelledby="title">
+        <div class="badge-row"><span>Day 047</span><span>Mode 2D</span><span>/tombo/</span></div>
+        <h1 id="title">Tombo Dewline Glider</h1>
+        <p class="lede">Guide a shimmering dragonfly through ordered dewlines, skim dew, perch on reeds, dodge frogs, clear silk, and beat the morning sun.</p>
+        <div class="menu-stats" aria-live="polite">
+          <span>Best score <strong id="menuBest">0</strong></span>
+          <span>Best Blessing <strong id="menuBlessing">—</strong></span>
+        </div>
+        <div class="tutorial-card">
+          <h2>Tutorial / Objective</h2>
+          <ul>
+            <li><strong>Steer:</strong> drag the stage or use Bank Left/Right; smooth arcs preserve wing energy and combo.</li>
+            <li><strong>Dewline timing:</strong> Skim Dew only when aligned with the next numbered bead.</li>
+            <li><strong>Actions:</strong> Wing Burst, Perch Reed, Quick Turn, Dodge Frog, Clear Silk, Field Bell, and Tombo Focus all change the flight field.</li>
+            <li><strong>Hazards:</strong> dodge amber frog arcs, clear silk near strands, and ring Field Bell during blue pulses.</li>
+            <li><strong>Goal:</strong> complete First Dew Skim, Reed Gate Spiral, and Sunrise Terrace Crossing; reach 6100 for Tombo Dawnline Blessing.</li>
+            <li><strong>Pause / Restart:</strong> use the visible Pause and Restart buttons any time you need to review the route or begin a clean flight.</li>
+          </ul>
+          <p class="audio-note">Audio starts after you press Start; visual dragonfly, dew, reed, frog, silk, sun, bell, and focus cues work if muted.</p>
+        </div>
+        <div class="menu-actions">
+          <button id="startBtn" class="primary big" type="button">Start Flight</button>
+          <a class="button ghost" href="./prompt.html">View prompt</a>
+        </div>
+      </section>
+
+      <section id="game" class="play-screen hidden" aria-label="Tombo Dewline Glider game">
+        <header class="hud" aria-live="polite">
+          <span>Score <b id="scoreHud">0</b></span>
+          <span>Best <b id="bestHud">0</b></span>
+          <span>💚 <b id="heartsHud">3</b></span>
+          <span>🪽 <b id="energyHud">100%</b></span>
+          <span>☀️ <b id="sunHud">0%</b></span>
+          <span>✨ x<b id="comboHud">1</b></span>
+          <span>💧 <b id="dewHud">1</b></span>
+          <span>🎋 <b id="perchHud">ready?</b></span>
+          <span>👁 <b id="focusHud">35%</b></span>
+          <span>⏱ <b id="timeHud">0:00</b></span>
+        </header>
+
+        <article class="commission-card">
+          <div>
+            <p class="eyebrow">Active dewline commission</p>
+            <h2 id="commissionName">First Dew Skim</h2>
+          </div>
+          <p id="commissionObjective">Skim blue-gold dew 1→4, perch on the right reed, and keep sun-dry below 45%.</p>
+          <div id="progressTicks" class="ticks" aria-label="commission progress"></div>
+        </article>
+
+        <div class="stage-wrap">
+          <canvas id="stage" width="900" height="620" aria-label="2D rice-paddy flight stage; drag to steer the dragonfly"></canvas>
+          <div id="blessingBanner" class="blessing hidden">Tombo Dawnline Blessing</div>
+        </div>
+
+        <div id="helper" class="helper">Drag the paddy stage to steer toward dew bead 1. Skim only when the nose is aligned.</div>
+
+        <div class="controls" aria-label="Dragonfly controls">
+          <button data-action="bankLeft" type="button">Bank Left</button>
+          <button data-action="bankRight" type="button">Bank Right</button>
+          <button data-action="burst" type="button">Wing Burst</button>
+          <button data-action="skim" type="button">Skim Dew</button>
+          <button data-action="perch" type="button">Perch Reed</button>
+          <button data-action="quickTurn" type="button">Quick Turn</button>
+          <button data-action="dodge" type="button">Dodge Frog</button>
+          <button data-action="clearSilk" type="button">Clear Silk</button>
+          <button data-action="bell" type="button">Field Bell</button>
+          <button data-action="focus" type="button">Tombo Focus</button>
+          <button data-action="pause" type="button">Pause</button>
+          <button data-action="restart" type="button">Restart</button>
+          <button data-action="audio" type="button">Audio</button>
+          <a class="button prompt-control" href="./prompt.html">Prompt</a>
+        </div>
+      </section>
+
+      <section id="overlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="overlayTitle">
+        <div class="panel overlay-card">
+          <h2 id="overlayTitle">Paused</h2>
+          <p id="overlayBody">Smooth banks save wing energy. Skim numbered dew beads in order, perch to recharge, and use Focus before the Sunrise crossing.</p>
+          <div id="resultStats" class="result-stats"></div>
+          <div class="overlay-actions">
+            <button id="resumeBtn" class="primary" type="button">Resume</button>
+            <button id="overlayRestartBtn" type="button">Restart</button>
+            <button id="overlayAudioBtn" type="button">Audio</button>
+            <a class="button ghost" href="./prompt.html">Prompt</a>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="./game.js"></script>
+  </body>
+</html>
