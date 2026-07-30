@@ -721,6 +721,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/tombo/screenshot.png',
     generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-29T01:49:15Z'
+  },
+  48: {
+    status: 'generated',
+    title: 'Kiriko Lantern Prism Cutter',
+    slug: 'kiriko-lantern-prism-cutter',
+    genre: ['3D glass-cutting puzzle', 'caustic light routing', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Rotate a ruby-and-cobalt Edo-kiriko glass lantern, score and deepen grooves, cool and polish hot facets, shift amber lantern beams, catch caustics on rice-paper targets, and prevent hairline cracks.',
+    objective: 'Complete First Star Groove, Cobalt Fan Beam, and Ruby Lantern Constellation while reaching 6200 points to trigger Kiriko Prism Illumination, then continue endless atelier commissions.',
+    playUrl: '/kiriko/',
+    promptUrl: '/kiriko/prompt.html',
+    promptExcerpt: 'Rotate and tilt a 3D kiriko glass, cut requested bands, cool and polish facets, shift lantern beams, catch caustic stars, and use Kiriko Focus before heat cracks the glass.',
+    screenshotUrl: '/kiriko/screenshot.png',
+    generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-30T01:31:12Z'
   }
 };
 

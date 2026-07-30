@@ -1,0 +1,98 @@
+@font-face { font-family: system-ui; src: local("Arial"); }
+:root {
+  color-scheme: dark;
+  --ink: #080915;
+  --panel: rgba(13, 17, 38, 0.86);
+  --panel-strong: rgba(22, 18, 43, 0.96);
+  --rice: #fff4d8;
+  --gold: #ffd36e;
+  --amber: #ffad42;
+  --ruby: #ff3e73;
+  --cobalt: #4f83ff;
+  --mint: #76ffe4;
+  --danger: #ff5568;
+  --ok: #9dffb3;
+  --line: rgba(255, 255, 255, 0.22);
+  --shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; margin: 0; background: var(--ink); color: var(--rice); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+body {
+  background: radial-gradient(circle at 20% 10%, rgba(128, 50, 255, 0.28), transparent 30%), radial-gradient(circle at 85% 8%, rgba(255, 164, 70, 0.22), transparent 25%), #080915;
+  overflow-x: hidden;
+}
+button, .button-link { min-height: 46px; border: 1px solid rgba(255, 226, 156, 0.28); border-radius: 14px; background: linear-gradient(180deg, rgba(255, 244, 216, 0.13), rgba(255, 211, 110, 0.08)); color: var(--rice); font-weight: 800; letter-spacing: 0.01em; box-shadow: inset 0 1px rgba(255,255,255,.18), 0 6px 18px rgba(0,0,0,.24); cursor: pointer; touch-action: manipulation; }
+button:focus-visible, .button-link:focus-visible { outline: 3px solid var(--mint); outline-offset: 2px; }
+button:active { transform: translateY(1px); }
+button.primary, .button-link.primary { background: linear-gradient(135deg, #ffe08f, #ff7a9d 48%, #6bd6ff); color: #111025; border: none; }
+button.big { min-height: 58px; padding: 0 32px; font-size: 1.1rem; }
+.button-link { display: inline-flex; align-items: center; justify-content: center; padding: 0 14px; text-decoration: none; }
+.shell { width: min(1120px, 100%); min-height: 100svh; margin: 0 auto; padding: 10px clamp(8px, 2vw, 18px) 16px; display: grid; grid-template-rows: auto auto minmax(320px, 1fr) auto auto; gap: 9px; position: relative; }
+.hud { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; z-index: 3; }
+.chip { min-height: 32px; border: 1px solid var(--line); border-radius: 999px; padding: 5px 8px; background: rgba(9, 12, 29, 0.78); font-size: clamp(0.68rem, 1.7vw, 0.84rem); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chip strong { color: white; }
+.hearts { color: #ff7896; letter-spacing: 0.12em; }
+.hot strong { color: var(--amber); } .crack strong { color: #ff8e9c; } .polish strong { color: var(--mint); } .focus strong { color: #c6b6ff; }
+.commission { display: grid; grid-template-columns: minmax(140px, 0.8fr) 1.8fr auto; gap: 10px; align-items: center; border: 1px solid rgba(255, 211, 110, 0.26); border-radius: 18px; padding: 9px 12px; background: linear-gradient(135deg, rgba(28, 19, 42, .88), rgba(9, 18, 44, .78)); box-shadow: var(--shadow); }
+.eyebrow { margin: 0; text-transform: uppercase; letter-spacing: .12em; color: #c0d9ff; font-size: .66rem; font-weight: 900; }
+.commission h2 { margin: 2px 0 0; font-size: clamp(1rem, 2.3vw, 1.35rem); }
+.commission p { margin: 0; line-height: 1.28; color: #fff7df; }
+.ticks { display: flex; flex-wrap: wrap; gap: 4px; justify-content: end; min-width: 86px; }
+.tick { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.08); }
+.tick.done { background: radial-gradient(circle, #fff 0 25%, var(--gold) 28% 55%, var(--ruby) 60%); box-shadow: 0 0 12px var(--gold); }
+.stage-wrap { position: relative; min-height: 345px; overflow: hidden; border: 1px solid rgba(132, 232, 255, 0.18); border-radius: 24px; background-image: linear-gradient(180deg, rgba(4,6,18,.24), rgba(4,6,18,.58)), url('./assets/kiriko-atelier.png'); background-size: cover; background-position: center; box-shadow: var(--shadow); touch-action: none; }
+#stage { display: block; width: 100%; height: 100%; min-height: 345px; cursor: grab; }
+#stage.dragging { cursor: grabbing; }
+#helper { position: absolute; right: max(8px, 2vw); bottom: max(6px, 1.4vw); width: clamp(70px, 13vw, 140px); filter: drop-shadow(0 10px 24px rgba(0,0,0,.55)); pointer-events: none; }
+.focus-overlay { position: absolute; left: 12px; top: 12px; max-width: 390px; border: 1px solid rgba(118, 255, 228, .45); border-radius: 16px; padding: 8px 12px; background: rgba(11, 20, 39, .8); box-shadow: 0 0 32px rgba(118, 255, 228, .22); }
+.focus-overlay strong { color: var(--mint); margin-right: 8px; }
+.helper-line { min-height: 40px; display: flex; align-items: center; border-radius: 16px; padding: 8px 12px; background: rgba(12, 13, 30, .82); border: 1px solid rgba(255,255,255,.14); color: #fff8e6; font-weight: 700; }
+.controls { display: grid; grid-template-columns: repeat(9, minmax(92px, 1fr)); gap: 7px; }
+.controls button, .controls .button-link { padding-inline: 8px; font-size: .82rem; }
+.overlay { position: fixed; inset: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); z-index: 20; display: grid; place-content: center; }
+.overlay[hidden] { display: none !important; }
+.title-card, .panel { border: 1px solid rgba(255, 211, 110, .28); border-radius: 28px; padding: clamp(16px, 3vw, 28px); background: linear-gradient(145deg, rgba(12, 13, 30, .96), rgba(41, 22, 45, .93)), url('./assets/kiriko-atelier.png'); background-size: cover; background-blend-mode: multiply; box-shadow: 0 22px 80px rgba(0,0,0,.62); max-width: 860px; margin: auto; }
+.title-card h1 { margin: 8px 0; font-size: clamp(2rem, 8vw, 4.8rem); line-height: .93; color: #fff5d8; text-shadow: 0 0 22px rgba(255, 99, 127, .36); }
+.lede { max-width: 720px; font-size: clamp(1rem, 2.3vw, 1.24rem); color: #f7e9c2; }
+.badge-row { display: flex; flex-wrap: wrap; gap: 7px; }
+.badge-row span { border-radius: 999px; padding: 6px 10px; background: rgba(255,255,255,.12); color: #cdeeff; border: 1px solid rgba(255,255,255,.18); font-weight: 900; }
+.best-line { display: flex; flex-wrap: wrap; gap: 12px; color: #dbe7ff; }
+.tutorial-panel { margin: 14px 0; border-radius: 18px; padding: 12px 16px; background: rgba(2, 5, 15, .54); border: 1px solid rgba(255,255,255,.13); }
+.tutorial-panel h2 { margin: 0 0 6px; }
+.tutorial-panel ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 4px; }
+.audio-note { color: #d6f7ff; }
+.menu-actions, .overlay-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.panel { width: min(720px, 100%); display: block; }
+.panel h2 { margin-top: 0; font-size: clamp(1.6rem, 5vw, 3rem); }
+.result-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 14px 0; }
+.result-grid div { border: 1px solid rgba(255,255,255,.13); border-radius: 12px; padding: 9px; background: rgba(0,0,0,.25); }
+.illumination { position: fixed; z-index: 18; left: 50%; top: 22%; transform: translateX(-50%); padding: 14px 18px; border-radius: 999px; background: radial-gradient(circle at 30% 20%, #fff, #ffe599 20%, #e44b86 58%, #244bff); color: #120718; font-size: clamp(1.2rem, 5vw, 3rem); font-weight: 1000; text-align: center; box-shadow: 0 0 44px rgba(255, 211, 110, .8); animation: prism 1.2s ease-in-out infinite alternate; }
+@keyframes prism { from { filter: hue-rotate(0deg) brightness(1); } to { filter: hue-rotate(25deg) brightness(1.22); } }
+body.menu-active .hud, body.menu-active .commission, body.menu-active .stage-wrap, body.menu-active .helper-line, body.menu-active .controls { filter: blur(3px); pointer-events: none; }
+@media (max-width: 760px) {
+  .shell { min-height: 100svh; padding: 6px; gap: 6px; grid-template-rows: auto auto 228px auto auto; }
+  .hud { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 3px; }
+  .chip { min-height: 24px; padding: 3px 5px; font-size: .62rem; }
+  .commission { grid-template-columns: 1fr auto; gap: 5px; padding: 6px 8px; }
+  .commission p { grid-column: 1 / -1; font-size: .72rem; }
+  .commission h2 { font-size: 1rem; }
+  .ticks { justify-content: start; min-width: 0; }
+  .stage-wrap { min-height: 0; height: 228px; border-radius: 18px; }
+  #stage { min-height: 0; height: 228px; }
+  #helper { width: 70px; opacity: .92; }
+  .helper-line { min-height: 32px; padding: 5px 8px; font-size: .7rem; }
+  .controls { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; }
+  .controls button, .controls .button-link { min-height: 44px; padding-inline: 2px; border-radius: 10px; font-size: .53rem; line-height: 1.05; }
+  .title-card { inset: 6px; padding: 14px; overflow: auto; display: block; }
+  .title-card h1 { font-size: clamp(2rem, 10vw, 3rem); }
+  .tutorial-panel { padding: 8px 10px; margin: 8px 0; }
+  .tutorial-panel li { font-size: .76rem; line-height: 1.24; }
+  .lede, .audio-note, .best-line { font-size: .78rem; }
+  button.big { width: 100%; min-height: 54px; }
+}
+@media (max-width: 390px) {
+  .hud { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .shell { grid-template-rows: auto auto 220px auto auto; }
+  .stage-wrap, #stage { height: 220px; }
+  .controls button, .controls .button-link { min-height: 44px; font-size: .5rem; }
+}

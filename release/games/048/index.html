@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Day 048 — Kiriko Lantern Prism Cutter</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080a19'/%3E%3Cpath d='M32 6 38 24 58 18 44 32 58 46 38 40 32 58 26 40 6 46 20 32 6 18 26 24Z' fill='%23ffd36e'/%3E%3Cpath d='M32 12v40M12 32h40M19 19l26 26M45 19 19 45' stroke='%237de8ff' stroke-width='3'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="app" class="shell menu-open" aria-live="polite">
+      <section id="menu" class="overlay title-card" aria-label="Kiriko Lantern Prism Cutter title screen">
+        <div class="badge-row"><span>Day 048</span><span>Mode: 3D</span><span>Route /kiriko/</span></div>
+        <h1>Kiriko Lantern Prism Cutter</h1>
+        <p class="lede">Rotate a faceted Edo-kiriko lantern, score grooves, cool heat, polish prism cuts, and catch amber caustics on rice-paper cards.</p>
+        <div class="best-line">
+          <span>Best score: <strong id="menuBest">0</strong></span>
+          <span>Best Prism Illumination: <strong id="menuBestTime">—</strong></span>
+        </div>
+        <div class="tutorial-panel">
+          <h2>Tutorial</h2>
+          <ul>
+            <li><strong>Objective:</strong> Rotate the kiriko glass, cut the requested grooves, cool and polish facets, then catch lantern caustics on rice-paper targets.</li>
+            <li><strong>3D movement:</strong> rotate and tilt before cutting; hidden far facets matter.</li>
+            <li><strong>Cutting:</strong> choose the correct band, Score Cut first, Deepen Cut only while heat is safe, and Cool Rinse before cracks spread.</li>
+            <li><strong>Light:</strong> Shift Lantern to send beams through polished grooves, then Catch Caustic on target rings.</li>
+            <li><strong>Repairs:</strong> Repair Hairline before red cracks flash twice.</li>
+            <li><strong>Kiriko Focus:</strong> previews valid groove directions, heat/crack risk, beam paths, target rings, and safest next tool.</li>
+            <li><strong>Pause/restart:</strong> visible buttons stay available; keyboard shortcuts work on desktop.</li>
+          </ul>
+        </div>
+        <p class="audio-note">Audio starts after you press Start; visual glass, groove, beam, caustic, heat, crack, polish, lantern, and focus cues work if muted.</p>
+        <div class="menu-actions">
+          <button id="startBtn" class="primary big">Start</button>
+          <a class="button-link" href="./prompt.html">View prompt</a>
+        </div>
+      </section>
+
+      <header class="hud" aria-label="Kiriko HUD">
+        <div class="chip">Score <strong id="score">0</strong></div>
+        <div class="chip">Best <strong id="best">0</strong></div>
+        <div class="chip hearts" id="hearts" aria-label="glass hearts">♥♥♥</div>
+        <div class="chip hot">Heat <strong id="heat">0%</strong></div>
+        <div class="chip crack">Crack <strong id="crack">0%</strong></div>
+        <div class="chip polish">Polish <strong id="polish">88%</strong></div>
+        <div class="chip">Combo <strong id="combo">x1</strong></div>
+        <div class="chip">Band <strong id="band">Upper</strong></div>
+        <div class="chip">Facet <strong id="facet">front-0</strong></div>
+        <div class="chip">Lantern <strong id="lantern">Center/Low</strong></div>
+        <div class="chip focus">Focus <strong id="focus">0%</strong></div>
+        <div class="chip">Time <strong id="time">0:00</strong></div>
+      </header>
+
+      <section class="commission" aria-label="Atelier commission card">
+        <div>
+          <p class="eyebrow">Atelier commission</p>
+          <h2 id="commissionName">First Star Groove</h2>
+        </div>
+        <p id="commissionText">Score two upper star grooves, cool below 45%, and catch a caustic on the right card.</p>
+        <div id="progressTicks" class="ticks" aria-label="commission progress"></div>
+      </section>
+
+      <section class="stage-wrap">
+        <canvas id="stage" aria-label="Interactive 3D kiriko glass stage"></canvas>
+        <div id="focusOverlay" class="focus-overlay" hidden>
+          <strong>Kiriko Focus</strong><span id="focusHint">Valid cuts glow white; amber beams show landing rings.</span>
+        </div>
+        <img id="helper" src="./assets/kiriko-helper.png" alt="Tanuki glassmaster helper" />
+      </section>
+
+      <div class="helper-line" id="helperLine">Select the upper band, rotate to the front facet, then Score Cut.</div>
+
+      <nav class="controls" aria-label="Kiriko cutter controls">
+        <button data-action="rotateLeft">Rotate Left</button>
+        <button data-action="rotateRight">Rotate Right</button>
+        <button data-action="tiltUp">Tilt Up</button>
+        <button data-action="tiltDown">Tilt Down</button>
+        <button data-action="bandDown">Band −</button>
+        <button data-action="bandUp">Band +</button>
+        <button data-action="scoreCut" class="primary">Score Cut</button>
+        <button data-action="deepenCut">Deepen Cut</button>
+        <button data-action="coolRinse">Cool Rinse</button>
+        <button data-action="polishFacet">Polish Facet</button>
+        <button data-action="shiftLantern">Shift Lantern</button>
+        <button data-action="catchCaustic">Catch Caustic</button>
+        <button data-action="repairHairline">Repair Hairline</button>
+        <button data-action="kirikoFocus">Kiriko Focus</button>
+        <button data-action="pause">Pause</button>
+        <button data-action="restart">Restart</button>
+        <button data-action="audio">Audio: On</button>
+        <a class="button-link" href="./prompt.html">Prompt</a>
+      </nav>
+
+      <section id="pauseOverlay" class="overlay panel" hidden>
+        <h2>Paused at the lacquer bench</h2>
+        <p>Rotate/Tilt the glass, choose Band −/+ before cuts, Cool Rinse before heat spikes, Polish useful grooves, Shift Lantern, Catch Caustic, Repair Hairline, and spend Kiriko Focus when the path is unclear.</p>
+        <div class="overlay-actions">
+          <button id="resumeBtn" class="primary">Resume</button>
+          <button id="pauseRestartBtn">Restart</button>
+          <button id="pauseAudioBtn">Audio: On</button>
+          <a class="button-link" href="./prompt.html">Prompt</a>
+        </div>
+      </section>
+
+      <section id="resultOverlay" class="overlay panel" hidden>
+        <h2 id="resultTitle">Glass cooled</h2>
+        <div id="resultStats" class="result-grid"></div>
+        <div class="overlay-actions">
+          <button id="resultRestartBtn" class="primary">Restart</button>
+          <a class="button-link" href="./prompt.html">Prompt</a>
+        </div>
+      </section>
+
+      <div id="illumination" class="illumination" hidden>Kiriko Prism Illumination</div>
+    </main>
+    <script type="module" src="./game.js"></script>
+  </body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 048 Game Generation Prompt</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23081624'/%3E%3Cpath d='M32 7 50 32 32 57 14 32Z' fill='%2338d5ff'/%3E%3Cpath d='M32 7v50M14 32h36M21 18l22 28M43 18 21 46' stroke='%23fff4c2' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <style>
+    :root { color-scheme: dark; --bg:#08101b; --panel:#101928; --ink:#fff8df; --muted:#d6c89e; --gold:#ffd166; --cobalt:#58c7ff; --ruby:#ff5d7e; }
+    * { box-sizing: border-box; } body { margin:0; font-family: "Trebuchet MS", system-ui, sans-serif; background: radial-gradient(circle at top, #173250, var(--bg) 48%, #03060b); color:var(--ink); line-height:1.58; }
+    main { width:min(980px, calc(100vw - 28px)); margin:0 auto; padding:28px 0 60px; }
+    .back { display:inline-flex; min-height:44px; align-items:center; padding:9px 14px; border:1px solid rgba(255,209,102,.55); border-radius:999px; color:var(--ink); text-decoration:none; background:rgba(255,255,255,.08); font-weight:900; }
+    h1 { font-size:clamp(34px,6vw,64px); line-height:.95; color:var(--gold); margin:24px 0 10px; }
+    h2 { margin-top:34px; color:var(--cobalt); letter-spacing:.04em; } h3 { color:var(--gold); }
+    p, li { color:var(--muted); } strong { color:var(--ink); } code { color:#9df4ff; background:rgba(255,255,255,.08); padding:.12em .32em; border-radius:.35em; }
+    pre { overflow:auto; padding:16px; border-radius:16px; border:1px solid rgba(255,255,255,.15); background:#020711; } pre code { background:transparent; padding:0; color:#e9fbff; }
+    ul, ol { padding-left:1.4rem; } section { background:rgba(16,25,40,.66); border:1px solid rgba(255,255,255,.1); border-radius:22px; padding:18px; }
+  </style>
+</head>
+<body><main>
+  <a class="back" href="./index.html">← Back to game</a>
+  <h1>Day 048 Game Generation Prompt</h1>
+  <section>
+<h2>Game identity</h2>
+<ul>
+<li>Day: 048</li>
+<li>Title: Kiriko Lantern Prism Cutter</li>
+<li>Slug: kiriko-lantern-prism-cutter</li>
+<li>Public route word: kiriko</li>
+<li>Mode: 3D</li>
+<li>Genre: mobile-first 3D glass-cutting precision puzzle / caustic light routing / atelier score chase</li>
+<li>Mood/style: a midnight Edo-kiriko glass atelier with ruby and cobalt cut-glass facets, brass cutting wheel, wet polishing tray, paper lantern beams, lacquer workbench, sparkling caustics, quiet glass chimes, and crisp gem-like depth cues; a tactile spatial craft game rather than dragonfly dew skimming, temple roof rain repair, kendama toy physics, shaved-ice sculpting, karuta card scanning, cedar climbing, mycelium routing, kintsugi shard repair, tatami layout, griddle cooking, goldfish scooping, gear trains, bridges, temari thread orbits, fan dyeing, onsen valves, ikebana, orchard harvesting, kumiko woodworking, shrine stealth, matcha foam, fireworks, pachinko, mochi hopping, calligraphy strokes, kite mapping, dry-garden raking, pearls, taiko pads, daruma mazes, spider webs, pottery profiles, bamboo canals, origami folds, parasols, snow lanterns, kimono panels, bento service, windbells, rail running, or koi collection.</li>
+</ul>
+<h2>Why this game today</h2>
+<p>The generated series currently ends with:</p>
+<ul>
+<li>Day 043 <code>2d</code>: Karuta Mooncall Duelist, dark indigo card-table reaction and poem-card scanning.</li>
+<li>Day 044 <code>3d</code>: Kakigori Prism Shavewright, bright 3D dessert sculpting with syrup routes.</li>
+<li>Day 045 <code>2d</code>: Kendama Star Cup Juggler, warm dusk toy-stall pendulum/cup timing.</li>
+<li>Day 046 <code>3d</code>: Shachi Roofline Rainwright, cool blue-hour 3D temple roof repair and rain routing.</li>
+<li>Day 047 <code>2d</code>: Tombo Dewline Glider, airy green-and-gold 2D rice-paddy dragonfly dewline flight.</li>
+</ul>
+<p>The latest generated-mode streak is one <code>2d</code> (Day 047), so Day 048 deliberately returns to real <code>3d</code> to preserve the alternating cadence. It must be meaningfully spatial: the player rotates a faceted kiriko glass cup/lantern, selects depth bands and facet columns, scores grooves with a cutting wheel, rinses heat, polishes facets, and routes lantern beams through actual facet angles into requested caustic targets. It must not be a flat pattern board with perspective decoration; glass yaw, tilt, selected band, facet normal, cut depth, heat, crack risk, polishing state, beam angle, and caustic target position must all matter mechanically.</p>
+<p>Recent screenshot variety notes:</p>
+<ul>
+<li>Day 047 is pale emerald/gold with a broad rice-paddy background, dragonfly sprite, dew beads, frog warning arcs, and many cream controls.</li>
+<li>Day 046 is cool navy/charcoal with a central 3D roof model, gold shachi ornament, rain paths, copper chains, and brown/gold controls.</li>
+<li>Day 045 is warm maroon/gold with a large 2D kendama silhouette, red ball, indigo string, fox helper, and toy-stall controls.</li>
+<li>Day 044 is bright cream/cyan with a centered 3D shaved-ice mound, syrup/topping controls, and dessert order card.</li>
+</ul>
+<p>Day 048 should contrast with a precise jeweled craft bench: deep ink background, ruby/cobalt/clear glass, white etched grooves, brass tools, mint-blue water cooling, amber lantern beams, star-like caustic spots, and crisp facet highlights. Avoid open rice terraces, insects, dew beads, frogs, silk, roof tiles, rain gutters, chains, toy cups, balls, strings, dessert mounds, syrup, card spreads, cedar trunks, beetles, mushrooms, ceramic shard repair, tatami rectangles, griddles, fish tanks, gears, bridge beams, embroidered thread spheres, fan sectors, steam ducts, floral stems, fruit baskets, lattice strips, stealth cones, tea bowls, launch tubes, pachinko pegs, mochi pads, calligraphy brushes, kite strings, sand rake lines, pearls, drums, rolling mazes, spider webs, pottery wheels, bamboo canal tiles, origami creases, parasol shields, snow blocks, kimono cloth, bento trays, windbell notes, rail tracks, and koi ponds.</p>
+<h2>Code isolation / no previous game source</h2>
+<p>The implementation must be written from scratch for this day. Do not open, inspect, copy, diff, grep, or adapt code from previous games, including old <code>apps/day-*</code> folders, old <code>release/games/NNN/</code> HTML/CSS/JS files, or old public alias folders. You may inspect previous metadata, prompts, postmortems, and screenshots only to avoid repeating concepts and visual identity. The new game&#x27;s HTML/CSS/JS must come from this prompt and general browser/Three.js/WebGL/WebAudio game knowledge, not from earlier game implementations.</p>
+<h2>Mode variety / 3D cadence</h2>
+<p>Inspection target: <code>src/data/games.ts</code> currently ends with Day 043 <code>2d</code>, Day 044 <code>3d</code>, Day 045 <code>2d</code>, Day 046 <code>3d</code>, and Day 047 <code>2d</code>. The latest generated-mode streak is one <code>2d</code>.</p>
+<p>Mode decision: Day 048 is real <code>3d</code>. It must implement meaningful spatial gameplay, not decorative perspective:</p>
+<ul>
+<li>Use Three.js/WebGL or equivalent static-browser 3D rendering.</li>
+<li>Render a real 3D kiriko glass object: faceted cup or lantern shade with visible curved silhouette, near/mid/far facet columns, upper/middle/lower bands, selected grooves, cut depth, crack highlights, polishing shimmer, lantern beams, and projected caustic targets.</li>
+<li>Gameplay must depend on 3D state: glass yaw, glass tilt, selected band, selected facet column, facet normal, groove direction, cut depth, wheel pressure, heat/cooling, crack risk, polish quality, beam alignment, caustic target slot, and camera-relative controls.</li>
+<li>Player actions must manipulate the 3D system: Rotate Glass, Tilt Glass, Band −/+, Score Cut, Deepen Cut, Cool Rinse, Polish Facet, Shift Lantern, Catch Caustic, Repair Hairline, Kiriko Focus, pause/restart, audio toggle, and prompt link.</li>
+<li>Portrait mobile is the default supported layout; no landscape gate.</li>
+</ul>
+<h2>Design</h2>
+<ul>
+<li>Objective: Cut and polish a jewel-toned kiriko glass lantern so lantern beams refract through requested grooves and paint caustic patterns onto three rice-paper target cards before heat cracks the glass.</li>
+<li>Win condition: Complete three atelier commissions — First Star Groove, Cobalt Fan Beam, and Ruby Lantern Constellation — while reaching 6200 points to trigger “Kiriko Prism Illumination”. After the banner, continue into endless glass commissions.</li>
+<li>Lose condition: Three glass-heart lives are lost, crack meter reaches 100%, heat reaches 100%, six lantern beams miss all target cards, two required grooves are cut on the wrong band during the final commission, or polish quality falls below 20% while heat is above 70%.</li>
+<li>Core loop:</li>
+</ul>
+<ol>
+<li>Start on a title/menu screen with Day 048 badge, mode badge “3D”, public route <code>/kiriko/</code>, best score, best Prism Illumination time, tutorial, prompt link, audio note, and a large Start button.</li>
+<li>Show a portrait-friendly 3D atelier stage. The central object is a faceted ruby/cobalt/clear kiriko glass cup or lantern shade on a lacquer workbench. The camera sits slightly above/front; rotation and tilt reveal near, middle, far, left, right, upper, middle, and lower facets.</li>
+<li>A commission card requests goals such as: “Score two upper star grooves, deepen one cobalt fan groove, cool below 45%, shift lantern to amber beam, catch three caustics on the right rice-paper card.”</li>
+<li>Player rotates and tilts the glass to align facet bands. Selected facets glow with a thin chalk-white outline; invalid hidden/back facets are visible only after rotation.</li>
+<li>Band −/+ changes the active cutting band. Each commission has groove directions that only work on specific bands and facet columns.</li>
+<li>Score Cut lays a shallow white line along the selected facet. Correct direction and band creates a beam channel; wrong band raises crack risk.</li>
+<li>Deepen Cut increases refraction strength and score but also raises heat and crack risk. Deepening on already hot glass can spiderweb the facet.</li>
+<li>Cool Rinse sends a mint-blue water sweep across the active band, lowering heat and making the next cut safer. Rinsing during a lantern beam briefly dims caustic scoring.</li>
+<li>Polish Facet converts a rough groove into a sparkling clean prism path, increasing caustic accuracy and restoring polish quality. Polishing the wrong facet wastes time.</li>
+<li>Shift Lantern moves the amber light source left/center/right or high/low. Beam direction must match the current glass yaw/tilt and groove orientation; it is not an abstract lane switch.</li>
+<li>Catch Caustic locks a projected light spot onto the requested rice-paper target card when the beam lands inside the moving target ring.</li>
+<li>Repair Hairline stabilizes one cracked facet if applied before the crack flashes red twice. It costs focus and lowers combo but can save a run.</li>
+<li>Kiriko Focus, charged by clean cuts, correct caustic catches, timely rinses, and polished grooves, overlays valid groove directions, band requirements, heat risk, crack propagation, lantern beam paths, caustic landing zones, target card order, and the safest next action.</li>
+<li>Completing a commission stamps a tiny glassmaker seal, restores one glass heart if below max, awards points, shifts the glass color/facet pattern, and unlocks narrower cuts, crossing beams, moving caustic targets, hotter cutting wheels, asymmetric facets, and stricter polish targets.</li>
+<li>Pause/restart remain visible throughout.</li>
+</ol>
+<ul>
+<li>15+ minute play-value strategy:</li>
+<li>Save best score, fastest Kiriko Prism Illumination time, fewest cracks, highest perfect-caustic chain, most clean polished facets, highest endless commission, best no-repair run, best no-focus commission, lowest final heat, and collected glassmaker seal badges in localStorage.</li>
+<li>Include three authored commissions:</li>
+<li>First Star Groove: front-facing clear glass, broad upper band, two obvious star grooves, slow heat, one fixed target card, guided first Rotate Glass, Band +/−, Score Cut, Cool Rinse, and Catch Caustic. No heart penalty for the first tutorial wrong band.</li>
+<li>Cobalt Fan Beam: middle/lower bands, first Shift Lantern, first Polish Facet, two angled fan grooves, one hairline warning, moving left target, and required Cool Rinse timing.</li>
+<li>Ruby Lantern Constellation: full ruby/cobalt glass with near/mid/far facets, two simultaneous lantern beams, required Kiriko Focus preview, one Repair Hairline opportunity, five caustic catches, heat below 55%, and no wrong-band cuts in the final chain.</li>
+<li>Deterministic Day 048 seed varies facet counts, star/fan groove order, target card positions, beam angle, heat gain, crack warning phase, polish roughness, lantern pulse rhythm, focus charge, and endless constraints while keeping the opening seconds fair.</li>
+<li>Mastery badges: complete First Star Groove with zero wrong cuts, trigger Prism Illumination under 285 seconds, finish Cobalt Fan Beam with every caustic perfect, clear Ruby Lantern Constellation with cracks below 25%, polish five facets in a row, catch four caustics on one lantern pulse, and complete a commission without Kiriko Focus.</li>
+<li>Strategic scoring rewards spatial craft planning: rotate before cutting hidden facets, choose the correct band before scoring, rinse before deepening hot grooves, polish only after the groove is useful, shift lantern after aligning facet normals, catch caustics on pulse peaks, and save Repair Hairline for red-flashing cracks rather than panic-spamming.</li>
+<li>Endless mode after Prism Illumination adds asymmetric glass shapes, shorter heat windows, moving rice-paper targets, split lantern beams, tougher band requirements, rougher polish states, and bonus glassmaker seals without shrinking touch targets.</li>
+<li>Difficulty scaling:</li>
+<li>0-45 seconds: front facet, upper band, broad target card, slow heat, visible groove hints.</li>
+<li>45-150 seconds: tilted facets, fan grooves, first lantern shift, first polish, first hairline crack.</li>
+<li>150-285 seconds: required Kiriko Focus, two beams, moving target, heat/rinse timing, wrong-band pressure.</li>
+<li>285+ seconds/endless: more facets, hotter cuts, crossing beams, narrower target rings, same readable controls.</li>
+<li>Keep mobile fair: glass object, selected facet, bands, groove lines, lantern beams, caustic spots, target cards, crack warnings, commission card, helper, heat/crack/polish HUD, and action buttons must be readable at 390x844; primary touch buttons should be 52px+ where possible and never below 44px; no tiny survival-critical facet labels.</li>
+<li>Scoring/rewards:</li>
+<li>Correct band/facet selected before cutting: +120 points times combo tier.</li>
+<li>Score Cut on the requested groove: +280 points and Kiriko Focus charge.</li>
+<li>Deepen Cut without overheating: +260 points and stronger beam.</li>
+<li>Cool Rinse before heat warning: +220 points and crack-risk reduction.</li>
+<li>Polish Facet after a valid groove: +300 points and combo protect.</li>
+<li>Shift Lantern to align with an active groove: +240 points.</li>
+<li>Catch Caustic inside target ring on pulse peak: +380 points.</li>
+<li>Repair Hairline before red flash: +260 points and heart protect.</li>
+<li>Complete commission before heat warning: +1120 points and restore one glass heart if below max.</li>
+<li>Perfect no-crack commission: +1600 points.</li>
+<li>Kiriko Prism Illumination: +3800 points and endless commissions unlock.</li>
+<li>Wrong band, over-deepened hot cut, missed caustic, unpolished rough groove, or ignored crack: combo reset and heat/crack penalty.</li>
+</ul>
+<h2>Controls and layout</h2>
+<ul>
+<li>Desktop:</li>
+<li>Mouse/tap on the 3D glass: select facet, band marker, groove, caustic target, crack, lantern chip, or explainable stage chip.</li>
+<li>Mouse drag on the stage: rotate glass horizontally and tilt vertically with a visible tool cursor offset above the pointer.</li>
+<li>Arrow keys or WASD: Rotate Glass left/right and Tilt Glass up/down.</li>
+<li>Q/E or [ / ]: Band − / Band +.</li>
+<li>Space or Enter: Score Cut.</li>
+<li>Shift or D: Deepen Cut.</li>
+<li>C: Cool Rinse.</li>
+<li>P: Polish Facet when gameplay focus is on the tool row; Escape or overlay buttons handle pause/resume.</li>
+<li>L: Shift Lantern.</li>
+<li>X: Catch Caustic.</li>
+<li>R: Repair Hairline or restart from results/title context; visible Restart button is always available.</li>
+<li>F: Kiriko Focus when charged.</li>
+<li>Mobile/touch:</li>
+<li>Drag horizontally on the stage to rotate the glass. Drag vertically to tilt; the cutter cursor stays above the finger so facets, grooves, beams, and caustic targets remain visible.</li>
+<li>Tap visible facets, target cards, cracks, or lantern chips to select them, then use large action buttons.</li>
+<li>Use large Band −, Band +, Rotate Left, Rotate Right, Tilt Up, Tilt Down, Score Cut, Deepen Cut, Cool Rinse, Polish Facet, Shift Lantern, Catch Caustic, Repair Hairline, Kiriko Focus, Pause, Restart, Audio, and Prompt buttons.</li>
+<li>Tapping heat/crack/polish/focus/commission chips may show short explanations.</li>
+<li>No tiny virtual joystick. Interaction is direct glass drag/tap plus labeled cutter/action controls.</li>
+<li>Mobile layout/orientation:</li>
+<li>Default target is portrait phone play around 390x844; do not require landscape.</li>
+<li>Top: compact Kiriko HUD with score, best, glass hearts, heat %, crack %, polish %, combo, selected band, active facet, lantern position, Kiriko Focus charge, and elapsed time. Use glass/facet/groove/beam/caustic/water/polish/crack/lantern/seal chips, not dragonfly/dew/roof/rain/toy/dessert/card/beetle/mushroom/shard/tatami/cake/fish/gear/bridge/thread/fan/valve/flower/fruit/lattice/tea/firework/koi icons.</li>
+<li>Below top: atelier commission card with requested grooves, band targets, lantern beam target, caustic count, heat target, progress ticks, and current glassmaster note.</li>
+<li>Center: tall 3D kiriko glass stage with faceted glass, selected band, groove overlays, cutter wheel trail, lantern beam paths, caustic target cards, crack warnings, helper art, and readable feedback. It must remain playable without zooming.</li>
+<li>Bottom: status helper plus large cutter/action controls. Controls must not cover the glass, facet selection, beams, target cards, helper, commission card, crack warnings, or Kiriko Focus overlays.</li>
+<li>Tutorial must fit on the first portrait screen; optional details may be collapsible but objective, Rotate/Tilt, Band −/+, Score Cut, Deepen Cut, Cool Rinse, Polish Facet, Shift Lantern, Catch Caustic, Repair Hairline, Kiriko Focus, pause/restart must be visible.</li>
+<li>Requests must combine text, icons, groove shapes, band labels, beam arrows, progress ticks, target halos, and labels so hue alone is not required.</li>
+</ul>
+<h2>Menu and tutorial</h2>
+<p>Implement these states:</p>
+<ol>
+<li>Title screen</li>
+</ol>
+<ul>
+<li>Shows title “Kiriko Lantern Prism Cutter”.</li>
+<li>Shows Day 048 badge, mode badge “3D”, public route <code>/kiriko/</code>, best score, best Prism Illumination time if available, and a prompt link.</li>
+<li>Shows a large Start button and visible tutorial panel by default.</li>
+<li>Notes: “Audio starts after you press Start; visual glass, groove, beam, caustic, heat, crack, polish, lantern, and focus cues work if muted.”</li>
+</ul>
+<ol>
+<li>Tutorial text</li>
+</ol>
+<ul>
+<li>Objective: “Rotate the kiriko glass, cut the requested grooves, cool and polish facets, then catch lantern caustics on rice-paper targets.”</li>
+<li>3D movement: rotate and tilt before cutting; hidden far facets matter.</li>
+<li>Cutting: choose the correct band, Score Cut first, Deepen Cut only while heat is safe, and Cool Rinse before cracks spread.</li>
+<li>Light: Shift Lantern to send beams through polished grooves, then Catch Caustic on target rings.</li>
+<li>Repairs: Repair Hairline before red cracks flash twice.</li>
+<li>Kiriko Focus: previews valid groove directions, heat/crack risk, beam paths, target rings, and safest next tool.</li>
+<li>Pause/restart: visible buttons on mobile or keyboard shortcuts on desktop.</li>
+</ul>
+<ol>
+<li>In-game HUD</li>
+</ol>
+<ul>
+<li>Score, best score, glass hearts, heat %, crack %, polish %, commission name, combo, selected band, active facet, lantern position, Kiriko Focus charge, elapsed time, latest warning.</li>
+<li>Pause/restart controls visible or immediately accessible.</li>
+</ul>
+<ol>
+<li>Status helper</li>
+</ol>
+<ul>
+<li>Non-blocking helper showing active band/facet, current tool, groove validity, heat/crack risk, beam alignment, target-card readiness, Kiriko Focus readiness, and expected score effect.</li>
+<li>Must not cover the 3D glass or bottom controls on mobile.</li>
+</ul>
+<ol>
+<li>Pause overlay</li>
+</ol>
+<ul>
+<li>Resume, restart, tutorial reminder, controls summary, audio/mute toggle, prompt link.</li>
+</ul>
+<ol>
+<li>Game-over/results overlay</li>
+</ol>
+<ul>
+<li>Final score, best score, commission reached, Prism Illumination status, cracks, heat peak, polished facets, caustic catches, wrong cuts, badges, restart button.</li>
+</ul>
+<ol>
+<li>Kiriko Prism Illumination banner</li>
+</ol>
+<ul>
+<li>Trigger once per run after all three commissions and 6200 score.</li>
+<li>Non-blocking celebration: the glass glows ruby and cobalt, white grooves sparkle, lantern beams split into star caustics, a glassmaker seal stamps the commission card, chimes ring, and endless commissions continue after the banner fades.</li>
+</ul>
+<h2>Assets</h2>
+<p>Prefer Imagegen2 (<code>openai/gpt-image-2</code>) for final visual art: glassmaster helper mascot, portrait kiriko atelier background, glass/facet/beam/cutting material sprite sheet, and kiriko action/focus UI icon sheet. Three.js primitives may render the interactive glass geometry, facet grid, groove lines, beam projections, caustic rings, crack overlays, particles, and UI chrome. It should not create final character/background/texture/icon art from scratch unless Imagegen2 is unavailable after a real attempt.</p>
+<p>Archive source generated art under <code>release/games/048/assets/source/</code> and use optimized playable copies under <code>release/games/048/assets/</code>. Also copy optimized playable assets into <code>apps/day-048-kiriko-lantern-prism-cutter/assets/</code> and the public alias <code>release/kiriko/assets/</code>.</p>
+<p>For mobile-first crop safety: keep important content centered, leave 12-16% safe margins, avoid baked-in readable text, avoid watermarks, avoid fake UI labels, avoid tiny facet/groove details that disappear at final in-game size, and keep glass/facet/groove/beam/caustic/water/polish/crack/lantern/seal silhouettes distinct against a dark jewel-toned atelier background.</p>
+<p>Generate or provide at least these final art assets:</p>
+<ol>
+<li>Glassmaster tanuki helper mascot</li>
+</ol>
+<ul>
+<li>Target: transparent PNG if possible, square source, final optimized texture around 512x512 or 256x256.</li>
+<li>Archive path: <code>release/games/048/assets/source/kiriko-helper-source.png</code></li>
+<li>Optimized path: <code>release/games/048/assets/kiriko-helper.png</code></li>
+<li>Imagegen2 prompt: “A charming small tanuki glassmaster helper mascot for a mobile 3D Edo-kiriko glass cutting arcade game, friendly tanuki artisan wearing an indigo workshop apron and round safety glasses, holding a tiny brass cutting wheel and ruby cut-glass charm, warm lantern rim light, centered readable silhouette, transparent or solid pale rice-paper background, no checkerboard background, no readable text, no watermark, sprite-friendly, high contrast at small size.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Midnight kiriko glass atelier background source</li>
+</ol>
+<ul>
+<li>Target: portrait-friendly background suitable behind a large overlaid 3D faceted glass object with open readable center.</li>
+<li>Archive path: <code>release/games/048/assets/source/kiriko-atelier-source.png</code></li>
+<li>Optimized path: <code>release/games/048/assets/kiriko-atelier.png</code></li>
+<li>Imagegen2 prompt: “A midnight Edo-kiriko glass cutting atelier for a portrait mobile 3D arcade game, dark lacquer workbench, ruby and cobalt glass pieces near the edges, brass cutting tools, wet polishing tray, warm paper lanterns, tiny sparkling caustic light spots, deep ink shadows, open readable central space for an overlaid faceted glass object and lantern beams, crop-safe for phone portrait, no central character, no readable text, no watermark.”</li>
+<li>Aspect ratio: portrait.</li>
+</ul>
+<ol>
+<li>Kiriko glass, facet, beam, and tool material sprite sheet source</li>
+</ol>
+<ul>
+<li>Target: square sheet with separated readable materials usable as sprites/decals/textures.</li>
+<li>Archive path: <code>release/games/048/assets/source/kiriko-pieces-source.png</code></li>
+<li>Optimized path: <code>release/games/048/assets/kiriko-pieces.png</code></li>
+<li>Imagegen2 prompt: “Sprite sheet of small readable Edo-kiriko glass cutting game pieces: ruby cut-glass facet, cobalt cut-glass facet, clear glass shard with white groove, brass cutting wheel, mint-blue rinse splash, polishing cloth sparkle, amber lantern beam, star-shaped caustic spot, red hairline crack, rice-paper target card, glass heart, glassmaker seal, each element separated with generous margins, transparent or pale rice-paper background, no checkerboard background, no readable text, no watermark, readable at 40-96 pixels.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<ol>
+<li>Kiriko action, heat, crack, caustic, and focus UI icon sheet source</li>
+</ol>
+<ul>
+<li>Target: square icon sheet for objectives, hazards, tools, rewards, and UI decals.</li>
+<li>Archive path: <code>release/games/048/assets/source/kiriko-icons-source.png</code></li>
+<li>Optimized path: <code>release/games/048/assets/kiriko-icons.png</code></li>
+<li>Imagegen2 prompt: “Small readable icon sheet for a Japanese Edo-kiriko glass cutting arcade game: rotate glass arrows, tilt glass, band up/down, score cut wheel, deepen groove, cool rinse splash, polish facet cloth, shift lantern, catch caustic star, repair hairline crack, heat warning, crack meter, polish sparkle, Kiriko Focus prism eye crest, glassmaker seal, Prism Illumination crest, transparent or solid pale rice-paper background, no checkerboard background, high contrast, no readable text, no watermark, generous margins so no icons are cut off.”</li>
+<li>Aspect ratio: square.</li>
+</ul>
+<p>If Imagegen2 is unavailable or fails after a real attempt, create a clearly labeled emergency fallback using simple SVG/Three.js tanuki/glass/facet/beam/icon silhouettes, document the failure in <code>ai/postmortems/day-048.md</code>, and still keep source/fallback files under the same asset paths.</p>
+<h3>Mandatory generated-image QA</h3>
+<p>For every generated image, include a real inspection step after generation and before integration:</p>
+<ul>
+<li>Analyze the actual generated file visually, not just the prompt text.</li>
+<li>For the helper mascot, verify transparent/cutout quality or clean background handling, readable tanuki glassmaster silhouette, centered pivot/crop margins, no unwanted text/watermarks, stable upright orientation, and that cutting-wheel/glass-charm pose is compatible with static helper placement.</li>
+<li>For the pieces sheet, verify separated ruby facet, cobalt facet, clear grooved glass, cutting wheel, rinse splash, polish sparkle, lantern beam, caustic spot, hairline crack, target card, glass heart, and seal at final 40-96px size, usable crop margins, no baked checkerboard, no unwanted readable text/watermark, and a documented visual baseline: groove marks are white etched lines, caustics are star-like projected spots, cracks are red branching warnings, rinse is mint-blue, and target cards are rice-paper rectangles.</li>
+<li>Verify control-to-motion alignment in-game: Rotate Glass must visibly yaw the 3D glass, Tilt Up/Down must change facet normals/beam landing, Band −/+ must change highlighted band, Score Cut must draw a new groove, Deepen Cut must thicken/brighten the groove and raise heat, Cool Rinse must visibly sweep the band and lower heat, Polish Facet must add sparkle/accuracy, Shift Lantern must move beam direction, Catch Caustic must lock a projected spot only when aligned, Repair Hairline must stabilize/remove a crack warning, Kiriko Focus must preview valid grooves/heat/beam/target paths, Pause/Restart must work.</li>
+<li>For the background, verify the central glass stage remains readable after portrait mobile crop and does not hide facets, grooves, beams, target cards, commission card, helper, crack warnings, or controls.</li>
+<li>For the icon sheet, verify rotate, tilt, band, score cut, deepen, cool rinse, polish, lantern, caustic, repair, heat, crack, polish, focus, seal, and Prism Illumination icons are distinct at final HUD/button size and cannot be confused. Watch specifically for fake checkerboard transparency; alpha-clean or composite onto pale rice paper if needed and inspect again.</li>
+<li>If inspection finds a problem, regenerate or post-process the image and inspect again. Do not ship broken visual assets just because tests pass.</li>
+</ul>
+<h2>Audio and game feel</h2>
+<p>Because glass cutting, rinse water, polishing, lantern beams, caustic catches, cracks, and chimes are central to the theme, include lightweight WebAudio cues initialized only after a user gesture:</p>
+<ul>
+<li>Soft glass-bench chime when Start begins.</li>
+<li>Tiny brass-wheel rasp when Score Cut fires.</li>
+<li>Deeper glass grind when Deepen Cut succeeds.</li>
+<li>Mint water sweep when Cool Rinse activates.</li>
+<li>Clean sparkle rub when Polish Facet succeeds.</li>
+<li>Warm lantern slide tone when Shift Lantern moves.</li>
+<li>Bright star-chime when Catch Caustic locks a target.</li>
+<li>Sharp warning tick when a hairline crack flashes.</li>
+<li>Low heat shimmer when heat crosses warning thresholds.</li>
+<li>Crystal arpeggio when Kiriko Focus activates.</li>
+<li>Ruby/cobalt bell flourish when Kiriko Prism Illumination triggers.</li>
+</ul>
+<p>Audio must not block play if WebAudio is unavailable. Verify no autoplay errors: audio context should be created/resumed only after Start or another user interaction. Include a visible mute toggle in pause/results or HUD. Expose a narrow debug handle such as <code>window.__day048Audio = { ctx, enabled }</code> after user-gesture initialization so Playwright can assert audio state.</p>
+<h2>Prompt page output</h2>
+<p>The archived <code>release/games/048/prompt.html</code> must be a consistent rendered HTML page, not raw Markdown pasted into a <code>&lt;pre&gt;</code> block. It should include:</p>
+<ul>
+<li>A clear <code>&lt;title&gt;</code> and <code>&lt;h1&gt;</code> using <code>Day 048 Game Generation Prompt</code>.</li>
+<li>A back-to-game link near the top.</li>
+<li>Semantic rendered sections (<code>h2</code>, <code>h3</code>, <code>ul/ol/li</code>, <code>p</code>, <code>pre/code</code> only for actual code/commands).</li>
+<li>The same readable prompt-page style pattern across days so prompt pages feel like one system.</li>
+</ul>
+<h2>Subagents to dispatch</h2>
+<ol>
+<li>Implementation subagent</li>
+</ol>
+<ul>
+<li>Build the static 3D game under <code>apps/day-048-kiriko-lantern-prism-cutter/</code>.</li>
+<li>Integrate it into immutable release output under <code>release/games/048/</code>.</li>
+<li>Create the public playable route under <code>release/kiriko/</code>.</li>
+<li>Use static HTML/CSS/JS with Three.js/WebGL/WebAudio and no backend.</li>
+<li>The public alias must be self-contained or asset paths must be alias-safe.</li>
+<li>If vendoring <code>three.module*.js</code>, also copy the matching <code>three.core*.js</code> beside it in the app, release archive, and <code>/kiriko/</code> alias assets.</li>
+</ul>
+<ol>
+<li>Asset/polish subagent</li>
+</ol>
+<ul>
+<li>Generate/prepare Imagegen2 assets, archive source files, optimize playable copies, inspect generated images, remove fake checkerboards if present, document glass/facet/groove/beam/caustic visual baselines, and tune mobile readability/game feel.</li>
+</ul>
+<ol>
+<li>QA/browser/mobile subagent</li>
+</ol>
+<ul>
+<li>Run desktop and mobile smoke checks, verify no console errors, verify menu/tutorial/objective/controls/restart/pause, prompt links, 3D glass render, Rotate Glass, direct stage drag, Tilt Up/Down, Band −/+, Score Cut, Deepen Cut, Cool Rinse, Polish Facet, Shift Lantern, Catch Caustic, Repair Hairline, Kiriko Focus control presence and visible mechanical effect, heat/crack/polish/beam/caustic/commission feedback, generated screenshot, generated assets, WebAudio initialization after user gesture, and 390x844 portrait layout.</li>
+</ul>
+<ol>
+<li>Reflection/self-improvement subagent</li>
+</ol>
+<ul>
+<li>Write <code>ai/postmortems/day-048.md</code> after validation with what worked, what failed, generated-image inspection notes, glass/facet/groove/beam/caustic visual baseline, audio verification, code-isolation confirmation, and whether generator/template/rubric improvements are justified.</li>
+</ul>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Static build passes.</li>
+<li>Code isolation is documented in QA/postmortem: no previous game implementation code was opened, inspected, copied, diffed, grepped, or adapted.</li>
+<li>Mode choice follows the cadence rule: Day 048 is real <code>3d</code> after Day 047 <code>2d</code>, with meaningful glass rotation/tilt, facet selection, band choice, groove cutting, heat/cooling, polishing, lantern beams, caustic targets, crack risk, and focus mechanics rather than decorative perspective.</li>
+<li>Desktop smoke passes.</li>
+<li>Mobile portrait smoke passes at about 390x844 with readable HUD/tutorial/commission card, usable 44px+ glass/action/pause/restart controls, no forced landscape canvas, and no tiny survival-critical facet labels.</li>
+<li>Prompt is visible from gallery and release folder.</li>
+<li><code>prompts/day-048.md</code> is copied exactly to <code>release/games/048/prompt.md</code> and <code>release/kiriko/prompt.md</code>.</li>
+<li><code>release/games/048/prompt.html</code> and <code>release/kiriko/prompt.html</code> render the prompt in browser-readable semantic HTML with the standard prompt-page styling, not a raw Markdown <code>&lt;pre&gt;</code> dump.</li>
+<li>Public alias <code>release/kiriko/index.html</code>, <code>release/kiriko/prompt.html</code>, <code>release/kiriko/screenshot.png</code>, and <code>release/kiriko/assets/</code> exist and work.</li>
+<li>Gallery card for Day 048 shows prompt availability, generation duration, public <code>/kiriko/</code> links, mode <code>3d</code>, and actual generated date.</li>
+<li>Screenshot exists at <code>release/games/048/screenshot.png</code> and is non-empty/readable. Prefer a readable desktop gameplay screenshot for gallery cards; mobile screenshots are QA evidence unless the design is intentionally portrait-card friendly.</li>
+<li>Image/source assets exist under <code>release/games/048/assets/source/</code> and optimized assets exist under <code>release/games/048/assets/</code>, or a documented emergency fallback exists.</li>
+<li>Every generated image has an inspection note in the postmortem or QA notes; interactive glass/facet/groove/beam/caustic visuals have verified background handling, orientation/pivot/crop, readability, and control-to-motion alignment.</li>
+<li>WebAudio initializes after user gesture and creates no autoplay console errors; audio is failsafe if unsupported and visual glass/groove/beam/caustic/commission cues remain playable muted.</li>
+<li>No console errors during desktop or mobile smoke. Add data-URI favicons to game and prompt pages if needed to avoid favicon request noise.</li>
+<li>Existing <code>release/games/001/**</code> through <code>release/games/047/**</code> from origin/main remain unchanged.</li>
+<li>No existing release folder is modified unless listed in <code>release/regeneration-allowlist.json</code>.</li>
+<li>Do not delete <code>scripts/launch-nightly-hermes.sh</code>.</li>
+<li>Do not edit or delete files under <code>/home/aiko/.hermes/profiles/ryu/cron/100-days-games</code>.</li>
+</ul>
+<h2>Exact validation commands</h2>
+<pre><code>pnpm typecheck
+pnpm test
+pnpm build
+pnpm release:validate
+pnpm test:smoke
+pnpm test:immutable -- --base origin/main</code></pre>
+<p>Additional required local checks before push:</p>
+<pre><code># Screenshot/static checks: verify release/games/048/screenshot.png, prompt.md, prompt.html, index.html, game.js, styles.css, release/kiriko/index.html, release/kiriko/prompt.html, release/kiriko/screenshot.png, optimized assets, source assets, and vendored Three.js files (if used) exist and are non-empty.
+# Prompt copy check: cmp prompts/day-048.md release/games/048/prompt.md and cmp prompts/day-048.md release/kiriko/prompt.md.
+# Prompt HTML check: verify release/games/048/prompt.html has semantic h1/h2/list markup and a back-to-game link, not a raw Markdown dump inside &lt;pre&gt;, and no malformed ul &gt; p or ol &gt; p nodes, no direct nested lists, and no strong/b tags inside code.
+# Browser smoke: open the local/static /kiriko/ route and verify menu, tutorial, gameplay start, 3D glass render, Rotate Glass, stage drag, Tilt Up/Down, Band −/+, Score Cut, Deepen Cut, Cool Rinse, Polish Facet, Shift Lantern, Catch Caustic, Repair Hairline, Kiriko Focus, heat/crack/polish/beam/caustic/commission feedback, pause, restart, prompt page, WebAudio after user gesture, no console errors.
+# Mobile smoke: repeat at a portrait phone viewport such as 390x844 and verify playable glass/action controls plus readable HUD/commission card/stage/controls.
+# Static screenshot check: inspect release/games/048/screenshot.png and release/kiriko/screenshot.png for non-empty readable game content; use vision to judge actual visual quality.
+# Image QA: inspect every Imagegen2 source/optimized asset and document the actual inspection result in ai/postmortems/day-048.md.
+# Docker/static smoke: build the Docker image locally, run it, curl /kiriko/ and /kiriko/prompt.html, then stop the container.
+# Immutable guard: confirm no release/games folders from origin/main changed except new Day 048.</code></pre>
+  </section>
+</main></body></html>
