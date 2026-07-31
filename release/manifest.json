@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T01:31:12.000Z",
+  "generatedAt": "2026-07-31T01:46:36.000Z",
   "totalDays": 100,
-  "completedDays": 48,
+  "completedDays": 49,
   "games": [
     {
       "day": 1,
@@ -434,6 +434,15 @@
       "promptUrl": "/kiriko/prompt.html",
       "screenshotUrl": "/kiriko/screenshot.png",
       "generationDuration": "manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 49,
+      "title": "Yabusame Willow Target Archer",
+      "slug": "yabusame-willow-target-archer",
+      "playUrl": "/yabusame/",
+      "promptUrl": "/yabusame/prompt.html",
+      "screenshotUrl": "/yabusame/screenshot.png",
+      "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes"
     }
   ]
 }

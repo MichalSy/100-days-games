@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Day 049 — Yabusame Willow Target Archer</title>
+  <meta name="description" content="Mobile-first 2D mounted archery timing game for Day 049 of 100 Days Games." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23241216'/%3E%3Cpath d='M10 42 C23 25 39 20 55 15' stroke='%23ffd36a' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='48' cy='18' r='8' fill='%23e44f36' stroke='%23fff1cf' stroke-width='3'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main id="app" class="app-shell">
+    <section id="titleScreen" class="title-screen" aria-labelledby="gameTitle">
+      <div class="title-card">
+        <div class="badge-row"><span>Day 049</span><span>Mode 2D</span><span>/yabusame/</span></div>
+        <h1 id="gameTitle">Yabusame Willow Target Archer</h1>
+        <p class="lede">Ride a dusk shrine course, manage horse pace and calm, read willow wind, draw into the green window, and release arrows into ordered targets.</p>
+        <div class="menu-stats" aria-label="saved bests">
+          <span>Best score <strong id="menuBest">0</strong></span>
+          <span>Best Grand Hitomi Seal <strong id="menuSealTime">—</strong></span>
+          <a id="menuPromptLink" href="./prompt.html">Prompt</a>
+        </div>
+        <button id="startBtn" class="primary start-button">Start Yabusame Run</button>
+        <p class="audio-note">Audio starts after you press Start; visual horse, bow, arrow, target, wind, willow, calm, gate, and focus cues work if muted.</p>
+        <div class="tutorial-panel" id="tutorialPanel">
+          <h2>Tutorial</h2>
+          <ul>
+            <li><strong>Objective:</strong> Ride the course, manage pace, aim and release arrows into ordered targets, calm the horse, and beat the closing gates.</li>
+            <li><strong>Timing:</strong> Pace Up/Down, Aim Up/Down, Draw Bow to the green window, then Release Arrow.</li>
+            <li><strong>Ballistics:</strong> lane depth, wind ribbons, draw strength, release timing, and Feather Drift bend the arrow arc.</li>
+            <li><strong>Horse care:</strong> Calm Horse after willow shadows or banner drums; high pace and overdraw raise strain.</li>
+            <li><strong>Special tools:</strong> Swap Target, Nock Focus Arrow, and Yabusame Focus preview order, arc, wind, release, calm risk, and gate pressure.</li>
+            <li><strong>Always visible:</strong> Pause, Restart, Audio, Prompt, and large archery controls for phone play.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="game-screen is-hidden" aria-label="Yabusame game screen">
+      <header class="hud" aria-label="game HUD">
+        <span>Score <strong id="scoreHud">0</strong></span>
+        <span>Best <strong id="bestHud">0</strong></span>
+        <span>Hearts <strong id="heartHud">♥♥♥</strong></span>
+        <span>Calm <strong id="calmHud">92%</strong></span>
+        <span>Strain <strong id="strainHud">0%</strong></span>
+        <span>Gate <strong id="gateHud">0%</strong></span>
+        <span>Combo <strong id="comboHud">x1</strong></span>
+        <span>Lane <strong id="laneHud">near</strong></span>
+        <span>Next <strong id="nextHud">target 1</strong></span>
+        <span>Wind <strong id="windHud">← 0</strong></span>
+        <span>Focus <strong id="focusHud">0%</strong></span>
+        <span>Time <strong id="timeHud">0s</strong></span>
+      </header>
+
+      <aside class="commission-card" id="commissionCard" aria-live="polite">
+        <div>
+          <small>Commission</small>
+          <h2 id="commissionName">First Willow Mark</h2>
+        </div>
+        <p id="commissionText">Hit near willow target 1, pace down before the banner gate, then calm the horse.</p>
+        <div class="progress-pips" id="progressPips" aria-label="target progress"></div>
+        <p class="master-note" id="masterNote">Archery-master note: draw to the green band and release as the target halo crosses the marker rope.</p>
+      </aside>
+
+      <div class="stage-wrap">
+        <canvas id="gameCanvas" width="900" height="560" aria-label="2D parallax yabusame course stage"></canvas>
+        <div id="focusOverlay" class="focus-overlay" aria-hidden="true">
+          <strong>Yabusame Focus</strong>
+          <span>Order rings, wind drift, release window, calm risk, and gate pressure are highlighted.</span>
+        </div>
+        <div id="sealBanner" class="seal-banner is-hidden">Yabusame Grand Hitomi Seal!</div>
+      </div>
+
+      <p class="status-helper" id="statusHelper" aria-live="polite">Ready: set pace, aim near lane, draw into the green window, then Release Arrow.</p>
+
+      <nav class="controls" aria-label="archery and course controls">
+        <button data-control="pace-up" id="paceUpBtn">Pace Up</button>
+        <button data-control="pace-down" id="paceDownBtn">Pace Down</button>
+        <button data-control="aim-up" id="aimUpBtn">Aim Up</button>
+        <button data-control="aim-down" id="aimDownBtn">Aim Down</button>
+        <button data-control="draw" id="drawBtn">Draw Bow</button>
+        <button data-control="release" id="releaseBtn">Release Arrow</button>
+        <button data-control="feather" id="featherBtn">Feather Drift</button>
+        <button data-control="calm" id="calmBtn">Calm Horse</button>
+        <button data-control="swap" id="swapBtn">Swap Target</button>
+        <button data-control="nock" id="nockBtn">Nock Focus Arrow</button>
+        <button data-control="focus" id="focusBtn">Yabusame Focus</button>
+        <button data-control="pause" id="pauseBtn">Pause</button>
+        <button data-control="restart" id="restartBtn">Restart</button>
+        <button data-control="audio" id="audioBtn">Audio: On</button>
+        <a data-control="prompt" id="promptBtn" href="./prompt.html">Prompt</a>
+      </nav>
+    </section>
+
+    <section id="pauseOverlay" class="modal is-hidden" aria-label="pause overlay">
+      <div class="modal-card">
+        <h2>Paused at the shrine gate</h2>
+        <p>Controls: Pace Up/Down, Aim Up/Down, Draw Bow, Release Arrow, Feather Drift, Calm Horse, Swap Target, Nock Focus Arrow, Yabusame Focus.</p>
+        <p>Draw into the green band, watch wind ribbons, calm after willow shadows, and do not chase passed targets.</p>
+        <button id="resumeBtn" class="primary">Resume</button>
+        <button id="pauseRestartBtn">Restart</button>
+        <button id="pauseAudioBtn">Audio: On</button>
+        <a href="./prompt.html">Open prompt</a>
+      </div>
+    </section>
+
+    <section id="resultsOverlay" class="modal is-hidden" aria-label="game results">
+      <div class="modal-card results-card">
+        <h2 id="resultsTitle">Run Complete</h2>
+        <div id="resultsSummary" class="results-summary"></div>
+        <button id="resultsRestartBtn" class="primary">Restart</button>
+        <a href="./prompt.html">Review Day 049 prompt</a>
+      </div>
+    </section>
+  </main>
+  <script src="./game.js" defer></script>
+</body>
+</html>

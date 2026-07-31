@@ -736,6 +736,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/kiriko/screenshot.png',
     generationDuration: 'manual controller run with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-30T01:31:12Z'
+  },
+  49: {
+    status: 'generated',
+    title: 'Yabusame Willow Target Archer',
+    slug: 'yabusame-willow-target-archer',
+    genre: ['mounted-archery timing arcade', 'parallax target shooting', 'mobile-first 2D'],
+    mode: '2d',
+    description: 'Ride a dusk riverside yabusame course, manage horse pace and calm, draw and release arrows into ordered targets, compensate for willow wind, and earn paper hitomi seals.',
+    objective: 'Complete First Willow Mark, Shrine Banner Triple, and Moonlit River Finale while reaching 6300 points to trigger Yabusame Grand Hitomi Seal, then continue into endless target courses.',
+    playUrl: '/yabusame/',
+    promptUrl: '/yabusame/prompt.html',
+    promptExcerpt: 'Manage horse pace, aim and draw into the green window, release arrows at ordered near/mid/far targets, calm the horse, and use Yabusame Focus before the gates close.',
+    screenshotUrl: '/yabusame/screenshot.png',
+    generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
+    generatedAt: '2026-07-31T01:46:36Z'
   }
 };
 

@@ -1,0 +1,203 @@
+:root {
+  --ink: #201317;
+  --paper: #fff5d6;
+  --paper-soft: rgba(255, 245, 214, 0.88);
+  --vermilion: #cc412e;
+  --gold: #ffd36a;
+  --willow: #4d8a57;
+  --indigo: #1d2947;
+  --peach: #ffab6b;
+  --shadow: rgba(23, 15, 22, 0.46);
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: #140d13; color: var(--paper); }
+body {
+  background:
+    radial-gradient(circle at 30% 5%, rgba(255, 195, 103, 0.28), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(181, 63, 66, 0.34), transparent 32%),
+    linear-gradient(180deg, #161125 0%, #281520 48%, #120c12 100%);
+  overflow-x: hidden;
+}
+button, a { font: inherit; }
+a { color: #ffe39b; }
+.app-shell { min-height: 100svh; width: min(1180px, 100vw); margin: 0 auto; padding: clamp(8px, 2vw, 18px); }
+.is-hidden { display: none !important; }
+
+.title-screen { min-height: calc(100svh - 16px); display: grid; place-items: center; }
+.title-card {
+  width: min(960px, 100%);
+  border: 1px solid rgba(255, 211, 106, 0.38);
+  border-radius: 28px;
+  padding: clamp(18px, 3vw, 34px);
+  background:
+    linear-gradient(135deg, rgba(32, 19, 23, 0.92), rgba(41, 25, 44, 0.84)),
+    url('./assets/yabusame-course.png') center/cover;
+  box-shadow: 0 22px 70px rgba(0,0,0,0.5);
+}
+.badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.badge-row span, .hud span, .menu-stats span, .menu-stats a {
+  border: 1px solid rgba(255, 211, 106, 0.33);
+  background: rgba(19, 12, 15, 0.68);
+  border-radius: 999px;
+  padding: 7px 10px;
+  color: #fff7de;
+}
+h1 { font-size: clamp(2rem, 7vw, 5.2rem); line-height: 0.92; margin: 6px 0 12px; letter-spacing: -0.06em; text-wrap: balance; }
+.lede { max-width: 780px; font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.45; color: #fff1cf; }
+.menu-stats { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0; }
+.primary, .start-button { background: linear-gradient(180deg, #ffd36a, #e16638); color: #25120e; border: 0; font-weight: 900; }
+.start-button { min-height: 58px; padding: 0 28px; border-radius: 18px; font-size: 1.1rem; box-shadow: 0 12px 30px rgba(225, 102, 56, .32); }
+.audio-note { color: #ffecc0; }
+.tutorial-panel {
+  margin-top: 16px;
+  padding: 14px 18px;
+  border-radius: 20px;
+  background: rgba(255, 245, 214, 0.12);
+  border: 1px solid rgba(255, 245, 214, 0.24);
+}
+.tutorial-panel h2 { margin: 0 0 8px; }
+.tutorial-panel ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 5px; color: #fff4d6; }
+
+.game-screen { display: grid; gap: 8px; grid-template-rows: auto auto minmax(290px, 1fr) auto auto; min-height: calc(100svh - 16px); }
+.hud {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 6px;
+  font-size: 0.86rem;
+}
+.hud span { display: flex; justify-content: space-between; align-items: center; min-height: 34px; padding: 6px 8px; }
+.hud strong { color: var(--gold); }
+.commission-card {
+  display: grid;
+  grid-template-columns: minmax(130px, .85fr) 1.45fr minmax(120px, .75fr);
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 211, 106, 0.28);
+  border-radius: 18px;
+  background: rgba(19, 12, 15, 0.72);
+}
+.commission-card small { color: #ffd36a; text-transform: uppercase; letter-spacing: .12em; }
+.commission-card h2, .commission-card p { margin: 0; }
+.commission-card h2 { font-size: clamp(1rem, 2.4vw, 1.5rem); }
+.progress-pips { display: flex; flex-wrap: wrap; gap: 6px; }
+.progress-pips span { width: 25px; height: 25px; border-radius: 999px; border: 2px solid rgba(255,255,255,.55); display: grid; place-items: center; font-size: .72rem; background: rgba(255,255,255,.08); }
+.progress-pips .done { background: var(--gold); color: #211; border-color: #fff4c2; }
+.master-note { color: #ffe6ae; font-size: .9rem; }
+.stage-wrap { position: relative; min-height: 0; border-radius: 22px; overflow: hidden; border: 1px solid rgba(255, 211, 106, 0.32); background: #2b1d23; box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); }
+canvas { display: block; width: 100%; height: 100%; min-height: 300px; touch-action: none; background: #2d2130; }
+.focus-overlay {
+  position: absolute;
+  inset: 10px;
+  pointer-events: none;
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding: 12px;
+  border-radius: 18px;
+  border: 2px dashed rgba(255, 211, 106, 0.72);
+  background: linear-gradient(180deg, rgba(18,16,24,.18), rgba(255,211,106,.10));
+  color: #fff8db;
+  text-shadow: 0 2px 8px #000;
+  opacity: 0;
+  transform: scale(.99);
+  transition: opacity .18s, transform .18s;
+}
+.focus-overlay.active { opacity: 1; transform: scale(1); }
+.seal-banner {
+  position: absolute;
+  left: 50%; top: 45%; transform: translate(-50%, -50%);
+  padding: 16px 24px;
+  border-radius: 999px;
+  background: radial-gradient(circle, #fff7d7, #ffd36a 55%, #d84a31);
+  color: #241216;
+  font-weight: 1000;
+  font-size: clamp(1.2rem, 4vw, 2.4rem);
+  box-shadow: 0 20px 60px rgba(255, 211, 106, .45);
+  text-align: center;
+}
+.status-helper {
+  min-height: 38px;
+  margin: 0;
+  padding: 9px 12px;
+  border-radius: 15px;
+  background: rgba(255, 245, 214, 0.14);
+  border: 1px solid rgba(255,245,214,.21);
+  color: #fff4d2;
+}
+.controls { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 7px; }
+.controls button, .controls a, .modal-card button, .modal-card a {
+  min-height: 48px;
+  border: 1px solid rgba(255, 211, 106, 0.32);
+  border-radius: 14px;
+  color: #fff5d6;
+  background: linear-gradient(180deg, rgba(72, 44, 40, .98), rgba(33, 21, 30, .98));
+  text-decoration: none;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 7px 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,.22);
+}
+.controls button:active, .controls a:active, .controls button.flash { transform: translateY(1px); filter: brightness(1.22); }
+.controls [data-control="draw"], .controls [data-control="release"], .controls [data-control="focus"] { border-color: rgba(255, 211, 106, .72); }
+
+.modal {
+  position: fixed; inset: 0; z-index: 20;
+  display: grid; place-items: center;
+  padding: 18px;
+  background: rgba(8, 5, 8, .74);
+  backdrop-filter: blur(6px);
+}
+.modal-card {
+  width: min(640px, 100%);
+  max-height: min(760px, calc(100svh - 36px));
+  overflow: auto;
+  border: 1px solid rgba(255, 211, 106, 0.42);
+  border-radius: 24px;
+  padding: 20px;
+  background: linear-gradient(180deg, rgba(42, 25, 33, .97), rgba(18, 12, 16, .98));
+  box-shadow: 0 28px 80px rgba(0,0,0,.55);
+}
+.modal-card h2 { margin-top: 0; }
+.modal-card button, .modal-card a { width: 100%; margin-top: 10px; }
+.results-summary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.results-summary span { background: rgba(255,245,214,.12); border-radius: 12px; padding: 10px; }
+
+@media (max-width: 720px) {
+  .app-shell { padding: 6px; }
+  .title-screen { align-items: start; padding-top: 6px; }
+  .title-card { border-radius: 20px; padding: 14px; }
+  h1 { font-size: clamp(2rem, 10.5vw, 3.15rem); }
+  .lede { margin: 8px 0; }
+  .menu-stats { margin: 10px 0; gap: 6px; font-size: .86rem; }
+  .start-button { min-height: 52px; width: 100%; }
+  .audio-note { font-size: .84rem; margin: 8px 0; }
+  .tutorial-panel { padding: 10px 12px; margin-top: 9px; }
+  .tutorial-panel ul { font-size: .84rem; line-height: 1.25; gap: 3px; }
+  .game-screen { grid-template-rows: auto auto 250px auto auto; gap: 5px; min-height: calc(100svh - 12px); }
+  .hud { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; font-size: .72rem; }
+  .hud span { min-height: 27px; padding: 4px 5px; }
+  .commission-card { grid-template-columns: 1fr; gap: 4px; padding: 7px 9px; }
+  .commission-card h2 { font-size: 1rem; }
+  .commission-card p { font-size: .78rem; line-height: 1.22; }
+  .master-note { display: none; }
+  .progress-pips span { width: 20px; height: 20px; font-size: .62rem; }
+  .stage-wrap { min-height: 250px; border-radius: 17px; }
+  canvas { min-height: 250px; }
+  .status-helper { min-height: 30px; padding: 6px 9px; font-size: .74rem; }
+  .controls { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; }
+  .controls button, .controls a { min-height: 44px; border-radius: 12px; padding: 5px 4px; font-size: .76rem; }
+}
+
+@media (max-width: 400px) {
+  .hud { font-size: .68rem; }
+  .stage-wrap { min-height: 250px; }
+  canvas { min-height: 250px; }
+  .title-card { padding: 12px; }
+  .tutorial-panel ul { font-size: .79rem; }
+}
