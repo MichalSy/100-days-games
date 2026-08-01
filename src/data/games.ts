@@ -751,6 +751,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/yabusame/screenshot.png',
     generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes',
     generatedAt: '2026-07-31T01:46:36Z'
+  },
+  50: {
+    status: 'generated',
+    title: 'Kagura Mask Star Dancer',
+    slug: 'kagura-mask-star-dancer',
+    genre: ['3D ritual dance rhythm puzzle', 'spatial pose matching', 'mobile-first shrine-stage score chase'],
+    mode: '3d',
+    description: 'Perform kagura choreography on a moonlit cedar stage by stepping through ordered star marks, facing lanterns, swapping fox/oni/okame masks, raising or lowering the gohei wand, and striking poses on blue beat rings.',
+    objective: 'Complete First Star Step, Lantern Mask Spiral, and Moon Rope Finale while reaching 6400 points to trigger Kagura Midpoint Blessing, then continue into endless shrine-stage sequences.',
+    playUrl: '/kagura/',
+    promptUrl: '/kagura/prompt.html',
+    promptExcerpt: 'Move a 3D dancer across front/mid/back stage tiles, match facing, mask, and gohei height, ring Kagura Bells on blue beats, and use Star Focus before lanterns dim.',
+    screenshotUrl: '/kagura/screenshot.png',
+    generationDuration: 'manual controller timeout recovery with Imagegen2 assets and implementation/QA subagents ~170 minutes',
+    generatedAt: '2026-08-01T01:48:53Z'
   }
 };
 

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T01:46:36.000Z",
+  "generatedAt": "2026-08-01T01:48:53.000Z",
   "totalDays": 100,
-  "completedDays": 49,
+  "completedDays": 50,
   "games": [
     {
       "day": 1,
@@ -443,6 +443,15 @@
       "promptUrl": "/yabusame/prompt.html",
       "screenshotUrl": "/yabusame/screenshot.png",
       "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~150 minutes"
+    },
+    {
+      "day": 50,
+      "title": "Kagura Mask Star Dancer",
+      "slug": "kagura-mask-star-dancer",
+      "playUrl": "/kagura/",
+      "promptUrl": "/kagura/prompt.html",
+      "screenshotUrl": "/kagura/screenshot.png",
+      "generationDuration": "manual controller timeout recovery with Imagegen2 assets and implementation/QA subagents ~170 minutes"
     }
   ]
 }

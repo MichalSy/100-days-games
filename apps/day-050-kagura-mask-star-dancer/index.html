@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#130923" />
+    <title>Day 050 — Kagura Mask Star Dancer</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23130923'/%3E%3Cpath d='M32 8l6 16h17L41 34l5 17-14-10-14 10 5-17L9 24h17z' fill='%23f8c95c'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app" class="game-shell" data-state="menu">
+      <header class="top-hud" aria-label="Kagura dance status">
+        <span class="chip badge">Day 050 · 3D</span>
+        <span class="chip">Score <b id="score">0</b></span>
+        <span class="chip">Best <b id="best">0</b></span>
+        <span class="chip">♡ <b id="hearts">3</b></span>
+        <span class="chip">Balance <b id="balance">100%</b></span>
+        <span class="chip">Hush <b id="hush">100%</b></span>
+        <span class="chip">Strain <b id="strain">0%</b></span>
+        <span class="chip">Lantern <b id="timer">0%</b></span>
+        <span class="chip">Combo <b id="combo">0</b></span>
+        <span class="chip">Tile <b id="tile">C-Mid</b></span>
+        <span class="chip">Face <b id="facing">North</b></span>
+        <span class="chip">Mask <b id="mask">Fox</b></span>
+        <span class="chip">Focus <b id="focus">0%</b></span>
+        <span class="chip">Time <b id="elapsed">0:00</b></span>
+      </header>
+
+      <section class="commission" aria-live="polite">
+        <div>
+          <p class="eyebrow" id="commissionName">First Star Step</p>
+          <h1 id="commissionGoal">Step center, face north lantern, raise gohei, strike on the blue beat.</h1>
+        </div>
+        <ol id="markList" class="mark-list" aria-label="ordered choreography marks"></ol>
+      </section>
+
+      <main class="stage-wrap">
+        <canvas id="stage" aria-label="3D kagura shrine stage with dancer, star marks, beat ring, and lantern cones"></canvas>
+        <div id="focusOverlay" class="focus-overlay" hidden>
+          <b>Star Focus</b><span>gold path · blue beat · mask gates · balance risk · hush pressure</span>
+        </div>
+        <div id="feedback" class="feedback" aria-live="polite">Press Start to enter the moonlit kagura stage.</div>
+      </main>
+
+      <p id="helper" class="helper">Next: step through ordered star marks, match facing/mask/gohei height, then Strike Pose on the blue beat.</p>
+
+      <nav class="controls" aria-label="Dance controls">
+        <button data-action="stepLeft">Step Left</button>
+        <button data-action="stepForward">Step Forward</button>
+        <button data-action="stepRight">Step Right</button>
+        <button data-action="turnLeft">Turn Left</button>
+        <button data-action="raiseGohei">Raise Gohei</button>
+        <button data-action="turnRight">Turn Right</button>
+        <button data-action="stepBack">Step Back</button>
+        <button data-action="lowerGohei">Lower Gohei</button>
+        <button data-action="strikePose" class="primary">Strike Pose</button>
+        <button data-action="ringBells">Ring Kagura Bells</button>
+        <button data-action="maskSwap">Mask Swap</button>
+        <button data-action="starFocus">Star Focus</button>
+        <button data-action="pause">Pause</button>
+        <button data-action="restart">Restart</button>
+        <button data-action="audio">Audio On/Off</button>
+        <a class="button-link" href="./prompt.html">Prompt</a>
+      </nav>
+
+      <section id="menu" class="overlay menu-overlay">
+        <div class="panel">
+          <p class="eyebrow">Day 050 · Mode 3D · public route /kagura/</p>
+          <h2>Kagura Mask Star Dancer</h2>
+          <p class="objective">Step through ordered star marks, face lanterns, match masks and gohei height, strike poses on the beat, and keep the shrine audience hushed.</p>
+          <div class="menu-stats"><span>Best score <b id="menuBest">0</b></span><span>Best Midpoint Blessing <b id="menuBlessing">—</b></span></div>
+          <ul class="tutorial-list">
+            <li><b>3D movement:</b> Step Left/Right/Forward/Back across front/mid/back tiles; facing direction matters.</li>
+            <li><b>Pose matching:</b> Turn first, Raise or Lower Gohei, then Strike Pose on the blue beat ring.</li>
+            <li><b>Rhythm:</b> Ring Kagura Bells on blue beats to restore hush and widen the next window.</li>
+            <li><b>Masks:</b> Mask Swap only works at gate marks unless Star Focus is active.</li>
+            <li><b>Star Focus:</b> previews route order, beat window, mask gates, lantern arrows, balance risk, hush pressure, and safest action.</li>
+            <li><b>Pause/restart:</b> buttons stay visible; keyboard: arrows/WASD, Q/E, Space, B, M, F, P, R.</li>
+          </ul>
+          <p class="audio-note">Audio starts after you press Start; visual dancer, star mark, mask, gohei, lantern, bell, balance, hush, and focus cues work if muted.</p>
+          <div class="overlay-actions"><button id="startButton" class="start">Start</button><a href="./prompt.html">View prompt</a></div>
+        </div>
+      </section>
+
+      <section id="pauseOverlay" class="overlay" hidden>
+        <div class="panel small">
+          <p class="eyebrow">Paused kagura stage</p>
+          <h2>Hold the pose, breathe, then resume.</h2>
+          <p>Controls: Step, Turn, Raise/Lower Gohei, Strike Pose, Ring Kagura Bells, Mask Swap, Star Focus. Keep balance and hush high.</p>
+          <div class="overlay-actions"><button data-action="resume">Resume</button><button data-action="restart">Restart</button><button data-action="audio">Audio On/Off</button><a href="./prompt.html">Prompt</a></div>
+        </div>
+      </section>
+
+      <section id="resultsOverlay" class="overlay" hidden>
+        <div class="panel small">
+          <p class="eyebrow" id="resultKicker">Results</p>
+          <h2 id="resultTitle">The lanterns dim.</h2>
+          <p id="resultText"></p>
+          <div id="badges" class="badges"></div>
+          <div class="overlay-actions"><button data-action="restart">Restart</button><a href="./prompt.html">Prompt</a></div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="./game.js"></script>
+  </body>
+</html>
