@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-01T01:48:53.000Z",
+  "generatedAt": "2026-08-02T01:46:54.000Z",
   "totalDays": 100,
-  "completedDays": 50,
+  "completedDays": 51,
   "games": [
     {
       "day": 1,
@@ -452,6 +452,15 @@
       "promptUrl": "/kagura/prompt.html",
       "screenshotUrl": "/kagura/screenshot.png",
       "generationDuration": "manual controller timeout recovery with Imagegen2 assets and implementation/QA subagents ~170 minutes"
+    },
+    {
+      "day": 51,
+      "title": "Matoi Ember Alley Brigade",
+      "slug": "matoi-ember-alley-brigade",
+      "playUrl": "/matoi/",
+      "promptUrl": "/matoi/prompt.html",
+      "screenshotUrl": "/matoi/screenshot.png",
+      "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~160 minutes"
     }
   ]
 }

@@ -766,6 +766,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/kagura/screenshot.png',
     generationDuration: 'manual controller timeout recovery with Imagegen2 assets and implementation/QA subagents ~170 minutes',
     generatedAt: '2026-08-01T01:48:53Z'
+  },
+  51: {
+    status: 'generated',
+    title: 'Matoi Ember Alley Brigade',
+    slug: 'matoi-ember-alley-brigade',
+    genre: ['hybrid fire-brigade strategy arcade', 'hose-pressure routing', 'mobile-first rescue score chase'],
+    mode: 'hybrid',
+    description: 'Command an Edo fire brigade through a smoky isometric alley, rotate braided hoses, pump water, chain buckets, raise ladders, rescue cats, stamp firebreaks, and swing the matoi standard before embers reach the shrine gate.',
+    objective: 'Complete First Pump Cart, Lantern Row Rescue, and Shrine Gate Firebreak while reaching 6500 points to trigger Matoi Dawn All-Clear, then continue into endless ember patrols.',
+    playUrl: '/matoi/',
+    promptUrl: '/matoi/prompt.html',
+    promptExcerpt: 'Aim hoses, pump water through pressure kinks, chain buckets around smoke, rescue cats, place firebreaks, and use Ember Focus before wind spreads the alley fire.',
+    screenshotUrl: '/matoi/screenshot.png',
+    generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~160 minutes',
+    generatedAt: '2026-08-02T01:46:54Z'
   }
 };
 
