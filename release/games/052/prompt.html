@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Day 052 Game Generation Prompt</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23072f4a'/%3E%3Cpath d='M10 43c12-14 24-14 44 0' fill='none' stroke='%238adff2' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M31 9l5 17h-10z' fill='%23ffd166'/%3E%3C/svg%3E" />
+    <style>
+      :root { color-scheme: dark; --bg:#041923; --panel:#082436; --ink:#fff8e7; --muted:#b7d9de; --gold:#ffd166; --aqua:#63d9ee; --line:rgba(255,209,102,.34); }
+      * { box-sizing: border-box; }
+      body { margin:0; font-family: "Trebuchet MS", system-ui, sans-serif; color:var(--ink); background: radial-gradient(circle at top, #0c6276, #041923 46%, #020a11); line-height:1.58; }
+      main { width:min(980px, calc(100vw - 28px)); margin:0 auto; padding:30px 0 60px; }
+      nav { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:20px; }
+      a { color:#07131d; background:linear-gradient(180deg, #ffe68c, #ffa43a); text-decoration:none; font-weight:900; border-radius:999px; padding:9px 14px; border:1px solid rgba(255,255,255,.24); }
+      article { border:1px solid var(--line); border-radius:24px; background:rgba(8,36,54,.88); padding:clamp(18px, 4vw, 34px); box-shadow:0 24px 90px rgba(0,0,0,.36); }
+      h1 { margin:0 0 10px; font-size:clamp(34px, 7vw, 64px); line-height:.95; color:#fff; text-wrap:balance; }
+      h2 { margin-top:34px; padding-top:18px; border-top:1px solid rgba(255,209,102,.2); color:var(--gold); font-size:clamp(22px, 3vw, 31px); }
+      h3 { margin-top:24px; color:var(--aqua); }
+      p, li { color:var(--muted); }
+      strong { color:#fff; }
+      code { color:#ffe9a8; background:rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.08); border-radius:6px; padding:.08em .34em; }
+      pre { overflow:auto; padding:14px; border-radius:14px; background:#020a11; border:1px solid rgba(99,217,238,.2); }
+      pre code { background:transparent; border:0; padding:0; color:#e8fbff; }
+      ul, ol { padding-left:1.35rem; }
+      li { margin:.32rem 0; }
+      .meta { color:#ffe9a8; margin:0 0 24px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <nav><a href="./">← Back to game</a><a href="./prompt.md">Raw Markdown</a></nav>
+      <article>
+        <h1>Day 052 Game Generation Prompt</h1>
+        <p class="meta">Rendered semantic prompt page for Kamome Tide Signalkeeper.</p>
+        <div id="content"><p>Loading prompt…</p></div>
+      </article>
+    </main>
+    <script>
+      const escapeHtml = (s) => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+      const inline = (s) => escapeHtml(s).replace(/`([^`]+)`/g, '<code>$1</code>');
+      function render(md) {
+        const lines = md.split(/\r?\n/);
+        let html = '', list = null, para = [], code = false, codeLines = [];
+        const flushPara = () => { if (para.length) { html += `<p>${inline(para.join(' '))}</p>`; para = []; } };
+        const closeList = () => { if (list) { html += `</${list}>`; list = null; } };
+        const openList = (kind) => { if (list !== kind) { closeList(); html += `<${kind}>`; list = kind; } };
+        for (const raw of lines) {
+          const line = raw.trimEnd();
+          if (line.startsWith('```')) {
+            if (code) { html += `<pre><code>${escapeHtml(codeLines.join('\n'))}</code></pre>`; code = false; codeLines = []; }
+            else { flushPara(); closeList(); code = true; }
+            continue;
+          }
+          if (code) { codeLines.push(raw); continue; }
+          if (!line.trim()) { flushPara(); closeList(); continue; }
+          const heading = line.match(/^\s*(#{2,3})\s+(.*)$/);
+          if (heading) { flushPara(); closeList(); const level = heading[1].length; html += `<h${level}>${inline(heading[2])}</h${level}>`; continue; }
+          const bullet = line.match(/^\s*[-*]\s+(.*)$/);
+          if (bullet) { flushPara(); openList('ul'); html += `<li>${inline(bullet[1])}</li>`; continue; }
+          const ordered = line.match(/^\s*\d+\.\s+(.*)$/);
+          if (ordered) { flushPara(); openList('ol'); html += `<li>${inline(ordered[1])}</li>`; continue; }
+          para.push(line.trim());
+        }
+        flushPara(); closeList();
+        return html;
+      }
+      fetch('./prompt.md').then(r => r.text()).then(md => { document.getElementById('content').innerHTML = render(md); });
+    </script>
+  </body>
+</html>

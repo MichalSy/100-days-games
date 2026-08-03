@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Day 052 — Kamome Tide Signalkeeper</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23072f4a'/%3E%3Cpath d='M10 43c12-14 24-14 44 0' fill='none' stroke='%238adff2' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M31 9l5 17h-10z' fill='%23ffd166'/%3E%3Cpath d='M21 31h22v6H21z' fill='%23fff4d8'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell" data-state="menu">
+      <section class="topbar" aria-label="Kamome harbor status">
+        <span class="chip badge">Day 052 · <strong>3D</strong></span>
+        <span class="chip">Score <strong id="score">0</strong></span>
+        <span class="chip">Best <strong id="best">0</strong></span>
+        <span class="chip">♥ <strong id="hearts">3</strong></span>
+        <span class="chip">Channel <strong id="risk">0%</strong></span>
+        <span class="chip">Fog <strong id="fog">12%</strong></span>
+        <span class="chip">Tide <strong id="tide">Mid</strong></span>
+        <span class="chip">Gate <strong id="gateDamage">0%</strong></span>
+        <span class="chip">Combo <strong id="combo">0</strong></span>
+        <span class="chip">Boat <strong id="activeBoat">1 Mid</strong></span>
+        <span class="chip">Flag <strong id="flagState">Low</strong></span>
+        <span class="chip">Beam <strong id="beamState">East</strong></span>
+        <span class="chip">Focus <strong id="focus">0%</strong></span>
+        <span class="chip">Time <strong id="timer">0:00</strong></span>
+      </section>
+
+      <section class="commission" aria-live="polite">
+        <div>
+          <span class="eyebrow" id="commissionName">First Harbor Signal</span>
+          <h1 id="commissionGoal">Guide boat 1 through the mid buoy, raise the flag, ring the bell, then open the tide gate.</h1>
+          <div class="steps" id="steps" aria-label="commission progress"></div>
+        </div>
+        <button class="small-link" id="promptTop" type="button">Prompt</button>
+      </section>
+
+      <section class="stageWrap">
+        <div id="gameCanvas" class="gameCanvas" aria-label="3D harbor diorama"></div>
+        <div class="sceneCaption" id="sceneCaption">Aim the lighthouse, signal the first lantern boat, and keep the harbor calm.</div>
+      </section>
+
+      <p class="helper" id="helper" aria-live="polite">Start the harbor watch to route boats through dawn fog.</p>
+
+      <section class="controls" aria-label="Kamome action controls">
+        <button type="button" data-action="shiftLane">Shift Lane</button>
+        <button type="button" data-action="rotateLight">Rotate Lighthouse</button>
+        <button type="button" data-action="raiseFlag">Raise Flag</button>
+        <button type="button" data-action="lowerFlag">Lower Flag</button>
+        <button type="button" data-action="ringBell">Ring Buoy Bell</button>
+        <button type="button" data-action="openGate">Open Tide Gate</button>
+        <button type="button" data-action="sendTug">Send Tug</button>
+        <button type="button" data-action="dropBuoy">Drop Buoy</button>
+        <button type="button" data-action="fanFog">Fan Fog</button>
+        <button type="button" data-action="focus">Kamome Focus</button>
+        <button type="button" data-action="pause">Pause</button>
+        <button type="button" data-action="restart">Restart</button>
+        <button type="button" data-action="audio">Audio: On</button>
+        <button type="button" data-action="prompt">Prompt</button>
+      </section>
+    </main>
+
+    <div class="overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-labelledby="title">
+      <div class="panel menuPanel">
+        <div class="titleRow">
+          <img src="./assets/kamome-signalkeeper.png" alt="Kamome signalkeeper" />
+          <div>
+            <span class="eyebrow">Day 052 · 3D · /kamome/</span>
+            <h2 id="title">Kamome Tide Signalkeeper</h2>
+            <p>Guide lantern boats through near/mid/far tide lanes with lighthouse beams, signal flags, buoy bells, tug assists, and fog-clearing focus.</p>
+          </div>
+        </div>
+        <div class="tutorialGrid">
+          <article><strong>3D lanes</strong><span>Shift near/mid/far before boats reach gates.</span></article>
+          <article><strong>Signals</strong><span>Raise for speed, lower for docking, rotate the beam to reveal fog.</span></article>
+          <article><strong>Harbor tools</strong><span>Ring buoy bells in order, open gates in the green window, send tugs for rescues.</span></article>
+          <article><strong>Kamome Focus</strong><span>Preview boat paths, fog spread, buoy order, gate timing, tug lane, and collision risk.</span></article>
+        </div>
+        <p class="audioNote">Audio starts after Start; all lighthouse, flag, buoy, gate, tug, fog, and focus cues remain visible if muted.</p>
+        <div class="panelActions">
+          <button id="startButton" type="button">Start Harbor Watch</button>
+          <button id="menuPrompt" type="button">View Prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="pauseOverlay" role="dialog" aria-modal="true" aria-labelledby="pauseTitle">
+      <div class="panel">
+        <h2 id="pauseTitle">Harbor watch paused</h2>
+        <p>Shift lanes, rotate the lighthouse, set flag height, ring buoy bells, open gates, send tugs, drop guide buoys, fan fog, and use Kamome Focus before convoy hazards stack.</p>
+        <div class="panelActions">
+          <button type="button" data-action="resume">Resume</button>
+          <button type="button" data-action="restart">Restart</button>
+          <button type="button" data-action="audio">Audio On/Off</button>
+          <button type="button" data-action="prompt">Prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="resultOverlay" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+      <div class="panel">
+        <h2 id="resultTitle">Harbor report</h2>
+        <p id="resultText">Final score 0.</p>
+        <div id="badges" class="badges"></div>
+        <div class="panelActions">
+          <button type="button" data-action="restart">Restart</button>
+          <button type="button" data-action="prompt">Prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./game.js"></script>
+  </body>
+</html>

@@ -781,6 +781,21 @@ const generatedGames: Record<number, Partial<GameCard>> = {
     screenshotUrl: '/matoi/screenshot.png',
     generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~160 minutes',
     generatedAt: '2026-08-02T01:46:54Z'
+  },
+  52: {
+    status: 'generated',
+    title: 'Kamome Tide Signalkeeper',
+    slug: 'kamome-tide-signalkeeper',
+    genre: ['3D harbor-signal routing', 'fog-navigation puzzle', 'mobile-first score chase'],
+    mode: '3d',
+    description: 'Guide lantern boats through a dawn Japanese harbor by aiming lighthouse beams, raising signal flags, ringing buoy bells, opening tide gates, sending tug assists, dropping guide buoys, and clearing fog before channel risk overwhelms the convoy.',
+    objective: 'Complete First Harbor Signal, Fog Bell Narrows, and Sunrise Breakwater Convoy while reaching 6600 points to trigger Kamome Dawn Harbor Clear, then continue into endless tide-shift commissions.',
+    playUrl: '/kamome/',
+    promptUrl: '/kamome/prompt.html',
+    promptExcerpt: 'Signal lantern boats through near/mid/far tide lanes with lighthouse beams, flag height, buoy bells, tide gates, tug saves, dropped buoys, fog fans, and Kamome Focus previews.',
+    screenshotUrl: '/kamome/screenshot.png',
+    generationDuration: 'manual controller recovery with Imagegen2 assets and implementation/QA subagents ~160 minutes',
+    generatedAt: '2026-08-03T01:45:00Z'
   }
 };
 

@@ -1,0 +1,92 @@
+@font-face { font-family: KamomeUi; src: local("Trebuchet MS"); }
+* { box-sizing: border-box; }
+:root {
+  color-scheme: dark;
+  --bg: #041923;
+  --panel: rgba(9, 31, 46, 0.86);
+  --panel-strong: rgba(13, 45, 65, 0.96);
+  --ink: #fff8e7;
+  --muted: #b7d9de;
+  --aqua: #63d9ee;
+  --gold: #ffd166;
+  --coral: #ff6b4a;
+  --navy: #07131d;
+  --line: rgba(255, 209, 102, 0.42);
+  --shadow: 0 24px 90px rgba(0, 0, 0, 0.38);
+}
+html, body { margin: 0; min-height: 100%; background: radial-gradient(circle at 50% 0%, #0a506a 0, #061d2b 42%, #020a11 100%); color: var(--ink); font-family: KamomeUi, "Trebuchet MS", system-ui, sans-serif; }
+body { overflow-x: hidden; }
+button { font: inherit; }
+.shell { width: min(1180px, 100vw); margin: 0 auto; padding: 10px clamp(10px, 2vw, 24px) 18px; display: grid; gap: 10px; grid-template-columns: minmax(0, 1fr) 330px; grid-template-areas: "top top" "mission mission" "stage controls" "helper controls"; }
+.topbar { grid-area: top; display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
+.chip { display: inline-flex; align-items: center; gap: 4px; min-height: 27px; border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; background: rgba(4, 18, 28, 0.8); color: var(--muted); box-shadow: inset 0 0 0 1px rgba(255,255,255,.03); white-space: nowrap; font-size: 13px; }
+.chip strong { color: white; letter-spacing: .02em; }
+.badge strong { color: var(--gold); }
+.commission { grid-area: mission; display: flex; gap: 12px; justify-content: space-between; align-items: stretch; padding: 13px 15px; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(135deg, rgba(20, 48, 65, .96), rgba(33, 20, 36, .92)); box-shadow: var(--shadow); }
+.eyebrow { display: block; color: var(--gold); text-transform: uppercase; letter-spacing: .18em; font-weight: 900; font-size: 11px; margin-bottom: 4px; }
+h1 { margin: 0; line-height: .98; font-size: clamp(24px, 3vw, 31px); text-wrap: balance; }
+.small-link { min-width: 86px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.06); color: var(--ink); cursor: pointer; }
+.steps { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.step { flex: 1 1 120px; padding: 7px 10px; border-radius: 11px; background: rgba(255,255,255,.08); border: 1px solid transparent; color: #dbeff2; font-size: 12px; }
+.step.done { border-color: rgba(99,217,238,.8); background: rgba(99,217,238,.14); }
+.stageWrap { grid-area: stage; position: relative; min-height: 520px; border: 1px solid rgba(99,217,238,.28); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); background: #092333 url('./assets/kamome-harbor.png') center/cover no-repeat; }
+.gameCanvas { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(2, 16, 24, .05), rgba(1, 9, 14, .42)); }
+.gameCanvas canvas { width: 100% !important; height: 100% !important; display: block; }
+.sceneCaption { position: absolute; left: 12px; right: 12px; bottom: 12px; min-height: 30px; border: 1px solid rgba(255, 209, 102, .42); border-radius: 999px; padding: 6px 13px; background: rgba(2, 10, 16, .74); color: var(--ink); font-size: 14px; pointer-events: none; }
+.helper { grid-area: helper; margin: 0; padding: 12px 14px; min-height: 48px; border: 1px solid var(--line); border-radius: 16px; background: rgba(6, 24, 35, .92); color: #ffe5aa; font-size: 16px; }
+.controls { grid-area: controls; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: start; gap: 9px; }
+.controls button, .panelActions button { min-height: 46px; border: 1px solid var(--line); border-radius: 13px; background: linear-gradient(180deg, rgba(60, 34, 46, .97), rgba(34, 24, 38, .97)); color: var(--ink); font-weight: 900; cursor: pointer; box-shadow: 0 10px 24px rgba(0,0,0,.24), inset 0 1px rgba(255,255,255,.07); }
+.controls button:hover, .panelActions button:hover { transform: translateY(-1px); border-color: rgba(99,217,238,.85); }
+.controls button.primary, .panelActions button:first-child { color: #171008; background: linear-gradient(180deg, #ffe589, #ff9f35); border-color: #ffd166; }
+.controls button.ready { border-color: var(--aqua); box-shadow: 0 0 0 2px rgba(99,217,238,.15), 0 12px 28px rgba(0,0,0,.25); }
+.overlay { position: fixed; inset: 0; display: grid; place-items: center; padding: 16px; background: radial-gradient(circle at 50% 18%, rgba(38, 106, 128, .35), rgba(0,0,0,.76)); z-index: 5; }
+.hidden { display: none !important; }
+.panel { width: min(760px, 96vw); max-height: 92vh; overflow: auto; border: 1px solid rgba(255, 209, 102, .52); border-radius: 24px; padding: clamp(18px, 4vw, 28px); background: linear-gradient(145deg, rgba(7, 30, 43, .98), rgba(31, 23, 39, .97)); box-shadow: var(--shadow); }
+.menuPanel { width: min(850px, 96vw); }
+.titleRow { display: grid; grid-template-columns: 128px 1fr; gap: 18px; align-items: center; }
+.titleRow img { width: 128px; height: 128px; object-fit: contain; border-radius: 22px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); }
+h2 { margin: 0 0 8px; font-size: clamp(30px, 6vw, 54px); line-height: .95; }
+.panel p { color: var(--muted); line-height: 1.45; }
+.tutorialGrid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; margin: 14px 0; }
+.tutorialGrid article { padding: 12px; border-radius: 16px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); }
+.tutorialGrid strong { display: block; color: #fff; margin-bottom: 4px; }
+.tutorialGrid span { color: var(--muted); }
+.audioNote { color: #ffe6ad !important; }
+.panelActions { display: flex; flex-wrap: wrap; gap: 10px; }
+.panelActions button { min-width: 160px; padding: 0 18px; }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.badges span { border: 1px solid rgba(255,209,102,.5); border-radius: 999px; padding: 6px 10px; background: rgba(255,209,102,.1); }
+@media (max-width: 760px) {
+  html, body { height: 100%; overflow: hidden; }
+  .shell { height: 100svh; width: 100vw; padding: 6px; gap: 6px; grid-template-columns: 1fr; grid-template-rows: auto auto minmax(260px, 1fr) auto auto; grid-template-areas: "top" "mission" "stage" "helper" "controls"; }
+  .topbar { gap: 4px; max-height: 65px; overflow: hidden; justify-content: flex-start; }
+  .chip { min-height: 22px; padding: 2px 7px; font-size: 11px; }
+  .commission { padding: 8px 10px; border-radius: 15px; min-height: 80px; }
+  .eyebrow { font-size: 9px; }
+  h1 { font-size: 18px; line-height: 1.05; }
+  .steps { gap: 4px; margin-top: 5px; }
+  .step { flex-basis: 30%; padding: 4px 6px; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .stageWrap { min-height: 0; border-radius: 16px; }
+  .sceneCaption { bottom: 7px; left: 7px; right: 7px; min-height: 25px; padding: 4px 9px; font-size: 12px; }
+  .helper { min-height: 34px; padding: 7px 10px; font-size: 13px; border-radius: 13px; }
+  .controls { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; }
+  .controls button { min-height: 44px; border-radius: 11px; font-size: 12px; padding: 3px 4px; line-height: 1.05; }
+  .small-link { display: none; }
+  .panel { max-height: 96svh; padding: 14px; border-radius: 18px; }
+  .titleRow { grid-template-columns: 74px 1fr; gap: 10px; }
+  .titleRow img { width: 74px; height: 74px; }
+  h2 { font-size: 30px; }
+  .panel p { font-size: 13px; margin: 6px 0; }
+  .tutorialGrid { grid-template-columns: 1fr 1fr; gap: 6px; margin: 8px 0; }
+  .tutorialGrid article { padding: 7px; font-size: 12px; }
+  .panelActions button { min-height: 44px; flex: 1 1 130px; }
+}
+@media (max-width: 390px) {
+  .controls button { font-size: 11px; }
+  .topbar { max-height: 58px; }
+  .commission { min-height: 74px; }
+  h1 { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}

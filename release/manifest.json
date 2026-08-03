@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-02T01:46:54.000Z",
+  "generatedAt": "2026-08-03T01:45:00.000Z",
   "totalDays": 100,
-  "completedDays": 51,
+  "completedDays": 52,
   "games": [
     {
       "day": 1,
@@ -460,6 +460,15 @@
       "playUrl": "/matoi/",
       "promptUrl": "/matoi/prompt.html",
       "screenshotUrl": "/matoi/screenshot.png",
+      "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~160 minutes"
+    },
+    {
+      "day": 52,
+      "title": "Kamome Tide Signalkeeper",
+      "slug": "kamome-tide-signalkeeper",
+      "playUrl": "/kamome/",
+      "promptUrl": "/kamome/prompt.html",
+      "screenshotUrl": "/kamome/screenshot.png",
       "generationDuration": "manual controller recovery with Imagegen2 assets and implementation/QA subagents ~160 minutes"
     }
   ]
